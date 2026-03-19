@@ -1,9 +1,16 @@
-import Image from "next/image";
+import ManpowerClient from "./components/ManpowerClient";
+import SplitScrollSections from "./components/SplitScrollSections";
 
 export default function Home() {
   return (
-    <>
-    <h1>this is heading fbgb </h1>
-    </>
+    <main>
+      <ManpowerClient />
+      {/* Your hero section */}
+      <SplitScrollSections />
+      {/* Rest of page scrolls normally */}
+      <div className="h-screen bg-white p-20">
+        <h1>Normal content continues...</h1>
+      </div>
+    </main>
   );
 }
