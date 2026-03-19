@@ -36,8 +36,8 @@ export default function Header() {
           <div className="flex items-center gap-3 ">
             <Link href="/">
               <Image
-                src="/images/belts/logoo.png"
-                alt="AusDog"
+                src="/logo.png"
+                alt="Manpower"
                 height={112}
                 width={200}
                 className="h-17 w-auto" />
@@ -92,7 +92,7 @@ export default function Header() {
             <Link href="/about" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
              hover:text-black hover:border-2 hover:rounded-2xl hover:border-black">JOB SECTORS</Link>
 
-            <Link href="/about" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
+            <Link href="/vacancy" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
              hover:text-black hover:border-2 hover:rounded-2xl hover:border-black">NEWSPAPER VACANCY</Link>
 
 
