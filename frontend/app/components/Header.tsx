@@ -28,19 +28,19 @@ export default function Header() {
   }, [lastScrollY]);
 
   return (
-    <header className={`fixed  bg-white/20 backdrop-blur-md shadow-none w-full  top-0 z-50 ${showNavbar ? "translate-y-0" : "-translate-y-full"} transition-transform duration-300 h-20`}>
+    <header className={`fixed  bg-white/20 backdrop-blur-md shadow-none w-full  top-0 z-50 ${showNavbar ? "translate-y-0" : "-translate-y-full"} transition-transform duration-300 h-23`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
 
         <div className="flex items-center justify-between py-4">
 
-          <div className="flex items-center gap-3 ">
+          <div className="flex items-center  gap-3 ">
             <Link href="/">
               <Image
-                src="/images/belts/logoo.png"
+                src="/images/logo.png"
                 alt="AusDog"
                 height={112}
                 width={200}
-                className="h-17 w-auto" />
+                className="h-20 w-auto " />
 
             </Link>
           </div>
