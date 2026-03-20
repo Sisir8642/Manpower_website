@@ -28,19 +28,19 @@ export default function Header() {
   }, [lastScrollY]);
 
   return (
-    <header className={`fixed  bg-white/20 backdrop-blur-md shadow-none w-full  top-0 z-50 ${showNavbar ? "translate-y-0" : "-translate-y-full"} transition-transform duration-300 h-23`}>
+    <header className={`fixed  bg-white/80 backdrop-blur-md shadow-none w-full  top-0 z-50 ${showNavbar ? "translate-y-0" : "-translate-y-full"} transition-transform duration-300 h-23`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
 
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-1">
 
           <div className="flex items-center  gap-3 ">
             <Link href="/">
               <Image
-                src="/images/logo.png"
-                alt="AusDog"
+                src="/logo.png"
+                alt="Manpower"
                 height={112}
                 width={200}
-                className="h-20 w-auto " />
+                className="h-25 w-auto " />
 
             </Link>
           </div>
@@ -49,14 +49,14 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center gap-3">
             <Link href="/" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
-             hover:text-black hover:border-2 hover:rounded-2xl hover:border-black">HOME</Link>
+             hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">HOME</Link>
             <Link href="/about" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
-             hover:text-black hover:border-2 hover:rounded-2xl hover:border-black">ABOUT US</Link>
+             hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">ABOUT US</Link>
              
             <div className="relative group">
               <button
                 className="text-gray-900 font-medium px-3 py-1 rounded-2xl border-2 border-transparent transition-all duration-300
-             hover:text-[#7644a2] hover:border-[#6f2e18] cursor-pointer"
+             hover:text-[#7644a2] hover:border-green-700 cursor-pointer"
               >
                 SERVICES
               </button>
@@ -65,7 +65,7 @@ export default function Header() {
                 <Link
                   href="/singapore"
                   className="block w-full text-left px-3 py-1 rounded-2xl border-2 border-transparent text-gray-900 font-medium
-             transition-all duration-300 hover:text-[#7644a2] hover:border-[#6f2e18]"
+             transition-all duration-300 hover:text-red-700 hover:border-green-700"
                 >
                   OVERSEAS RECRUITEMENT
                 </Link>
@@ -73,14 +73,14 @@ export default function Header() {
                 <Link
                   href="/dubai"
                   className="block w-full text-left px-3 py-1 rounded-2xl border-2 border-transparent text-gray-900 font-medium
-             transition-all duration-300 hover:text-[#7644a2] hover:border-[#6f2e18]"
+             transition-all duration-300 hover:text-red-700 hover:border-green-700"
                 >
                   COUNSELLING SESSION
                 </Link>
                 <Link
                   href="/france"
                   className="block w-full text-left px-3 py-1 rounded-2xl border-2 border-transparent text-gray-900 font-medium
-             transition-all duration-300 hover:text-[#7644a2] hover:border-[#6f2e18]"
+             transition-all duration-300 hover:text-red-700 hover:border-green-700"
                 >
                   PRE-DEPARTURE TRAINING
                 </Link>
@@ -90,10 +90,10 @@ export default function Header() {
             </div>
 
             <Link href="/about" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
-             hover:text-black hover:border-2 hover:rounded-2xl hover:border-black">JOB SECTORS</Link>
+             hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">JOB SECTORS</Link>
 
-            <Link href="/about" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
-             hover:text-black hover:border-2 hover:rounded-2xl hover:border-black">NEWSPAPER VACANCY</Link>
+            <Link href="/vacancy" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
+             hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">NEWSPAPER VACANCY</Link>
 
 
 
@@ -102,7 +102,7 @@ export default function Header() {
              hover:text-[#7644a2] hover:border-2 hover:rounded-2xl hover:border-yellow-400">AIRSHOW EXPO/EXHIBITION</Link> */}
 
             <Link href="/contact" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
-              hover:border-2 hover:rounded-2xl hover:text-black hover:border-black">CONTACT</Link>
+              hover:border-2 hover:rounded-2xl hover:text-black hover:border-green-700">CONTACT</Link>
 
 
           </nav>

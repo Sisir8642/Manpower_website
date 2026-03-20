@@ -43,7 +43,7 @@ function StatCard({ value, suffix, label, started }: StatCardProps) {
     <div className="flex flex-col items-center text-white px-4">
       <span className="text-4xl md:text-5xl font-extrabold leading-none">
         {count}
-        <span className="text-orange-400">{suffix}</span>
+        <span className="text-red-400">{suffix}</span>
       </span>
       <span className="text-sm md:text-base font-medium mt-2 text-blue-100 text-center leading-tight">
         {label}
@@ -102,19 +102,19 @@ const cards = [
     title: "Mission",
     description:
       "Our mission is to generate ideas that matter, shape policies that endure, and connect Nepal’s strategic thinking to regional and global narratives.",
-    img: "/images/logo.png",
+    img: "/images/mission.png",
   },
   {
     title: "Vision",
     description:
       "Our vision is to create a platform for insight, dialogue, and impact, empowering Nepal to actively contribute to global discourse.",
-    img: "/imags/logo.png",
+    img: "/images/vision.png",
   },
   {
     title: "Goal",
     description:
       "Our goal is to inspire scholars, practitioners, and institutions to innovate and influence for a better tomorrow.",
-    img: "/images/logo.png",
+    img: "/images/goal.png",
   },
 ];
 
@@ -220,7 +220,7 @@ const AboutPage = () => {
                 whileHover={{ scale: 1.05, backgroundColor: "#c9620e" }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="mt-8 self-start bg-red-500 text-white font-semibold px-7 py-3 rounded-full text-sm cursor-pointer"
+                className="mt-8 self-start bg-red-600 text-white font-semibold px-7 py-3 rounded-full text-sm cursor-pointer"
               >
                 Read More
               </motion.button>
@@ -231,7 +231,7 @@ const AboutPage = () => {
               <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4 md:gap-x-6">
                 {stats.map((stat, i) => (
                   <motion.div key={stat.label} variants={fadeUpVariant}>
-                    <StatCard value={stat.value} suffix={stat.suffix} label={stat.label} started={isInView} />
+                    <StatCard value={stat.value} suffix={stat.suffix } label={stat.label} started={isInView} c />
                   </motion.div>
                 ))}
               </div>

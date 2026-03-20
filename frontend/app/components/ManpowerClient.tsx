@@ -36,7 +36,7 @@ const ManpowerClient = () => {
     }, [])
 
     return (
-        <div ref={containerRef} className='relative h-screen overflow-hidden bg-gradient-to-r from-purple-700 via-pink-500 to-red-500'>
+        <div ref={containerRef} className='relative h-screen overflow-hidden bg-gradient-to-r from-red-700 via-red-400 to-green-500'>
 
             {/* Left Panel */}
             <div
