@@ -44,7 +44,7 @@ const SplitScrollSections = () => {
               <br />
               Each piece is made from premium materials to
               ensure long-lasting wear while keeping your furry companion safe and
-              stylish on every adventure. Whether it's a casual walk or a special outing,
+              stylish on every adventure. Whether it&apos; a casual walk or a special outing,
               our collars are built to stand out.
             </motion.p>
 

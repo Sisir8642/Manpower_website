@@ -66,7 +66,7 @@ const ManpowerClient = () => {
             <div className='absolute inset-0 flex items-center justify-center'>
                 <div className='text-center px-4'>
                     <h1 className='text-4xl font-bold text-white'>
-                        Nepal's Number one Manpower Company
+                        Nepal&apos; Number one Manpower Company
                     </h1>
                     <p className='text-white mt-4 text-lg'>
                         Connecting skilled professionals with top employers across
