@@ -1,32 +1,26 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
 
+
 const CLIENTS = [
-  { name: "Benchmark Electronics", color: "#2563eb" },
-  { name: "Inventec Appliances", color: "#f59e0b" },
-  { name: "Kaifa Technology", color: "#10b981" },
-  { name: "Kobelco Precision", color: "#3b82f6" },
-  { name: "CGH Industry", color: "#6b7280" },
-  { name: "Micron Memory", color: "#ef4444" },
-  { name: "Molex", color: "#f97316" },
-  { name: "NXP Semiconductors", color: "#84cc16" },
-  { name: "Flex Ltd", color: "#8b5cf6" },
-  { name: "Jabil Circuit", color: "#06b6d4" },
-  { name: "Celestica", color: "#ec4899" },
-  { name: "Sanmina Corp", color: "#14b8a6" },
-  { name: "Plexus Corp", color: "#f43f5e" },
-  { name: "TTM Technologies", color: "#0ea5e9" },
-  { name: "Fabrinet", color: "#a855f7" },
-  { name: "Viavi Solutions", color: "#22c55e" },
-  { name: "TE Connectivity", color: "#f59e0b" },
-  { name: "Amphenol Corp", color: "#3b82f6" },
-  { name: "Mouser Electronics", color: "#ef4444" },
-  { name: "Arrow Electronics", color: "#10b981" },
-  { name: "Avnet Inc", color: "#8b5cf6" },
-  { name: "Vishay Intertechnology", color: "#f97316" },
-  { name: "Sensata Technologies", color: "#06b6d4" },
-  { name: "Knowles Corp", color: "#84cc16" },
-  { name: "CTS Corporation", color: "#ec4899" },
+  { name: "AGFM", color: "#2563eb", img: "/images/client/agfm.png" },
+  { name: "ARADA", color: "#f59e0b", img: "/images/client/arada.PNG" },
+  { name: "armangroup", color: "#10b981", img: "/images/client/armangroup_logo.jpg" },
+  { name: "CBRE Excellerate", color: "#3b82f6", img: "/images/client/CBRE-Excellerate.png" },
+  { name: "Emirates", color: "#6b7280", img: "/images/client/emirates.png" },
+  { name: "exclerrate", color: "#ef4444", img: "/images/client/exclerrate.PNG" },
+  { name: "GCC", color: "#f97316", img: "/images/client/gcc-ginco-light-top.png" },
+  { name: "High Power Signature", color: "#84cc16", img: "/images/client/HP-Signature-Logo-01.png" },
+  { name: "INVENTURE", color: "#8b5cf6", img: "/images/client/inventure.png" },
+  { name: "IPS", color: "#06b6d4", img: "/images/client/IPS.png" },
+  { name: "MARINA", color: "#14b8a6", img: "/images/client/marina-logo-NO-SHADOW.png" },
+  { name: "PRESTIGE GROUP", color: "#f43f5e", img: "/images/client/prestiuge.png" },
+  { name: "ServeU", color: "#0ea5e9", img: "/images/client/ServeU-Revised-Logo-13DEC-1.png" },
+  { name: "SOBHA", color: "#a855f7", img: "/images/client/sobha.png" },
+  { name: "Sodexo", color: "#f59e0b", img: "/images/client/Sodexo_Logotype_Blue.png" },
+  { name: "Spark Holding", color: "#3b82f6", img: "/images/client/spark-holding-footer.png" },
+  { name: "tanmyah", color: "#ef4444", img: "/images/client/tanmyah.PNG" },
+
 ];
 
 export default function ClientsMarquee() {
@@ -169,18 +163,34 @@ export default function ClientsMarquee() {
           style={{ width: "max-content" }}
         >
           {items.map((client, i) => (
-            <div
-              key={i}
-              className="flex h-20 w-44 flex-shrink-0 items-center justify-center rounded-xl border border-white/60 bg-white/80 px-4 shadow-md backdrop-blur-sm transition-shadow hover:shadow-lg"
-            >
-              <span
-                className="text-center text-xs font-bold uppercase tracking-wider leading-tight"
-                style={{ color: client.color }}
-              >
-                {client.name}
-              </span>
-            </div>
-          ))}
+  <div
+    key={i}
+    className="flex h-20 w-44 flex-shrink-0 flex-col items-center justify-center rounded-xl border border-white/60 bg-white/80 px-4 shadow-md backdrop-blur-sm transition-shadow hover:shadow-lg"
+  >
+    {client.image || client.img ? (
+      <>
+        <img 
+          src={client.image || client.img} 
+          alt={`${client.name} logo`}
+          className="h-10 w-auto object-contain mb-1"
+        />
+        <span
+          className="text-center text-[10px] font-bold uppercase tracking-wider"
+          style={{ color: client.color }}
+        >
+          {client.name}
+        </span>
+      </>
+    ) : (
+      <span
+        className="text-center text-xs font-bold uppercase tracking-wider leading-tight"
+        style={{ color: client.color }}
+      >
+        {client.name}
+      </span>
+    )}
+  </div>
+))}
         </div>
       </div>
     </section>
