@@ -52,48 +52,14 @@ export default function Header() {
              hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">HOME</Link>
             <Link href="/about" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
              hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">ABOUT US</Link>
-             
-            <div className="relative group">
-              <button
-                className="text-gray-900 font-medium px-3 py-1 rounded-2xl border-2 border-transparent transition-all duration-300
-             hover:text-[#7644a2] hover:border-green-700 cursor-pointer"
-              >
-                SERVICES
-              </button>
+            <Link href="/howWeWork" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
+             hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">HOW WE WORK</Link>
 
-              <div className="absolute left-0 mt-2 w-56 bg-[#cbc1c1] border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
-                <Link
-                  href="/singapore"
-                  className="block w-full text-left px-3 py-1 rounded-2xl border-2 border-transparent text-gray-900 font-medium
-             transition-all duration-300 hover:text-red-700 hover:border-green-700"
-                >
-                  OVERSEAS RECRUITEMENT
-                </Link>
-
-                <Link
-                  href="/dubai"
-                  className="block w-full text-left px-3 py-1 rounded-2xl border-2 border-transparent text-gray-900 font-medium
-             transition-all duration-300 hover:text-red-700 hover:border-green-700"
-                >
-                  COUNSELLING SESSION
-                </Link>
-                <Link
-                  href="/france"
-                  className="block w-full text-left px-3 py-1 rounded-2xl border-2 border-transparent text-gray-900 font-medium
-             transition-all duration-300 hover:text-red-700 hover:border-green-700"
-                >
-                  PRE-DEPARTURE TRAINING
-                </Link>
-
-
-              </div>
-            </div>
-
-            <Link href="/about" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
-             hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">JOB SECTORS</Link>
+            <Link href="/services" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
+             hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">SERVICES</Link>
 
             <Link href="/vacancy" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
-             hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">NEWSPAPER VACANCY</Link>
+             hover:text-black hover:border-2 hover:rounded-2xl hover:border-green-700">AVAILABLE JOBS</Link>
 
 
 
@@ -102,7 +68,7 @@ export default function Header() {
              hover:text-[#7644a2] hover:border-2 hover:rounded-2xl hover:border-yellow-400">AIRSHOW EXPO/EXHIBITION</Link> */}
 
             <Link href="/contact" className="text-gray-900 font-medium px-3 py-1 rounded transition-all duration-300 
-              hover:border-2 hover:rounded-2xl hover:text-black hover:border-green-700">CONTACT</Link>
+              hover:border-2 hover:rounded-2xl hover:text-black hover:border-green-700">CONTACT US</Link>
 
 
           </nav>
@@ -129,13 +95,6 @@ export default function Header() {
             </Link>
 
             <Link
-              href="/products"
-              className="text-gray-700 hover:text-pink-600 font-medium text-lg"
-            >
-              Products
-            </Link>
-
-            <Link
               href="/about"
               className="text-gray-700 hover:text-pink-600 font-medium text-lg"
             >
@@ -143,10 +102,29 @@ export default function Header() {
             </Link>
 
             <Link
+              href="/howWeWork"
+              className="text-gray-700 hover:text-pink-600 font-medium text-lg"
+            >
+              How We Work
+            </Link>
+
+            <Link
+              href="/services"
+              className="text-gray-700 hover:text-pink-600 font-medium text-lg"
+            >
+              Services
+            </Link>
+            <Link
+              href="/vacancy"
+              className="text-gray-700 hover:text-pink-600 font-medium text-lg"
+            >
+              Available Jobs
+            </Link>
+            <Link
               href="/contact"
               className="text-gray-700 hover:text-pink-600 font-medium text-lg"
             >
-              Contact
+              Contact Us
             </Link>
           </nav>
         </div>

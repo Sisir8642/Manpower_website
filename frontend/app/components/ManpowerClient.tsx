@@ -23,7 +23,6 @@ export default function ManpowerClient() {
 
     return (
         <>
-
             <div>
                 <section className="relative w-full h-[92vh] overflow-hidden ">
 

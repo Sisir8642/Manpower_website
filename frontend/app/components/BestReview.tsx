@@ -87,8 +87,8 @@ const StatCard = ({ icon: Icon, value, suffix = "+", label, delay = 0, isInView 
                 transform: isInView ? 'translateY(0)' : 'translateY(20px)'
             }}
         >
-            <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-                <Icon className="w-8 h-8 text-green-600" />
+            <div className="w-20 h-20 rounded-full bg-[#EAF6FD] flex items-center justify-center shadow-sm">
+                <Icon className="w-10 h-10 text-[#2B698E]" />
             </div>
             <div className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-gray-900">
@@ -105,9 +105,9 @@ const BestReview = () => {
     const [statsRef, statsInView] = useInView();
     const [contentRef, contentInView] = useInView();
     return (
-        <div>
+        <div className="overflow-hidden bg-white">
             <section className="py-20">
-                <div className=" grid grid-cols-1 md:grid-cols-2 max-w-full mx-auto gap-6 p-6 ">
+                <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
 
                     {/* LEFT CARD – Image from LEFT */}
                     <motion.div
@@ -117,12 +117,12 @@ const BestReview = () => {
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
-                        <Card className="bg-gray-100 h-full">
-                            <CardContent className="h-full flex items-center justify-center">
+                        <Card className="bg-gray-100 h-full border-0 shadow-lg">
+                            <CardContent className="p-0 h-full">
                                 <img
                                     src="/images/chairman.png"
-                                    alt="about sec"
-                                    className="max-w-full h-auto"
+                                    alt="Chairperson"
+                                    className="w-full h-full object-cover rounded-lg"
                                 />
                             </CardContent>
                         </Card>
@@ -136,13 +136,13 @@ const BestReview = () => {
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                     >
-                        <Card className="bg-gradient-to-r from-[#2B698E] to-[#7ABDE4] h-full">
-                            <CardContent className="h-full pl-2 text-white space-y-4">
-                                <h1 className="text-2xl font-semibold">
+                        <Card className="bg-gradient-to-r from-[#2B698E] to-[#7ABDE4] h-full border-0 shadow-lg">
+                            <CardContent className="p-8 md:p-10 text-white">
+                                <h1 className="text-3xl md:text-4xl font-bold mb-6">
                                     Message from Chairperson
                                 </h1>
 
-                                <p>
+                                <p className="leading-8 text-white/95">
                                     At a time when the global landscape is defined by volatility,
                                     power transitions, and urgent planetary challenges, Nepal must
                                     find its voice not only as an observer but as an active
@@ -150,7 +150,7 @@ const BestReview = () => {
                                     Foundation was established with this conviction.
                                 </p>
 
-                                <p>
+                                <p className="leading-8 text-white/95">
                                     IRF represents more than a think tank, it is a platform for
                                     insight, dialogue, and impact. Our mission is to generate ideas
                                     that matter, shape policies that endure, and connect Nepal’s
@@ -160,7 +160,7 @@ const BestReview = () => {
                                     research.
                                 </p>
 
-                                <p>
+                                <p className="leading-8 text-white/95">
                                     We invite scholars, practitioners, and institutions to join us
                                     in our journey to inform, innovate, and influence for a better
                                     tomorrow.
@@ -176,8 +176,11 @@ const BestReview = () => {
             <section>
                 <div className="w-full bg-white">
                     {/* Stats Section */}
-                    <div ref={statsRef} className="container mx-auto px-4 py-16">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
+                    <div
+                        ref={statsRef}
+                        className="max-full mx-auto px-4 sm:px-6 lg:px-8 py-20"
+                    >
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
                             <StatCard
                                 icon={Award}
                                 value={200}
@@ -212,52 +215,74 @@ const BestReview = () => {
                 </div>
             </section>
             {/* why and what section */}
-            <section>
-                <div className=''>
-                        <h2 className="text-4xl font-bold text-[#1E2A3A] mb-4">
-                            Why Us 
+            <section className="py-20 bg-gray-50">
+                <div className="max-full mx-auto px-4 sm:px-6 lg:px-8">
+
+                    <div className="text-center mb-14">
+                        <h2 className="text-4xl font-bold text-[#1E2A3A]">
+                            Why Us
                         </h2>
-                        <div className="w-24 h-1 bg-[#7ABDE4] mb-10" />
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div className="w-24 h-1 bg-[#7ABDE4] mx-auto mt-4 rounded-full" />
 
-                            {/* Card */}
-                            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                                <h3 className="text-xl font-semibold mb-3 text-[#2B698E]">
-                                    Geopolitics and Foreign Policy
-                                </h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">
-                                                IRF analyzes global and regional power shifts, offering insights into Nepal’s role in the Indo-Pacific, China’s Belt and Road Initiative, and multilateral diplomacy.                                </p>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                                <h3 className="text-xl font-semibold mb-3 text-[#2B698E]">
-                                    Geo-Economics and Economic Diplomacy
-                                </h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">
-                                    IRF analyzes how trade, investment, technology, and connectivity shape diplomacy, supporting Nepal’s strategic economic engagement regionally and globally.
-                                </p>       
-                                 </div>
-
-                            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                                <h3 className="text-xl font-semibold mb-3 text-[#2B698E]">
-                                    Climate Diplomacy
-                                </h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">
-                                    IRF examines how Nepal and Himalayan countries can strengthen climate resilience, shape global climate negotiations, and advance environmental sustainability through regional and international cooperation. </p>
-                            </div>
-
-                            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition">
-                                <h3 className="text-xl font-semibold mb-3 text-[#2B698E]">
-                                    Tourism Diplomacy
-                                </h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">
-                                    IRF explores how Nepal leverages tourism, culture, and heritage to boost soft power and create economic opportunities.
-                                </p>
-                            </div>
-
-                        </div>
+                        <p className="text-gray-600 max-w-3xl mx-auto mt-6">
+                            We provide research-driven insights that bridge Nepal’s strategic
+                            interests with regional and global developments.
+                        </p>
                     </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+
+                        <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-full">
+                            <h3 className="text-xl font-semibold mb-4 text-[#2B698E]">
+                                Geopolitics & Foreign Policy
+                            </h3>
+
+                            <p className="text-gray-600 leading-relaxed">
+                                IRF analyzes global and regional power shifts, offering insights
+                                into Nepal’s role in the Indo-Pacific, China’s Belt and Road
+                                Initiative, and multilateral diplomacy.
+                            </p>
+                        </div>
+
+                        <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-full">
+                            <h3 className="text-xl font-semibold mb-4 text-[#2B698E]">
+                                Geo-Economics & Economic Diplomacy
+                            </h3>
+
+                            <p className="text-gray-600 leading-relaxed">
+                                IRF analyzes how trade, investment, technology, and connectivity
+                                shape diplomacy, supporting Nepal’s strategic economic engagement
+                                regionally and globally.
+                            </p>
+                        </div>
+
+                        <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-full">
+                            <h3 className="text-xl font-semibold mb-4 text-[#2B698E]">
+                                Climate Diplomacy
+                            </h3>
+
+                            <p className="text-gray-600 leading-relaxed">
+                                IRF examines how Nepal and Himalayan countries can strengthen
+                                climate resilience, shape global climate negotiations, and advance
+                                environmental sustainability through regional and international
+                                cooperation.
+                            </p>
+                        </div>
+
+                        <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-full">
+                            <h3 className="text-xl font-semibold mb-4 text-[#2B698E]">
+                                Tourism Diplomacy
+                            </h3>
+
+                            <p className="text-gray-600 leading-relaxed">
+                                IRF explores how Nepal leverages tourism, culture, and heritage to
+                                boost soft power and create economic opportunities.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
             </section>
 
 
