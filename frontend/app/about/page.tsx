@@ -17,7 +17,7 @@ const values = [
   },
   {
     icon: "📋",
-    title: "Legal & Compliance",
+    title: "	Legal, Corporate Compliance & Governance",
     desc: "We strictly adhere to all applicable national and international laws and corporate governance standards.",
   },
   {
@@ -27,7 +27,7 @@ const values = [
   },
   {
     icon: "🤝",
-    title: "Human Dignity & Welfare",
+    title: "Human Dignity & Worker Welfare",
     desc: "We are committed to protecting the rights, safety, and well-being of workers while promoting ethical migration.",
   },
 ];
@@ -164,18 +164,10 @@ const allCertificates = certifications.flatMap((category) =>
           </p>
 
           <p className="text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed">
-            A legally registered foreign employment recruitment agency in Nepal, connecting
-            Nepalese talent with global employment opportunities through ethical, transparent,
-            and professional recruitment services.
+         Electra Global Recruitment Pvt. Ltd. is a legally registered foreign employment recruitment agency in Nepal, operating under Company Registration No. 1850/082/083. The company is established with a clear vision to connect Nepalese talent with global employment opportunities and is led by a team of highly experienced professionals with over 15 years of expertise in the foreign employment sector.
           </p>
 
-          {/* Scroll cue */}
-          <div className="mt-16 flex justify-center">
-            <div className="flex flex-col items-center gap-2 text-slate-500 text-xs tracking-widest uppercase">
-              <span>Scroll</span>
-              <div className="w-px h-12 bg-gradient-to-b from-slate-500 to-transparent animate-pulse" />
-            </div>
-          </div>
+        -
         </div>
       </section>
 
@@ -191,21 +183,15 @@ const allCertificates = certifications.flatMap((category) =>
             </div>
             <div className="space-y-5 text-slate-400 leading-relaxed text-[15px]">
               <p>
-                Electra Global Recruitment Pvt. Ltd. is established with a clear vision to connect
-                Nepalese talent with global employment opportunities, led by professionals with
-                over <span className="text-white font-semibold">15 years of expertise</span> in
-                the foreign employment sector.
+                With strong industry experience and an expanding global network, Electra specializes in sourcing and mobilizing skilled, semi-skilled, and professional Nepalese workforce for reputable international employers. We ensure the right talent is matched with the right opportunity through a structured, transparent, and efficient recruitment process.
               </p>
               <p>
-                We specialize in sourcing and mobilizing <span className="text-white font-semibold">skilled,
-                semi-skilled, and professional</span> Nepalese workforce for reputable international
-                employers — ensuring the right talent is matched with the right opportunity through
-                a structured, transparent, and efficient recruitment process.
+                All recruitment activities are carried out in full compliance with the labor laws and regulations of Nepal and destination countries, promoting ethical, safe, and responsible migration practices. Our approach is guided by strong values of integrity, accountability, and professionalism
               </p>
               <p>
-                All activities are carried out in full compliance with labor laws of Nepal and
-                destination countries, promoting ethical, safe, and responsible migration practices.
+             Electra Global prioritizes the dignity, safety, and welfare of workers while delivering efficient, compliant, and high-quality human resource solutions to employers. Supported by a robust management system, the company is committed to maintaining the highest standards of quality, transparency, and continuous improvement.
               </p>
+              <p>We strive to build long-term global partnerships based on trust, reliability, and mutual success creating sustainable opportunities for workers and delivering value to employers worldwide.</p>
             </div>
           </FadeIn>
 
@@ -228,7 +214,7 @@ const allCertificates = certifications.flatMap((category) =>
       </section>
 
       {/* ── MISSION / VISION ── */}
-      <section className="px-6 py-24 bg-slate-900/50">
+      <section className="px-6 py-4 bg-slate-900/50">
         <div className="max-w-6xl mx-auto">
           <FadeIn className="text-center mb-16">
             <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">
@@ -261,9 +247,7 @@ const allCertificates = certifications.flatMap((category) =>
                   <div className="text-4xl mb-6">🎯</div>
                   <h3 className="text-2xl font-bold text-sky-400 mb-4">Mission</h3>
                   <p className="text-slate-300 leading-relaxed">
-                    To connect Nepalese migrant workers with foreign employment opportunities through
-                    ethical, transparent, and professional recruitment services — ensuring full
-                    compliance with labor laws while promoting dignity and welfare for workers.
+                   Our mission is to connect Nepalese migrant workers with foreign employment opportunities through ethical, transparent, and professional recruitment services, ensuring full compliance with the labor laws of Nepal and destination countries delivering reliable workforce solutions to global employers and promoting dignity and welfare for workers
                   </p>
                 </div>
               </div>
@@ -273,7 +257,7 @@ const allCertificates = certifications.flatMap((category) =>
       </section>
 
       {/* ── CORE VALUES ── */}
-      <section className="px-6 py-24 max-w-6xl mx-auto">
+      <section className="px-6 py-14 max-w-6xl mx-auto">
         <FadeIn className="text-center mb-16">
           <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">
             What Drives Us
