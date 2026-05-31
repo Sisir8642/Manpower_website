@@ -8,6 +8,14 @@ import {
 import { Award, Backpack, Globe, Users } from "lucide-react";
 
 
+type StatCardProps = {
+    icon: React.ElementType;
+    value: number;
+    suffix?: string;
+    label: string;
+    delay?: number;
+    isInView: boolean;
+};
 const leftVariant = {
     hidden: { opacity: 0, x: -80 },
     visible: { opacity: 1, x: 0 },
@@ -219,11 +227,14 @@ const BestReview = () => {
                 <div className="max-full mx-auto px-4 sm:px-6 lg:px-8">
 
                     <div className="text-center mb-14">
-                        <h2 className="text-4xl font-bold text-[#1E2A3A]">
-                            Why Us
-                        </h2>
-
-                        <div className="w-24 h-1 bg-[#7ABDE4] mx-auto mt-4 rounded-full" />
+                       
+ <h2
+        className="mb-12 text-center text-5xl font-extrabold tracking-tight"
+        style={{ color: "#2a7d56", fontFamily: "'Georgia', serif" }}
+      >
+        Why Us
+      </h2>
+                        <div className="w-24 h-1 bg-[#eb232a] mx-auto mt-4 rounded-full" />
 
                         <p className="text-gray-600 max-w-3xl mx-auto mt-6">
                             We provide research-driven insights that bridge Nepal’s strategic
@@ -235,49 +246,41 @@ const BestReview = () => {
 
                         <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-full">
                             <h3 className="text-xl font-semibold mb-4 text-[#2B698E]">
-                                Geopolitics & Foreign Policy
+                                Our Responsible Recruitment Commitment
                             </h3>
 
                             <p className="text-gray-600 leading-relaxed">
-                                IRF analyzes global and regional power shifts, offering insights
-                                into Nepal’s role in the Indo-Pacific, China’s Belt and Road
-                                Initiative, and multilateral diplomacy.
+                               At Electra Global Recruitment Pvt. Ltd., we believe recruitment should be fair, transparent, lawful, and respectful of human dignity. Our approach is guided by ethical foreign employment practices, worker protection, and accountability throughout the entire recruitment journey, contributing to a sustainable ecosystem for employers, workers, and stakeholders.
                             </p>
                         </div>
 
                         <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-full">
                             <h3 className="text-xl font-semibold mb-4 text-[#2B698E]">
-                                Geo-Economics & Economic Diplomacy
+                                Who We Are
                             </h3>
 
                             <p className="text-gray-600 leading-relaxed">
-                                IRF analyzes how trade, investment, technology, and connectivity
-                                shape diplomacy, supporting Nepal’s strategic economic engagement
-                                regionally and globally.
+                               Electra is a Nepal-based global recruitment partner led by a team with over 13 years of experience in ethical foreign employment. We connect qualified and aspiring Nepali workers with responsible international employers through professional, transparent, and compliance-driven recruitment services.
                             </p>
                         </div>
 
                         <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-full">
                             <h3 className="text-xl font-semibold mb-4 text-[#2B698E]">
-                                Climate Diplomacy
+                               Our Core Services
                             </h3>
 
                             <p className="text-gray-600 leading-relaxed">
-                                IRF examines how Nepal and Himalayan countries can strengthen
-                                climate resilience, shape global climate negotiations, and advance
-                                environmental sustainability through regional and international
-                                cooperation.
+                              We manage the recruitment process from start to finish through a hassle-free and robust recruitment management system. Our services cover employer consultation, due diligence support, manpower planning, candidate sourcing and screening, interview coordination, embassy and documentation processes, visa and deployment facilitation, and post-employment follow-up.
                             </p>
                         </div>
 
                         <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 h-full">
                             <h3 className="text-xl font-semibold mb-4 text-[#2B698E]">
-                                Tourism Diplomacy
+                                Why Electra
                             </h3>
 
                             <p className="text-gray-600 leading-relaxed">
-                                IRF explores how Nepal leverages tourism, culture, and heritage to
-                                boost soft power and create economic opportunities.
+                              Electra brings together industry expertise, ethical commitment, practical recruitment knowledge, and a worker-centered service philosophy. We focus on delivering dependable workforce solutions for employers while safeguarding transparency, trust, dignity, and long-term partnership value in every engagement.
                             </p>
                         </div>
 

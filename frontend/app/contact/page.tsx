@@ -33,7 +33,7 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="w-full min-h-screen bg-gray-100 py-16 px-4">
+        <div className="w-full min-h-screen bg-gray-100 py-16 px-4 mt-16">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
                     <h1 className="text-5xl font-bold text-gray-900 mb-3">Contact Us</h1>

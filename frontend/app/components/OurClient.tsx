@@ -136,11 +136,12 @@ export default function ClientsMarquee() {
 
       {/* Heading */}
       <h2
-        className="mb-12 text-center text-5xl font-extrabold tracking-tight"
-        style={{ color: "#ff0000", fontFamily: "'Georgia', serif" }}
+        className="mb-8 text-center text-5xl font-extrabold tracking-tight"
+        style={{ color: "#2a7d56", fontFamily: "'Georgia', serif" }}
       >
         Our Clients
       </h2>
+                        <div className="w-24 h-1 bg-[#eb232a] mx-auto mt-4 rounded-full mb-8" />
 
       {/* Fade edges */}
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#e8eef4] to-transparent" />
@@ -167,27 +168,28 @@ export default function ClientsMarquee() {
     key={i}
     className="flex h-20 w-44 flex-shrink-0 flex-col items-center justify-center rounded-xl border border-white/60 bg-white/80 px-4 shadow-md backdrop-blur-sm transition-shadow hover:shadow-lg"
   >
-    {client.image || client.img ? (
-      <>
-        <img 
-          src={client.image || client.img} 
-          alt={`${client.name} logo`}
-          className="h-10 w-auto object-contain mb-1"
-        />
-        <span
-          className="text-center text-[10px] font-bold uppercase tracking-wider"
-          style={{ color: client.color }}
-        >
-          {client.name}
-        </span>
-      </>
-    ) : (
-      <span
-        className="text-center text-xs font-bold uppercase tracking-wider leading-tight"
-        style={{ color: client.color }}
-      >
-        {client.name}
-      </span>
+   {client.img ? (
+  <>
+    <img 
+      src={client.img} 
+      alt={`${client.name} logo`}
+      className="h-10 w-auto object-contain mb-1"
+    />
+    <span
+      className="text-center text-[10px] font-bold uppercase tracking-wider"
+      style={{ color: client.color }}
+    >
+      {client.name}
+    </span>
+  </>
+) : (
+  <span
+    className="text-center text-xs font-bold uppercase tracking-wider leading-tight"
+    style={{ color: client.color }}
+  >
+    {client.name}
+  </span>
+
     )}
   </div>
 ))}
