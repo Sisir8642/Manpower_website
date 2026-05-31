@@ -1,354 +1,342 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useAnimation, useInView, Variants } from "framer-motion";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-} from "@/components/ui/card";
-// ─── Counter Hook ─────────────────────────────
-function useCountUp(target: number, duration = 2000, started = false) {
-  const [count, setCount] = useState(0);
+import { useEffect, useRef, useState } from "react";
 
-  useEffect(() => {
-    if (!started) return;
-    let startTime: number | null = null;
-
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      setCount(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-
-    requestAnimationFrame(step);
-  }, [target, duration, started]);
-
-  return count;
-}
-
-// ─── Stat Card ────────────────────────────────
-interface StatCardProps {
-  value: number;
-  suffix: string;
-  label: string;
-  started: boolean;
-}
-
-function StatCard({ value, suffix, label, started }: StatCardProps) {
-  const count = useCountUp(value, 2000, started);
-  return (
-    <div className="flex flex-col items-center text-white px-4">
-      <span className="text-4xl md:text-5xl font-extrabold leading-none">
-        {count}
-        <span className="text-red-400">{suffix}</span>
-      </span>
-      <span className="text-sm md:text-base font-medium mt-2 text-blue-100 text-center leading-tight">
-        {label}
-      </span>
-    </div>
-  );
-}
-
-// ─── Variants ────────────────────────────────
-const containerVariant: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
-};
-
-const fadeUpVariant: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1] } },
-};
-
-// Variants for the LEFT image card
-const leftVariant: Variants = {
-  hidden: { opacity: 0, x: -50, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
-};
-
-// Variants for the RIGHT text card
-const rightVariant: Variants = {
-  hidden: { opacity: 0, x: 50, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-      delayChildren: 0.2,  // stagger the inner elements
-      staggerChildren: 0.15
-    }
-  }
-};
-
-// Optional: Animate inner text paragraphs
-const paragraphVariant: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-};
-
-
-const cards = [
+const values = [
   {
-    title: "Mission",
-    description:
-      "Our mission is to generate ideas that matter, shape policies that endure, and connect Nepal’s strategic thinking to regional and global narratives.",
-    img: "/images/mission.png",
+    icon: "⚖️",
+    title: "Integrity & Ethics",
+    desc: "We uphold the highest standards of honesty, fairness, and ethical conduct in all recruitment practices.",
   },
   {
-    title: "Vision",
-    description:
-      "Our vision is to create a platform for insight, dialogue, and impact, empowering Nepal to actively contribute to global discourse.",
-    img: "/images/vision.png",
+    icon: "🔍",
+    title: "Transparency & Accountability",
+    desc: "We ensure clear communication, fair processes, and take full responsibility for commitments and service delivery.",
   },
   {
-    title: "Goal",
-    description:
-      "Our goal is to inspire scholars, practitioners, and institutions to innovate and influence for a better tomorrow.",
-    img: "/images/goal.png",
+    icon: "📋",
+    title: "Legal & Compliance",
+    desc: "We strictly adhere to all applicable national and international laws and corporate governance standards.",
+  },
+  {
+    icon: "🏆",
+    title: "Excellence & Professionalism",
+    desc: "We deliver efficient, reliable, and hassle-free one-stop recruitment solutions for clients and candidates.",
+  },
+  {
+    icon: "🤝",
+    title: "Human Dignity & Welfare",
+    desc: "We are committed to protecting the rights, safety, and well-being of workers while promoting ethical migration.",
   },
 ];
 
+const stats = [
+  { number: "15+", label: "Years of Industry Experience" },
+  { number: "3", label: "Skill Levels Served" },
+  { number: "100%", label: "Regulatory Compliance" },
+  { number: "∞", label: "Global Opportunities" },
+];
 
-// ─── Combined Page Component ──────────────────
-const AboutPage = () => {
-  const ref = useRef(null);
-  const controls = useAnimation();
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-  const [flipped, setFlipped] = useState<boolean[]>(Array(cards.length).fill(false));
-
-  const handleFlip = (index: number) => {
-    setFlipped((prev) => prev.map((v, i) => (i === index ? !v : v)));
-  };
-
-
-
+function useInView(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
   useEffect(() => {
-    if (isInView) controls.start("visible");
-  }, [isInView, controls]);
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true); },
+      { threshold }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return { ref, inView };
+}
 
-  const stats = [
-    { value: 21, suffix: "+", label: "Years of Experience" },
-    { value: 98, suffix: "%", label: "Success Rate" },
-    { value: 25, suffix: "K", label: "Deployed Candidates" },
-    { value: 100, suffix: "+", label: "Satisfied Employers" },
-  ];
-
+function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const { ref, inView } = useInView();
   return (
-    <div>
-      {/* Hero Banner */}
-      <div className="relative h-[60vh] flex flex-col items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center filter blur-sm brightness-50"
-          style={{ backgroundImage: "url('/images/image.png')" }}
-        />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative max-w-7xl w-full px-6 text-center flex flex-col items-center">
-          <motion.h1
-            className="text-white text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg"
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
-          >
-            About Us
-          </motion.h1>
-          <motion.div
-            className="w-full h-px bg-white/70"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: [0.33, 1, 0.68, 1] }}
-            style={{ originX: 0 }}
-          />
-        </div>
-      </div>
-
-      {/* About Section */}
-      <section ref={ref} className="bg-gray-50 py-20 px-4 md:px-8">
-        <motion.div
-          className="max-w-7xl mx-auto"
-          initial="hidden"
-          animate={controls}
-          variants={containerVariant}
-        >
-          {/* Section Header */}
-          <motion.div className="mb-12" variants={fadeUpVariant}>
-            <p className="text-[#097509] font-semibold text-sm tracking-widest uppercase mb-1">
-              Founded in the 2004
-            </p>
-            <div className="flex items-center gap-4">
-              <h2
-                className="text-5xl md:text-6xl font-black text-transparent leading-none"
-                style={{
-                  WebkitTextStroke: "2px #ff0000",
-                  fontFamily: "'Georgia', serif",
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                ABOUT US
-              </h2>
-              <div className="flex-1 h-[3px] bg-gradient-to-r from-green-500 to-transparent rounded-full" />
-            </div>
-          </motion.div>
-
-          {/* Card Row */}
-          <motion.div className="flex flex-col lg:flex-row gap-0 shadow-xl rounded-2xl overflow-hidden" variants={containerVariant}>
-            {/* Left – Text Card */}
-            <motion.div className="bg-white flex-1 p-8 md:p-10 flex flex-col justify-between" variants={fadeUpVariant}>
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-snug">
-                  &ldquo;Go the extra mile with us&rdquo;...
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-base text-justify">
-                  Manpower Service Pvt. Ltd. is a leading ISO 9001:2015
-                  certified overseas recruitment agency, approved by Government of
-                  Nepal. With a strong commitment to excellence, integrity, and
-                  professionalism, we specialize in sourcing, selecting, and
-                  mobilizing skilled, semi-skilled, and unskilled workforce from
-                  Nepal to various countries across the globe.
-                </p>
-              </div>
-              <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: "#c9620e" }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="mt-8 self-start bg-red-600 text-white font-semibold px-7 py-3 rounded-full text-sm cursor-pointer"
-              >
-                Read More
-              </motion.button>
-            </motion.div>
-
-            {/* Right – Stats Card */}
-            <motion.div className="bg-[#1a5611] flex-1 flex items-center justify-center px-6 py-12 md:py-16" variants={containerVariant}>
-              <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4 md:gap-x-6">
-                {stats.map((stat, i) => (
-                  <motion.div key={stat.label} variants={fadeUpVariant}>
-                    <StatCard value={stat.value} suffix={stat.suffix } label={stat.label} started={isInView} />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* MESSAGE SECTION */}
-      <section className="py-20">
-        <div className=" grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto gap-6 p-6 ">
-
-          {/* LEFT CARD – Image from LEFT */}
-          <motion.div
-            variants={leftVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <Card className="bg-gray-100 h-full">
-              <CardContent className="h-full flex items-center justify-center">
-                <img
-                  src="/images/chairman.png"
-                  alt="about sec"
-                  className="max-w-full h-auto"
-                />
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* RIGHT CARD – Text from RIGHT */}
-          <motion.div
-            variants={rightVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-
-            <Card className="bg-gradient-to-r from-[#2B698E] to-[#7ABDE4] h-full">
-              <CardContent className="h-full pl-2 text-white space-y-4">
-                <motion.h1 variants={paragraphVariant} className="text-2xl font-semibold">
-                  Message from Chairperson
-                </motion.h1>
-
-                <motion.p variants={paragraphVariant} className="text-lg">
-                  At a time when the global landscape is defined by volatility,
-                  power transitions, and urgent planetary challenges, Nepal must
-                  find its voice not only as an observer but as an active
-                  contributor to global discourse. The Innovate Research
-                  Foundation was established with this conviction.                </motion.p>
-
-                <motion.p variants={paragraphVariant} className="text-lg">
-                  This represents more than a think tank, it is a platform for
-                  insight, dialogue, and impact. Our mission is to generate ideas
-                  that matter, shape policies that endure, and connect Nepal’s
-                  strategic thinking to regional and global narratives. As
-                  Chairperson, I am proud to lead a team that values intellectual
-                  independence, constructive engagement, and purpose-driven
-                  research.
-                </motion.p>
-                <motion.p variants={paragraphVariant} className="text-lg">
-                  We invite scholars, practitioners, and institutions to join us
-                  in our journey to inform, innovate, and influence for a better
-                  tomorrow.
-                </motion.p>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-        </div>
-      </section>
-
-      <section className="py-20 bg-gray-50">
-  <style>{`
-    .perspective { perspective: 1000px; }
-    .preserve-3d { transform-style: preserve-3d; }
-    .backface-hidden { backface-visibility: hidden; }
-    .rotate-y-180 { transform: rotateY(180deg); }
-  `}</style>
-
-  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-    {cards.map((card, index) => (
-      <div
-        key={index}
-        className="relative w-full h-80 perspective cursor-pointer"
-      >
-        <motion.div
-          className="absolute w-full h-full preserve-3d"
-          whileHover={{ rotateY: 180 }} // flip on hover
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-        >
-          {/* FRONT */}
-          <div
-            className="absolute w-full h-full rounded-xl shadow-lg backface-hidden bg-cover bg-center flex items-end p-6"
-            style={{ backgroundImage: `url(${card.img})` }}
-          >
-            <div className="absolute inset-0 rounded-xl bg-black/40" />
-            <h2 className="relative text-white text-2xl font-bold">{card.title}</h2>
-          </div>
-
-          {/* BACK */}
-          <div
-            className="absolute w-full h-full rounded-xl shadow-lg backface-hidden rotate-y-180 bg-cover bg-center flex items-center justify-center p-6"
-            style={{ backgroundImage: `url(${card.img})` }}
-          >
-            <div className="absolute inset-0 rounded-xl bg-black/60" />
-            <p className="relative text-white text-center leading-relaxed">{card.description}</p>
-          </div>
-        </motion.div>
-      </div>
-    ))}
-  </div>
-</section>
-
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateY(0)" : "translateY(32px)",
+        transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+      }}
+    >
+      {children}
     </div>
   );
-};
+}
 
-export default AboutPage;
+export default function AboutPage() {
+  return (
+    <main className="bg-slate-950 text-white font-sans overflow-x-hidden">
+      {/* ── HERO ── */}
+      <section className="relative min-h-screen flex items-center justify-center px-6 py-24">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-amber-500/10 blur-3xl" />
+          <div className="absolute bottom-0 -left-48 w-[500px] h-[500px] rounded-full bg-sky-500/10 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-[80%] bg-gradient-to-b from-transparent via-amber-400/20 to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 border border-amber-400/30 bg-amber-400/5 text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+            Company Registration No. 1850/082/083
+          </div>
+
+          <h1 className="text-5xl sm:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6">
+            <span className="text-white">Electra </span>
+            <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+              Global
+            </span>
+            <br />
+            <span className="text-slate-300 text-4xl sm:text-5xl font-light tracking-widest">
+              Recruitment
+            </span>
+          </h1>
+
+          <p className="text-xl sm:text-2xl text-amber-400 font-medium italic mb-8 tracking-wide">
+            "We Connect Talent"
+          </p>
+
+          <p className="text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed">
+            A legally registered foreign employment recruitment agency in Nepal, connecting
+            Nepalese talent with global employment opportunities through ethical, transparent,
+            and professional recruitment services.
+          </p>
+
+          {/* Scroll cue */}
+          <div className="mt-16 flex justify-center">
+            <div className="flex flex-col items-center gap-2 text-slate-500 text-xs tracking-widest uppercase">
+              <span>Scroll</span>
+              <div className="w-px h-12 bg-gradient-to-b from-slate-500 to-transparent animate-pulse" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ABOUT ELECTRA ── */}
+      <section className="px-6 py-24 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <FadeIn>
+            <div className="space-y-2 mb-8">
+              <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase">About Us</p>
+              <h2 className="text-4xl font-extrabold leading-tight">
+                Who We <span className="text-amber-400">Are</span>
+              </h2>
+            </div>
+            <div className="space-y-5 text-slate-400 leading-relaxed text-[15px]">
+              <p>
+                Electra Global Recruitment Pvt. Ltd. is established with a clear vision to connect
+                Nepalese talent with global employment opportunities, led by professionals with
+                over <span className="text-white font-semibold">15 years of expertise</span> in
+                the foreign employment sector.
+              </p>
+              <p>
+                We specialize in sourcing and mobilizing <span className="text-white font-semibold">skilled,
+                semi-skilled, and professional</span> Nepalese workforce for reputable international
+                employers — ensuring the right talent is matched with the right opportunity through
+                a structured, transparent, and efficient recruitment process.
+              </p>
+              <p>
+                All activities are carried out in full compliance with labor laws of Nepal and
+                destination countries, promoting ethical, safe, and responsible migration practices.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={150}>
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-amber-400/40 hover:bg-slate-800/60 transition-all duration-300 group"
+                >
+                  <div className="text-3xl font-black text-amber-400 group-hover:scale-110 transition-transform duration-300">
+                    {stat.number}
+                  </div>
+                  <div className="text-slate-400 text-sm mt-2 leading-snug">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── MISSION / VISION ── */}
+      <section className="px-6 py-24 bg-slate-900/50">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn className="text-center mb-16">
+            <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">
+              Direction
+            </p>
+            <h2 className="text-4xl font-extrabold">
+              Mission & <span className="text-amber-400">Vision</span>
+            </h2>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <FadeIn delay={100}>
+              <div className="relative bg-gradient-to-br from-amber-400/10 to-orange-500/5 border border-amber-400/20 rounded-3xl p-10 h-full overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/5 rounded-full -translate-y-8 translate-x-8" />
+                <div className="relative z-10">
+                  <div className="text-4xl mb-6">🔭</div>
+                  <h3 className="text-2xl font-bold text-amber-400 mb-4">Vision</h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    To be a leading global recruitment partner connecting worldwide employers with
+                    Nepalese talent through reliable, ethical, and hassle-free recruitment services.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={200}>
+              <div className="relative bg-gradient-to-br from-sky-500/10 to-blue-600/5 border border-sky-500/20 rounded-3xl p-10 h-full overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-sky-400/5 rounded-full -translate-y-8 translate-x-8" />
+                <div className="relative z-10">
+                  <div className="text-4xl mb-6">🎯</div>
+                  <h3 className="text-2xl font-bold text-sky-400 mb-4">Mission</h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    To connect Nepalese migrant workers with foreign employment opportunities through
+                    ethical, transparent, and professional recruitment services — ensuring full
+                    compliance with labor laws while promoting dignity and welfare for workers.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CORE VALUES ── */}
+      <section className="px-6 py-24 max-w-6xl mx-auto">
+        <FadeIn className="text-center mb-16">
+          <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">
+            What Drives Us
+          </p>
+          <h2 className="text-4xl font-extrabold">
+            Core <span className="text-amber-400">Values</span>
+          </h2>
+        </FadeIn>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {values.map((val, i) => (
+            <FadeIn key={val.title} delay={i * 80}>
+              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-7 h-full hover:border-amber-400/40 hover:-translate-y-1 transition-all duration-300 group">
+                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {val.icon}
+                </div>
+                <h3 className="text-white font-bold text-lg mb-3 group-hover:text-amber-400 transition-colors duration-300">
+                  {val.title}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{val.desc}</p>
+              </div>
+            </FadeIn>
+          ))}
+
+          {/* Filler decorative card */}
+          <FadeIn delay={values.length * 80}>
+            <div className="bg-gradient-to-br from-amber-400/10 to-orange-500/5 border border-amber-400/20 rounded-2xl p-7 flex flex-col justify-center items-center text-center h-full">
+              <div className="text-amber-400 font-black text-5xl mb-3">✦</div>
+              <p className="text-amber-400 font-semibold text-sm tracking-wide uppercase">
+                Built on Trust
+              </p>
+              <p className="text-slate-400 text-sm mt-2">
+                Every partnership we form is rooted in integrity and shared purpose.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── CHAIRPERSON MESSAGE ── */}
+      <section className="px-6 py-24 bg-slate-900/50">
+        <div className="max-w-4xl mx-auto">
+          <FadeIn className="text-center mb-16">
+            <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">
+              Leadership
+            </p>
+            <h2 className="text-4xl font-extrabold">
+              Message from the <span className="text-amber-400">Chairperson</span>
+            </h2>
+          </FadeIn>
+
+          <FadeIn delay={100}>
+            <div className="relative bg-slate-900 border border-slate-800 rounded-3xl p-10 md:p-14">
+              {/* Quote mark */}
+              <div className="absolute top-8 left-10 text-8xl text-amber-400/10 font-serif leading-none select-none">
+                "
+              </div>
+
+              <div className="relative z-10 space-y-5 text-slate-300 leading-relaxed text-[15px]">
+                <p>
+                  At Electra Global Recruitment Pvt. Ltd., our vision is to build a trusted, ethical,
+                  and dynamic bridge connecting Nepalese talent with global employment opportunities.
+                  As a young and forward-thinking entrepreneur, I strongly believe that Nepal holds
+                  immense human potential that deserves recognition on the international stage.
+                </p>
+                <p>
+                  With over a decade of experience in the Middle East recruitment sector and more
+                  than five years in Nepal's foreign employment industry, we have developed a strong
+                  understanding of both global employer expectations and the aspirations of Nepalese
+                  workers.
+                </p>
+                <p>
+                  At Electra Global, we are committed to providing seamless, end-to-end recruitment
+                  services that ensure dignified, fair, and lawful employment opportunities for
+                  workers, while delivering reliable and high-quality human resource solutions to our
+                  global partners.
+                </p>
+                <p className="text-amber-400 font-semibold italic text-base">
+                  "Together, We Connect Talent to Global Opportunity."
+                </p>
+              </div>
+
+              <div className="mt-10 flex items-center gap-4 border-t border-slate-800 pt-8">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-slate-950 font-black text-lg">
+                  C
+                </div>
+                <div>
+                  <div className="text-white font-bold">Chairperson</div>
+                  <div className="text-slate-400 text-sm">Electra Global Recruitment Pvt. Ltd.</div>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="px-6 py-28 text-center relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-amber-500/8 rounded-full blur-3xl" />
+        </div>
+        <FadeIn className="relative z-10 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-extrabold mb-4">
+            Ready to <span className="text-amber-400">Connect</span>?
+          </h2>
+          <p className="text-slate-400 mb-10 leading-relaxed">
+            Whether you are an employer seeking reliable talent or a professional seeking a global
+            opportunity — Electra Global is your trusted partner.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/contact"
+              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20"
+            >
+              Get in Touch
+            </a>
+            <a
+              href="/services"
+              className="border border-slate-700 hover:border-amber-400/50 text-slate-300 hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200"
+            >
+              Our Services
+            </a>
+          </div>
+        </FadeIn>
+      </section>
+    </main>
+  );
+}

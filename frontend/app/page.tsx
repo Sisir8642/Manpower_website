@@ -3,28 +3,25 @@ import ManpowerClient from "./components/ManpowerClient";
 import OurClient from "./components/OurClient";
 import SplitScrollSections from "./components/SplitScrollSections";
 import TestimonialSection from "./components/Testimonial";
+import HowWeWorkPage from "./howWeWork/page";
 
 export default function Home() {
   return (
     <main>
       <section>
-      <ManpowerClient />
+        <ManpowerClient />
       </section>
-      {/* Your hero section */}
-      <section>
-      <SplitScrollSections />
-      </section>
-      {/* Rest of page scrolls normally */}
-<section>
-  <BestProduct />
-</section>
-<section>
-  <TestimonialSection />
-</section>
 
-<section>
-  <OurClient />
-</section>
+      <section>
+        <BestProduct />
+      </section>
+      {/* <section>
+        <HowWeWorkPage/>
+      </section> */}
+
+      <section>
+        <OurClient />
+      </section>
     </main>
   );
 }
