@@ -6,11 +6,10 @@ export default function ManpowerClient() {
 
 
     const images = [
-        "/images/imagee1.png",
-        "/images/imagee2.png",
-        "/images/imagee3.png",
-        "/images/imagee4.png",
-        "/images/imagee5.png",
+        "/images/slider/a.jpg",
+        "/images/slider/b.jpg",
+        "/images/slider/c.jpg",
+        "/images/slider/d.jpg",
     ];
 
     useEffect(() => {
