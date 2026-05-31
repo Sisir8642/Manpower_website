@@ -147,7 +147,7 @@ export default function FAQPage() {
   });
 
   return (
-    <main className="bg-slate-950 text-white font-sans overflow-x-hidden">
+    <main className="bg-green-900 text-white font-sans overflow-x-hidden">
 
       {/* ── HERO ── */}
       <section className="relative py-28 px-6 text-center">
@@ -192,11 +192,10 @@ export default function FAQPage() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
-                activeCategory === cat
+              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${activeCategory === cat
                   ? "bg-amber-400/10 border-amber-400/40 text-amber-400"
                   : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-600 hover:text-white"
-              }`}
+                }`}
             >
               {cat}
               <span className="ml-2 text-xs opacity-50">

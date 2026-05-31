@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+
 
 const values = [
   {
@@ -27,6 +29,58 @@ const values = [
     icon: "🤝",
     title: "Human Dignity & Welfare",
     desc: "We are committed to protecting the rights, safety, and well-being of workers while promoting ethical migration.",
+  },
+];
+
+const certifications = [
+  {
+    title: "EIQ",
+    description:
+      "Training programs focused on ethical recruitment practices and worker welfare.",
+    certificates: [
+      "/certificates/ethical-1.jpg",
+      "/certificates/ethical-2.jpg",
+      "/certificates/ethical-3.jpg",
+    ],
+  },
+  {
+    title: "Forced Labour Eradication",
+    description:
+      "Professional certifications related to overseas workforce mobilization.",
+    certificates: [
+      "/certificates/employment-1.jpg",
+      "/certificates/employment-2.jpg",
+    ],
+  },
+  {
+    title: "IOM-IRIS",
+    description:
+      "Training focused on HR management and workforce planning.",
+    certificates: [
+      "/certificates/hr-1.jpg",
+      "/certificates/hr-2.jpg",
+      "/certificates/hr-3.jpg",
+    ],
+  },
+  {
+    title: "OTL & SEDEX",
+    description:
+      "Training focused on HR management and workforce planning.",
+    certificates: [
+      "/certificates/hr-1.jpg",
+      "/certificates/hr-2.jpg",
+      "/certificates/hr-3.jpg",
+    ],
+  },
+  {
+    title: "RBA Related Trainings",
+    description:
+      "Training focused on HR management and workforce planning.",
+    certificates: [
+      "/certificates/hr-1.jpg",
+      "/certificates/hr-2.jpg",
+      "/certificates/hr-3.jpg",
+    ],
   },
 ];
 
@@ -69,6 +123,14 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 export default function AboutPage() {
+  const [open, setOpen] = useState(false);
+const [index, setIndex] = useState(0);
+
+const allCertificates = certifications.flatMap((category) =>
+  category.certificates.map((image) => ({
+    src: image,
+  }))
+);
   return (
     <main className="bg-slate-950 text-white font-sans overflow-x-hidden">
       {/* ── HERO ── */}
@@ -307,6 +369,52 @@ export default function AboutPage() {
           </FadeIn>
         </div>
       </section>
+     <section className="px-6 py-24 max-w-6xl mx-auto">
+  <div className="text-center mb-16">
+    <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">
+      Training & Certifications
+    </p>
+
+    <h2 className="text-4xl font-extrabold">
+      Our <span className="text-amber-400">Credentials</span>
+    </h2>
+  </div>
+
+  <div className="space-y-16">
+    {certifications.map((category) => (
+      <div key={category.title}>
+        <h3 className="text-2xl font-bold text-white mb-6">
+          {category.title}
+        </h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {category.certificates.map((image) => {
+            const imageIndex = allCertificates.findIndex(
+              (img) => img.src === image
+            );
+
+            return (
+              <div
+                key={image}
+                onClick={() => {
+                  setIndex(imageIndex);
+                  setOpen(true);
+                }}
+                className="cursor-pointer overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 group"
+              >
+                <img
+                  src={image}
+                  alt="Certificate"
+                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* ── CTA ── */}
       <section className="px-6 py-28 text-center relative overflow-hidden">
@@ -337,6 +445,12 @@ export default function AboutPage() {
           </div>
         </FadeIn>
       </section>
+      <Lightbox
+  open={open}
+  close={() => setOpen(false)}
+  index={index}
+  slides={allCertificates}
+/>
     </main>
   );
 }
