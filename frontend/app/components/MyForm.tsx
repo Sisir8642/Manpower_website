@@ -38,7 +38,7 @@ export default function MyForm({ lot }: MyFormProps) {
     reset,
   } = useForm<Inputs>({
     defaultValues: {
-      lotNo: lot.lotNo,
+      lot_no: lot.lotNo,
       position: lot.positions[0]?.title || "",
     },
   });
