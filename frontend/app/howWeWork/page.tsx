@@ -186,10 +186,7 @@ export default function HowWeWorkPage() {
           <div className="absolute bottom-0 -right-32 w-[400px] h-[400px] rounded-full bg-sky-500/8 blur-3xl" />
         </div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 border border-amber-400/30 bg-amber-400/5 text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-            Our Process & Structure
-          </div>
+          
           <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight tracking-tight mb-6">
             How We <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">Work</span>
           </h1>
@@ -201,54 +198,65 @@ export default function HowWeWorkPage() {
       </section>
 
       {/* ── LEGAL COMPLIANCE ── */}
-      <section className="px-6 py-20 max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <FadeIn>
-            <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">Section 01</p>
-            <h2 className="text-4xl font-extrabold mb-6">
-              Legal Compliance &<br />
-              <span className="text-amber-400">Accreditation</span>
-            </h2>
-            <div className="space-y-4 text-slate-400 leading-relaxed text-[15px]">
-              <p>
-                Electra Global Recruitment Pvt. Ltd. is duly registered with the Government of Nepal
-                and legally authorized to operate as a foreign employment recruitment agency in
-                accordance with Nepal's prevailing company, labour, and foreign employment laws.
-              </p>
-              <p>
-                We conduct all operations in line with the legal and regulatory framework of Nepal,
-                including requirements related to responsible recruitment, worker protection,
-                documentation, transparency, and accountability.
-              </p>
-            </div>
-          </FadeIn>
+  <section className="px-6 py-16 max-w-6xl mx-auto">
+  <div className="space-y-12">
 
-          <FadeIn delay={150}>
-            <div className="space-y-4">
-              {[
-                { label: "Company Registration No.", value: "386754/82/83" },
-                { label: "Foreign Employment License No.", value: "1850/082/083" },
-                { label: "Issuing Authority", value: "Government of Nepal" },
-                { label: "Regulatory Framework", value: "Nepal Labour & Foreign Employment Laws" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-start justify-between gap-4 bg-slate-900 border border-slate-800 rounded-xl px-6 py-4 hover:border-amber-400/30 transition-colors duration-300"
-                >
-                  <span className="text-slate-400 text-sm">{item.label}</span>
-                  <span className="text-amber-400 font-bold text-sm text-right">{item.value}</span>
-                </div>
-              ))}
-            </div>
-          </FadeIn>
+    <FadeIn>
+      <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+
+        <h2 className="text-5xl sm:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+          Legal Compliance &<br />
+          <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+            Accreditation
+          </span>
+        </h2>
+
+        <div className="space-y-4 text-slate-400 leading-relaxed text-[15px] max-w-3xl">
+          <p>
+            Electra Global Recruitment Pvt. Ltd. is duly registered with the Government of Nepal
+            and legally authorized to operate as a foreign employment recruitment agency in
+            accordance with Nepal's prevailing company, labour, and foreign employment laws.
+          </p>
+
+          <p>
+            We conduct all operations in line with the legal and regulatory framework of Nepal,
+            including requirements related to responsible recruitment, worker protection,
+            documentation, transparency, and accountability.
+          </p>
         </div>
-      </section>
+
+      </div>
+    </FadeIn>
+
+    <FadeIn delay={150}>
+      <div className="space-y-4 max-w-4xl mx-auto">
+        {[
+          { label: "Company Registration No.", value: "386754/82/83" },
+          { label: "Foreign Employment License No.", value: "1850/082/083" },
+          { label: "Issuing Authority", value: "Government of Nepal" },
+          { label: "Regulatory Framework", value: "Nepal Labour & Foreign Employment Laws" },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className="flex items-start justify-between gap-4 bg-slate-900 border border-slate-800 rounded-xl px-6 py-4 hover:border-amber-400/30 transition-colors duration-300"
+          >
+            <span className="text-slate-400 text-sm">{item.label}</span>
+            <span className="text-amber-400 font-bold text-sm text-right">
+              {item.value}
+            </span>
+          </div>
+        ))}
+      </div>
+    </FadeIn>
+
+  </div>
+</section>
 
       {/* ── ORG STRUCTURE ── */}
       <section className="px-6 py-20 bg-slate-900/50">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="text-center mb-14">
-            <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">Section 02</p>
+        
             <h2 className="text-4xl font-extrabold mb-4">
               Organizational <span className="text-amber-400">Structure</span>
             </h2>
@@ -296,7 +304,7 @@ export default function HowWeWorkPage() {
       {/* ── 5 PILLARS ── */}
       <section className="px-6 py-20 max-w-6xl mx-auto">
         <FadeIn className="text-center mb-14">
-          <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">Section 03</p>
+          
           <h2 className="text-4xl font-extrabold mb-4">
             Our 5-Pillar <span className="text-amber-400">Commitments</span>
           </h2>
@@ -340,7 +348,7 @@ export default function HowWeWorkPage() {
       <section className="px-6 py-20 bg-slate-900/50">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="text-center mb-14">
-            <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">Section 04</p>
+            
             <h2 className="text-4xl font-extrabold mb-4">
               Recruitment <span className="text-amber-400">Procedure</span>
             </h2>
@@ -381,7 +389,7 @@ export default function HowWeWorkPage() {
       {/* ── REQUIRED DOCUMENTS ── */}
       <section className="px-6 py-20 max-w-6xl mx-auto">
         <FadeIn className="text-center mb-14">
-          <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">Section 05</p>
+          
           <h2 className="text-4xl font-extrabold mb-4">
             Required <span className="text-amber-400">Documents</span>
           </h2>
@@ -420,7 +428,7 @@ export default function HowWeWorkPage() {
       <section className="px-6 py-20 bg-slate-900/50">
         <div className="max-w-5xl mx-auto text-center">
           <FadeIn>
-            <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">Section 06</p>
+            
             <h2 className="text-4xl font-extrabold mb-4">
               Our <span className="text-amber-400">Team</span>
             </h2>
@@ -451,34 +459,7 @@ export default function HowWeWorkPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="px-6 py-28 text-center relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[250px] bg-amber-500/7 rounded-full blur-3xl" />
-        </div>
-        <FadeIn className="relative z-10 max-w-2xl mx-auto">
-          <h2 className="text-4xl font-extrabold mb-4">
-            Start the <span className="text-amber-400">Process</span>
-          </h2>
-          <p className="text-slate-400 mb-10 leading-relaxed">
-            Ready to hire skilled Nepalese talent or looking for overseas work? Let's begin.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20"
-            >
-              Contact Us
-            </a>
-            <a
-              href="/about"
-              className="border border-slate-700 hover:border-amber-400/50 text-slate-300 hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200"
-            >
-              About Electra
-            </a>
-          </div>
-        </FadeIn>
-      </section>
+      
     </main>
   );
 }

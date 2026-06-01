@@ -307,30 +307,8 @@ export default function NewsPage() {
         </FadeIn>
       </section>
 
-      {/* ── NEWSLETTER CTA ── */}
-      <section className="px-6 py-20 bg-slate-900/50">
-        <FadeIn className="max-w-xl mx-auto text-center">
-          <div className="text-3xl mb-4">📬</div>
-          <h2 className="text-3xl font-extrabold mb-3">
-            Stay <span className="text-amber-400">Informed</span>
-          </h2>
-          <p className="text-slate-400 text-sm leading-relaxed mb-8">
-            Get the latest news, job alerts, and recruitment insights delivered straight to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="your@email.com"
-              className="flex-1 bg-slate-950 border border-slate-700 focus:border-amber-400/50 outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 transition-colors duration-200"
-            />
-            <button className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-6 py-3 rounded-xl transition-all duration-200 hover:scale-105 flex-shrink-0">
-              Subscribe
-            </button>
-          </div>
-          <p className="text-slate-600 text-xs mt-4">No spam. Unsubscribe anytime.</p>
-        </FadeIn>
-      </section>
-
+      
+      
     </main>
   );
 }

@@ -5,14 +5,12 @@ import IndustryWeServe from "./components/IndustryWeServe"
 import AboutSection from "./components/AboutComponent";
 export default function Home() {
   return (
-    <main>
+    <main className="bg-[#E1F1E6]">
       <section>
         <ManpowerClient />
       </section>
 <AboutSection imageSrc="/about1.png" />
-      <section>
         <BestProduct />
-      </section>
       <section>
 
         <IndustryWeServe/>

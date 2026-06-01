@@ -8,19 +8,19 @@ type CardProps = {
 export default function IndustriesGrid() {
 
   const images = [
-    { title: "agriculture", img: "/images/industry/Agriculture.jpg" },
-    { title: "construction", img: "/images/industry/Construction.PNG" },
+    { title: "Agriculture", img: "/images/industry/Agriculture.jpg" },
+    { title: "Construction", img: "/images/industry/Construction.PNG" },
     { title: "Facility Management", img: "/images/industry/Facility Management.jpeg" },
     { title: "Healthcare", img: "/images/industry/Healthcare.jpeg" },
 
     { title: "Hospitality", img: "/images/industry/Hospitality.jpg" },
-    { title: "manufacturing", img: "/images/industry/Manufacturing.jpg" },
-    { title: "oil & gas", img: "/images/industry/Oil & Gas.jpg" },
-    { title: "retail", img: "/images/industry/Retail.PNG" },
+    { title: "Manufacturing", img: "/images/industry/Manufacturing.jpg" },
+    { title: "Oil & Gas", img: "/images/industry/Oil & Gas.jpg" },
+    { title: "Retail", img: "/images/industry/Retail.PNG" },
 
-    { title: "security", img: "/images/industry/security.jfif" },
-    { title: "technical", img: "/images/industry/Technical.jpg" },
-    { title: "warehouse", img: "/images/industry/Warehouse.avif" },
+    { title: "Security", img: "/images/industry/security.jfif" },
+    { title: "Technical", img: "/images/industry/Technical.jpg" },
+    { title: "Warehouse", img: "/images/industry/Warehouse.avif" },
   ];
 
   return (

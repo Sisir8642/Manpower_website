@@ -379,29 +379,7 @@ export default function ServicesPage() {
         </FadeIn>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="px-6 py-28 text-center relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[280px] bg-amber-500/7 rounded-full blur-3xl" />
-        </div>
-        <FadeIn className="relative z-10 max-w-2xl mx-auto">
-          <h2 className="text-4xl font-extrabold mb-4">
-            Ready to <span className="text-amber-400">Partner</span>?
-          </h2>
-          <p className="text-slate-400 mb-10 leading-relaxed">
-            Whether you're a global employer seeking reliable talent or a Nepali worker
-            ready for an overseas opportunity — Electra Global is your trusted partner.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/contact" className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-8 py-4 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-amber-400/20">
-              Get in Touch
-            </a>
-            <a href="/how-we-work" className="border border-slate-700 hover:border-amber-400/50 text-slate-300 hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200">
-              How We Work
-            </a>
-          </div>
-        </FadeIn>
-      </section>
+      
 
     </main>
   );
