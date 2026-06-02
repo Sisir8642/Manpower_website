@@ -1,88 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Lightbox from "yet-another-react-lightbox";
-
-
-const values = [
-  {
-    icon: "⚖️",
-    title: "Integrity & Ethics",
-    desc: "We uphold the highest standards of honesty, fairness, and ethical conduct in all recruitment practices.",
-  },
-  {
-    icon: "🔍",
-    title: "Transparency & Accountability",
-    desc: "We ensure clear communication, fair processes, and take full responsibility for commitments and service delivery.",
-  },
-  {
-    icon: "📋",
-    title: "	Legal, Corporate Compliance & Governance",
-    desc: "We strictly adhere to all applicable national and international laws and corporate governance standards.",
-  },
-  {
-    icon: "🏆",
-    title: "Excellence & Professionalism",
-    desc: "We deliver efficient, reliable, and hassle-free one-stop recruitment solutions for clients and candidates.",
-  },
-  {
-    icon: "🤝",
-    title: "Human Dignity & Worker Welfare",
-    desc: "We are committed to protecting the rights, safety, and well-being of workers while promoting ethical migration.",
-  },
-];
-
-const certifications = [
-  {
-    title: "EIQ",
-    description:
-      "Training programs focused on ethical recruitment practices and worker welfare.",
-    certificates: [
-      "/certificates/ethical-1.jpg",
-      "/certificates/ethical-2.jpg",
-      "/certificates/ethical-3.jpg",
-    ],
-  },
-  {
-    title: "Forced Labour Eradication",
-    description:
-      "Professional certifications related to overseas workforce mobilization.",
-    certificates: [
-      "/certificates/employment-1.jpg",
-      "/certificates/employment-2.jpg",
-    ],
-  },
-  {
-    title: "IOM-IRIS",
-    description:
-      "Training focused on HR management and workforce planning.",
-    certificates: [
-      "/certificates/hr-1.jpg",
-      "/certificates/hr-2.jpg",
-      "/certificates/hr-3.jpg",
-    ],
-  },
-  {
-    title: "OTL & SEDEX",
-    description:
-      "Training focused on HR management and workforce planning.",
-    certificates: [
-      "/certificates/hr-1.jpg",
-      "/certificates/hr-2.jpg",
-      "/certificates/hr-3.jpg",
-    ],
-  },
-  {
-    title: "RBA Related Trainings",
-    description:
-      "Training focused on HR management and workforce planning.",
-    certificates: [
-      "/certificates/hr-1.jpg",
-      "/certificates/hr-2.jpg",
-      "/certificates/hr-3.jpg",
-    ],
-  },
-];
 
 const stats = [
   { number: "15+", label: "Years of Industry Experience" },
@@ -113,8 +31,8 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
       className={className}
       style={{
         opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(32px)",
-        transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+        transform: inView ? "translateY(0)" : "translateY(24px)", 
+        transition: `opacity 0.65s ease ${delay}ms, transform 0.65s ease ${delay}ms`,
       }}
     >
       {children}
@@ -123,95 +41,85 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 }
 
 export default function AboutPage() {
-  const [open, setOpen] = useState(false);
-const [index, setIndex] = useState(0);
-
-const allCertificates = certifications.flatMap((category) =>
-  category.certificates.map((image) => ({
-    src: image,
-  }))
-);
   return (
-    <main className="bg-slate-950 text-white font-sans overflow-x-hidden">
-      {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 py-24">
-        {/* Background decoration */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-amber-500/10 blur-3xl" />
-          <div className="absolute bottom-0 -left-48 w-[500px] h-[500px] rounded-full bg-sky-500/10 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-[80%] bg-gradient-to-b from-transparent via-amber-400/20 to-transparent" />
-        </div>
-
+    <main className="bg-[#E1F1E6] text-slate-900 font-sans overflow-x-hidden min-h-screen">
+      
+      <section className="relative pt-20 pb-12 px-6 sm:px-8">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 border border-amber-400/30 bg-amber-400/5 text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+          
+          <div className="inline-flex items-center gap-2 border border-red-600/20 bg-red-500/10 text-red-700 text-xs font-bold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-6">
             Company Registration No. 1850/082/083
           </div>
 
-          <h1 className="text-5xl sm:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6">
-            <span className="text-white">Electra </span>
-            <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-6xl font-black leading-[1.1] tracking-tight mb-4 text-slate-950">
+            Electra{" "}
+            <span className="bg-gradient-to-r from-emerald-700 to-emerald-600 bg-clip-text text-transparent">
               Global
             </span>
             <br />
-            <span className="text-slate-300 text-4xl sm:text-5xl font-light tracking-widest">
+            <span className="text-slate-700 text-2xl sm:text-4xl font-light tracking-widest block mt-2">
               Recruitment
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl text-amber-400 font-medium italic mb-8 tracking-wide">
+          <p className="text-base sm:text-lg text-red-600 font-bold italic mb-6 tracking-wide">
             "We Connect Talent"
           </p>
 
-          <p className="text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed">
-         Electra Global Recruitment Pvt. Ltd. is a legally registered foreign employment recruitment agency in Nepal, operating under Company Registration No. 1850/082/083. The company is established with a clear vision to connect Nepalese talent with global employment opportunities and is led by a team of highly experienced professionals with over 15 years of expertise in the foreign employment sector.
+          <p className="text-slate-800 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed font-semibold">
+            Electra Global Recruitment Pvt. Ltd. is a legally registered foreign employment recruitment agency in Nepal, operating under Company Registration No. 1850/082/083. The company is established with a clear vision to connect Nepalese talent with global employment opportunities and is led by a team of highly experienced professionals with over 15 years of expertise in the foreign employment sector.
           </p>
-
-        -
         </div>
       </section>
 
-      {/* ── ABOUT ELECTRA ── */}
-      <section className="px-6 py-24 max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <section className="px-6 pb-20 pt-8 max-w-6xl mx-auto relative">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+          
           <FadeIn>
-            <div className="space-y-2 mb-8">
-              <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase">About Us</p>
-              <h2 className="text-4xl font-extrabold leading-tight">
-                Who We <span className="text-amber-400">Are</span>
+            <div className="space-y-1 mb-6">
+              <p className="text-red-600 text-xs sm:text-sm font-extrabold tracking-[0.2em] uppercase">About Us</p>
+              <h2 className="text-3xl sm:text-4xl font-black leading-tight text-slate-950">
+                Who We <span className="text-emerald-700">Are</span>
               </h2>
             </div>
-            <div className="space-y-5 text-slate-400 leading-relaxed text-[15px]">
+            
+            <div className="space-y-4 text-slate-700 leading-relaxed text-xs sm:text-sm font-medium">
               <p>
                 With strong industry experience and an expanding global network, Electra specializes in sourcing and mobilizing skilled, semi-skilled, and professional Nepalese workforce for reputable international employers. We ensure the right talent is matched with the right opportunity through a structured, transparent, and efficient recruitment process.
               </p>
               <p>
-                All recruitment activities are carried out in full compliance with the labor laws and regulations of Nepal and destination countries, promoting ethical, safe, and responsible migration practices. Our approach is guided by strong values of integrity, accountability, and professionalism
+                All recruitment activities are carried out in full compliance with the labor laws and regulations of Nepal and destination countries, promoting ethical, safe, and responsible migration practices. Our approach is guided by strong values of integrity, accountability, and professionalism.
               </p>
               <p>
-             Electra Global prioritizes the dignity, safety, and welfare of workers while delivering efficient, compliant, and high-quality human resource solutions to employers. Supported by a robust management system, the company is committed to maintaining the highest standards of quality, transparency, and continuous improvement.
+                Electra Global prioritizes the dignity, safety, and welfare of workers while delivering efficient, compliant, and high-quality human resource solutions to employers. Supported by a robust management system, the company is committed to maintaining the highest standards of quality, transparency, and continuous improvement.
               </p>
-              <p>We strive to build long-term global partnerships based on trust, reliability, and mutual success creating sustainable opportunities for workers and delivering value to employers worldwide.</p>
+              <p className="text-slate-950 font-bold border-l-2 border-emerald-700 pl-3 mt-4 italic">
+                We strive to build long-term global partnerships based on trust, reliability, and mutual success creating sustainable opportunities for workers and delivering value to employers worldwide.
+              </p>
             </div>
           </FadeIn>
 
           <FadeIn delay={150}>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 bg-white/20 p-4 rounded-3xl border border-white/30 shadow-inner">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-amber-400/40 hover:bg-slate-800/60 transition-all duration-300 group"
+                  className="bg-blue-50/80 border border-blue-200/80 rounded-2xl p-5 hover:border-emerald-600/40 hover:bg-white transition-all duration-300 group shadow-sm"
                 >
-                  <div className="text-3xl font-black text-amber-400 group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-2xl sm:text-3xl font-black text-emerald-700 group-hover:scale-105 transition-transform duration-300">
                     {stat.number}
                   </div>
-                  <div className="text-slate-400 text-sm mt-2 leading-snug">{stat.label}</div>
+                  <div className="text-slate-800 text-[11px] sm:text-xs mt-1.5 leading-snug font-extrabold tracking-tight">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
           </FadeIn>
+
         </div>
       </section>
+<<<<<<< HEAD
 
       {/* ── MISSION / VISION ── */}
       <section className="px-6 py-4 bg-slate-900/50">
@@ -407,6 +315,9 @@ const allCertificates = certifications.flatMap((category) =>
   index={index}
   slides={allCertificates}
 />
+=======
+      
+>>>>>>> 73586147af476cfcf73d593f4776e4f359028c4c
     </main>
   );
 }
