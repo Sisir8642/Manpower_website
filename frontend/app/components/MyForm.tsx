@@ -11,7 +11,6 @@ const Certificates = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // FETCH API
   useEffect(() => {
     const fetchCertificates = async () => {
       try {
@@ -58,7 +57,6 @@ const Certificates = () => {
     }
   };
 
-  // LOADING STATE
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -70,7 +68,6 @@ const Certificates = () => {
     return <div className="p-10 text-center">Loading...</div>;
   }
 
-  // ERROR STATE
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center text-red-600">
@@ -83,7 +80,6 @@ const Certificates = () => {
     <div className="bg-[#c5eace] text-slate-900 min-h-screen py-24 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
 
-        {/* HEADER */}
         <div className="text-center mb-20">
           <p className="text-red-600 text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase mb-3">
             Compliance & Verification
@@ -99,7 +95,6 @@ const Certificates = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-          {/* LEFT SIDEBAR */}
           <div className="lg:col-span-4 space-y-3 bg-blue-50/70 p-4 border border-blue-200 rounded-3xl shadow-sm shadow-blue-900/5">
             <p className="text-slate-500 font-extrabold uppercase tracking-wider text-[11px] px-3 mb-2">
               Select Category
@@ -140,7 +135,6 @@ const Certificates = () => {
             })}
           </div>
 
-          {/* RIGHT CONTENT */}
           <div className="lg:col-span-8 bg-blue-50/50 border border-blue-200 rounded-3xl p-6 sm:p-8 shadow-sm shadow-blue-900/5">
 
             <div className="mb-8 pb-6 border-b border-blue-200">
@@ -165,7 +159,6 @@ const Certificates = () => {
               {certifications?.[activeTab]?.description || ""}              </p>
             </div>
 
-            {/* IMAGES */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {certifications?.[activeTab]?.certificates?.map((image, i) => (
                 <div
@@ -197,7 +190,6 @@ const Certificates = () => {
         </div>
       </div>
 
-      {/* LIGHTBOX */}
       <Lightbox
         open={open}
         close={() => setOpen(false)}

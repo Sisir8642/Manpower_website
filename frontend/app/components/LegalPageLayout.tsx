@@ -43,10 +43,8 @@ export default function LegalPageLayout({
         </div>
       </section>
 
-      {/* ── CONTENT ── */}
       <div className="max-w-4xl mx-auto px-6 py-16 flex flex-col lg:flex-row gap-12">
 
-        {/* Main content */}
         <article className="flex-1 min-w-0">
           <div className="space-y-10">
             {sections.map((sec, i) => (
@@ -65,11 +63,9 @@ export default function LegalPageLayout({
           </div>
         </article>
 
-        {/* Sidebar */}
         <aside className="lg:w-64 flex-shrink-0">
           <div className="sticky top-8 space-y-6">
 
-            {/* Table of contents */}
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
               <p className="text-white font-bold text-xs uppercase tracking-widest mb-4">Contents</p>
               <ol className="space-y-2">
@@ -87,7 +83,6 @@ export default function LegalPageLayout({
               </ol>
             </div>
 
-            {/* Related links */}
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
               <p className="text-white font-bold text-xs uppercase tracking-widest mb-4">Related</p>
               <ul className="space-y-2">
@@ -102,7 +97,6 @@ export default function LegalPageLayout({
               </ul>
             </div>
 
-            {/* Contact box */}
             <div className="bg-amber-400/5 border border-amber-400/20 rounded-2xl p-5 text-center">
               <p className="text-amber-400 font-bold text-xs mb-2">Questions?</p>
               <p className="text-slate-400 text-xs mb-4 leading-relaxed">Contact us through official channels for any clarifications.</p>
