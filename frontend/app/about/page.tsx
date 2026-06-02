@@ -42,7 +42,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 export default function AboutPage() {
   return (
-    <main className="bg-[#c5eace] text-slate-900 font-sans overflow-x-hidden min-h-screen">
+    <main className="bg-[#E1F1E6] text-slate-900 font-sans overflow-x-hidden min-h-screen">
       
       <section className="relative pt-20 pb-12 px-6 sm:px-8">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
