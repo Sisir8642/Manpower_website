@@ -13,4 +13,4 @@ class CertificateCategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CertificateCategory
-        fields = ['id', 'title','tagline','images']
+        fields = ['id', 'title','images']

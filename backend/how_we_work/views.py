@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from .models import TeamMember
-from .serializers import TeamMemberserrializers
+from .serializers import TeamMemberSerrializers
 
 # Create your views here.
 
 
 class TeamMemberViewSet(ModelViewSet):
     queryset=TeamMember.objects.all()
-    serializer_class=TeamMemberserrializers
+    serializer_class=TeamMemberSerrializers

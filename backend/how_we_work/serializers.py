@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import TeamMember
 
 
-class TeamMemberserrializers(serializers.ModelSerializer):
+class TeamMemberSerrializers(serializers.ModelSerializer):
     class Meta:
         model=TeamMember
-        fileds="__all__"
+        fields="__all__"
