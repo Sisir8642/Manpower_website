@@ -1,5 +1,6 @@
 "use client";
 
+import { div } from "framer-motion/client";
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
@@ -42,6 +43,31 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 
 export default function AboutPage() {
   return (
+    <div className="bg-[#E1F1E6]">
+      <section className="relative overflow-hidden bg-[#223772] text-white">        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 xl:py-32 text-center">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full font-semibold text-sm mb-6 border border-white/30">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              13 LOCATIONS TO SERVE YOU
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+              Our Locations
+            </h1>
+            <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+              Find your nearest Fast n&apos; Friendly store. Proudly serving Springfield, Ozark, Bolivar and surrounding areas with quick stops, great deals, and friendly faces.
+            </p>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="rgb(225 241 230)"/>
+          </svg>
+        </div>
+      </section>
     <main className="bg-[#E1F1E6] text-slate-900 font-sans overflow-x-hidden min-h-screen">
       
       <section className="relative pt-20 pb-12 px-6 sm:px-8">
@@ -119,205 +145,8 @@ export default function AboutPage() {
 
         </div>
       </section>
-<<<<<<< HEAD
-
-      {/* ── MISSION / VISION ── */}
-      <section className="px-6 py-4 bg-slate-900/50">
-        <div className="max-w-6xl mx-auto">
-          <FadeIn className="text-center mb-16">
-            <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">
-              Direction
-            </p>
-            <h2 className="text-4xl font-extrabold">
-              Mission & <span className="text-amber-400">Vision</span>
-            </h2>
-          </FadeIn>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <FadeIn delay={100}>
-              <div className="relative bg-gradient-to-br from-amber-400/10 to-orange-500/5 border border-amber-400/20 rounded-3xl p-10 h-full overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/5 rounded-full -translate-y-8 translate-x-8" />
-                <div className="relative z-10">
-                  <div className="text-4xl mb-6">🔭</div>
-                  <h3 className="text-2xl font-bold text-amber-400 mb-4">Vision</h3>
-                  <p className="text-slate-300 leading-relaxed">
-                    To be a leading global recruitment partner connecting worldwide employers with
-                    Nepalese talent through reliable, ethical, and hassle-free recruitment services.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={200}>
-              <div className="relative bg-gradient-to-br from-sky-500/10 to-blue-600/5 border border-sky-500/20 rounded-3xl p-10 h-full overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-sky-400/5 rounded-full -translate-y-8 translate-x-8" />
-                <div className="relative z-10">
-                  <div className="text-4xl mb-6">🎯</div>
-                  <h3 className="text-2xl font-bold text-sky-400 mb-4">Mission</h3>
-                  <p className="text-slate-300 leading-relaxed">
-                   Our mission is to connect Nepalese migrant workers with foreign employment opportunities through ethical, transparent, and professional recruitment services, ensuring full compliance with the labor laws of Nepal and destination countries delivering reliable workforce solutions to global employers and promoting dignity and welfare for workers
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CORE VALUES ── */}
-      <section className="px-6 py-14 max-w-6xl mx-auto">
-        <FadeIn className="text-center mb-16">
-          <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">
-            What Drives Us
-          </p>
-          <h2 className="text-4xl font-extrabold">
-            Core <span className="text-amber-400">Values</span>
-          </h2>
-        </FadeIn>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {values.map((val, i) => (
-            <FadeIn key={val.title} delay={i * 80}>
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-7 h-full hover:border-amber-400/40 hover:-translate-y-1 transition-all duration-300 group">
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {val.icon}
-                </div>
-                <h3 className="text-white font-bold text-lg mb-3 group-hover:text-amber-400 transition-colors duration-300">
-                  {val.title}
-                </h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{val.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
-
-          {/* Filler decorative card */}
-          <FadeIn delay={values.length * 80}>
-            <div className="bg-gradient-to-br from-amber-400/10 to-orange-500/5 border border-amber-400/20 rounded-2xl p-7 flex flex-col justify-center items-center text-center h-full">
-              <div className="text-amber-400 font-black text-5xl mb-3">✦</div>
-              <p className="text-amber-400 font-semibold text-sm tracking-wide uppercase">
-                Built on Trust
-              </p>
-              <p className="text-slate-400 text-sm mt-2">
-                Every partnership we form is rooted in integrity and shared purpose.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── CHAIRPERSON MESSAGE ── */}
-      <section className="px-6 py-24 bg-slate-900/50">
-        <div className="max-w-4xl mx-auto">
-          <FadeIn className="text-center mb-16">
-            <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">
-              Leadership
-            </p>
-            <h2 className="text-4xl font-extrabold">
-              Message from the <span className="text-amber-400">Chairperson</span>
-            </h2>
-          </FadeIn>
-
-          <FadeIn delay={100}>
-            <div className="relative bg-slate-900 border border-slate-800 rounded-3xl p-10 md:p-14">
-              {/* Quote mark */}
-              <div className="absolute top-8 left-10 text-8xl text-amber-400/10 font-serif leading-none select-none">
-                "
-              </div>
-
-              <div className="relative z-10 space-y-5 text-slate-300 leading-relaxed text-[15px]">
-                <p>
-                  At Electra Global Recruitment Pvt. Ltd., our vision is to build a trusted, ethical,
-                  and dynamic bridge connecting Nepalese talent with global employment opportunities.
-                  As a young and forward-thinking entrepreneur, I strongly believe that Nepal holds
-                  immense human potential that deserves recognition on the international stage.
-                </p>
-                <p>
-                  With over a decade of experience in the Middle East recruitment sector and more
-                  than five years in Nepal's foreign employment industry, we have developed a strong
-                  understanding of both global employer expectations and the aspirations of Nepalese
-                  workers.
-                </p>
-                <p>
-                  At Electra Global, we are committed to providing seamless, end-to-end recruitment
-                  services that ensure dignified, fair, and lawful employment opportunities for
-                  workers, while delivering reliable and high-quality human resource solutions to our
-                  global partners.
-                </p>
-                <p className="text-amber-400 font-semibold italic text-base">
-                  "Together, We Connect Talent to Global Opportunity."
-                </p>
-              </div>
-
-              <div className="mt-10 flex items-center gap-4 border-t border-slate-800 pt-8">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-slate-950 font-black text-lg">
-                  C
-                </div>
-                <div>
-                  <div className="text-white font-bold">Chairperson</div>
-                  <div className="text-slate-400 text-sm">Electra Global Recruitment Pvt. Ltd.</div>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-     <section className="px-6 py-24 max-w-6xl mx-auto">
-  <div className="text-center mb-16">
-    <p className="text-amber-400 text-sm font-bold tracking-[0.2em] uppercase mb-2">
-      Training & Certifications
-    </p>
-
-    <h2 className="text-4xl font-extrabold">
-      Our <span className="text-amber-400">Credentials</span>
-    </h2>
-  </div>
-
-  <div className="space-y-16">
-    {certifications.map((category) => (
-      <div key={category.title}>
-        <h3 className="text-2xl font-bold text-white mb-6">
-          {category.title}
-        </h3>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {category.certificates.map((image) => {
-            const imageIndex = allCertificates.findIndex(
-              (img) => img.src === image
-            );
-
-            return (
-              <div
-                key={image}
-                onClick={() => {
-                  setIndex(imageIndex);
-                  setOpen(true);
-                }}
-                className="cursor-pointer overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 group"
-              >
-                <img
-                  src={image}
-                  alt="Certificate"
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    ))}
-  </div>
-</section>
-
       
-      <Lightbox
-  open={open}
-  close={() => setOpen(false)}
-  index={index}
-  slides={allCertificates}
-/>
-=======
-      
->>>>>>> 73586147af476cfcf73d593f4776e4f359028c4c
     </main>
+    </div>
   );
 }

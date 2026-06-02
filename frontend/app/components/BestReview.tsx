@@ -61,6 +61,19 @@ const useInView = () => {
     return [ref, isInView] as const;
 };
 
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 60 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
 /* ================= STAT CARD ================= */
 const StatCard = ({ icon: Icon, value, label, isInView }: any) => {
     const count = useCountAnimation(value, 2000, isInView);
@@ -89,161 +102,184 @@ const BestReview = () => {
     const [statsRef, statsInView] = useInView();
 
     return (
-        <div className="w-full bg-white">
+        <div className="w-full bg-[#E1F1E6] ">
 
             {/* ================= CHAIRPERSON SECTION ================= */}
-<section className="py-20 w-full bg-[#E1F1E6]">
-  <div className="w-full px-4 sm:px-6 lg:px-12">
-    <div className="flex flex-col gap-8">
-      {/* ================= CHAIRPERSON (LEFT ALIGNED) ================= */}
-      <motion.div
-        initial={{ opacity: 0, x: -80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="flex flex-col md:flex-row bg-white rounded-xl overflow-hidden md:max-w-[80%] md:mr-auto hover:shadow-xl transition-shadow duration-300"
+             <div className="bg-[#E1F1E6] py-16 space-y-20">
+<motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="px-6"
       >
-        {/* IMAGE - decreased width */}
-        <motion.div 
-          className="md:w-[25%] w-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-50"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <motion.img
-            src="/images/chairperson.png"
-            alt="Chairperson"
-            className="w-full md:h-[280px] h-[220px] object-cover p-0 m-0"
-            whileHover={{ scale: 1.05, rotate: 1 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          />
-        </motion.div>
+        <div className="max-w-7xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
+          <div className="grid md:grid-cols-[280px_1fr]">
 
-        {/* CONTENT - increased width to match */}
-        <motion.div 
-          className="md:w-[75%] w-full bg-[#1B4595] text-white p-8 flex flex-col justify-center"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            className="text-2xl md:text-3xl font-bold mb-2"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Chairperson
-          </motion.h2>
-          <motion.div 
-            className="w-12 h-1 bg-white/50 rounded-full mb-4"
-            initial={{ width: 0 }}
-            whileInView={{ width: 48 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
-          ></motion.div>
-          <motion.p 
-            className="text-white/90 text-sm md:text-base leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-       At Electra Global Recruitment Pvt. Ltd., our vision is to connect Nepalese talent with global opportunities through ethical, transparent, and reliable recruitment practices. With extensive experience in international recruitment, we understand both employer expectations and worker aspirations, enabling us to deliver efficient and compliant solutions.
-            <br /><br />
-           We are committed to providing end-to-end recruitment services that ensure fair, dignified, and lawful employment while supporting global partners with quality human resources. Worker welfare, trust, and compliance remain at the core of everything we do.
-            <br /><br />
-          Our goal is to grow as a trusted global recruitment partner, building long-term relationships and contributing to Nepal’s sustainable socio-economic development.
-            <br /><br />
-            <motion.span 
-              className="font-semibold italic block"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
+            {/* Left Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -80 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-blue-900 flex flex-col"
             >
-              "Together, We Connect Talent to Global Opportunity."
-            </motion.span>
-          </motion.p>
-        </motion.div>
-      </motion.div>
+              <div className="h-[330px] overflow-hidden">
+                <img
+                  src="/images/chairperson.jpg"
+                  alt="Chairperson"
+                  className="w-full h-full object-cover"
+                />
+              </div>
 
-      {/* ================= MANAGING DIRECTOR (RIGHT ALIGNED) ================= */}
-      <motion.div
-        initial={{ opacity: 0, x: 80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="flex flex-col md:flex-row bg-white overflow-hidden rounded-xl md:max-w-[80%] md:ml-auto hover:shadow-xl transition-shadow duration-300"
+              <div className="flex-1 flex flex-col items-center justify-center text-white py-6">
+                <h3 className="text-2xl font-semibold">
+                  Ms Shweta Chauhan
+                </h3>
+                <p className="italic text-lg text-blue-100">
+                  Chairperson
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Right Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="p-8 md:p-14 bg-red-100"
+            >
+              <span className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-medium mb-8">
+                Chairperson
+              </span>
+
+              <div className="flex gap-4">
+                <div className="text-6xl text-gray-300 leading-none">
+                  ❝
+                </div>
+
+                <div className="space-y-8 text-slate-700">
+                  <p className="text-lg leading-9">
+                    Electra Global Recruitment Pvt. Ltd. aims to build an
+                    ethical bridge connecting Nepalese talent with global jobs.
+                    The founder, a young entrepreneur with over a decade of
+                    experience in Middle East recruitment and five years in
+                    Nepal's foreign employment sector, believes in Nepal's
+                    immense human potential. This experience enables the company
+                    to deliver efficient, transparent, and compliant recruitment
+                    solutions.
+                  </p>
+
+                  <p className="text-lg leading-9">
+                    The company is committed to end-to-end services that ensure
+                    dignified, fair, and lawful employment for workers while
+                    providing reliable HR solutions to global partners. They
+                    prioritize worker welfare, regulatory compliance, and
+                    responsible practices.
+                  </p>
+
+                  <p className="text-lg leading-9">
+                    Looking ahead, Electra Global strives to become a trusted
+                    global recruitment partner, focused on long-term
+                    relationships, sustainable opportunities, and contributing
+                    to Nepal's socio-economic development.
+                    <br />
+                    <span className="italic">
+                      “Together, We Connect Talent to Global Opportunity.”
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Managing Director */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="px-6"
       >
-        {/* CONTENT - increased width */}
-        <motion.div 
-          className="md:w-[75%] w-full bg-[#1B4595] text-white p-8 flex flex-col justify-center md:order-0 order-1"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <motion.h2 
-            className="text-2xl md:text-3xl font-bold mb-2"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            Managing Director
-          </motion.h2>
-          <motion.div 
-            className="w-12 h-1 bg-white/50 rounded-full mb-4"
-            initial={{ width: 0 }}
-            whileInView={{ width: 48 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
-          ></motion.div>
-          <motion.p 
-            className="text-white/90 text-sm md:text-base leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            Electra Global Recruitment Pvt. Ltd. believes that foreign employment should be more than a pathway to jobs abroad; it should be a dignified, fair, ethical, responsible, and transparent journey that protects workers, supports employers, and contributes meaningfully to national development. Founded with a clear vision to build a trusted brand in Nepal's ethical recruitment industry, Electra connects capable Nepali human resources with responsible global employers through professional, compliant, and human-centered recruitment practices, with a firm commitment to ensuring fairness, ethics, responsibility, and transparency at every stage of the recruitment cycle.
-            <br /><br />
-            My academic background in MBA in Human Resources and MA in Sociology has played a vital role in transforming this vision into practical, people-centered, and ethical recruitment mechanisms. Alongside this, my extensive experience in the foreign employment industry from establishing the foundation of ethical recruitment practices to contributing to the development of a trusted brand has been a defining dimension of my professional journey. This experience has enabled me to integrate internationally recognized ethical recruitment principles and best practices, including ILO principles, Responsible Business Alliance (RBA) practices, and On The Level (OTL) standards, into our institutional approach. These combined academic and professional foundations have strengthened Electra's expertise and commitment to making fair, responsible, transparent, and ethical foreign employment a practical reality.
-          </motion.p>
-        </motion.div>
+        <div className="max-w-7xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
+          <div className="grid md:grid-cols-[1fr_280px]">
 
-        {/* IMAGE - decreased width */}
-        <motion.div 
-          className="md:w-[25%] w-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-50 md:order-1 order-0"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <motion.img
-            src="/images/managing-director.png"
-            alt="Managing Director"
-            className="w-full md:h-[280px] h-[220px] object-cover p-0 m-0"
-            whileHover={{ scale: 1.05, rotate: -1 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          />
-        </motion.div>
-      </motion.div>
-    </div>
-  </div>
-</section>
-            
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="p-8 md:p-14 bg-red-100"
+            >
+              <span className="inline-block px-4 py-2 bg-gray-100 rounded-full text-sm font-medium mb-8">
+                Managing Director
+              </span>
 
+              <div className="flex gap-4">
+                <div className="text-6xl text-gray-300 leading-none">
+                  ❝
+                </div>
 
+                <div className="space-y-8 text-slate-700">
+                  <p className="text-lg leading-9">
+                    Electra Global Recruitment Pvt. Ltd. is committed to making
+                    foreign employment a dignified, fair, ethical, and
+                    transparent process that benefits workers, employers, and
+                    Nepal's development. The company was founded to become a
+                    trusted brand in ethical recruitment, connecting Nepali
+                    talent with global employers through professional and
+                    human-centered practices.
+                  </p>
+
+                  <p className="text-lg leading-9">
+                    The founder’s academic background (MBA in HR and MA in
+                    Sociology), combined with extensive experience in the
+                    foreign employment industry, has helped integrate
+                    international ethical standards including ILO principles,
+                    Responsible Business Alliance (RBA) practices, and On The
+                    Level (OTL) standards into the company’s operations. This
+                    foundation ensures that fair, responsible, and ethical
+                    foreign employment becomes a practical reality.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-blue-900 flex flex-col"
+            >
+              <div className="h-[330px] overflow-hidden">
+                <img
+                  src="/images/managing-director.jpg"
+                  alt="Managing Director"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="flex-1 flex flex-col items-center justify-center text-white py-6">
+                <h3 className="text-2xl font-semibold">
+                  Ms Karuna Thapa
+                </h3>
+                <p className="italic text-lg text-blue-100">
+                  Managing Director
+                </p>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </motion.section>
+      </div>
             {/* ================= COUNTERS ================= */}
             <section ref={statsRef} className="py-20 flex justify-center">
 

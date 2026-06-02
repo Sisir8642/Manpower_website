@@ -33,7 +33,32 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="w-full min-h-screen bg-gray-100 py-16 px-4 mt-16">
+        <div>
+            <section className="relative overflow-hidden bg-[#223772] text-white">        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 xl:py-32 text-center">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full font-semibold text-sm mb-6 border border-white/30">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              13 LOCATIONS TO SERVE YOU
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+              Our Locations
+            </h1>
+            <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+              Find your nearest Fast n&apos; Friendly store. Proudly serving Springfield, Ozark, Bolivar and surrounding areas with quick stops, great deals, and friendly faces.
+            </p>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="rgb(225 241 230)"/>
+          </svg>
+        </div>
+      </section>
+        <div className="w-full min-h-screen bg-[#E1F1E6] py-16 px-4 ">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
                     <h1 className="text-5xl font-bold text-gray-900 mb-3">Contact Us</h1>
@@ -132,6 +157,7 @@ export default function ContactForm() {
 
                 </div>
             </div>
+        </div>
         </div>
     );
 }
