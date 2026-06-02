@@ -184,7 +184,7 @@ export default function Footer() {
               </ul>
 
               <h3 className="text-white font-bold text-xs tracking-[0.15em] uppercase mb-5">
-                Legal
+                Compliance
               </h3>
               <ul className="space-y-2.5">
                 {legalLinks.map((l) => (
