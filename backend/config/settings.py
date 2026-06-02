@@ -46,7 +46,11 @@ INSTALLED_APPS = [
     "corsheaders",
     'drf_spectacular',
     'homesection',
-    'availablejobs'
+    'about_us',
+    'availablejobs',
+    'contact_us',
+    'services',
+    'how_we_work'
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,4 @@
 "use client";
-
-import { div } from "framer-motion/client";
 import React, { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 
@@ -222,7 +220,6 @@ const Certificates = () => {
         index={lightboxIndex}
         slides={allCertificates}
       />
-    </div>
     </div>
   );
 };

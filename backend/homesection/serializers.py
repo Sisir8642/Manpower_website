@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Slider, SliderImage
+from .models import Slider, SliderImage,WhyUsItem,WhyUs
 
 class SliderImageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,4 +12,20 @@ class SliderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Slider
         fields = ['id', 'heading', 'paragraph','images']
+
+class WhyUsItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WhyUsItem
+        fields = '__all__'
+
+class WhyUsSerializer(serializers.ModelSerializer):
+    items = WhyUsItemSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = WhyUs
+        fields = '__all__'
+
+
+
+
     
