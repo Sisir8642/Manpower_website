@@ -66,41 +66,51 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 const MissionVisionValuesPage = () => {
   return (
     <div>
-      <section className="relative overflow-hidden bg-[#223772] text-white">        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 xl:py-32 text-center">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full font-semibold text-sm mb-6 border border-white/30">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-              </svg>
-              13 LOCATIONS TO SERVE YOU
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-              Our Locations
-            </h1>
-            <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Find your nearest Fast n&apos; Friendly store. Proudly serving Springfield, Ozark, Bolivar and surrounding areas with quick stops, great deals, and friendly faces.
-            </p>
-          </div>
-        </div>
-        
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="rgb(225 241 230)"/>
-          </svg>
-        </div>
-      </section>
-    <div className="bg-[#E1F1E6] text-slate-900 font-sans min-h-screen py-20 overflow-x-hidden">
+      <section
+  className="relative overflow-hidden text-white bg-cover bg-center md:h-[60vh]"
+  style={{ backgroundImage: "url('/images/banner/mission.jpeg')" }}
+>
+  <div className="absolute inset-0 bg-black/30"></div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 xl:py-32 text-center">
+    <div className="text-center">
+      <h1
+        className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight"
+        style={{
+          color: "#1d4ed8",
+          WebkitTextStroke: "2px white",
+        }}
+      >
+        Mission , Vision and Values
+      </h1>
+
+ 
+    </div>
+  </div>
+
+  {/* FIXED SVG */}
+  <div className="absolute bottom-[-1px] left-0 right-0">
+    <svg
+      viewBox="0 0 1440 120"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-full block"
+    >
+      <path
+        d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+        fill="rgb(225 241 230)"
+      />
+    </svg>
+  </div>
+</section>
+    <div className="bg-[#E1F1E6] text-slate-900 font-sans min-h-screen pb-20 overflow-x-hidden">
       
-      <section className="px-6 py-12 max-w-6xl mx-auto">
+      <section className="px-6 max-w-6xl mx-auto">
         <FadeIn className="text-center mb-16">
           <p className="text-red-600 text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase mb-2">
             Strategic Direction
           </p>
-          <h2 className="text-4xl sm:text-5xl font-black text-slate-950 tracking-tight">
-            Our Mission & <span className="text-emerald-700">Vision</span>
-          </h2>
-          <div className="w-12 h-1 bg-emerald-600 mx-auto mt-4 rounded-full" />
+         
+          
         </FadeIn>
 
         <div className="grid md:grid-cols-2 gap-8 items-stretch">

@@ -1,8 +1,9 @@
 
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
-import { motion } from "framer-motion";
+
 import { Award, Backpack, Globe, Users } from "lucide-react";
+import { motion, type Variants, easeOut } from "framer-motion";
 
 /* ================= VARIANTS ================= */
 const leftVariant = {
@@ -62,17 +63,17 @@ const useInView = () => {
 };
 
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 60 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.8,
-      ease: "easeOut",
+      ease: easeOut, 
     },
   },
-};
+};;
 
 /* ================= STAT CARD ================= */
 const StatCard = ({ icon: Icon, value, label, isInView }: any) => {
