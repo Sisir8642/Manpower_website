@@ -1,151 +1,211 @@
 "use client";
 
-import { useForm, SubmitHandler } from "react-hook-form";
-import { useState, useEffect } from "react";
-import { JobLot } from "@/data/jobs";
+import React, { useState, useEffect } from "react";
+import Lightbox from "yet-another-react-lightbox";
 
-type Inputs = {
-  name: string;
-  phone_number: string;
-  email: string;
-  company: string;
-  location: string;
-  others: string;
-  cv: FileList;
-  lot_no: string;
-  position: string;
-};
+const Certificates = () => {
+  const [certifications, setCertifications] = useState([]);
+  const [activeTab, setActiveTab] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-type Slider = {
-  id: number;
-  title: string;
-  image: string;
-};
-
-type MyFormProps = {
-  lot: JobLot;
-};
-
-export default function MyForm({ lot }: MyFormProps) {
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
-  const [sliders, setSliders] = useState<Slider[]>([]);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<Inputs>({
-    defaultValues: {
-      lot_no: lot.lotNo,
-      position: lot.positions[0]?.title || "",
-    },
-  });
-
-  // ✅ 1. FETCH SLIDERS (GET API)
+  // FETCH API
   useEffect(() => {
-    const fetchSliders = async () => {
+    const fetchCertificates = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/sliders/");
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/certificate-category`);
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch certificates");
+        }
+
         const data = await res.json();
-        setSliders(data);
-        console.log("Sliders:", data);
-      } catch (error) {
-        console.error("Error fetching sliders:", error);
+
+        // Transform API data into your UI structure
+        const formatted = data.map((cat) => ({
+          title: cat.title,
+          tagline: "",
+          description: "",
+          certificates: cat.images.map((img) => img.image),
+        }));
+
+        setCertifications(formatted);
+        setActiveTab(0);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchSliders();
+    fetchCertificates();
   }, []);
 
-  // ✅ 2. SUBMIT FORM (POST API)
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    setLoading(true);
-    setMessage(null);
+  const allCertificates = certifications.flatMap((category) =>
+    category.certificates.map((image) => ({ src: image }))
+  );
 
-    try {
-      const formData = new FormData();
+  const handleImageClick = (currentSrc) => {
+    const globalIndex = allCertificates.findIndex(
+      (img) => img.src === currentSrc
+    );
 
-      Object.entries(data).forEach(([key, value]) => {
-        if (value instanceof FileList) {
-          formData.append(key, value[0]);
-        } else {
-          formData.append(key, value as string);
-        }
-      });
-
-      const response = await fetch("http://127.0.0.1:8000/api/job-applications/", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit form");
-      }
-
-      const result = await response.json();
-      console.log("Response:", result);
-
-      setMessage("Form submitted successfully!");
-      reset();
-    } catch (err) {
-      console.error(err);
-      setMessage("Error submitting form");
-    } finally {
-      setLoading(false);
+    if (globalIndex !== -1) {
+      setLightboxIndex(globalIndex);
+      setOpen(true);
     }
   };
 
+  // LOADING STATE
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Loading certificates...
+      </div>
+    );
+  }
+  if (!certifications.length) {
+    return <div className="p-10 text-center">Loading...</div>;
+  }
+
+  // ERROR STATE
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-red-600">
+        {error}
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
-      {/* SLIDERS DISPLAY (from API) */}
-      {sliders.length > 0 && (
-        <div className="mb-4">
-          <h2 className="font-bold">Sliders</h2>
-          <ul>
-            {sliders.map((s) => (
-              <li key={s.id}>{s.title}</li>
-            ))}
-          </ul>
+    <div className="bg-[#c5eace] text-slate-900 min-h-screen py-24 px-4 sm:px-6 lg:px-8 font-sans">
+      <div className="max-w-7xl mx-auto">
+
+        {/* HEADER */}
+        <div className="text-center mb-20">
+          <p className="text-red-600 text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase mb-3">
+            Compliance & Verification
+          </p>
+          <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-950">
+            Our Training & <span className="text-emerald-700">Credentials</span>
+          </h2>
+          <p className="mt-4 text-slate-800 font-semibold max-w-xl mx-auto text-sm sm:text-base">
+            Consistently audited global benchmarks validating our end-to-end fair placement mechanics.
+          </p>
+          <div className="w-12 h-1 bg-emerald-700 mx-auto mt-6 rounded-full" />
         </div>
-      )}
 
-      {/* Lot & Position */}
-      <div className="space-y-3">
-        <label>Lot Number</label>
-        <input {...register("lot_no")} disabled className="border p-2 w-full bg-gray-100" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-        <label>Position</label>
-        <select {...register("position")} className="border p-2 w-full">
-          {lot.positions.map((pos) => (
-            <option key={pos.id} value={pos.title}>
-              {pos.title}
-            </option>
-          ))}
-        </select>
+          {/* LEFT SIDEBAR */}
+          <div className="lg:col-span-4 space-y-3 bg-blue-50/70 p-4 border border-blue-200 rounded-3xl shadow-sm shadow-blue-900/5">
+            <p className="text-slate-500 font-extrabold uppercase tracking-wider text-[11px] px-3 mb-2">
+              Select Category
+            </p>
+
+            {certifications.map((category, index) => {
+              const isActive = index === activeTab;
+
+              return (
+                <button
+                  key={index}
+                  onClick={() => setActiveTab(index)}
+                  className={`w-full text-left p-4 rounded-2xl border transition-all duration-300 flex flex-col gap-1 group relative overflow-hidden ${
+                    isActive
+                      ? "bg-white border-blue-300 shadow-sm shadow-blue-900/5"
+                      : "bg-transparent border-transparent hover:bg-white/40 hover:border-blue-200"
+                  }`}
+                >
+                  {isActive && (
+                    <div className="absolute top-0 bottom-0 left-0 w-1 bg-emerald-700 rounded-r" />
+                  )}
+
+                  <span
+                    className={`font-black tracking-tight transition-colors ${
+                      isActive
+                        ? "text-emerald-700"
+                        : "text-slate-950 group-hover:text-emerald-700"
+                    }`}
+                  >
+                    {category.title}
+                  </span>
+
+                  <span className="text-red-600 font-bold text-xs truncate max-w-xs">
+                    {category.tagline}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* RIGHT CONTENT */}
+          <div className="lg:col-span-8 bg-blue-50/50 border border-blue-200 rounded-3xl p-6 sm:p-8 shadow-sm shadow-blue-900/5">
+
+            <div className="mb-8 pb-6 border-b border-blue-200">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+
+                <div>
+                  <span className="text-[10px] font-black tracking-widest text-red-700 uppercase bg-red-500/10 border border-red-600/10 px-2.5 py-1 rounded">
+                    Certified Standard
+                  </span>
+
+                  <h3 className="text-2xl sm:text-3xl font-black text-emerald-800 mt-2 tracking-tight">
+                    {certifications?.[activeTab]?.title || ""}                  </h3>
+                </div>
+
+                <span className="text-xs bg-white text-slate-700 font-bold px-3 py-1.5 rounded-full border border-blue-200 shadow-inner">
+                  {certifications?.[activeTab]?.certificates?.length || 0} Document(s)
+                </span>
+
+              </div>
+
+              <p className="mt-4 text-slate-700 font-medium text-sm sm:text-base leading-relaxed">
+              {certifications?.[activeTab]?.description || ""}              </p>
+            </div>
+
+            {/* IMAGES */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {certifications?.[activeTab]?.certificates?.map((image, i) => (
+                <div
+                  key={image + i}
+                  onClick={() => handleImageClick(image)}
+                  className="group relative cursor-pointer overflow-hidden rounded-2xl border border-blue-200 bg-white p-2 shadow-sm hover:border-emerald-600/40 transition-all duration-300"
+                >
+                  <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-slate-50 border border-blue-100">
+                    <img
+                      src={image}
+                      alt="Certificate"
+                      className="w-full h-full object-cover grayscale mix-blend-multiply contrast-105 brightness-95 group-hover:grayscale-0 group-hover:mix-blend-normal group-hover:brightness-100 group-hover:scale-[1.02] transition-all duration-500 ease-out"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <span className="text-xs text-emerald-400 font-bold tracking-wide">
+                        Click to Expand Viewer ↗
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
       </div>
 
-      {/* Name */}
-      <input {...register("name", { required: true })} placeholder="Name" className="border p-2 w-full" />
-
-      {/* Email */}
-      <input {...register("email", { required: true })} placeholder="Email" className="border p-2 w-full" />
-
-      {/* Phone */}
-      <input {...register("phone_number", { required: true })} placeholder="Phone" className="border p-2 w-full" />
-
-      {/* Location */}
-      <input {...register("location")} placeholder="Location" className="border p-2 w-full" />
-
-      {/* File */}
-      <input type="file" {...register("cv")} className="border p-2 w-full" />
-
-      <button type="submit" disabled={loading} className="bg-green-600 text-white px-4 py-2 rounded">
-        {loading ? "Submitting..." : "Submit"}
-      </button>
-
-      {message && <p className="text-green-600">{message}</p>}
-    </form>
+      {/* LIGHTBOX */}
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={lightboxIndex}
+        slides={allCertificates}
+      />
+    </div>
   );
-}
+};
+
+export default Certificates;

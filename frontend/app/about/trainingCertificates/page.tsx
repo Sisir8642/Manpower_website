@@ -1,80 +1,94 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import Lightbox from "yet-another-react-lightbox";
 
-const certifications = [
-  {
-    title: "EIQ",
-    tagline: "Welfare & Ethics",
-    description:
-      "Training programs heavily focused on ethical recruitment practices, global human compliance, and overseas worker welfare.",
-    certificates: [
-      "/certificates/ethical-1.jpg",
-      "/certificates/ethical-2.jpg",
-      "/certificates/ethical-3.jpg",
-    ],
-  },
-  {
-    title: "Forced Labour Eradication",
-    tagline: "Fair Labor Standards",
-    description:
-      "Professional certifications and actionable blueprints related to transparent, zero-cost, and lawful workforce mobilization.",
-    certificates: [
-      "/certificates/employment-1.jpg",
-      "/certificates/employment-2.jpg",
-    ],
-  },
-  {
-    title: "IOM-IRIS",
-    tagline: "International Recruitment Alignment",
-    description:
-      "Global standards training focused on migrant worker protections and multi-stakeholder international HR management framework verification.",
-    certificates: [
-      "/certificates/hr-1.jpg",
-      "/certificates/hr-2.jpg",
-      "/certificates/hr-3.jpg",
-    ],
-  },
-  {
-    title: "OTL & SEDEX",
-    tagline: "Supply Chain Auditing",
-    description:
-      "Dedicated corporate alignment modules for ethical business data collection, social accountability, and operational transparency metrics.",
-    certificates: [
-      "/certificates/hr-1.jpg",
-      "/certificates/hr-2.jpg",
-      "/certificates/hr-3.jpg",
-    ],
-  },
-  {
-    title: "RBA Related Trainings",
-    tagline: "Responsible Business Alliance",
-    description:
-      "Comprehensive certification training matching electronic, automotive, and technology tier-1 supply chain human rights compliance.",
-    certificates: [
-      "/certificates/hr-1.jpg",
-      "/certificates/hr-2.jpg",
-      "/certificates/hr-3.jpg",
-    ],
-  },
-];
-
 const Certificates = () => {
+  const [certifications, setCertifications] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const allCertificates = certifications.flatMap((category) =>
-    category.certificates.map((image) => ({ src: image }))
-  );
+  // FETCH API
+  useEffect(() => {
+    const fetchCertificates = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/certificate_category`
+        );
 
-  const handleImageClick = (currentSrc: string) => {
-    const globalIndex = allCertificates.findIndex((img) => img.src === currentSrc);
+        if (!res.ok) {
+          throw new Error("Failed to fetch certificates");
+        }
+
+        const data = await res.json();
+
+        const formatted = data.map((cat) => ({
+          title: cat.title,
+          tagline: "",
+          description: "",
+          certificates: cat.images.map((img) => img.image),
+        }));
+
+        setCertifications(formatted);
+        setActiveTab(0);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCertificates();
+  }, []);
+
+  // SAFE ACTIVE CATEGORY
+  const activeCategory = certifications?.[activeTab];
+
+  // SAFE LIGHTBOX DATA
+  const allCertificates = certifications?.length
+    ? certifications.flatMap((category) =>
+        category.certificates.map((image) => ({ src: image }))
+      )
+    : [];
+
+  const handleImageClick = (currentSrc) => {
+    const globalIndex = allCertificates.findIndex(
+      (img) => img.src === currentSrc
+    );
+
     if (globalIndex !== -1) {
       setLightboxIndex(globalIndex);
       setOpen(true);
     }
   };
+
+  // LOADING
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Loading certificates...
+      </div>
+    );
+  }
+
+  // ERROR
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-red-600">
+        {error}
+      </div>
+    );
+  }
+
+  // EMPTY DATA SAFETY
+  if (!certifications.length) {
+    return (
+      <div className="p-10 text-center">No certificates found</div>
+    );
+  }
 
   return (
     <div>
@@ -116,8 +130,8 @@ const Certificates = () => {
  </section>
     <div className="bg-[#E1F1E6] text-slate-900 min-h-screen pb-24 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
-        
-        {/* ── HEADER ── */}
+
+        {/* HEADER */}
         <div className="text-center mb-20">
           <p className="text-red-600 text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase mb-3">
             Compliance & Verification
@@ -130,90 +144,100 @@ const Certificates = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+
+          {/* LEFT SIDEBAR */}
           <div className="lg:col-span-4 space-y-3 bg-blue-50/70 p-4 border border-blue-200 rounded-3xl shadow-sm shadow-blue-900/5">
+
             <p className="text-slate-500 font-extrabold uppercase tracking-wider text-[11px] px-3 mb-2">
               Select Category
             </p>
+
             {certifications.map((category, index) => {
               const isActive = index === activeTab;
+
               return (
                 <button
-                  key={category.title}
+                  key={index}
                   onClick={() => setActiveTab(index)}
                   className={`w-full text-left p-4 rounded-2xl border transition-all duration-300 flex flex-col gap-1 group relative overflow-hidden ${
                     isActive
-                      ? "bg-white border-blue-300 shadow-sm shadow-blue-900/5"
-                      : "bg-transparent border-transparent hover:bg-white/40 hover:border-blue-200"
+                      ? "bg-white border-blue-300 shadow-sm"
+                      : "bg-transparent border-transparent hover:bg-white/40"
                   }`}
                 >
                   {isActive && (
-                    <div className="absolute top-0 bottom-0 left-0 w-1 bg-emerald-700 rounded-r" />
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-700 rounded-r" />
                   )}
-                  <span className={`font-black tracking-tight transition-colors ${isActive ? "text-emerald-700" : "text-slate-950 group-hover:text-emerald-700"}`}>
+
+                  <span
+                    className={`font-black tracking-tight ${
+                      isActive ? "text-emerald-700" : "text-slate-950"
+                    }`}
+                  >
                     {category.title}
                   </span>
-                  <span className="text-red-600 font-bold text-xs truncate max-w-xs">
-                    {category.tagline}
-                  </span>
+
                 </button>
               );
             })}
           </div>
 
-          <div className="lg:col-span-8 bg-blue-50/50 border border-blue-200 rounded-3xl p-6 sm:p-8 shadow-sm shadow-blue-900/5">
-            
+          {/* RIGHT CONTENT */}
+          <div className="lg:col-span-8 bg-blue-50/50 border border-blue-200 rounded-3xl p-6 sm:p-8">
+
             <div className="mb-8 pb-6 border-b border-blue-200">
+
               <div className="flex flex-wrap items-center justify-between gap-4">
+
                 <div>
-                  <span className="text-[10px] font-black tracking-widest text-red-700 uppercase bg-red-500/10 border border-red-600/10 px-2.5 py-1 rounded">
+                  <span className="text-[10px] font-black uppercase text-red-700 bg-red-500/10 px-2 py-1 rounded">
                     Certified Standard
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-emerald-800 mt-2 tracking-tight">
-                    {certifications[activeTab].title}
+
+                  <h3 className="text-2xl sm:text-3xl font-black text-emerald-800 mt-2">
+                    {activeCategory?.title || ""}
                   </h3>
                 </div>
-                <span className="text-xs bg-white text-slate-700 font-bold px-3 py-1.5 rounded-full border border-blue-200 shadow-inner">
-                  {certifications[activeTab].certificates.length} Document(s)
+
+                <span className="text-xs bg-white font-bold px-3 py-1.5 rounded-full border">
+                  {activeCategory?.certificates?.length || 0} Document(s)
                 </span>
+
               </div>
-              <p className="mt-4 text-slate-700 font-medium text-sm sm:text-base leading-relaxed">
-                {certifications[activeTab].description}
+
+              <p className="mt-4 text-slate-700 text-sm sm:text-base">
+                {activeCategory?.description || ""}
               </p>
             </div>
 
+            {/* IMAGES */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {certifications[activeTab].certificates.map((image, i) => (
+
+              {activeCategory?.certificates?.map((image, i) => (
                 <div
                   key={image + i}
                   onClick={() => handleImageClick(image)}
-                  className="group relative cursor-pointer overflow-hidden rounded-2xl border border-blue-200 bg-white p-2 shadow-sm hover:border-emerald-600/40 transition-all duration-300"
+                  className="cursor-pointer rounded-2xl border bg-white p-2 hover:border-emerald-600/40 transition-all"
                 >
-                  <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-slate-50 border border-blue-100">
+                  <div className="aspect-[4/3] relative overflow-hidden rounded-xl">
+
                     <img
                       src={image}
-                      alt={`${certifications[activeTab].title} Proof Document`}
-                      className="w-full h-full object-cover grayscale mix-blend-multiply contrast-105 brightness-95 group-hover:grayscale-0 group-hover:mix-blend-normal group-hover:brightness-100 group-hover:scale-[1.02] transition-all duration-500 ease-out"
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                      }}
+                      alt="Certificate"
+                      className="w-full h-full object-cover"
                     />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                      <span className="text-xs text-emerald-400 font-bold tracking-wide flex items-center gap-1">
-                        Click to Expand Viewer ↗
-                      </span>
-                    </div>
+
                   </div>
                 </div>
               ))}
+
             </div>
 
           </div>
-
         </div>
       </div>
 
+      {/* LIGHTBOX */}
       <Lightbox
         open={open}
         close={() => setOpen(false)}
