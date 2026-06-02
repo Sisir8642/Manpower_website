@@ -81,41 +81,7 @@ export default function ManpowerClient() {
                     </div>
                 </section>
             </div>
-            <div className=''>
-                <section className="relative z-20 mt-2 px-4">
-                    <div className="max-w-full mx-auto bg-gray-100 shadow-lg rounded-md p-4">
-                        <div className="flex flex-col md:flex-row items-center gap-4">
-
-                            {/* Search Keyword */}
-                            <div className="flex-1 w-full">
-                                <input
-                                    type="text"
-                                    placeholder="Search Keyword"
-                                    className="w-full px-4 py-3 rounded-md border border-gray-200 bg-white outline-none focus:ring-2 focus:ring-red-500"
-                                />
-                            </div>
-
-                            {/* Search Location */}
-                            <div className="flex-1 w-full relative">
-                                <input
-                                    type="text"
-                                    placeholder="Search Location"
-                                    className="w-full px-4 py-3 rounded-md border border-gray-200 bg-white outline-none focus:ring-2 focus:ring-red-500"
-                                />
-
-                                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-red-500">
-                                    📍
-                                </span>
-                            </div>
-
-                            {/* Button */}
-                            <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-md font-semibold transition-colors w-full md:w-auto">
-                                Search Jobs
-                            </button>
-                        </div>
-                    </div>
-                </section>
-            </div>
+            
         </>
     )
 }

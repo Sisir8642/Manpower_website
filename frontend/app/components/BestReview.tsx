@@ -69,10 +69,9 @@ const fadeUp: Variants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: easeOut, 
     },
   },
-};;
+};
 
 /* ================= STAT CARD ================= */
 const StatCard = ({ icon: Icon, value, label, isInView }: any) => {
@@ -119,7 +118,7 @@ const BestReview = () => {
             </section>
 
             {/* ================= WHY SECTION ================= */}
-            <section className="py-20 bg-gray-50 flex justify-center">
+            <section className="py-20 bg-[#F2F5FD] flex justify-center">
 
                 <div className="max-w-6xl w-full px-4">
 
