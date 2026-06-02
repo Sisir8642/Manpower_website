@@ -56,10 +56,11 @@ export default function IndustriesGrid() {
         />
       </div>
 
-      {/* FIND ELECTRA SECTION */}
-      <div
-  className="relative w-full bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: "url('/images/industry/location.jpg')" }}
+  <div
+  className="relative w-full bg-cover bg-center bg-no-repeat bg-fixed"
+  style={{
+    backgroundImage: "url('/images/industry/location.jpg')",
+  }}
 >
   {/* tri-color top bar */}
   <div className="absolute top-0 left-0 right-0 flex h-1.5 z-10">
@@ -92,21 +93,7 @@ export default function IndustriesGrid() {
           border: "1px solid rgba(255,255,255,0.15)",
         }}
       >
-        {/* badge row */}
-        <div className="flex flex-wrap gap-2 mb-5 justify-center md:justify-start">
-          <span className="text-xs font-semibold px-3 py-1 rounded-full"
-            style={{ background: "rgba(42,125,86,0.25)", color: "#4ade80", border: "1px solid rgba(42,125,86,0.4)" }}>
-            Nepal
-          </span>
-          <span className="text-xs font-semibold px-3 py-1 rounded-full"
-            style={{ background: "rgba(24,95,165,0.25)", color: "#60a5fa", border: "1px solid rgba(24,95,165,0.4)" }}>
-            Middle East
-          </span>
-          <span className="text-xs font-semibold px-3 py-1 rounded-full"
-            style={{ background: "rgba(235,35,42,0.2)", color: "#f87171", border: "1px solid rgba(235,35,42,0.35)" }}>
-            Europe
-          </span>
-        </div>
+       
 
         {/* heading */}
         <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-2">
@@ -120,7 +107,6 @@ export default function IndustriesGrid() {
           <div className="h-1 w-4 rounded-full bg-[#eb232a]" />
         </div>
 
-        {/* your exact paragraph */}
         <p className="text-gray-200 text-base md:text-lg leading-relaxed mb-6">
           Find Electra in your recruitment market. Electra Global Recruitment Pvt. Ltd. serves employers
           and job seekers across key international labour markets, connecting capable Nepali talent with
