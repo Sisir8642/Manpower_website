@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SliderImage, Slider,WhyUs,WhyUsItem,MessageChairperson
+from .models import SliderImage, Slider,WhyUs,WhyUsItem,MessageChairperson,Gallery,News
 # Register your models here.
 
 #slider images in home 
@@ -21,3 +21,7 @@ class WhyUsItemInline(admin.TabularInline):
 class WhyUs(admin.ModelAdmin):
     inlines = [WhyUsItemInline]
     list_display = ['id', 'description']
+
+
+admin.site.register(Gallery)
+admin.site.register(News)

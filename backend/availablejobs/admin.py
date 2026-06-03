@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import JobApplication
+from .models import JobApplication,JobDetail
 
 # Register your models here.
 @admin.register(JobApplication)
@@ -9,12 +9,11 @@ class JobApplication(admin.ModelAdmin):
         'name',
         'email',
         'phone_number',
-        'lot_no',
         'position',
-        'company',
-        'location',
         'applied_at',
     )
-    list_filter = (
-        'lot_no',
-    )
+    list_filter = [
+        'position'
+    ]
+
+admin.site.register(JobDetail)

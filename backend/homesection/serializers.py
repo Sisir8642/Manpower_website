@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Slider, SliderImage,WhyUsItem,WhyUs,Gallery
+from .models import Slider, SliderImage,WhyUsItem,WhyUs,Gallery,News
 
 class SliderImageSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,5 +30,9 @@ class GallerySerializer(serializers.ModelSerializer):
         model=Gallery
         fields='__all__'
 
+class NewsSerializer(serializers.ModelSerializer):
+    class Meat:
+        model=News
+        fields='__all__'
 
     

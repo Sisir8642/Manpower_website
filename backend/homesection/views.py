@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
-from .models import Slider,SliderImage,WhyUs,WhyUsItem,MessageChairperson,Gallery
+from .models import Slider,SliderImage,WhyUs,WhyUsItem,MessageChairperson,Gallery,News
 from rest_framework.parsers import MultiPartParser, FormParser
-from .serializers import SliderSerializer,SliderImageSerializer,WhyUsSerializer,GallerySerializer
+from .serializers import SliderSerializer,SliderImageSerializer,WhyUsSerializer,GallerySerializer,NewsSerializer
 
 class SliderViewSet(ModelViewSet):
     queryset = Slider.objects.filter(is_active=True)
@@ -21,6 +21,10 @@ class WhyUSViewSet(ModelViewSet):
 class GalleryViewSet(ModelViewSet):
     queryset=Gallery.objects.all()
     serializer_class=GallerySerializer
+
+class NewsViewSet(ModelViewSet):
+    queryset=News.objects.all()
+    serializer_class=NewsSerializer
 
 
 
