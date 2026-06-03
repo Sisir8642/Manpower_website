@@ -80,7 +80,6 @@ export default function ManpowerClient() {
                     </div>
                 </section>
             </div>
-            
         </>
     )
 }
