@@ -45,5 +45,26 @@ class WhyUsItem(models.Model):
     def __str__(self):
         return self.title
 
+class Gallery(models.Model):
+    images=models.ImageField(upload_to='gallery_images/')
 
 
+    def __str__(self):
+        return "GalleryImages"
+    
+STATUS_CHOICES=(
+    (0,'Un-Published'),
+    (1,'Published')
+)
+class News(models.Models):
+    title=models.CharField(max_length=250)
+    keywords=models.CharField(maxlength=250)
+    description=models.TextField()
+    image=models.ImageField(upload_to='News_Images',blank=True,null=True)
+    status=models.IntegerField(choices=STATUS_CHOICES,default=1)
+    created_at=models.DateTimeField(auto_now_add=True)
+    updated_at=models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):
+        return self.title

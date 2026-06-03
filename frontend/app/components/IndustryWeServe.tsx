@@ -50,9 +50,9 @@ export default function IndustriesGrid() {
         </h3>
         <div className="w-24 h-1 bg-[#eb232a] mx-auto mb-8 rounded-full" />
         <img
-          src="/images/industry/recruitment.png"
+          src="/images/industry/process.png"
           alt="Recruitment Process"
-          className="w-full h-auto rounded-2xl shadow-lg"
+          className="w-4/3  h-auto rounded-2xl shadow-lg"
         />
       </div>
 

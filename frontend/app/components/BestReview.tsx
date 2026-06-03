@@ -1,4 +1,3 @@
-
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 
@@ -69,10 +68,9 @@ const fadeUp: Variants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: easeOut, 
     },
   },
-};;
+};
 
 /* ================= STAT CARD ================= */
 const StatCard = ({ icon: Icon, value, label, isInView }: any) => {
