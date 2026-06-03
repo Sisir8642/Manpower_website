@@ -51,7 +51,7 @@ export default function ManpowerClient() {
                     <div className="absolute inset-0 bg-black/30 z-5"></div>
 
                     <div className="relative z-10 flex flex-col items-center justify-end h-full text-center px-4 pb-24 mt-4">
-                        <h2 className="text-5xl font-bold mb-2 text-white">
+                        <h2 className=" text-5xl  font-bold mb-2 text-white">
                             Nepal’s trust-driven ethical recruitment 
                             <br />
                             partner for responsible global employers- Connecting Talent.

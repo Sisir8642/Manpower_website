@@ -28,9 +28,7 @@ export default function LegalPageLayout({
 
       {/* ── HERO ── */}
       <section className="relative py-4 px-6 text-center ">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-amber-500/6 rounded-full blur-3xl" />
-        </div>
+      
         <div className="relative z-10 max-w-2xl mx-auto">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight text-red-600">
             {title}
