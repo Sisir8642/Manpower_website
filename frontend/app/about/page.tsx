@@ -87,17 +87,14 @@ export default function AboutPage() {
       <section className="relative  pb-12 px-6 sm:px-8">
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           
-          <div className="inline-flex items-center gap-2 border border-red-600/20 bg-red-500/10 text-red-700 text-xs font-bold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-6">
-            Company Registration No. 1850/082/083
-          </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black leading-[1.1] tracking-tight mb-4 text-slate-950">
+          <h1 className="text-4xl sm:text-6xl font-black leading-[1.1] tracking-tight mb-4 text-green-600">
             Electra{" "}
-            <span className="bg-gradient-to-r from-emerald-700 to-emerald-600 bg-clip-text text-transparent">
+            <span className="bg-red-600 bg-clip-text text-transparent">
               Global
             </span>
-            <br />
-            <span className="text-slate-700 text-2xl sm:text-4xl font-light tracking-widest block mt-2">
+            
+            <span className="text-blue-600  text-3xl sm:text-4xl font-light tracking-widest block mt-2">
               Recruitment
             </span>
           </h1>
@@ -117,9 +114,9 @@ export default function AboutPage() {
           
           <FadeIn>
             <div className="space-y-1 mb-6">
-              <p className="text-red-600 text-xs sm:text-sm font-extrabold tracking-[0.2em] uppercase">About Us</p>
-              <h2 className="text-3xl sm:text-4xl font-black leading-tight text-slate-950">
-                Who We <span className="text-emerald-700">Are</span>
+
+              <h2 className="text-3xl sm:text-4xl font-black leading-tight text-green-600">
+                Who <span className="text-red-600">We</span>  <span className="text-blue-600">Are</span>
               </h2>
             </div>
             
@@ -133,7 +130,7 @@ export default function AboutPage() {
               <p>
                 Electra Global prioritizes the dignity, safety, and welfare of workers while delivering efficient, compliant, and high-quality human resource solutions to employers. Supported by a robust management system, the company is committed to maintaining the highest standards of quality, transparency, and continuous improvement.
               </p>
-              <p className="text-slate-950 font-bold border-l-2 border-emerald-700 pl-3 mt-4 italic">
+              <p className="text-red-600 font-bold border-l-2 border-emerald-700 pl-3 mt-4 italic">
                 We strive to build long-term global partnerships based on trust, reliability, and mutual success creating sustainable opportunities for workers and delivering value to employers worldwide.
               </p>
             </div>

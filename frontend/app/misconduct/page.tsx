@@ -84,22 +84,19 @@ export default function MisconductPage() {
   }
 
   return (
-    <main className="bg-zinc-950 text-white font-sans overflow-x-hidden min-h-screen">
+    <main className="bg-[#E1F1E6] text-green-700 overflow-x-hidden min-h-screen">
 
-      <section className="relative py-28 px-6 text-center">
+      <section className="relative py-8 px-6 text-center">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-emerald-500/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-teal-500/5 rounded-full blur-3xl" />
+
+         
         </div>
         <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 border border-emerald-400/30 bg-emerald-400/5 text-emerald-400 text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Integrity & Accountability
-          </div>
+          
           <h1 className="text-4xl sm:text-6xl font-extrabold mb-5 tracking-tight leading-tight">
-            Misconduct <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Reporting</span>
+            Misconduct <span className="text-red-600">Reporting</span>
           </h1>
-          <p className="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-black text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Electra is committed to a recruitment environment grounded in integrity, dignity, and respect.
             We encourage anyone — workers, employees, employers, or partners — to report suspected
             misconduct through our safe and accessible reporting mechanism.
@@ -109,8 +106,8 @@ export default function MisconductPage() {
 
       <section className="px-6 pb-20 max-w-5xl mx-auto">
         <FadeIn className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight">What Can Be <span className="text-emerald-400">Reported</span></h2>
-          <p className="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight">What Can Be <span className="text-red-600">Reported</span></h2>
+          <p className="text-black text-xs sm:text-sm max-w-xl mx-auto">
             Reports may relate to conduct at any stage — recruitment, documentation, deployment,
             post-employment support, office operations, or any interaction connected with Electra's services.
           </p>
@@ -118,30 +115,30 @@ export default function MisconductPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {misconductExamples.map((item, i) => (
             <FadeIn key={item.label} delay={i * 50}>
-              <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 flex items-start gap-3 hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all duration-300 h-full shadow-md shadow-zinc-950/10">
+              <div className="bg-[#F1F6FE] border border-zinc-800 rounded-2xl p-5 flex items-start gap-3 hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all duration-300 h-full shadow-md shadow-zinc-950/10">
                 <span className="text-xl flex-shrink-0 mt-0.5">{item.icon}</span>
-                <p className="text-zinc-300 text-xs leading-snug font-medium tracking-wide">{item.label}</p>
+                <p className="text-black text-xs leading-snug font-medium tracking-wide">{item.label}</p>
               </div>
             </FadeIn>
           ))}
         </div>
       </section>
 
-      <section className="px-6 py-20 bg-zinc-900/30 border-y border-zinc-900 backdrop-blur-sm">
+      <section className="px-6 py-2 bg-[#E1F1E6]  backdrop-blur-sm">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight">Our <span className="text-emerald-400">Commitment</span></h2>
-            <p className="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight">Our <span className="text-red-600">Commitment</span></h2>
+            <p className="text-black text-xs sm:text-sm max-w-xl mx-auto">
               Every report submitted to Electra is handled with the following principles — no exceptions.
             </p>
           </FadeIn>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {commitments.map((c, i) => (
               <FadeIn key={c.title} delay={i * 60}>
-                <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-6 h-full hover:border-emerald-400/30 transition-colors duration-300 shadow-md shadow-zinc-950/20">
+                <div className="bg-[#F1F6FE] border border-zinc-800 rounded-2xl p-6 h-full hover:border-emerald-400/30 transition-colors duration-300 shadow-md shadow-zinc-950/20">
                   <div className="text-2xl mb-3">{c.icon}</div>
-                  <h3 className="text-white font-bold text-sm mb-2 tracking-wide">{c.title}</h3>
-                  <p className="text-zinc-400 text-xs leading-relaxed">{c.desc}</p>
+                  <h3 className="text-blue-600 font-bold text-sm mb-2 tracking-wide">{c.title}</h3>
+                  <p className="text-black text-xs leading-relaxed">{c.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -151,8 +148,8 @@ export default function MisconductPage() {
 
       <section className="px-6 py-20 max-w-5xl mx-auto">
         <FadeIn className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight">Reporting <span className="text-emerald-400">Channels</span></h2>
-          <p className="text-zinc-400 text-xs sm:text-sm max-w-xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight">Reporting <span className="text-red-600">Channels</span></h2>
+          <p className="text-black text-xs sm:text-sm max-w-xl mx-auto">
             Use whichever channel you feel most comfortable with. All reports are treated equally.
           </p>
         </FadeIn>
@@ -161,147 +158,24 @@ export default function MisconductPage() {
             const col = colorConfig[ch.color];
             return (
               <FadeIn key={ch.label} delay={i * 60}>
-                <div className={`border ${col.border} ${col.bg} rounded-2xl p-6 h-full shadow-md shadow-zinc-950/10`}>
-                  <div className="text-2xl mb-3">{ch.icon}</div>
-                  <h3 className={`font-bold text-sm mb-2 tracking-wide ${col.text}`}>{ch.label}</h3>
-                  <p className="text-zinc-400 text-xs leading-relaxed">{ch.desc}</p>
-                </div>
+                <div className="border border-blue-500/30 bg-[#F1F6FE] rounded-2xl p-6 h-full shadow-md shadow-zinc-950/10">
+  <div className="text-2xl mb-3">{ch.icon}</div>
+
+  <h3 className="font-bold text-sm mb-2 tracking-wide text-blue-600">
+    {ch.label}
+  </h3>
+
+  <p className="text-xs leading-relaxed text-black">
+    {ch.desc}
+  </p>
+</div>
               </FadeIn>
             );
           })}
         </div>
       </section>
 
-      <section className="px-6 py-20 bg-zinc-900/30 border-t border-zinc-900 backdrop-blur-sm">
-        <div className="max-w-2xl mx-auto">
-          <FadeIn className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-extrabold mb-3 tracking-tight">Submit a <span className="text-emerald-400">Report</span></h2>
-            <p className="text-zinc-400 text-xs sm:text-sm">You may report anonymously. Fields marked * are required for non-anonymous submissions.</p>
-          </FadeIn>
-
-          {status === "success" ? (
-            <FadeIn>
-              <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-10 text-center shadow-lg shadow-emerald-950/10">
-                <div className="text-5xl mb-4">✅</div>
-                <h3 className="text-emerald-400 font-bold text-xl mb-2 tracking-wide">Report Received</h3>
-                <p className="text-zinc-400 text-sm leading-relaxed max-w-sm mx-auto">
-                  Your report has been submitted securely. Electra will review it with full confidentiality
-                  and take appropriate internal action based on its nature and seriousness.
-                </p>
-              </div>
-            </FadeIn>
-          ) : (
-            <FadeIn>
-              <form onSubmit={handleSubmit} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-5 shadow-xl shadow-zinc-950/30">
-
-                <div className="flex items-center justify-between bg-zinc-950 border border-zinc-800 rounded-xl px-5 py-3.5">
-                  <div>
-                    <p className="text-white text-sm font-semibold tracking-wide">Report Anonymously</p>
-                    <p className="text-zinc-500 text-xs">Your personal details will not be required or recorded.</p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => setForm((p) => ({ ...p, anonymous: !p.anonymous }))}
-                    className={`relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none ${form.anonymous ? "bg-emerald-500" : "bg-zinc-700"}`}
-                  >
-                    <span className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all duration-200 ${form.anonymous ? "left-6" : "left-1"}`} />
-                  </button>
-                </div>
-
-                {!form.anonymous && (
-                  <>
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Full Name *</label>
-                        <input required={!form.anonymous} name="name" value={form.name} onChange={handleChange} placeholder="Your full name"
-                          className="w-full bg-zinc-950 border border-zinc-800 focus:border-emerald-500/50 outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 transition-colors duration-200" />
-                      </div>
-                      <div>
-                        <label className="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Email Address *</label>
-                        <input required={!form.anonymous} type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com"
-                          className="w-full bg-zinc-950 border border-zinc-800 focus:border-emerald-500/50 outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 transition-colors duration-200" />
-                      </div>
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <div>
-                        <label className="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Phone Number</label>
-                        <input name="phone" value={form.phone} onChange={handleChange} placeholder="+977 XXXXXXXXXX"
-                          className="w-full bg-zinc-950 border border-zinc-800 focus:border-emerald-500/50 outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 transition-colors duration-200" />
-                      </div>
-                      <div>
-                        <label className="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">I am a *</label>
-                        <select required={!form.anonymous} name="role" value={form.role} onChange={handleChange}
-                          className="w-full bg-zinc-950 border border-zinc-800 focus:border-emerald-500/50 outline-none rounded-xl px-4 py-3 text-sm text-white transition-colors duration-200">
-                          <option value="" disabled>Select…</option>
-                          <option>Worker / Job Seeker</option>
-                          <option>Electra Employee</option>
-                          <option>Employer / Partner</option>
-                          <option>Family Member</option>
-                          <option>Witness / Other</option>
-                        </select>
-                      </div>
-                    </div>
-                  </>
-                )}
-
-                <div>
-                  <label className="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Category of Misconduct *</label>
-                  <select required name="category" value={form.category} onChange={handleChange}
-                    className="w-full bg-zinc-950 border border-zinc-800 focus:border-emerald-500/50 outline-none rounded-xl px-4 py-3 text-sm text-white transition-colors duration-200">
-                    <option value="" disabled>Select a category…</option>
-                    <option>Bribery / Fraud / Financial Misconduct</option>
-                    <option>Misrepresentation of Job / Recruitment Information</option>
-                    <option>Harassment / Discrimination / Abusive Conduct</option>
-                    <option>Exploitation or Coercion of Workers</option>
-                    <option>Document Falsification / Mishandling</option>
-                    <option>Breach of Confidentiality</option>
-                    <option>Policy or Ethical Standard Violation</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Subject *</label>
-                  <input required name="subject" value={form.subject} onChange={handleChange} placeholder="Brief subject of the misconduct report"
-                    className="w-full bg-zinc-950 border border-zinc-800 focus:border-emerald-500/50 outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 transition-colors duration-200" />
-                </div>
-
-                <div>
-                  <label className="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Detailed Description *</label>
-                  <textarea required name="description" value={form.description} onChange={handleChange} rows={5}
-                    placeholder="Describe the misconduct in as much detail as possible — including what happened, who was involved, when, and where…"
-                    className="w-full bg-zinc-950 border border-zinc-800 focus:border-emerald-500/50 outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 transition-colors duration-200 resize-none" />
-                </div>
-
-                <div>
-                  <label className="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Supporting Evidence (Optional)</label>
-                  <textarea name="evidence" value={form.evidence} onChange={handleChange} rows={2}
-                    placeholder="Describe any evidence you have (documents, screenshots, witnesses, dates, etc.)"
-                    className="w-full bg-zinc-950 border border-zinc-800 focus:border-emerald-500/50 outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 transition-colors duration-200 resize-none" />
-                </div>
-
-                <div className="flex items-start gap-3 pt-2">
-                  <input type="checkbox" name="consent" checked={form.consent} onChange={handleChange} required
-                    className="mt-1 accent-emerald-500 w-4 h-4 flex-shrink-0 rounded border-zinc-800 bg-zinc-950 focus:ring-emerald-500/30" />
-                  <label className="text-zinc-400 text-xs leading-relaxed select-none cursor-pointer">
-                    I confirm that this report is submitted in good faith and to the best of my knowledge. I understand that
-                    Electra will handle this report with confidentiality and take appropriate action based on the findings.
-                  </label>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 disabled:opacity-60 text-zinc-950 font-bold py-3.5 rounded-xl transition-all duration-200 hover:scale-[1.01] shadow-lg shadow-emerald-950/20 mt-4"
-                >
-                  {status === "submitting" ? "Submitting Report…" : "Submit Misconduct Report"}
-                </button>
-              </form>
-            </FadeIn>
-          )}
-        </div>
-      </section>
-
+      
     </main>
   );
 }

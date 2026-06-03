@@ -157,7 +157,7 @@ export default function FAQPage() {
         <div className="relative z-10 max-w-2xl mx-auto">
         
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-5">
-            Frequently Asked <span className="bg-red-600 bg-clip-text text-transparent">Questions</span>
+           <span className="text-emerald-700"> Frequently</span> Asked <span className="bg-red-600 bg-clip-text text-transparent">Questions</span>
           </h1>
           <p className="text-black leading-relaxed mb-10">
             Clear, practical answers to common queries from workers, employers, and stakeholders.
@@ -170,7 +170,7 @@ export default function FAQPage() {
       </section>
 
       {/* ── CONTENT ── */}
-      <section className="px-6 pb-2 max-w-3xl mx-auto">
+      <section className="px-6 pb-20 max-w-3xl mx-auto">
 
         <div className="flex flex-wrap gap-2 justify-center mb-10">
           {categories.map((cat) => (
@@ -204,18 +204,6 @@ export default function FAQPage() {
           </div>
         )}
 
-        <FadeIn className="mt-14">
-          <div className="border border-dashed border-slate-700 rounded-2xl p-8 text-center">
-            <p className="text-black font-bold text-lg mb-2">Still have questions?</p>
-            <p className="text-black text-sm mb-6">Our team is happy to help with any specific queries.</p>
-            <a
-              href="/contact"
-              className="inline-block bg-blue-400 hover:bg-blue-300 text-slate-950 font-bold px-7 py-3 rounded-xl transition-all duration-200 hover:scale-105"
-            >
-              Contact Us
-            </a>
-          </div>
-        </FadeIn>
       </section>
     </main>
   );

@@ -118,8 +118,8 @@ const Commitments = () => {
         
         <FadeIn className="text-center mb-16">
     
-          <h2 className="text-4xl sm:text-5xl font-black text-slate-950 tracking-tight">
-            Our Five-Pillar <span className="text-emerald-700">Commitments</span>
+          <h2 className="text-4xl sm:text-5xl font-black text-emerald-700 tracking-tight">
+            Our Five-Pillar <span className="text-red-600">Commitments</span>
           </h2>
           <div className="w-12 h-1 bg-emerald-700 mx-auto mt-4 mb-6 rounded-full" />
           <p className="text-slate-800 font-semibold max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
@@ -143,7 +143,7 @@ const Commitments = () => {
                       {p.number}
                     </span>
                   </div>
-                  <h3 className="text-slate-950 font-black text-base sm:text-lg mb-3 tracking-tight leading-snug group-hover:text-emerald-700 transition-colors">
+                  <h3 className="text-blue-600 font-black text-base sm:text-lg mb-3 tracking-tight leading-snug group-hover:text-emerald-700 transition-colors">
                     {p.title}
                   </h3>
                 </div>
@@ -154,25 +154,7 @@ const Commitments = () => {
             </FadeIn>
           ))}
 
-          <FadeIn delay={pillars.length * 80}>
-            <div className="bg-emerald-700 border border-emerald-800 rounded-3xl p-6 sm:p-7 flex flex-col justify-center items-center text-center h-full shadow-md text-white group relative overflow-hidden">
-              <div className="absolute -right-6 -bottom-6 text-9xl text-emerald-600/20 font-black pointer-events-none select-none">
-                ★
-              </div>
-              <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-2xl mb-4 shadow-inner">
-                🏅
-              </div>
-              <p className="text-emerald-300 font-black text-xs tracking-widest uppercase">
-                One-Stop Partner
-              </p>
-              <h4 className="text-white font-black text-lg mt-1 mb-2 tracking-tight">
-                Committed to Responsible Recruitment
-              </h4>
-              <p className="text-emerald-50/90 font-medium text-xs sm:text-sm leading-relaxed">
-                Seamless end-to-end personnel mobilization pipelines delivering lawful and hassle-free global deployment under a single deployment structure.
-              </p>
-            </div>
-          </FadeIn>
+          
         </div>
 
       </section>

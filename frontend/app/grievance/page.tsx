@@ -36,11 +36,7 @@ const channels = [
     value: "grievance.electraglobal@gmail.com",
     desc: "Send a detailed written complaint to our dedicated grievance inbox.",
     action: { label: "Send Email", href: "mailto:grievance.electraglobal@gmail.com" },
-<<<<<<< HEAD
     color: "green",
-=======
-    color: "emerald",
->>>>>>> 20b1f1b3b087ec414990b055e966b7c7afc50a87
   },
   {
     icon: "📞",
@@ -92,17 +88,12 @@ const principles = [
 ];
 
 const colorConfig: Record<string, { border: string; bg: string; text: string }> = {
-<<<<<<< HEAD
   green:  { border: "border-green-400/25",  bg: "bg-green-400/5",  text: "text-green-400" },
   sky:    { border: "border-sky-400/25",    bg: "bg-sky-400/5",    text: "text-sky-400" },
   emerald:{ border: "border-emerald-400/25",bg: "bg-emerald-400/5",text: "text-emerald-400" },
   violet: { border: "border-violet-400/25", bg: "bg-violet-400/5", text: "text-violet-400" },
   rose:   { border: "border-rose-400/25",   bg: "bg-rose-400/5",   text: "text-rose-400" },
   teal:   { border: "border-teal-400/25",   bg: "bg-teal-400/5",   text: "text-teal-400" },
-=======
-  emerald: { border: "border-emerald-500/20", bg: "bg-emerald-500/5", text: "text-emerald-400" },
-  teal:    { border: "border-teal-500/20",    bg: "bg-teal-500/5",    text: "text-teal-400" },
->>>>>>> 20b1f1b3b087ec414990b055e966b7c7afc50a87
 };
 
 type FormState = "idle" | "submitting" | "success" | "error";
@@ -124,23 +115,20 @@ export default function GrievancePage() {
   }
 
   return (
-    <main className="  font-sans overflow-x-hidden">
+    <main className="  font-sans overflow-x-hidden bg-[#E1F1E6]">
 
       {/* ── HERO ── */}
-      <section className="relative py-8 px-6 text-center">
+      <section className="relative py-8 px-6 text-center bg-[#E1F1E6]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-emerald-500/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-teal-500/5 rounded-full blur-3xl" />
+         
+       
         </div>
         <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 border border-green-400/30 bg-green-400/5 text-green-400 text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            Worker & Stakeholder Support
-          </div>
-          <h1 className="text-5xl sm:text-6xl font-extrabold mb-5">
-            Grievance <span className="bg-green-600 bg-clip-text text-transparent">Support</span>
+        
+          <h1 className="text-5xl sm:text-6xl font-extrabold mb-5 text-emerald-700">
+            Grievance <span className="bg-red-600 bg-clip-text text-transparent">Support</span>
           </h1>
-          <p className="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-black text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Electra is committed to a safe, transparent, and accountable recruitment environment.
             If you have a concern — at any stage of your recruitment or employment journey —
             we are here to listen, review, and act responsibly.
@@ -148,15 +136,15 @@ export default function GrievancePage() {
         </div>
       </section>
 
-      <section className="px-6 pb-20 max-w-5xl mx-auto">
+      <section className="px-6 pb-20 max-w-5xl mx-auto bg-[#E1F1E6]">
         <FadeIn className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold mb-3">How We Handle <span className="text-green-400">Grievances</span></h2>
-          <p className="text-slate-400 text-sm max-w-xl mx-auto">Every concern submitted through Electra's channels is treated with the following principles:</p>
+          <h2 className="text-3xl font-extrabold mb-3">How We Handle <span className="text-emerald-700">Grievances</span></h2>
+          <p className="text-black text-sm max-w-xl mx-auto">Every concern submitted through Electra's channels is treated with the following principles:</p>
         </FadeIn>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {principles.map((p, i) => (
             <FadeIn key={p.title} delay={i * 70}>
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center h-full hover:border-green-400/30 transition-colors duration-300">
+              <div className="bg-[#EFF7FE] border border-slate-800 rounded-2xl p-6 text-center h-full">
                 <div className="text-3xl mb-3">{p.icon}</div>
                 <h3 className="text-black font-bold text-sm mb-2">{p.title}</h3>
                 <p className="text-slate-400 text-xs leading-relaxed">{p.desc}</p>
@@ -166,11 +154,11 @@ export default function GrievancePage() {
         </div>
       </section>
 
-      <section className="px-6 py-20 bg-zinc-900/30 border-y border-zinc-900 backdrop-blur-sm">
+      <section className="px-6 py-2 bg-[#E1F1E6]  backdrop-blur-sm">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold mb-3">Reporting <span className="text-green-400">Channels</span></h2>
-            <p className="text-slate-400 text-sm max-w-xl mx-auto">
+            <h2 className="text-3xl font-extrabold mb-3 text-emerald-700">Reporting <span className="text-red-600">Channels</span></h2>
+            <p className="text-black text-sm max-w-xl mx-auto">
               Choose the channel that is most accessible and comfortable for you. All channels are monitored regularly.
             </p>
           </FadeIn>

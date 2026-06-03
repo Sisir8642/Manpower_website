@@ -112,7 +112,7 @@ const sections = [
           { label: "Grievance Handling & Resolution", desc: "To receive, review, investigate, communicate, and follow up on complaints, concerns, or grievances submitted through Electra's official channels." },
           { label: "Website Improvement & Security", desc: "To maintain website functionality, improve user experience, monitor technical performance, prevent misuse, and enhance the reliability of digital services." },
         ].map((item) => (
-          <div key={item.label} className=" border border-blue-800 rounded-xl p-4">
+          <div key={item.label} className=" border border-blue-800 rounded-xl p-4 bg-[#F1F6FE]">
             <p className="text-green-800 font-semibold text-xs mb-1">{item.label}</p>
             <p>{item.desc}</p>
           </div>

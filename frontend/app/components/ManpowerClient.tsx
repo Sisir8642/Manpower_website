@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 import React, { useEffect, useState } from 'react'
 
 export default function ManpowerClient() {
@@ -57,7 +58,13 @@ export default function ManpowerClient() {
                             partner for responsible global employers- Connecting Talent.
                             
                         </h2>
-
+<div className="flex flex-wrap justify-center gap-4 mt-2">
+  <Link href="/vacancy">
+    <button className="bg-red-500 text-white px-8 py-3 rounded-lg font-semibold hover:cursor-pointer hover:bg-red-600 transition-colors">
+      Apply Now
+    </button>
+  </Link>
+</div>
                     </div>
 
                     <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-10">
