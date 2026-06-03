@@ -48,11 +48,11 @@ const GlobalEmployer = () => {
         
         {/* Header Block */}
         <FadeIn className="text-center mb-16">
-          <p className="text-rose-600 text-xs sm:text-sm font-black tracking-[0.2em] uppercase mb-3">
+          <p className="text-blue-600 text-xs sm:text-sm font-black tracking-[0.2em] uppercase mb-3">
             For Global Employers
           </p>
-          <h2 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight tracking-tight mb-4">
-            Employer <span className="text-emerald-700">Services</span>
+          <h2 className="text-4xl sm:text-5xl font-black text-green-600 leading-tight tracking-tight mb-4">
+            Employer <span className="text-red-600">Services</span>
           </h2>
           <div className="w-12 h-1 bg-emerald-700 mx-auto mt-2 mb-6 rounded-full" />
           <p className="text-slate-700 max-w-2xl mx-auto font-medium leading-relaxed text-[15px]">
@@ -77,7 +77,7 @@ const GlobalEmployer = () => {
                   </span>
                 </div>
 
-                <h3 className="text-slate-950 font-extrabold text-base mb-2 group-hover:text-emerald-700 transition-colors duration-300 leading-snug">
+                <h3 className="text-blue-600 font-extrabold text-base mb-2 group-hover:text-emerald-700 transition-colors duration-300 leading-snug">
                   {s.title}
                 </h3>
                 

@@ -8,8 +8,8 @@ const leaders = [
   {
     name: 'Ms Shweta Chauhan',
     role: 'Chairperson',
-    image: '/images/chairperson.jpg',
-    color: '#1a56db',        // blue
+    image: '/images/chairperson.jpeg',
+        
     accent: '#93c5fd',
     dotColor: '#3b82f6',
     quotes: [
@@ -21,8 +21,8 @@ const leaders = [
   {
     name: 'Ms Karuna Thapa',
     role: 'Managing Director',
-    image: '/images/managing-director.jpg',
-    color: '#16a34a',        // green
+    image: '/images/MD.jpeg',
+         // green
     accent: '#86efac',
     dotColor: '#22c55e',
     quotes: [
@@ -70,7 +70,7 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
             className="relative"
           >
             {/* Photo card */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl"
+            <div className="relative rounded-3xl overflow-hidden "
               style={{ background: leader.color }}>
               <div className="relative h-72 md:h-96 overflow-hidden">
                 <motion.img
@@ -79,13 +79,11 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
                   style={{ y }}
                   className="w-full h-full object-cover object-top scale-110"
                 />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0"
-                  style={{ background: `linear-gradient(to top, ${leader.color}ee 0%, transparent 60%)` }} />
+               
               </div>
-              <div className="px-6 py-5 text-white">
-                <h3 className="text-2xl font-bold tracking-tight">{leader.name}</h3>
-                <p className="text-sm mt-1 opacity-70 font-medium uppercase tracking-widest">{leader.role}</p>
+              <div className="px-6 py- text-white">
+                <h3 className="text-2xl text-black font-bold tracking-tight">{leader.name}</h3>
+                <p className="text-sm mt-1 opacity-70  uppercase tracking-widest text-black font-bold tracking-tight">{leader.role}</p>
               </div>
 
               {/* Floating particles on card */}
@@ -135,7 +133,7 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl"
+            <div className="relative rounded-3xl overflow-hidden "
               style={{ background: leader.color }}>
               <div className="relative h-72 md:h-96 overflow-hidden">
                 <motion.img
@@ -144,10 +142,9 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
                   style={{ y }}
                   className="w-full h-full object-cover object-top scale-110"
                 />
-                <div className="absolute inset-0"
-                  style={{ background: `linear-gradient(to top, ${leader.color}ee 0%, transparent 60%)` }} />
+                
               </div>
-              <div className="px-6 py-5 text-white">
+              <div className="px-6 py-1 text-black">
                 <h3 className="text-2xl font-bold tracking-tight">{leader.name}</h3>
                 <p className="text-sm mt-1 opacity-70 font-medium uppercase tracking-widest">{leader.role}</p>
               </div>
@@ -210,9 +207,7 @@ function QuoteContent({ leader, direction }: { leader: typeof leaders[0]; direct
         className="inline-flex items-center gap-2 mt-6 px-4 py-2 rounded-full text-sm font-semibold text-white"
         style={{ background: leader.color }}
       >
-        <span>— {leader.name}</span>
-        <span className="opacity-60">·</span>
-        <span className="opacity-80">{leader.role}</span>
+       
       </motion.div>
     </motion.div>
   );
@@ -296,13 +291,7 @@ export default function LeadershipTimeline() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex justify-center mt-20"
         >
-          <div className="flex items-center gap-3 px-6 py-3 rounded-full border-2 text-sm font-semibold"
-            style={{ borderColor: '#ef4444', color: '#ef4444', background: '#fff1f2' }}>
-            <motion.span animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-              ❤
-            </motion.span>
-            Together, We Connect Talent to Global Opportunity
-          </div>
+          
         </motion.div>
       </div>
     </section>

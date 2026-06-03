@@ -148,99 +148,30 @@ export default function NewsPage() {
   });
 
   return (
-    <main className="bg-zinc-950 text-white font-sans overflow-x-hidden">
+    <main className="bg-[#E1F1E6] text-red-600 ">
 
-      <section className="relative py-28 px-6 text-center">
+      <section className="relative py-4 px-6 text-center">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-emerald-500/10 rounded-full blur-3xl" />
+          <div className="  bg-[#E1F1E6]  " />
         </div>
         <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 border border-emerald-400/30 bg-emerald-400/5 text-emerald-400 text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Updates & Insights
-          </div>
-          <h1 className="text-5xl sm:text-6xl font-extrabold mb-5 tracking-tight">
-            News &{" "}
-            <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+          
+          <h1 className="text-5xl sm:text-6xl font-extrabold mb-5 tracking-tight text-emerald-700">
+            News <span className="text-black"> &</span> {" "}
+            <span className=" text-red-600">
               Blogs
             </span>
           </h1>
-          <p className="text-zinc-400 max-w-xl mx-auto text-sm sm:text-base leading-relaxed mb-10">
+          <p className="text-black max-w-xl mx-auto text-sm sm:text-base leading-relaxed mb-10">
             Official news, announcements, and expert insights on ethical recruitment, safe migration,
             worker rights, overseas job trends, and Electra's latest activities.
           </p>
 
-          <div className="relative max-w-lg mx-auto">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500">
-              <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search articles…"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-zinc-900 border border-zinc-800 focus:border-emerald-500/40 outline-none rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-zinc-500 transition-colors duration-200"
-            />
-          </div>
+     
         </div>
       </section>
 
-      {active === "All" && search === "" && (
-        <section className="px-6 pb-16 max-w-6xl mx-auto">
-          <FadeIn className="mb-6">
-            <p className="text-zinc-500 text-xs uppercase tracking-widest font-bold">Featured Insights</p>
-          </FadeIn>
-          <div className="grid md:grid-cols-2 gap-6">
-            {featured.map((post, i) => {
-              const col = colorConfig[post.color];
-              return (
-                <FadeIn key={post.id} delay={i * 100}>
-                  <div className={`border ${col.border} ${col.bg} rounded-2xl p-7 h-full flex flex-col group hover:-translate-y-1 transition-transform duration-300 cursor-pointer shadow-md shadow-zinc-950/40`}>
-                    <div className="flex items-center justify-between gap-3 mb-5">
-                      <span className={`text-xs font-bold border px-3 py-1 rounded-full ${col.badge}`}>
-                        {typeIcons[post.type]} {post.tag}
-                      </span>
-                      <span className="text-zinc-500 text-xs font-medium">{post.date}</span>
-                    </div>
-                    <h2 className={`text-xl font-extrabold leading-snug mb-3 group-hover:${col.text} transition-colors duration-200 text-zinc-100`}>
-                      {post.title}
-                    </h2>
-                    <p className="text-zinc-400 text-sm leading-relaxed flex-1 mb-5">{post.excerpt}</p>
-                    <div className="flex items-center justify-between pt-2 border-t border-zinc-800/40">
-                      <span className="text-zinc-500 text-xs font-medium">{post.readTime}</span>
-                      <span className={`text-xs font-bold ${col.text} tracking-wide`}>Read more →</span>
-                    </div>
-                  </div>
-                </FadeIn>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      <section className="px-6 pb-8 max-w-6xl mx-auto">
-        <FadeIn>
-          <div className="flex flex-wrap gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActive(cat)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200 ${
-                  active === cat
-                    ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-400 shadow-md shadow-emerald-950/20"
-                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white"
-                }`}
-              >
-                {cat !== "All" && typeIcons[cat]}
-                {cat}
-                <span className="text-xs opacity-50 ml-0.5">
-                  {cat === "All" ? posts.length : posts.filter((p) => p.type === cat).length}
-                </span>
-              </button>
-            ))}
-          </div>
-        </FadeIn>
-      </section>
+  
 
       <section className="px-6 pb-24 max-w-6xl mx-auto">
         {filtered.length > 0 ? (
@@ -249,29 +180,27 @@ export default function NewsPage() {
               const col = colorConfig[post.color];
               return (
                 <FadeIn key={post.id} delay={i * 60}>
-                  <div className="group bg-zinc-900/40 border border-zinc-900 rounded-2xl overflow-hidden h-full flex flex-col hover:border-emerald-500/30 hover:-translate-y-1 transition-all duration-300 cursor-pointer shadow-md shadow-zinc-950/20">
+                  <div className="group bg-[#F3F5FC] border border-zinc-900 rounded-2xl overflow-hidden h-full flex flex-col hover:border-emerald-500/30 hover:-translate-y-1 transition-all duration-300 cursor-pointer shadow-md shadow-zinc-950/20">
                     {/* Visual Container */}
                     <div className={`h-44 bg-gradient-to-br ${col.bg} border-b border-zinc-900 flex items-center justify-center relative`}>
                       <div className="text-center text-zinc-600">
                         <div className="text-4xl mb-1 opacity-30">{typeIcons[post.type]}</div>
                         <p className="text-xs opacity-30 tracking-wide font-medium">Cover image slot</p>
                       </div>
-                      <span className={`absolute top-4 left-4 text-xs font-bold border px-3 py-1 rounded-full ${col.badge}`}>
-                        {post.tag}
-                      </span>
+                   
                     </div>
 
                     <div className="p-6 flex flex-col flex-1">
-                      <div className="flex items-center gap-3 mb-3 text-xs text-zinc-500 font-medium">
+                      <div className="flex items-center gap-3 mb-3 text-xs text-blue-600 font-medium">
                         <span>{post.date}</span>
                         <span>·</span>
                         <span>{post.readTime}</span>
                       </div>
-                      <h3 className="text-zinc-200 font-bold text-base leading-snug mb-3 group-hover:text-emerald-400 transition-colors duration-200 flex-1">
+                      <h3 className="text-black font-bold text-base leading-snug mb-3 flex-1">
                         {post.title}
                       </h3>
-                      <p className="text-zinc-400 text-xs leading-relaxed mb-5">{post.excerpt}</p>
-                      <span className={`text-xs font-bold ${col.text} mt-auto`}>Read more →</span>
+                      <p className="text-black text-xs leading-relaxed mb-5">{post.excerpt}</p>
+                      <span className="text-red-600">Read more →</span>
                     </div>
                   </div>
                 </FadeIn>
@@ -286,17 +215,7 @@ export default function NewsPage() {
           </div>
         )}
 
-        <FadeIn className="mt-16">
-          <div className="border border-dashed border-zinc-800 bg-zinc-900/10 rounded-2xl p-10 text-center">
-            <div className="text-4xl mb-4 opacity-60">✍️</div>
-            <h3 className="text-zinc-200 font-bold text-lg mb-2">More Articles Coming Soon</h3>
-            <p className="text-zinc-400 text-sm max-w-md mx-auto leading-relaxed">
-              Electra regularly publishes news, recruitment insights, safe migration guides, and
-              industry updates. Connect the posts above to your CMS or replace them with real
-              content as your publishing cycle begins.
-            </p>
-          </div>
-        </FadeIn>
+      
       </section>
 
     </main>

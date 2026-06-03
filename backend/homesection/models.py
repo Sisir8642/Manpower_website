@@ -56,9 +56,9 @@ STATUS_CHOICES=(
     (0,'Un-Published'),
     (1,'Published')
 )
-class News(models.Models):
+class News(models.Model):
     title=models.CharField(max_length=250)
-    keywords=models.CharField(maxlength=250)
+    keywords=models.CharField(max_length=250)
     description=models.TextField()
     image=models.ImageField(upload_to='News_Images',blank=True,null=True)
     status=models.IntegerField(choices=STATUS_CHOICES,default=1)

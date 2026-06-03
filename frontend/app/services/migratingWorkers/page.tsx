@@ -73,16 +73,16 @@ const MigratingWorkers = () => {
   const [activeWorkerTab, setActiveWorkerTab] = useState(0);
 
   return (
-    <div className="bg-[#E1F1E6] text-slate-900 font-sans py-20 overflow-x-hidden">
+    <div className="bg-[#E1F1E6] text-blue-600 font-sans py-20 overflow-x-hidden">
       <section className="px-6 max-w-6xl mx-auto">
         
         {/* Header Block */}
         <FadeIn className="text-center mb-16">
-          <p className="text-rose-600 text-xs sm:text-sm font-black tracking-[0.2em] uppercase mb-3">
+          <p className="text-blue-600 text-xs sm:text-sm font-black tracking-[0.2em] uppercase mb-3">
             For Migrating Workers
           </p>
-          <h2 className="text-4xl sm:text-5xl font-black text-slate-950 leading-tight tracking-tight mb-4">
-            Worker <span className="text-emerald-700">Services</span>
+          <h2 className="text-4xl sm:text-5xl font-black text-green-600 leading-tight tracking-tight mb-4">
+            Worker <span className="text-red-600">Services</span>
           </h2>
           <div className="w-12 h-1 bg-emerald-700 mx-auto mt-2 mb-6 rounded-full" />
           <p className="text-slate-700 max-w-2xl mx-auto font-medium leading-relaxed text-[15px]">
@@ -103,7 +103,7 @@ const MigratingWorkers = () => {
                   className={`flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-bold border transition-all duration-300 shadow-sm ${
                     active
                       ? "bg-white text-emerald-700 border-emerald-600/30 scale-[1.02]"
-                      : "bg-white/40 border-blue-200/60 text-slate-700 hover:bg-white/80 hover:text-slate-950"
+                      : "bg-white/40 border-blue-200/60 text-blue-600 hover:bg-white/80 hover:text-slate-950"
                   }`}
                 >
                   <span className="text-base">{phase.icon}</span>
@@ -128,7 +128,7 @@ const MigratingWorkers = () => {
                       <div className="h-[1px] w-6 bg-blue-200/80 group-hover:bg-emerald-600/30 transition-colors" />
                     </div>
 
-                    <h3 className="text-slate-950 font-extrabold text-base mb-2 group-hover:text-emerald-700 transition-colors duration-300 leading-snug">
+                    <h3 className="text-blue-600 font-extrabold text-base mb-2 group-hover:text-emerald-700 transition-colors duration-300 leading-snug">
                       {s.title}
                     </h3>
                     

@@ -53,14 +53,14 @@ export default function VacancyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#E1F1E6] text-slate-900 font-sans p-6 md:p-10 overflow-x-hidden">
+    <div className="min-h-screen bg-[#E1F1E6] text-emerald-700 font-sans p-6 md:p-10 overflow-x-hidden">
       
       <div className="text-center max-w-3xl mx-auto mb-14 py-12">
-        <p className="text-rose-600 text-xs sm:text-sm font-black tracking-[0.2em] uppercase mb-3">
+        <p className="text-blue-600 text-xs sm:text-sm font-black tracking-[0.2em] uppercase mb-3">
           Available Positions
         </p>
-        <h1 className="text-4xl md:text-5xl font-black text-slate-950 leading-tight tracking-tight mb-4">
-          Vacancy <span className="text-emerald-700">Newspaper Ads</span>
+        <h1 className="text-4xl md:text-5xl font-black text-emerald-700 leading-tight tracking-tight mb-4">
+          Vacancy <span className="text-red-600">Newspaper Ads</span>
         </h1>
         <div className="w-12 h-1 bg-emerald-700 mx-auto mt-2 mb-6 rounded-full" />
         <p className="text-slate-700 font-medium leading-relaxed text-[15px]">

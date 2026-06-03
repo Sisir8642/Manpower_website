@@ -48,8 +48,8 @@ const sections = [
           { label: "Form & Communication Support", desc: "To support smoother use of contact forms, job inquiry forms, grievance forms, and other interactive website features, where applicable." },
           { label: "Security & Fraud Prevention", desc: "To help detect unusual website activity, prevent misuse of digital forms, and support the safety and integrity of the platform." },
         ].map((item) => (
-          <div key={item.label} className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
-            <p className="text-white font-semibold text-xs mb-1">{item.label}</p>
+          <div key={item.label} className="bg-[#F1F6FE] border border-slate-800 rounded-xl p-4">
+            <p className="text-green-600 font-semibold text-xs mb-1">{item.label}</p>
             <p>{item.desc}</p>
           </div>
         ))}
@@ -61,22 +61,17 @@ const sections = [
     content: (
       <div className="space-y-3">
         {[
-          { label: "Strictly Necessary Cookies", color: "amber", desc: "Essential for the proper operation of the website. They may support page navigation, secure access, submission of forms, and basic technical functionality." },
-          { label: "Preference Cookies", color: "sky", desc: "May remember user choices and settings to provide a more convenient and personalized browsing experience." },
-          { label: "Analytics & Performance Cookies", color: "emerald", desc: "May help Electra understand website traffic, visitor behavior, page performance, and areas for improvement. Activated only in accordance with user consent settings." },
-          { label: "Third-Party or Embedded Content Cookies", color: "violet", desc: "Some pages may include embedded maps, videos, social media links, or external tools. These third-party services may use their own cookies per their respective policies." },
+          { label: "Strictly Necessary Cookies", desc: "Essential for the proper operation of the website. They may support page navigation, secure access, submission of forms, and basic technical functionality." },
+          { label: "Preference Cookies",  desc: "May remember user choices and settings to provide a more convenient and personalized browsing experience." },
+          { label: "Analytics & Performance Cookies",  desc: "May help Electra understand website traffic, visitor behavior, page performance, and areas for improvement. Activated only in accordance with user consent settings." },
+          { label: "Third-Party or Embedded Content Cookies",  desc: "Some pages may include embedded maps, videos, social media links, or external tools. These third-party services may use their own cookies per their respective policies." },
         ].map((item) => (
-          <div key={item.label} className={`border rounded-xl p-4 ${
-            item.color === "amber" ? "border-amber-400/20 bg-amber-400/5" :
-            item.color === "sky"   ? "border-sky-400/20 bg-sky-400/5" :
-            item.color === "emerald" ? "border-emerald-400/20 bg-emerald-400/5" :
-            "border-violet-400/20 bg-violet-400/5"
-          }`}>
+          <div key={item.label} className={`border rounded-xl p-4 bg-[#F1F6FE]`}>
             <p className={`font-semibold text-xs mb-1 ${
               item.color === "amber" ? "text-amber-400" :
               item.color === "sky" ? "text-sky-400" :
               item.color === "emerald" ? "text-emerald-400" :
-              "text-violet-400"
+              "text-green-600"
             }`}>{item.label}</p>
             <p>{item.desc}</p>
           </div>
@@ -97,7 +92,7 @@ const sections = [
             "Change or withdraw consent later, where such controls are available",
           ].map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <span className="w-1 h-1 rounded-full bg-amber-400/50 flex-shrink-0 mt-2" />
+              <span className="w-1 h-1 rounded-full bg-black flex-shrink-0 mt-2" />
               {item}
             </li>
           ))}
@@ -122,7 +117,7 @@ const sections = [
             "Receive alerts before cookies are stored",
           ].map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <span className="w-1 h-1 rounded-full bg-amber-400/50 flex-shrink-0 mt-2" />
+              <span className="w-1 h-1 rounded-full bg-black flex-shrink-0 mt-2" />
               {item}
             </li>
           ))}
@@ -142,7 +137,7 @@ const sections = [
         that can be linked to website use. Electra is committed to handling such information responsibly
         and in line with applicable privacy principles. For more information about how Electra collects,
         uses, and protects personal information, visitors should review the website's{" "}
-        <a href="/privacy-policy" className="text-amber-400 hover:underline">Privacy Policy</a>.
+        <a href="/privacy-policy" className="text-red-600 hover:underline">Privacy Policy</a>.
       </p>
     ),
   },
@@ -176,7 +171,7 @@ const sections = [
         For questions or concerns regarding this Cookies Policy or the use of cookies on Electra's
         website, visitors may contact Electra through the official contact details provided on the
         website. Email:{" "}
-        <a href="mailto:contacts.electraglobal@gmail.com" className="text-amber-400 hover:underline">
+        <a href="mailto:contacts.electraglobal@gmail.com" className="text-red-600 hover:underline">
           contacts.electraglobal@gmail.com
         </a>
       </p>
