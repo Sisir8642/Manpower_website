@@ -96,7 +96,6 @@ const Certificates = () => {
   }
 
   return (
-<<<<<<< HEAD
     <div className="bg-[#c5eace] text-slate-900 min-h-screen py-24 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
 
@@ -112,27 +111,6 @@ const Certificates = () => {
             Consistently audited global benchmarks validating our end-to-end fair placement mechanics.
           </p>
           <div className="w-12 h-1 bg-emerald-700 mx-auto mt-6 rounded-full" />
-=======
-    <>
-      <section
-        className="relative overflow-hidden text-white bg-cover bg-center md:h-[60vh]"
-        style={{
-          backgroundImage: "url('/images/banner/Training.jpg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/30" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 xl:py-32 text-center">
-          <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight"
-            style={{
-              color: "#1d4ed8",
-              WebkitTextStroke: "2px white",
-            }}
-          >
-            Training & Certifications
-          </h1>
->>>>>>> 20b1f1b3b087ec414990b055e966b7c7afc50a87
         </div>
 
         <div className="absolute bottom-[-1px] left-0 right-0">
@@ -147,7 +125,6 @@ const Certificates = () => {
             />
           </svg>
         </div>
-      </section>
 
       <div className="bg-[#E1F1E6] text-slate-900 min-h-screen pb-24 px-4 sm:px-6 lg:px-8 font-sans">
         <div className="max-w-7xl mx-auto">

@@ -113,12 +113,8 @@ const BestReview = () => {
 
             </section>
 
-<<<<<<< HEAD
             {/* ================= WHY SECTION ================= */}
             <section className="py-20 bg-[#F2F5FD] flex justify-center">
-=======
-            <section className="py-20 bg-gray-50 flex justify-center">
->>>>>>> 20b1f1b3b087ec414990b055e966b7c7afc50a87
 
                 <div className="max-w-6xl w-full px-4">
 
