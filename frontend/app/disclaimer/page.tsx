@@ -25,8 +25,8 @@ const sections = [
           may be revised, extended, suspended, or closed depending on employer decisions, official
           approvals, regulatory requirements, and destination-country procedures.
         </p>
-        <div className="mt-4 bg-amber-400/5 border border-amber-400/20 rounded-xl p-4">
-          <p className="text-amber-400 font-semibold text-xs mb-1">Important Notice</p>
+        <div className="mt-4 bg-[#F1F6FE] border-black rounded-xl p-4">
+          <p className="text-red-600 font-semibold text-xs mb-1">Important Notice</p>
           <p>
             Publication of a vacancy on the website does not automatically guarantee selection, visa
             issuance, labour approval, or overseas deployment.
@@ -121,7 +121,7 @@ const sections = [
         Website visitors are encouraged to use the information provided as an initial reference and to
         contact Electra directly for verified, case-specific clarification wherever necessary.
         Email:{" "}
-        <a href="mailto:contacts.electraglobal@gmail.com" className="text-amber-400 hover:underline">
+        <a href="mailto:contacts.electraglobal@gmail.com" className="text-black hover:underline">
           contacts.electraglobal@gmail.com
         </a>
         . Office: Sinamangal-9, Airport, Kathmandu, Nepal. Working Hours: Sunday–Friday, 9:30 AM–5:30 PM.
@@ -133,7 +133,6 @@ const sections = [
 export default function DisclaimerPage() {
   return (
     <LegalPageLayout
-      badge="Legal"
       title="Disclaimer"
       subtitle="Important information about the scope, accuracy, and limitations of content published on the Electra Global Recruitment official website."
       lastUpdated="2025"

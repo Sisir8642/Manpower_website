@@ -27,7 +27,7 @@ const sections = [
     heading: "Information We May Collect",
     content: (
       <>
-        <p className="font-semibold text-white text-xs mb-2">From Job Seekers & Migrating Workers:</p>
+        <p className="font-semibold text-green-800 text-xs mb-2">From Job Seekers & Migrating Workers:</p>
         <ul className="list-none space-y-1.5 mb-4">
           {[
             "Full name, date of birth, gender, nationality, and contact details",
@@ -40,12 +40,12 @@ const sections = [
             "Grievances, feedback, or service-related communications",
           ].map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <span className="w-1 h-1 rounded-full bg-amber-400/50 flex-shrink-0 mt-2" />
+              <span className="w-1 h-1 rounded-full bg-red-400/50 flex-shrink-0 mt-2" />
               {item}
             </li>
           ))}
         </ul>
-        <p className="font-semibold text-white text-xs mb-2">From Employers & Business Partners:</p>
+        <p className="font-semibold text-green-800 text-xs mb-2">From Employers & Business Partners:</p>
         <ul className="list-none space-y-1.5 mb-4">
           {[
             "Company name and business profile",
@@ -60,7 +60,7 @@ const sections = [
             </li>
           ))}
         </ul>
-        <p className="font-semibold text-white text-xs mb-2">From Website Visitors & Stakeholders:</p>
+        <p className="font-semibold text-green-800 text-xs mb-2">From Website Visitors & Stakeholders:</p>
         <ul className="list-none space-y-1.5">
           {[
             "Name, email address, phone number, and inquiry details via contact forms",
@@ -93,7 +93,7 @@ const sections = [
           "Cookies or similar website technologies, where applicable",
         ].map((item) => (
           <li key={item} className="flex items-start gap-2">
-            <span className="w-1 h-1 rounded-full bg-amber-400/50 flex-shrink-0 mt-2" />
+            <span className="w-1 h-1 rounded-full bg-red-400/50 flex-shrink-0 mt-2" />
             {item}
           </li>
         ))}
@@ -112,8 +112,8 @@ const sections = [
           { label: "Grievance Handling & Resolution", desc: "To receive, review, investigate, communicate, and follow up on complaints, concerns, or grievances submitted through Electra's official channels." },
           { label: "Website Improvement & Security", desc: "To maintain website functionality, improve user experience, monitor technical performance, prevent misuse, and enhance the reliability of digital services." },
         ].map((item) => (
-          <div key={item.label} className="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
-            <p className="text-white font-semibold text-xs mb-1">{item.label}</p>
+          <div key={item.label} className=" border border-blue-800 rounded-xl p-4">
+            <p className="text-green-800 font-semibold text-xs mb-1">{item.label}</p>
             <p>{item.desc}</p>
           </div>
         ))}
@@ -139,7 +139,7 @@ const sections = [
             "Relevant parties involved in grievance review and responsible resolution",
           ].map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <span className="w-1 h-1 rounded-full bg-amber-400/50 flex-shrink-0 mt-2" />
+              <span className="w-1 h-1 rounded-full bg-red-400/50 flex-shrink-0 mt-2" />
               {item}
             </li>
           ))}
@@ -188,7 +188,7 @@ const sections = [
             "Support future communication where appropriate and permitted",
           ].map((item) => (
             <li key={item} className="flex items-start gap-2">
-              <span className="w-1 h-1 rounded-full bg-amber-400/50 flex-shrink-0 mt-2" />
+              <span className="w-1 h-1 rounded-full bg-red-400/50 flex-shrink-0 mt-2" />
               {item}
             </li>
           ))}
@@ -214,7 +214,7 @@ const sections = [
         Electra's website may use cookies or similar technologies to support website functionality,
         understand visitor interaction, improve user experience, and manage technical performance. Details
         regarding cookie use, user choices, and related practices are explained separately in Electra's{" "}
-        <a href="/cookie-policy" className="text-amber-400 hover:underline">Cookies Policy</a>.
+        <a href="/cookie-policy" className="text-red-400 hover:underline">Cookies Policy</a>.
       </p>
     ),
   },
@@ -269,7 +269,7 @@ const sections = [
         For questions, concerns, or requests related to this Privacy Policy or the handling of personal
         information, users may contact Electra Global Recruitment Pvt. Ltd. through the official contact
         details provided on the website or visit our office at Sinamangal-9, Airport, Kathmandu, Nepal.
-        Email: <a href="mailto:contacts.electraglobal@gmail.com" className="text-amber-400 hover:underline">contacts.electraglobal@gmail.com</a>
+        Email: <a href="mailto:contacts.electraglobal@gmail.com" className="text-red-400 hover:underline">contacts.electraglobal@gmail.com</a>
       </p>
     ),
   },
@@ -278,7 +278,6 @@ const sections = [
 export default function PrivacyPolicyPage() {
   return (
     <LegalPageLayout
-      badge="Legal"
       title="Privacy Policy"
       subtitle="How Electra Global Recruitment Pvt. Ltd. collects, uses, stores, and protects your personal information across all official digital platforms."
       lastUpdated="2025"

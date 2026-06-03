@@ -195,7 +195,6 @@ const sections = [
 export default function TermsPage() {
   return (
     <LegalPageLayout
-      badge="Legal"
       title="Terms & Conditions"
       subtitle="By accessing or using the Electra Global Recruitment website, you agree to comply with and be bound by the following terms. Please read them carefully."
       lastUpdated="2025"

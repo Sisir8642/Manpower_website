@@ -30,7 +30,6 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   );
 }
 
-// ── Placeholder data — replace with real CMS / API data ──────────────────────
 const categories = ["All", "News", "Blog", "Announcement", "Awareness"];
 
 const posts = [
@@ -43,7 +42,7 @@ const posts = [
     date: "March 2025",
     readTime: "3 min read",
     featured: true,
-    color: "amber",
+    color: "emerald",
   },
   {
     id: 2,
@@ -54,7 +53,7 @@ const posts = [
     date: "April 2025",
     readTime: "6 min read",
     featured: true,
-    color: "sky",
+    color: "teal",
   },
   {
     id: 3,
@@ -65,7 +64,7 @@ const posts = [
     date: "April 2025",
     readTime: "5 min read",
     featured: false,
-    color: "emerald",
+    color: "cyan",
   },
   {
     id: 4,
@@ -76,7 +75,7 @@ const posts = [
     date: "May 2025",
     readTime: "4 min read",
     featured: false,
-    color: "violet",
+    color: "mint",
   },
   {
     id: 5,
@@ -87,7 +86,7 @@ const posts = [
     date: "May 2025",
     readTime: "7 min read",
     featured: false,
-    color: "rose",
+    color: "emerald",
   },
   {
     id: 6,
@@ -109,7 +108,7 @@ const posts = [
     date: "June 2025",
     readTime: "5 min read",
     featured: false,
-    color: "amber",
+    color: "zinc",
   },
   {
     id: 8,
@@ -120,17 +119,16 @@ const posts = [
     date: "June 2025",
     readTime: "4 min read",
     featured: false,
-    color: "sky",
+    color: "cyan",
   },
 ];
 
 const colorConfig: Record<string, { border: string; bg: string; text: string; badge: string }> = {
-  amber:  { border: "border-amber-400/25",  bg: "bg-amber-400/5",  text: "text-amber-400",  badge: "bg-amber-400/10 text-amber-300 border-amber-400/20" },
-  sky:    { border: "border-sky-400/25",    bg: "bg-sky-400/5",    text: "text-sky-400",    badge: "bg-sky-400/10 text-sky-300 border-sky-400/20" },
-  emerald:{ border: "border-emerald-400/25",bg: "bg-emerald-400/5",text: "text-emerald-400",badge: "bg-emerald-400/10 text-emerald-300 border-emerald-400/20" },
-  violet: { border: "border-violet-400/25", bg: "bg-violet-400/5", text: "text-violet-400", badge: "bg-violet-400/10 text-violet-300 border-violet-400/20" },
-  rose:   { border: "border-rose-400/25",   bg: "bg-rose-400/5",   text: "text-rose-400",   badge: "bg-rose-400/10 text-rose-300 border-rose-400/20" },
-  teal:   { border: "border-teal-400/25",   bg: "bg-teal-400/5",   text: "text-teal-400",   badge: "bg-teal-400/10 text-teal-300 border-teal-400/20" },
+  emerald: { border: "border-emerald-500/20", bg: "bg-emerald-500/5", text: "text-emerald-400", badge: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20" },
+  teal:    { border: "border-teal-500/20",    bg: "bg-teal-500/5",    text: "text-teal-400",    badge: "bg-teal-500/10 text-teal-300 border-teal-500/20" },
+  cyan:    { border: "border-cyan-500/20",    bg: "bg-cyan-500/5",    text: "text-cyan-400",    badge: "bg-cyan-500/10 text-cyan-300 border-cyan-500/20" },
+  mint:    { border: "border-green-500/20",   bg: "bg-green-500/5",   text: "text-green-400",   badge: "bg-green-500/10 text-green-300 border-green-500/20" },
+  zinc:    { border: "border-zinc-700/50",    bg: "bg-zinc-800/10",   text: "text-zinc-300",    badge: "bg-zinc-800/40 text-zinc-300 border-zinc-700/50" },
 };
 
 const typeIcons: Record<string, string> = {
@@ -150,32 +148,30 @@ export default function NewsPage() {
   });
 
   return (
-    <main className="bg-slate-950 text-white font-sans overflow-x-hidden">
+    <main className="bg-zinc-950 text-white font-sans overflow-x-hidden">
 
-      {/* ── HERO ── */}
       <section className="relative py-28 px-6 text-center">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-amber-500/8 rounded-full blur-3xl" />
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-emerald-500/10 rounded-full blur-3xl" />
         </div>
         <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 border border-amber-400/30 bg-amber-400/5 text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 border border-emerald-400/30 bg-emerald-400/5 text-emerald-400 text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             Updates & Insights
           </div>
-          <h1 className="text-5xl sm:text-6xl font-extrabold mb-5">
+          <h1 className="text-5xl sm:text-6xl font-extrabold mb-5 tracking-tight">
             News &{" "}
-            <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
               Blogs
             </span>
           </h1>
-          <p className="text-slate-400 leading-relaxed mb-10">
+          <p className="text-zinc-400 max-w-xl mx-auto text-sm sm:text-base leading-relaxed mb-10">
             Official news, announcements, and expert insights on ethical recruitment, safe migration,
             worker rights, overseas job trends, and Electra's latest activities.
           </p>
 
-          {/* Search */}
           <div className="relative max-w-lg mx-auto">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500">
               <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
             <input
@@ -183,37 +179,36 @@ export default function NewsPage() {
               placeholder="Search articles…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 focus:border-amber-400/50 outline-none rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-500 transition-colors duration-200"
+              className="w-full bg-zinc-900 border border-zinc-800 focus:border-emerald-500/40 outline-none rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-zinc-500 transition-colors duration-200"
             />
           </div>
         </div>
       </section>
 
-      {/* ── FEATURED ── */}
       {active === "All" && search === "" && (
         <section className="px-6 pb-16 max-w-6xl mx-auto">
-          <FadeIn className="mb-8">
-            <p className="text-slate-500 text-xs uppercase tracking-widest font-bold">Featured</p>
+          <FadeIn className="mb-6">
+            <p className="text-zinc-500 text-xs uppercase tracking-widest font-bold">Featured Insights</p>
           </FadeIn>
           <div className="grid md:grid-cols-2 gap-6">
             {featured.map((post, i) => {
               const col = colorConfig[post.color];
               return (
                 <FadeIn key={post.id} delay={i * 100}>
-                  <div className={`border ${col.border} ${col.bg} rounded-2xl p-7 h-full flex flex-col group hover:-translate-y-1 transition-transform duration-300 cursor-pointer`}>
+                  <div className={`border ${col.border} ${col.bg} rounded-2xl p-7 h-full flex flex-col group hover:-translate-y-1 transition-transform duration-300 cursor-pointer shadow-md shadow-zinc-950/40`}>
                     <div className="flex items-center justify-between gap-3 mb-5">
                       <span className={`text-xs font-bold border px-3 py-1 rounded-full ${col.badge}`}>
                         {typeIcons[post.type]} {post.tag}
                       </span>
-                      <span className="text-slate-500 text-xs">{post.date}</span>
+                      <span className="text-zinc-500 text-xs font-medium">{post.date}</span>
                     </div>
-                    <h2 className={`text-xl font-extrabold leading-snug mb-3 group-hover:${col.text} transition-colors duration-200`}>
+                    <h2 className={`text-xl font-extrabold leading-snug mb-3 group-hover:${col.text} transition-colors duration-200 text-zinc-100`}>
                       {post.title}
                     </h2>
-                    <p className="text-slate-400 text-sm leading-relaxed flex-1 mb-5">{post.excerpt}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-500 text-xs">{post.readTime}</span>
-                      <span className={`text-xs font-bold ${col.text}`}>Read more →</span>
+                    <p className="text-zinc-400 text-sm leading-relaxed flex-1 mb-5">{post.excerpt}</p>
+                    <div className="flex items-center justify-between pt-2 border-t border-zinc-800/40">
+                      <span className="text-zinc-500 text-xs font-medium">{post.readTime}</span>
+                      <span className={`text-xs font-bold ${col.text} tracking-wide`}>Read more →</span>
                     </div>
                   </div>
                 </FadeIn>
@@ -223,7 +218,6 @@ export default function NewsPage() {
         </section>
       )}
 
-      {/* ── FILTERS ── */}
       <section className="px-6 pb-8 max-w-6xl mx-auto">
         <FadeIn>
           <div className="flex flex-wrap gap-2">
@@ -233,13 +227,13 @@ export default function NewsPage() {
                 onClick={() => setActive(cat)}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200 ${
                   active === cat
-                    ? "bg-amber-400/10 border-amber-400/40 text-amber-400"
-                    : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-600 hover:text-white"
+                    ? "bg-emerald-500/10 border-emerald-500/40 text-emerald-400 shadow-md shadow-emerald-950/20"
+                    : "bg-zinc-900 border-zinc-800 text-zinc-400 hover:border-zinc-700 hover:text-white"
                 }`}
               >
                 {cat !== "All" && typeIcons[cat]}
                 {cat}
-                <span className="text-xs opacity-50">
+                <span className="text-xs opacity-50 ml-0.5">
                   {cat === "All" ? posts.length : posts.filter((p) => p.type === cat).length}
                 </span>
               </button>
@@ -248,7 +242,6 @@ export default function NewsPage() {
         </FadeIn>
       </section>
 
-      {/* ── ALL POSTS GRID ── */}
       <section className="px-6 pb-24 max-w-6xl mx-auto">
         {filtered.length > 0 ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -256,12 +249,12 @@ export default function NewsPage() {
               const col = colorConfig[post.color];
               return (
                 <FadeIn key={post.id} delay={i * 60}>
-                  <div className="group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden h-full flex flex-col hover:border-amber-400/30 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-                    {/* Placeholder image area */}
-                    <div className={`h-44 bg-gradient-to-br ${col.bg} border-b border-slate-800 flex items-center justify-center relative`}>
-                      <div className="text-center text-slate-600">
-                        <div className="text-4xl mb-1 opacity-40">{typeIcons[post.type]}</div>
-                        <p className="text-xs opacity-40">Cover image</p>
+                  <div className="group bg-zinc-900/40 border border-zinc-900 rounded-2xl overflow-hidden h-full flex flex-col hover:border-emerald-500/30 hover:-translate-y-1 transition-all duration-300 cursor-pointer shadow-md shadow-zinc-950/20">
+                    {/* Visual Container */}
+                    <div className={`h-44 bg-gradient-to-br ${col.bg} border-b border-zinc-900 flex items-center justify-center relative`}>
+                      <div className="text-center text-zinc-600">
+                        <div className="text-4xl mb-1 opacity-30">{typeIcons[post.type]}</div>
+                        <p className="text-xs opacity-30 tracking-wide font-medium">Cover image slot</p>
                       </div>
                       <span className={`absolute top-4 left-4 text-xs font-bold border px-3 py-1 rounded-full ${col.badge}`}>
                         {post.tag}
@@ -269,16 +262,16 @@ export default function NewsPage() {
                     </div>
 
                     <div className="p-6 flex flex-col flex-1">
-                      <div className="flex items-center gap-3 mb-3 text-xs text-slate-500">
+                      <div className="flex items-center gap-3 mb-3 text-xs text-zinc-500 font-medium">
                         <span>{post.date}</span>
                         <span>·</span>
                         <span>{post.readTime}</span>
                       </div>
-                      <h3 className="text-white font-bold text-sm leading-snug mb-3 group-hover:text-amber-400 transition-colors duration-200 flex-1">
+                      <h3 className="text-zinc-200 font-bold text-base leading-snug mb-3 group-hover:text-emerald-400 transition-colors duration-200 flex-1">
                         {post.title}
                       </h3>
-                      <p className="text-slate-400 text-xs leading-relaxed mb-5">{post.excerpt}</p>
-                      <span className={`text-xs font-bold ${col.text}`}>Read more →</span>
+                      <p className="text-zinc-400 text-xs leading-relaxed mb-5">{post.excerpt}</p>
+                      <span className={`text-xs font-bold ${col.text} mt-auto`}>Read more →</span>
                     </div>
                   </div>
                 </FadeIn>
@@ -286,19 +279,18 @@ export default function NewsPage() {
             })}
           </div>
         ) : (
-          <div className="text-center py-20 text-slate-500">
-            <div className="text-5xl mb-4">📭</div>
-            <p className="font-semibold text-white mb-1">No articles found</p>
-            <p className="text-sm">Try a different keyword or category.</p>
+          <div className="text-center py-20 text-zinc-600">
+            <div className="text-5xl mb-4 opacity-40">📭</div>
+            <p className="font-semibold text-zinc-300 mb-1">No articles found</p>
+            <p className="text-sm text-zinc-500">Try a different keyword or filter criteria.</p>
           </div>
         )}
 
-        {/* Coming soon notice */}
         <FadeIn className="mt-16">
-          <div className="border border-dashed border-slate-700 rounded-2xl p-10 text-center">
-            <div className="text-4xl mb-4">✍️</div>
-            <h3 className="text-white font-bold text-lg mb-2">More Articles Coming Soon</h3>
-            <p className="text-slate-400 text-sm max-w-md mx-auto leading-relaxed">
+          <div className="border border-dashed border-zinc-800 bg-zinc-900/10 rounded-2xl p-10 text-center">
+            <div className="text-4xl mb-4 opacity-60">✍️</div>
+            <h3 className="text-zinc-200 font-bold text-lg mb-2">More Articles Coming Soon</h3>
+            <p className="text-zinc-400 text-sm max-w-md mx-auto leading-relaxed">
               Electra regularly publishes news, recruitment insights, safe migration guides, and
               industry updates. Connect the posts above to your CMS or replace them with real
               content as your publishing cycle begins.
@@ -307,8 +299,6 @@ export default function NewsPage() {
         </FadeIn>
       </section>
 
-      
-      
     </main>
   );
 }

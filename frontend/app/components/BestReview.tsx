@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
-
+import { Variants, easeOut } from "framer-motion";
 import { Award, Backpack, Globe, Users } from "lucide-react";
 import LeaderShip from './LeaderShip';
 /* ================= VARIANTS ================= */
@@ -14,7 +14,6 @@ const rightVariant = {
     visible: { opacity: 1, x: 0 },
 };
 
-/* ================= COUNTER ================= */
 const useCountAnimation = (end: number, duration = 2000, shouldStart = false) => {
     const [count, setCount] = useState(0);
 
@@ -40,7 +39,6 @@ const useCountAnimation = (end: number, duration = 2000, shouldStart = false) =>
     return count;
 };
 
-/* ================= IN VIEW ================= */
 const useInView = () => {
     const ref = useRef<HTMLDivElement>(null);
     const [isInView, setIsInView] = useState(false);
@@ -72,7 +70,6 @@ const fadeUp: Variants = {
   },
 };
 
-/* ================= STAT CARD ================= */
 const StatCard = ({ icon: Icon, value, label, isInView }: any) => {
     const count = useCountAnimation(value, 2000, isInView);
 
@@ -102,7 +99,6 @@ const BestReview = () => {
     return (
         <div className="w-full bg-[#E1F1E6] ">
    <LeaderShip />
-            {/* ================= COUNTERS ================= */}
             <section ref={statsRef} className="py-20 flex justify-center">
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 max-w-5xl w-full px-4">
@@ -116,8 +112,12 @@ const BestReview = () => {
 
             </section>
 
+<<<<<<< HEAD
             {/* ================= WHY SECTION ================= */}
+            <section className="py-20 bg-[#F2F5FD] flex justify-center">
+=======
             <section className="py-20 bg-gray-50 flex justify-center">
+>>>>>>> 20b1f1b3b087ec414990b055e966b7c7afc50a87
 
                 <div className="max-w-6xl w-full px-4">
 

@@ -1,10 +1,12 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Services from "./Services";
 
 type Industry = {
   title: string;
   img: string;
 };
+
 
 export default function IndustriesGrid() {
   const images: Industry[] = [
@@ -22,8 +24,8 @@ export default function IndustriesGrid() {
   ];
 
   return (
-    <section className="py-4 bg-gray-100">
-      <div className="max-w-5xl mx-auto text-center py-8">
+    <section className="py-2 ">
+      <div className="max-w-5xl mx-auto text-center py-8 bg-[#E1F1E6]">
         <h2 className="text-5xl font-extrabold text-[#2a7d56]">Services</h2>
         <div className="w-24 h-1 bg-[#eb232a] mx-auto mt-2 mb-4 rounded-full" />
         <h3 className="text-lg md:text-2xl font-semibold text-[#eb232a] italic mb-5">
@@ -35,13 +37,19 @@ export default function IndustriesGrid() {
         </p>
       </div>
 
+      <Services />
+
+
       {/* INDUSTRY TITLE */}
-      <h2 className="text-center text-2xl md:text-3xl font-bold mb-8 text-[#0E703E]">
+      <div className="bg-[#EFF5FE] pt-8">
+      <h2 className="text-5xl font-extrabold text-[#2a7d56] text-center">
         Industries We Serve
       </h2>
+      <div className="w-24 h-1 bg-[#eb232a] mx-auto mt-2 mb-4 rounded-full" />
 
       {/* 3D CAROUSEL */}
       <Carousel3D images={images} />
+      </div>
 
       {/* RECRUITMENT SECTION */}
       <div className="max-w-6xl mx-auto px-4 py-14 text-center">

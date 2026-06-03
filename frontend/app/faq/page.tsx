@@ -113,15 +113,15 @@ function AccordionItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
   const [open, setOpen] = useState(false);
   return (
     <FadeIn delay={index * 40}>
-      <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${open ? "border-amber-400/40 bg-amber-400/5" : "border-slate-800 bg-slate-900 hover:border-slate-700"}`}>
+      <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${open ? "border-blue-400/40 bg-blue-400/5" : "border-slate-800 bg-[#EFF6FE] hover:border-slate-700"}`}>
         <button
           onClick={() => setOpen(!open)}
-          className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left"
+          className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left focus:outline-none"
         >
-          <span className={`font-semibold text-sm leading-snug transition-colors duration-200 ${open ? "text-amber-400" : "text-white"}`}>
+          <span className={`font-semibold text-sm leading-snug transition-colors duration-200 ${open ? "text-blue-400" : "text-black"}`}>
             {faq.q}
           </span>
-          <span className={`flex-shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-all duration-300 mt-0.5 ${open ? "border-amber-400 text-amber-400 rotate-45" : "border-slate-700 text-slate-400"}`}>
+          <span className={`flex-shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-all duration-300 mt-0.5 ${open ? "border-blue-400 text-blue-400 rotate-45" : "border-slate-700 text-slate-400"}`}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-3 h-3">
               <line x1="12" y1="5" x2="12" y2="19" />
               <line x1="5" y1="12" x2="19" y2="12" />
@@ -129,7 +129,7 @@ function AccordionItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
           </span>
         </button>
         <div className={`transition-all duration-300 overflow-hidden ${open ? "max-h-96" : "max-h-0"}`}>
-          <p className="px-6 pb-6 text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+          <p className="px-6 pb-6 text-zinc-400 text-sm leading-relaxed">{faq.a}</p>
         </div>
       </div>
     </FadeIn>
@@ -147,65 +147,49 @@ export default function FAQPage() {
   });
 
   return (
-    <main className="bg-green-900 text-white font-sans overflow-x-hidden">
+    <main className="bg-[#E1F1E6]  font-sans overflow-x-hidden">
 
       {/* ── HERO ── */}
-      <section className="relative py-28 px-6 text-center">
+      <section className="relative py-8 px-6 text-center">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-amber-500/8 rounded-full blur-3xl" />
+       
         </div>
         <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 border border-amber-400/30 bg-amber-400/5 text-amber-400 text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-            Help Center
-          </div>
+        
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-5">
-            Frequently Asked <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">Questions</span>
+            Frequently Asked <span className="bg-red-600 bg-clip-text text-transparent">Questions</span>
           </h1>
-          <p className="text-slate-400 leading-relaxed mb-10">
+          <p className="text-black leading-relaxed mb-10">
             Clear, practical answers to common queries from workers, employers, and stakeholders.
             Can't find what you need? Contact us directly.
           </p>
 
-          {/* Search */}
-          <div className="relative max-w-lg mx-auto">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500">
-              <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search questions…"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 focus:border-amber-400/50 outline-none rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder-slate-500 transition-colors duration-200"
-            />
-          </div>
+         
+      
         </div>
       </section>
 
       {/* ── CONTENT ── */}
-      <section className="px-6 pb-24 max-w-3xl mx-auto">
+      <section className="px-6 pb-2 max-w-3xl mx-auto">
 
-        {/* Category filters */}
         <div className="flex flex-wrap gap-2 justify-center mb-10">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${activeCategory === cat
-                  ? "bg-amber-400/10 border-amber-400/40 text-amber-400"
-                  : "bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-600 hover:text-white"
+                  ? "bg-[#EFF6FE] border-blue-400/40 text-blue-400"
+                  : "bg-[#EFF6FE] border-slate-800 text-black hover:border-slate-600 hover:text-black"
                 }`}
             >
               {cat}
-              <span className="ml-2 text-xs opacity-50">
+              <span className="ml-2 text-xs opacity-50 font-normal">
                 {cat === "All" ? faqs.length : faqs.filter((f) => f.category === cat).length}
               </span>
             </button>
           ))}
         </div>
 
-        {/* FAQ list */}
         {filtered.length > 0 ? (
           <div className="space-y-3">
             {filtered.map((faq, i) => (
@@ -213,21 +197,20 @@ export default function FAQPage() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 text-slate-500">
+          <div className="text-center py-16 text-black">
             <div className="text-4xl mb-4">🔍</div>
-            <p className="font-semibold text-white mb-1">No results found</p>
+            <p className="font-semibold text-black mb-1">No results found</p>
             <p className="text-sm">Try a different keyword or browse all categories.</p>
           </div>
         )}
 
-        {/* Still have questions */}
         <FadeIn className="mt-14">
           <div className="border border-dashed border-slate-700 rounded-2xl p-8 text-center">
-            <p className="text-white font-bold text-lg mb-2">Still have questions?</p>
-            <p className="text-slate-400 text-sm mb-6">Our team is happy to help with any specific queries.</p>
+            <p className="text-black font-bold text-lg mb-2">Still have questions?</p>
+            <p className="text-black text-sm mb-6">Our team is happy to help with any specific queries.</p>
             <a
               href="/contact"
-              className="inline-block bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-7 py-3 rounded-xl transition-all duration-200 hover:scale-105"
+              className="inline-block bg-blue-400 hover:bg-blue-300 text-slate-950 font-bold px-7 py-3 rounded-xl transition-all duration-200 hover:scale-105"
             >
               Contact Us
             </a>
