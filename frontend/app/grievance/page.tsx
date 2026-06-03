@@ -36,7 +36,11 @@ const channels = [
     value: "grievance.electraglobal@gmail.com",
     desc: "Send a detailed written complaint to our dedicated grievance inbox.",
     action: { label: "Send Email", href: "mailto:grievance.electraglobal@gmail.com" },
+<<<<<<< HEAD
     color: "green",
+=======
+    color: "emerald",
+>>>>>>> 20b1f1b3b087ec414990b055e966b7c7afc50a87
   },
   {
     icon: "📞",
@@ -44,7 +48,7 @@ const channels = [
     value: "To be updated",
     desc: "Speak directly with our team for urgent concerns or immediate support.",
     action: { label: "Call Now", href: "tel:+" },
-    color: "sky",
+    color: "teal",
   },
   {
     icon: "💬",
@@ -60,7 +64,7 @@ const channels = [
     value: "Submit Online",
     desc: "Use the secure form below to submit your grievance directly from this page.",
     action: { label: "Use Form Below", href: "#form" },
-    color: "violet",
+    color: "teal",
   },
   {
     icon: "🏢",
@@ -68,7 +72,7 @@ const channels = [
     value: "Sinamangal-9, Airport, Kathmandu",
     desc: "Visit our office directly to register a complaint with our team in person.",
     action: { label: "Get Directions", href: "https://maps.google.com/?q=Sinamangal-9,Kathmandu,Nepal" },
-    color: "rose",
+    color: "emerald",
   },
   {
     icon: "📬",
@@ -88,12 +92,17 @@ const principles = [
 ];
 
 const colorConfig: Record<string, { border: string; bg: string; text: string }> = {
+<<<<<<< HEAD
   green:  { border: "border-green-400/25",  bg: "bg-green-400/5",  text: "text-green-400" },
   sky:    { border: "border-sky-400/25",    bg: "bg-sky-400/5",    text: "text-sky-400" },
   emerald:{ border: "border-emerald-400/25",bg: "bg-emerald-400/5",text: "text-emerald-400" },
   violet: { border: "border-violet-400/25", bg: "bg-violet-400/5", text: "text-violet-400" },
   rose:   { border: "border-rose-400/25",   bg: "bg-rose-400/5",   text: "text-rose-400" },
   teal:   { border: "border-teal-400/25",   bg: "bg-teal-400/5",   text: "text-teal-400" },
+=======
+  emerald: { border: "border-emerald-500/20", bg: "bg-emerald-500/5", text: "text-emerald-400" },
+  teal:    { border: "border-teal-500/20",    bg: "bg-teal-500/5",    text: "text-teal-400" },
+>>>>>>> 20b1f1b3b087ec414990b055e966b7c7afc50a87
 };
 
 type FormState = "idle" | "submitting" | "success" | "error";
@@ -110,7 +119,6 @@ export default function GrievancePage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("submitting");
-    // TODO: Replace with actual API call / email service
     await new Promise((r) => setTimeout(r, 1500));
     setStatus("success");
   }
@@ -121,7 +129,8 @@ export default function GrievancePage() {
       {/* ── HERO ── */}
       <section className="relative py-8 px-6 text-center">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-sky-500/8 rounded-full blur-3xl" />
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-emerald-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-teal-500/5 rounded-full blur-3xl" />
         </div>
         <div className="relative z-10 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 border border-green-400/30 bg-green-400/5 text-green-400 text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 rounded-full mb-8">
@@ -131,7 +140,7 @@ export default function GrievancePage() {
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-5">
             Grievance <span className="bg-green-600 bg-clip-text text-transparent">Support</span>
           </h1>
-          <p className="text-slate-400 leading-relaxed">
+          <p className="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Electra is committed to a safe, transparent, and accountable recruitment environment.
             If you have a concern — at any stage of your recruitment or employment journey —
             we are here to listen, review, and act responsibly.
@@ -139,7 +148,6 @@ export default function GrievancePage() {
         </div>
       </section>
 
-      {/* ── PRINCIPLES ── */}
       <section className="px-6 pb-20 max-w-5xl mx-auto">
         <FadeIn className="text-center mb-12">
           <h2 className="text-3xl font-extrabold mb-3">How We Handle <span className="text-green-400">Grievances</span></h2>
@@ -158,8 +166,7 @@ export default function GrievancePage() {
         </div>
       </section>
 
-      {/* ── REPORTING CHANNELS ── */}
-      <section className="px-6 py-20 bg-slate-900/50">
+      <section className="px-6 py-20 bg-zinc-900/30 border-y border-zinc-900 backdrop-blur-sm">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="text-center mb-12">
             <h2 className="text-3xl font-extrabold mb-3">Reporting <span className="text-green-400">Channels</span></h2>
@@ -172,7 +179,7 @@ export default function GrievancePage() {
               const col = colorConfig[ch.color];
               return (
                 <FadeIn key={ch.title} delay={i * 60}>
-                  <div className={`border ${col.border} ${col.bg} rounded-2xl p-6 h-full flex flex-col`}>
+                  <div className={`border ${col.border} ${col.bg} rounded-2xl p-6 h-full flex flex-col shadow-md shadow-zinc-950/10`}>
                     <div className="text-2xl mb-3">{ch.icon}</div>
                     <h3 className={`font-bold text-sm mb-1 ${col.text}`}>{ch.title}</h3>
                     <p className="text-black text-xs font-semibold mb-2">{ch.value}</p>
@@ -180,7 +187,7 @@ export default function GrievancePage() {
                     {ch.action && (
                       <a
                         href={ch.action.href}
-                        className={`inline-block text-xs font-bold px-4 py-2 rounded-lg border ${col.border} ${col.text} hover:${col.bg} transition-colors duration-200 text-center`}
+                        className={`inline-block text-xs font-bold px-4 py-2 rounded-lg border ${col.border} ${col.text} hover:bg-zinc-900/50 transition-colors duration-200 text-center`}
                       >
                         {ch.action.label} →
                       </a>

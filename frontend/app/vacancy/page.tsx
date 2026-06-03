@@ -6,28 +6,46 @@ import MyForm from "../components/MyForm";
 import Modal from "@/components/ui/Modal";
 import { motion, AnimatePresence } from "framer-motion";
 
+export type VacancyData = {
+  companyName: string;
+  position: string;
+  category: string;
+  basicSalary: string;
+  contractPeriod: string;
+  address: string;
+  quantity: string;
+  gender: string;
+  requiredQualifications: string;
+  image: string;
+};
+
 export default function VacancyPage() {
-  const [selectedLot, setSelectedLot] = useState<JobLot & { image: string } | null>(null);
+  const [selectedVacancy, setSelectedVacancy] = useState<VacancyData | null>(null);
   const [tab, setTab] = useState<"view" | "apply">("view");
 
-  const openModal = (lot: JobLot, newspaperImage: string) => {
-    setSelectedLot({ ...lot, image: newspaperImage });
+  const openModal = (lot: any, newspaperImage: string) => {
+    setSelectedVacancy({
+      companyName: lot.company || "",
+      position: lot.position || "Specified in Ad",
+      category: lot.category || "General",
+      basicSalary: lot.salary || "As per structural scale",
+      contractPeriod: lot.contractPeriod || "2 Years",
+      address: lot.address || lot.country || "Overseas",
+      quantity: lot.quantity || "Verified Demand",
+      gender: lot.gender || "Male / Female",
+      requiredQualifications: lot.qualifications || "Experience in relevant field",
+      image: newspaperImage,
+    });
     setTab("view");
   };
-  const closeModal = () => setSelectedLot(null);
 
-  // Flatten lots and attach newspaper image
-  const allLots: (JobLot & { image: string })[] = newspapers.flatMap((n) =>
-    n.lots.map((lot) => ({ ...lot, image: n.image }))
-  );
+  const closeModal = () => setSelectedVacancy(null);
 
-  // Grid animation variants
   const gridItemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 }
   };
 
-  // Modal animation variants
   const modalVariants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: { opacity: 1, scale: 1 },
@@ -35,48 +53,63 @@ export default function VacancyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-6 md:p-10">
-      <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-12 py-12 text-gray-800 dark:text-gray-100">
-        <span className="text-[#0b703c]">Vacancy</span>{" "}
-        <span className="text-[#ec202a]">Newspaper Ads</span>
-      </h1>
+    <div className="min-h-screen bg-[#E1F1E6] text-slate-900 font-sans p-6 md:p-10 overflow-x-hidden">
+      
+      <div className="text-center max-w-3xl mx-auto mb-14 py-12">
+        <p className="text-rose-600 text-xs sm:text-sm font-black tracking-[0.2em] uppercase mb-3">
+          Available Positions
+        </p>
+        <h1 className="text-4xl md:text-5xl font-black text-slate-950 leading-tight tracking-tight mb-4">
+          Vacancy <span className="text-emerald-700">Newspaper Ads</span>
+        </h1>
+        <div className="w-12 h-1 bg-emerald-700 mx-auto mt-2 mb-6 rounded-full" />
+        <p className="text-slate-700 font-medium leading-relaxed text-[15px]">
+          Select an active advertisement board below to review requirements and file applications.
+        </p>
+      </div>
 
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto"
         initial="hidden"
         animate="visible"
         variants={{
           visible: { transition: { staggerChildren: 0.1 } }
         }}
       >
-        {allLots.map((lot) => (
+        {newspapers.flatMap((n) => n.lots.map((lot, idx) => ({ ...lot, image: n.image, uniqueKey: `${lot.company}-${idx}` }))).map((lot) => (
           <motion.div
-            key={lot.lotNo}
-            whileHover={{ scale: 1.05 }}
+            key={lot.uniqueKey}
+            whileHover={{ scale: 1.03, y: -4 }}
             onClick={() => openModal(lot, lot.image)}
-            className="group cursor-pointer relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300"
+            className="group cursor-pointer relative overflow-hidden rounded-3xl bg-white/40 border border-blue-200/40 shadow-sm shadow-blue-900/5 transition-all duration-300"
             variants={gridItemVariants}
           >
-            <img
-              src={lot.image}
-              alt={lot.company}
-              className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-              <h3 className="text-lg font-bold">{lot.company}</h3>
-              <p className="text-sm opacity-90">Lot {lot.lotNo} • {lot.country}</p>
+            <div className="overflow-hidden h-72 w-full relative">
+              <img
+                src={lot.image}
+                alt={lot.company}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+            </div>
+            
+            <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+              <h3 className="text-base sm:text-lg font-black tracking-tight leading-snug mb-1">
+                {lot.company}
+              </h3>
+              <p className="text-xs font-bold opacity-90 text-emerald-300">
+                {lot.position || "Click to View Details"}
+              </p>
             </div>
           </motion.div>
         ))}
       </motion.div>
 
-      {/* Modal */}
       <AnimatePresence>
-        {selectedLot && (
-          <Modal open={!!selectedLot} onClose={closeModal}>
+        {selectedVacancy && (
+          <Modal open={!!selectedVacancy} onClose={closeModal}>
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-2xl max-w-4xl w-full mx-4 md:mx-auto"
+              className="bg-white/95 backdrop-blur-md border border-blue-200/60 rounded-3xl overflow-hidden shadow-2xl max-w-4xl w-full mx-4 md:mx-auto"
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -84,19 +117,24 @@ export default function VacancyPage() {
               transition={{ duration: 0.3 }}
             >
               <div className="p-6 md:p-8">
-                {/* Tabs */}
-                <div className="flex gap-8 mb-8 border-b border-gray-200 dark:border-gray-700">
+                
+                <div className="flex gap-8 mb-8 border-b border-blue-200/60">
                   <button
-                    className={`pb-3 font-semibold text-lg transition-colors ${
-                      tab === "view" ? "border-b-4 border-[#0b703c] text-[#0b703c]" : "text-gray-500 dark:text-gray-400"
+                    className={`pb-3 font-black text-sm sm:text-base tracking-tight transition-all relative ${
+                      tab === "view" 
+                        ? "text-emerald-700 border-b-4 border-emerald-700 scale-[1.02]" 
+                        : "text-slate-500 hover:text-slate-800"
                     }`}
                     onClick={() => setTab("view")}
                   >
-                    View Ad
+                    View Details
                   </button>
+                  
                   <button
-                    className={`pb-3 font-semibold text-lg transition-colors ${
-                      tab === "apply" ? "border-b-4 border-[#ec202a] text-[#ec202a]" : "text-gray-500 dark:text-gray-400"
+                    className={`pb-3 font-black text-sm sm:text-base tracking-tight transition-all relative ${
+                      tab === "apply" 
+                        ? "text-rose-700 border-b-4 border-rose-700 scale-[1.02]" 
+                        : "text-slate-500 hover:text-slate-800"
                     }`}
                     onClick={() => setTab("apply")}
                   >
@@ -112,23 +150,31 @@ export default function VacancyPage() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="space-y-6"
+                      className="grid md:grid-cols-2 gap-6 items-start"
                     >
-                      <img
-                        src={selectedLot.image}
-                        alt={selectedLot.company}
-                        className="w-full h-96 md:h-[400px] object-cover rounded-xl shadow-lg"
-                      />
-                      <div className="space-y-2">
-                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">
-                          {selectedLot.company}
+                      <div className="border border-blue-200/60 rounded-2xl overflow-hidden shadow-sm">
+                        <img
+                          src={selectedVacancy.image}
+                          alt={selectedVacancy.companyName}
+                          className="w-full h-64 md:h-[380px] object-cover"
+                        />
+                      </div>
+                      
+                      <div className="space-y-3 bg-emerald-50/40 border border-emerald-600/20 p-5 rounded-2xl">
+                        <h2 className="text-xl font-black text-slate-950 tracking-tight border-b border-emerald-600/20 pb-2">
+                          {selectedVacancy.companyName}
                         </h2>
-                        <p className="text-lg text-gray-600 dark:text-gray-400">
-                          Lot No: <span className="font-semibold text-[#0b703c]">{selectedLot.lotNo}</span>
-                        </p>
-                        <p className="text-lg text-gray-600 dark:text-gray-400">
-                          Country: <span className="font-semibold text-[#ec202a]">{selectedLot.country}</span>
-                        </p>
+                        
+                        <div className="space-y-2 text-xs sm:text-sm font-bold text-slate-700">
+                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Position</span> <span className="text-slate-950">{selectedVacancy.position}</span></p>
+                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Category</span> <span className="text-slate-950">{selectedVacancy.category}</span></p>
+                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Basic Salary</span> <span className="text-emerald-700 font-black">{selectedVacancy.basicSalary}</span></p>
+                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Contract Period</span> <span className="text-slate-950">{selectedVacancy.contractPeriod}</span></p>
+                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Address</span> <span className="text-rose-700">{selectedVacancy.address}</span></p>
+                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Quantity</span> <span className="text-slate-950">{selectedVacancy.quantity}</span></p>
+                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Gender Requirement</span> <span className="text-slate-950">{selectedVacancy.gender}</span></p>
+                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Required Qualifications</span> <span className="text-slate-900 font-medium block mt-1">{selectedVacancy.requiredQualifications}</span></p>
+                        </div>
                       </div>
                     </motion.div>
                   ) : (
@@ -138,17 +184,19 @@ export default function VacancyPage() {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="max-h-[60vh] md:max-h-[70vh] overflow-y-auto pr-2"
+                      className="max-h-[60vh] md:max-h-[70vh] overflow-y-auto pr-2 custom-scrollbar"
                     >
-                      <MyForm lot={selectedLot} />
+                      <MyForm lot={selectedVacancy} />
                     </motion.div>
                   )}
                 </AnimatePresence>
+                
               </div>
             </motion.div>
           </Modal>
         )}
       </AnimatePresence>
+      
     </div>
   );
 }

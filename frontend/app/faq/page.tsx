@@ -116,7 +116,7 @@ function AccordionItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
       <div className={`border rounded-2xl overflow-hidden transition-all duration-300 ${open ? "border-blue-400/40 bg-blue-400/5" : "border-slate-800 bg-[#EFF6FE] hover:border-slate-700"}`}>
         <button
           onClick={() => setOpen(!open)}
-          className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left"
+          className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left focus:outline-none"
         >
           <span className={`font-semibold text-sm leading-snug transition-colors duration-200 ${open ? "text-blue-400" : "text-black"}`}>
             {faq.q}
@@ -129,7 +129,7 @@ function AccordionItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
           </span>
         </button>
         <div className={`transition-all duration-300 overflow-hidden ${open ? "max-h-96" : "max-h-0"}`}>
-          <p className="px-6 pb-6 text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+          <p className="px-6 pb-6 text-zinc-400 text-sm leading-relaxed">{faq.a}</p>
         </div>
       </div>
     </FadeIn>
@@ -172,7 +172,6 @@ export default function FAQPage() {
       {/* ── CONTENT ── */}
       <section className="px-6 pb-2 max-w-3xl mx-auto">
 
-        {/* Category filters */}
         <div className="flex flex-wrap gap-2 justify-center mb-10">
           {categories.map((cat) => (
             <button
@@ -184,14 +183,13 @@ export default function FAQPage() {
                 }`}
             >
               {cat}
-              <span className="ml-2 text-xs opacity-50">
+              <span className="ml-2 text-xs opacity-50 font-normal">
                 {cat === "All" ? faqs.length : faqs.filter((f) => f.category === cat).length}
               </span>
             </button>
           ))}
         </div>
 
-        {/* FAQ list */}
         {filtered.length > 0 ? (
           <div className="space-y-3">
             {filtered.map((faq, i) => (
@@ -206,7 +204,6 @@ export default function FAQPage() {
           </div>
         )}
 
-        {/* Still have questions */}
         <FadeIn className="mt-14">
           <div className="border border-dashed border-slate-700 rounded-2xl p-8 text-center">
             <p className="text-black font-bold text-lg mb-2">Still have questions?</p>

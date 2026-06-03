@@ -7,9 +7,8 @@ import { useState } from "react";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
-  { label: "How We Work", href: "/how-we-work" },
   { label: "Services", href: "/services" },
-  { label: "Available Jobs", href: "/jobs" },
+  { label: "Available Jobs", href: "/vacancy" },
   { label: "Gallery", href: "/gallery" },
   { label: "News & Blogs", href: "/news" },
 ];
@@ -65,7 +64,6 @@ const socials = [
   },
 ];
 
-// ── Cookie Banner ─────────────────────────────────────────────────────────────
 function CookieBanner() {
   const [visible, setVisible] = useState(true);
   if (!visible) return null;
@@ -96,7 +94,6 @@ function CookieBanner() {
   );
 }
 
-// ── Footer ────────────────────────────────────────────────────────────────────
 export default function Footer() {
   return (
     <>
@@ -105,12 +102,9 @@ export default function Footer() {
       <footer className="bg-slate-900 border-t border-slate-800 pt-16 pb-8 px-6">
         <div className="max-w-6xl mx-auto">
 
-          {/* ── Top grid ── */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
 
-            {/* Column 1 — Brand */}
             <div className="lg:col-span-1">
-              {/* Logo / wordmark */}
               <div className="mb-5">
                 <span className="text-2xl font-extrabold tracking-tight">
                   <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
@@ -144,7 +138,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Column 2 — Quick Links */}
             <div>
               <h3 className="text-white font-bold text-xs tracking-[0.15em] uppercase mb-5">
                 Quick Links
@@ -164,7 +157,6 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Column 3 — Support + Legal */}
             <div>
               <h3 className="text-white font-bold text-xs tracking-[0.15em] uppercase mb-5">
                 Support
@@ -201,7 +193,6 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Column 4 — Contact */}
             <div>
               <h3 className="text-white font-bold text-xs tracking-[0.15em] uppercase mb-5">
                 Contact Us
@@ -219,7 +210,6 @@ export default function Footer() {
                   <span>Sinamangal-9, Airport,<br />Kathmandu, Nepal</span>
                 </li>
 
-                {/* Phone */}
                 <li className="flex gap-3 text-slate-400 text-sm">
                   <span className="flex-shrink-0 mt-0.5 text-amber-400">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
@@ -229,7 +219,6 @@ export default function Footer() {
                   <span>+977 1-45XXXXXX<br /><span className="text-slate-600 text-xs">Update number here</span></span>
                 </li>
 
-                {/* Email */}
                 <li className="flex gap-3 text-slate-400 text-sm">
                   <span className="flex-shrink-0 mt-0.5 text-amber-400">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
@@ -242,7 +231,6 @@ export default function Footer() {
                   </a>
                 </li>
 
-                {/* Hours */}
                 <li className="flex gap-3 text-slate-400 text-sm">
                   <span className="flex-shrink-0 mt-0.5 text-amber-400">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
@@ -254,7 +242,6 @@ export default function Footer() {
                 </li>
               </ul>
 
-              {/* Google Maps button */}
               <a
                 href="https://maps.google.com/?q=Sinamangal-9,Kathmandu,Nepal"
                 target="_blank"
@@ -269,7 +256,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Countries strip ── */}
           <div className="border-t border-slate-800 pt-8 mb-8">
             <p className="text-slate-600 text-xs uppercase tracking-widest mb-4 text-center">
               Countries We Serve
@@ -286,7 +272,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Reg badges ── */}
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             <div className="flex items-center gap-2 text-slate-600 text-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-400/50" />
@@ -298,7 +283,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Bottom bar ── */}
           <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-slate-600 text-xs text-center sm:text-left">
               © {new Date().getFullYear()} Electra Global Recruitment Pvt. Ltd. All rights reserved.

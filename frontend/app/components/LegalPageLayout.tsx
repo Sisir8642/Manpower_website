@@ -41,7 +41,6 @@ export default function LegalPageLayout({
       {/* ── CONTENT ── */}
       <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col lg:flex-row gap-2">
 
-        {/* Main content */}
         <article className="flex-1 min-w-0">
           <div className="space-y-10">
             {sections.map((sec, i) => (
@@ -60,7 +59,6 @@ export default function LegalPageLayout({
           </div>
         </article>
 
-        {/* Sidebar */}
         <aside className="lg:w-64 flex-shrink-0">
           <div className="sticky top-8 space-y-6">
 
