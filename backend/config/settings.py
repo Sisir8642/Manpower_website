@@ -143,3 +143,11 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.FormParser',
     ]
 }
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': ' MANPOWER API TESTING',
+    'DESCRIPTION': 'MANPOWER API',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
