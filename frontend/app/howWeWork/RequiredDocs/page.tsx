@@ -34,7 +34,7 @@ export default function RequiredDocuments() {
           docs: result.map((item) => ({
             id: item.id,
             name: item.title,
-            file: item.document, // backend file URL
+            file: item.document, 
           })),
         };
 
