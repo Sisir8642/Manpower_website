@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -25,165 +24,141 @@ export default function MyForm({ lot }: MyFormProps) {
     fullName: "",
     email: "",
     phone: "",
-    currentLocation: "",
-    experience: "",
-    expectedSalary: "",
-    coverLetter: "",
+    gender: "",
   });
 
+  const [cvFile, setCvFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setCvFile(e.target.files[0]);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    console.log("Application submitted:", {
-      ...formData,
-      position: lot.position,
-      company: lot.companyName
-    });
-    
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    alert(`Application submitted for ${lot.position} at ${lot.companyName}!`);
-    setIsSubmitting(false);
-    
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      currentLocation: "",
-      experience: "",
-      expectedSalary: "",
-      coverLetter: "",
-    });
+
+    try {
+      const form = new FormData();
+
+      // REQUIRED API FIELDS ONLY
+      form.append("position", lot.position);
+      form.append("name", formData.fullName);
+      form.append("email", formData.email);
+      form.append("phone_number", formData.phone);
+
+      if (formData.gender) {
+        form.append("gender", formData.gender);
+      }
+
+      if (cvFile) {
+        form.append("cv", cvFile);
+      }
+
+      const res = await fetch("/api/job-applications/", {
+        method: "POST",
+        body: form,
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to submit application");
+      }
+
+      alert("Application submitted successfully!");
+
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        gender: "",
+      });
+
+      setCvFile(null);
+    } catch (error) {
+      console.error(error);
+      alert("Submission failed");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="bg-emerald-50 p-4 rounded-lg mb-4 border-l-4 border-emerald-600">
-        <h3 className="font-bold text-emerald-800 text-sm">Applying for:</h3>
-        <p className="text-sm text-slate-700 font-medium">{lot.position} at {lot.companyName}</p>
+      {/* Position Info */}
+      <div className="bg-emerald-50 p-4 rounded-lg border-l-4 border-emerald-600">
+        <p className="text-sm font-medium">
+          Applying for: {lot.position} at {lot.companyName}
+        </p>
       </div>
 
-      <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-1">
-          Full Name *
-        </label>
-        <input
-          type="text"
-          name="fullName"
-          required
-          value={formData.fullName}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        />
-      </div>
+      {/* Name */}
+      <input
+        name="fullName"
+        value={formData.fullName}
+        onChange={handleChange}
+        placeholder="Full Name"
+        required
+        className="w-full border p-2 rounded"
+      />
 
-      <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-1">
-          Email Address *
-        </label>
-        <input
-          type="email"
-          name="email"
-          required
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        />
-      </div>
+      {/* Email */}
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Email"
+        required
+        className="w-full border p-2 rounded"
+      />
 
-      <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-1">
-          Phone Number *
-        </label>
-        <input
-          type="tel"
-          name="phone"
-          required
-          value={formData.phone}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        />
-      </div>
+      {/* Phone */}
+      <input
+        name="phone"
+        value={formData.phone}
+        onChange={handleChange}
+        placeholder="Phone Number"
+        required
+        className="w-full border p-2 rounded"
+      />
 
-      <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-1">
-          Current Location
-        </label>
-        <input
-          type="text"
-          name="currentLocation"
-          value={formData.currentLocation}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        />
-      </div>
+      {/* Gender */}
+      <select
+        name="gender"
+        value={formData.gender}
+        onChange={handleChange}
+        className="w-full border p-2 rounded"
+      >
+        <option value="">Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
 
-      <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-1">
-          Years of Experience *
-        </label>
-        <select
-          name="experience"
-          required
-          value={formData.experience}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        >
-          <option value="">Select experience</option>
-          <option value="fresher">Fresher</option>
-          <option value="1-2">1-2 years</option>
-          <option value="3-5">3-5 years</option>
-          <option value="5+">5+ years</option>
-        </select>
-      </div>
+      {/* CV */}
+      <input
+        type="file"
+        onChange={handleFileChange}
+        className="w-full border p-2 rounded"
+      />
 
-      <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-1">
-          Expected Salary (USD)
-        </label>
-        <input
-          type="text"
-          name="expectedSalary"
-          value={formData.expectedSalary}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        />
-      </div>
-
-      <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-1">
-          Cover Letter
-        </label>
-        <textarea
-          name="coverLetter"
-          rows={4}
-          value={formData.coverLetter}
-          onChange={handleChange}
-          className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
-          placeholder="Tell us why you're a good fit for this position..."
-        />
-      </div>
-
+      {/* Submit */}
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`w-full font-bold py-3 px-4 rounded-lg transition-colors duration-200 ${
-          isSubmitting 
-            ? "bg-gray-400 cursor-not-allowed" 
-            : "bg-emerald-600 hover:bg-emerald-700"
-        } text-white`}
+        className="w-full bg-emerald-600 text-white p-3 rounded"
       >
-        {isSubmitting ? "Submitting..." : "Submit Application"}
+        {isSubmitting ? "Submitting..." : "Submit"}
       </button>
     </form>
   );

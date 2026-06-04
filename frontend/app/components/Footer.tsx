@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -99,28 +100,24 @@ export default function Footer() {
     <>
       <CookieBanner />
 
-      <footer className="bg-slate-900 border-t border-slate-800 pt-16 pb-8 px-6">
-        <div className="max-w-6xl mx-auto">
+      <footer className="bg-[#0F172A] border-t border-slate-800 pt-6 pb-3 px-6">
+        <div className="max-w-7xl mx-auto">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-4">
 
             <div className="lg:col-span-1">
-              <div className="mb-5">
-                <span className="text-2xl font-extrabold tracking-tight">
-                  <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
-                    Electra
-                  </span>
-                  <span className="text-white"> Global</span>
-                </span>
-                <p className="text-slate-500 text-xs tracking-widest uppercase mt-0.5">
-                  Recruitment Pvt. Ltd.
-                </p>
+              <div className="mb-1">
+                <Image
+                              src="/logo.png"
+                              alt="Manpower"
+                              height={150}
+                              width={250}
+                              className="h-43 w-auto brightness-200"
+                            />
               </div>
 
-              <p className="text-slate-400 text-xs leading-relaxed mb-6">
-                A Nepal-based ethical recruitment company committed to connecting capable Nepali
-                human resources with responsible global employers through transparent,
-                compliance-focused, and worker-centered foreign employment solutions.
+              <p className="text-white text-lg leading-relaxed mb-6 justify-center">
+               ELECTRA GLOBAL RECRUITMENT  PVT LTD
               </p>
 
               {/* Socials */}
@@ -130,7 +127,7 @@ export default function Footer() {
                     key={s.label}
                     href={s.href}
                     aria-label={s.label}
-                    className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-amber-400 hover:border-amber-400/40 transition-all duration-200"
+                    className="w-8 h-8 rounded-lg bg-[#0F172A] border border-white flex items-center justify-center text-white hover:text-red-600 hover:border-red-600 transition-all duration-200"
                   >
                     {s.icon}
                   </a>
@@ -147,9 +144,9 @@ export default function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-slate-400 hover:text-amber-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
+                      className="text-white hover:text-red-600 text-sm transition-colors duration-200 flex items-center gap-2 group"
                     >
-                      <span className="w-1 h-1 rounded-full bg-slate-700 group-hover:bg-amber-400 transition-colors duration-200" />
+                      <span className="w-1 h-1 rounded-full bg-white group-hover:bg-red-600 transition-colors duration-200" />
                       {l.label}
                     </Link>
                   </li>
@@ -166,14 +163,16 @@ export default function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-slate-400 hover:text-amber-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
+                      className="text-white hover:text-red-600 text-sm transition-colors duration-200 flex items-center gap-2 group"
                     >
-                      <span className="w-1 h-1 rounded-full bg-slate-700 group-hover:bg-amber-400 transition-colors duration-200" />
+                      <span className="w-1 h-1 rounded-full bg-white group-hover:bg-red-600 transition-colors duration-200" />
                       {l.label}
                     </Link>
                   </li>
                 ))}
               </ul>
+              </div>
+              <div>
 
               <h3 className="text-white font-bold text-xs tracking-[0.15em] uppercase mb-5">
                 Compliance
@@ -183,9 +182,9 @@ export default function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-slate-400 hover:text-amber-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
+                      className="text-white hover:text-red-600 text-sm transition-colors duration-200 flex items-center gap-2 group"
                     >
-                      <span className="w-1 h-1 rounded-full bg-slate-700 group-hover:bg-amber-400 transition-colors duration-200" />
+                      <span className="w-1 h-1 rounded-full bg-white group-hover:bg-red-600 transition-colors duration-200" />
                       {l.label}
                     </Link>
                   </li>
@@ -200,8 +199,8 @@ export default function Footer() {
 
               <ul className="space-y-4 mb-7">
                 {/* Address */}
-                <li className="flex gap-3 text-slate-400 text-sm">
-                  <span className="flex-shrink-0 mt-0.5 text-amber-400">
+                <li className="flex gap-3 text-white text-sm">
+                  <span className="flex-shrink-0 mt-0.5 text-red-600">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                       <circle cx="12" cy="10" r="3" />
@@ -210,29 +209,29 @@ export default function Footer() {
                   <span>Sinamangal-9, Airport,<br />Kathmandu, Nepal</span>
                 </li>
 
-                <li className="flex gap-3 text-slate-400 text-sm">
-                  <span className="flex-shrink-0 mt-0.5 text-amber-400">
+                <li className="flex gap-3 text-white text-sm">
+                  <span className="flex-shrink-0 mt-0.5 text-red-600">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
                       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.0 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
                     </svg>
                   </span>
-                  <span>+977-1-5929405<br /><span className="text-slate-600 text-xs">Update number here</span></span>
+                  <span>+977-1-5929405<br /></span>
                 </li>
 
-                <li className="flex gap-3 text-slate-400 text-sm">
-                  <span className="flex-shrink-0 mt-0.5 text-amber-400">
+                <li className="flex gap-3 text-white text-sm">
+                  <span className="flex-shrink-0 mt-0.5 text-red-600">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                       <polyline points="22,6 12,13 2,6" />
                     </svg>
                   </span>
-                  <a href="mailto:contacts.electraglobal@gmail.com" className="hover:text-amber-400 transition-colors duration-200 break-all">
+                  <a href="mailto:contacts.electraglobal@gmail.com" className="hover:text-red-600 transition-colors duration-200 break-all">
                     infoelectraglobalrecruitment@gmail.com
                   </a>
                 </li>
 
-                <li className="flex gap-3 text-slate-400 text-sm">
-                  <span className="flex-shrink-0 mt-0.5 text-amber-400">
+                <li className="flex gap-3 text-white text-sm">
+                  <span className="flex-shrink-0 mt-0.5 text-red-600">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
                       <circle cx="12" cy="12" r="10" />
                       <polyline points="12,6 12,12 16,14" />
@@ -242,29 +241,19 @@ export default function Footer() {
                 </li>
               </ul>
 
-              <a
-                href="https://maps.google.com/?q=Sinamangal-9,Kathmandu,Nepal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-amber-400/30 bg-amber-400/5 text-amber-400 hover:bg-amber-400/10 text-xs font-semibold px-4 py-2.5 rounded-lg transition-all duration-200"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
-                  <polygon points="3,11 22,2 13,21 11,13 3,11" />
-                </svg>
-                Get Directions
-              </a>
+            
             </div>
           </div>
 
-          <div className="border-t border-slate-800 pt-8 mb-8">
-            <p className="text-slate-600 text-xs uppercase tracking-widest mb-4 text-center">
+          <div className="border-t border-white pt-8 mb-8">
+            <p className="text-white text-xs uppercase tracking-widest mb-4 text-center">
               Countries We Serve
             </p>
             <div className="flex flex-wrap gap-2 justify-center">
               {countries.map((c) => (
                 <span
                   key={c}
-                  className="bg-slate-800 border border-slate-700 text-slate-400 text-xs px-3 py-1 rounded-full"
+                  className="bg-slate-800 border border-white text-white text-xs px-3 py-1 rounded-full"
                 >
                   {c}
                 </span>
@@ -273,23 +262,23 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <div className="flex items-center gap-2 text-slate-600 text-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400/50" />
+            <div className="flex items-center gap-2 text-white text-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
               Reg. No. 386754/82/83
             </div>
-            <div className="flex items-center gap-2 text-slate-600 text-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400/50" />
+            <div className="flex items-center gap-2 text-white text-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-600" />
               Foreign Employment License No. 1850/082/083
             </div>
           </div>
 
-          <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-slate-600 text-xs text-center sm:text-left">
+          <div className="border-t border-white pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-white text-xs text-center sm:text-left">
               © {new Date().getFullYear()} Electra Global Recruitment Pvt. Ltd. All rights reserved.
             </p>
             <div className="flex gap-5">
               {legalLinks.slice(0, 2).map((l) => (
-                <Link key={l.label} href={l.href} className="text-slate-600 hover:text-slate-400 text-xs transition-colors duration-200">
+                <Link key={l.label} href={l.href} className="text-white hover:text-slate-400 text-xs transition-colors duration-200">
                   {l.label}
                 </Link>
               ))}
