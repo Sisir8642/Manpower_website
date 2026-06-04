@@ -1,8 +1,13 @@
 from rest_framework import serializers
-from .models import TeamMember
+from .models import TeamMember,RequiredDocument
 
 
-class TeamMemberSerrializers(serializers.ModelSerializer):
+class TeamMemberSerrializer(serializers.ModelSerializer):
     class Meta:
         model=TeamMember
+        fields="__all__"
+
+class RequiredDocumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=RequiredDocument
         fields="__all__"
