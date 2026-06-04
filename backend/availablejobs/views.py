@@ -8,3 +8,8 @@ from rest_framework import viewsets
 class JobApplicationViewSet(viewsets.ModelViewSet):
     queryset = JobApplication.objects.all().order_by('-applied_at')
     serializer_class = JobApplicationserializers
+
+
+class JobDetailViewSet(viewsets.ModelViewSet):
+    queryset=JobDetail.objects.all()
+    serializer_class=JobDetailserializers

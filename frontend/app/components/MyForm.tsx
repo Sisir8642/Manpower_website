@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Lightbox from "yet-another-react-lightbox";
 
+<<<<<<< HEAD
    interface CertificateImage {
   image: string;
 }
@@ -11,19 +12,47 @@ interface CertificateCategory {
   title: string;
   images: CertificateImage[];
 } 
+=======
+import type { VacancyData } from "../vacancy/page"; // OR move to shared types file
+
+type MyFormProps = {
+  lot: VacancyData;
+};
+
+>>>>>>> e0539123faa2b71c65fc0cd51e21d714a4433c33
 interface Certification {
   title: string;
   tagline: string;
   description: string;
   certificates: string[];
 }
+<<<<<<< HEAD
 const Certificates = () => {
 const [certifications, setCertifications] = useState<Certification[]>([]);
 const [error, setError] = useState<string | null>(null);
+=======
+
+interface CertificateImage {
+  image: string;
+}
+
+interface CertificateCategory {
+  title: string;
+  images: CertificateImage[];
+}
+
+
+export default function MyForm({ lot }: MyFormProps) {
+  const [certifications, setCertifications] = useState<Certification[]>([]);
+>>>>>>> e0539123faa2b71c65fc0cd51e21d714a4433c33
   const [activeTab, setActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+<<<<<<< HEAD
+=======
+  const [error, setError] = useState<string | null>(null);
+>>>>>>> e0539123faa2b71c65fc0cd51e21d714a4433c33
 
   useEffect(() => {
     const fetchCertificates = async () => {
@@ -36,6 +65,7 @@ const [error, setError] = useState<string | null>(null);
 
     
 
+<<<<<<< HEAD
 const data: CertificateCategory[] = await res.json();
 
 const formatted = data.map((cat: CertificateCategory) => ({
@@ -43,16 +73,29 @@ const formatted = data.map((cat: CertificateCategory) => ({
   tagline: "",
   description: "",
   certificates: cat.images.map((img: CertificateImage) => img.image),
+=======
+        // Transform API data into your UI structure
+       const formatted = data.map((cat: CertificateCategory) => ({
+  title: cat.title,
+  tagline: "",
+  description: "",
+  certificates: cat.images.map((img) => img.image),
+>>>>>>> e0539123faa2b71c65fc0cd51e21d714a4433c33
 }));
 
         setCertifications(formatted);
         setActiveTab(0);
+<<<<<<< HEAD
      } catch (err: unknown) {
   setError(
     err instanceof Error
       ? err.message
       : "Failed to fetch certificates"
   );
+=======
+      } catch (err) {
+  setError(err instanceof Error ? err.message : "An unexpected error occurred");
+>>>>>>> e0539123faa2b71c65fc0cd51e21d714a4433c33
 } finally {
         setLoading(false);
       }
@@ -65,7 +108,11 @@ const formatted = data.map((cat: CertificateCategory) => ({
     category.certificates.map((image) => ({ src: image }))
   );
 
+<<<<<<< HEAD
 const handleImageClick = (currentSrc: string) => {
+=======
+  const handleImageClick = (currentSrc: string) => {
+>>>>>>> e0539123faa2b71c65fc0cd51e21d714a4433c33
     const globalIndex = allCertificates.findIndex(
       (img) => img.src === currentSrc
     );
@@ -218,5 +265,3 @@ const handleImageClick = (currentSrc: string) => {
     </div>
   );
 };
-
-export default Certificates;

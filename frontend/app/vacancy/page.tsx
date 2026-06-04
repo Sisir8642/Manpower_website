@@ -6,6 +6,10 @@ import MyForm from "../components/MyForm";
 import Modal from "@/components/ui/Modal";
 import { motion, AnimatePresence } from "framer-motion";
 
+type MyFormProps = {
+  lot: VacancyData;
+};
+
 export type VacancyData = {
   companyName: string;
   position: string;
@@ -98,7 +102,7 @@ export default function VacancyPage() {
                 {lot.company}
               </h3>
               <p className="text-xs font-bold opacity-90 text-emerald-300">
-             {lot.positions?.[0]?.title || "Click to View Details"}
+                {lot.positions?.map((p) => p.title).join(", ") || "Click to View Details"}
               </p>
             </div>
           </motion.div>

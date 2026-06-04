@@ -14,7 +14,7 @@ interface CertificateCategory {
   certificates: string[];
 }
 
-const Certificates = () => {
+export default function Certificates() {
   const [certifications, setCertifications] = useState<CertificateCategory[]>([]);
   const [activeTab, setActiveTab] = useState(0);
   const [open, setOpen] = useState(false);

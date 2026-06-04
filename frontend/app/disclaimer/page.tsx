@@ -132,7 +132,11 @@ const sections = [
 
 export default function DisclaimerPage() {
   return (
+<<<<<<< HEAD
   <LegalPageLayout
+=======
+    <LegalPageLayout
+>>>>>>> e0539123faa2b71c65fc0cd51e21d714a4433c33
   badge="Legal"
   title="Disclaimer"
   subtitle="Important information about the scope, accuracy, and limitations of content published on the Electra Global Recruitment official website."

@@ -134,7 +134,11 @@ function LeaderCard({ leader, index }: { leader: typeof leaders[0]; index: numbe
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden "
+<<<<<<< HEAD
               style={{ background: leader.accent }}>
+=======
+              style={{ background: leader.accent}}>
+>>>>>>> e0539123faa2b71c65fc0cd51e21d714a4433c33
               <div className="relative h-72 md:h-96 overflow-hidden">
                 <motion.img
                   src={leader.image}
@@ -205,7 +209,11 @@ function QuoteContent({ leader, direction }: { leader: typeof leaders[0]; direct
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.5 }}
         className="inline-flex items-center gap-2 mt-6 px-4 py-2 rounded-full text-sm font-semibold text-white"
+<<<<<<< HEAD
         style={{ background: leader.accent }}
+=======
+        style={{ background: leader.accent}}
+>>>>>>> e0539123faa2b71c65fc0cd51e21d714a4433c33
       >
        
       </motion.div>
