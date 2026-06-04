@@ -64,7 +64,7 @@ function GallerySkeleton() {
 export default function GalleryPage() {
   const [lightbox, setLightbox] = useState<number | null>(null);
 
-  const { data: galleryData, isLoading } = useQuery<GalleryItem[]>({
+  const { data: galleryData, isLoading } = useQuery<GalleryItem[] | { results: GalleryItem[] }>({
     queryKey: ["gallery"],
     queryFn: async () => {
       const res = await fetch(`${baseUrl}/api/gallery/`);
@@ -75,9 +75,12 @@ export default function GalleryPage() {
     refetchOnWindowFocus: false,
     staleTime: 5 * 60 * 1000,
   });
+const galleryItems: GalleryItem[] = Array.isArray(galleryData)
+  ? galleryData
+  : galleryData?.results ?? [];
 
-  const galleryItems = galleryData?.results ?? galleryData ?? [];
-  const lightboxItem = galleryItems.find((g: GalleryItem) => g.id === lightbox);
+const lightboxItem = galleryItems.find((g: GalleryItem) => g.id === lightbox); 
+
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {

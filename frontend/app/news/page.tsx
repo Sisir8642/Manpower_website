@@ -81,7 +81,7 @@ function NewsSkeleton() {
 export default function NewsPage() {
   const [search, setSearch] = useState("");
 
-  const { data: newsData, isLoading } = useQuery<NewsItem[]>({
+  const { data: newsData, isLoading } = useQuery<NewsItem[] | { results: NewsItem[] }>({
     queryKey: ["news"],
     queryFn: async () => {
       const res = await fetch(`${baseUrl}/api/news/`);
@@ -93,10 +93,10 @@ export default function NewsPage() {
     staleTime: 5 * 60 * 1000,
   });
 
-  // Only show published (status === 1) news
-  const allNews: NewsItem[] = (newsData?.results ?? newsData ?? []).filter(
+const allNews: NewsItem[] = (Array.isArray(newsData) ? newsData : newsData?.results ?? []).filter(
     (n: NewsItem) => n.status === 1
-  );
+);
+
 
   const filtered = allNews.filter((n: NewsItem) =>
     n.title.toLowerCase().includes(search.toLowerCase()) ||
