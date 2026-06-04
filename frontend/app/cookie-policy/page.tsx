@@ -67,12 +67,7 @@ const sections = [
           { label: "Third-Party or Embedded Content Cookies",  desc: "Some pages may include embedded maps, videos, social media links, or external tools. These third-party services may use their own cookies per their respective policies." },
         ].map((item) => (
           <div key={item.label} className={`border rounded-xl p-4 bg-[#F1F6FE]`}>
-            <p className={`font-semibold text-xs mb-1 ${
-              item.color === "amber" ? "text-amber-400" :
-              item.color === "sky" ? "text-sky-400" :
-              item.color === "emerald" ? "text-emerald-400" :
-              "text-green-600"
-            }`}>{item.label}</p>
+            <p className="font-semibold text-xs mb-1 text-green-600">{item.label}</p>
             <p>{item.desc}</p>
           </div>
         ))}

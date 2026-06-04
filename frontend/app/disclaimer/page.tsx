@@ -133,16 +133,17 @@ const sections = [
 export default function DisclaimerPage() {
   return (
     <LegalPageLayout
-      title="Disclaimer"
-      subtitle="Important information about the scope, accuracy, and limitations of content published on the Electra Global Recruitment official website."
-      lastUpdated="2025"
-      sections={sections}
-      relatedLinks={[
-        { label: "Privacy Policy", href: "/privacy-policy" },
-        { label: "Terms & Conditions", href: "/terms" },
-        { label: "Cookie Policy", href: "/cookie-policy" },
-        { label: "Contact Us", href: "/contact" },
-      ]}
-    />
+  badge="Legal"
+  title="Disclaimer"
+  subtitle="Important information about the scope, accuracy, and limitations of content published on the Electra Global Recruitment official website."
+  lastUpdated="2025"
+  sections={sections}
+  relatedLinks={[
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms & Conditions", href: "/terms" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "Contact Us", href: "/contact" },
+  ]}
+/>
   );
 }

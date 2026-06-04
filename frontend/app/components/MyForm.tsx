@@ -3,13 +3,36 @@
 import React, { useState, useEffect } from "react";
 import Lightbox from "yet-another-react-lightbox";
 
-const Certificates = () => {
-  const [certifications, setCertifications] = useState([]);
+import type { VacancyData } from "../vacancy/page"; // OR move to shared types file
+
+type MyFormProps = {
+  lot: VacancyData;
+};
+
+interface Certification {
+  title: string;
+  tagline: string;
+  description: string;
+  certificates: string[];
+}
+
+interface CertificateImage {
+  image: string;
+}
+
+interface CertificateCategory {
+  title: string;
+  images: CertificateImage[];
+}
+
+
+export default function MyForm({ lot }: MyFormProps) {
+  const [certifications, setCertifications] = useState<Certification[]>([]);
   const [activeTab, setActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCertificates = async () => {
@@ -23,18 +46,18 @@ const Certificates = () => {
         const data = await res.json();
 
         // Transform API data into your UI structure
-        const formatted = data.map((cat) => ({
-          title: cat.title,
-          tagline: "",
-          description: "",
-          certificates: cat.images.map((img) => img.image),
-        }));
+       const formatted = data.map((cat: CertificateCategory) => ({
+  title: cat.title,
+  tagline: "",
+  description: "",
+  certificates: cat.images.map((img) => img.image),
+}));
 
         setCertifications(formatted);
         setActiveTab(0);
       } catch (err) {
-        setError(err.message);
-      } finally {
+  setError(err instanceof Error ? err.message : "An unexpected error occurred");
+} finally {
         setLoading(false);
       }
     };
@@ -46,7 +69,7 @@ const Certificates = () => {
     category.certificates.map((image) => ({ src: image }))
   );
 
-  const handleImageClick = (currentSrc) => {
+  const handleImageClick = (currentSrc: string) => {
     const globalIndex = allCertificates.findIndex(
       (img) => img.src === currentSrc
     );
@@ -199,5 +222,3 @@ const Certificates = () => {
     </div>
   );
 };
-
-export default Certificates;
