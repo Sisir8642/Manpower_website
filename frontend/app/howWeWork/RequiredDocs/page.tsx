@@ -49,10 +49,6 @@ export default function RequiredDocuments() {
     fetchDocs();
   }, [BASE_URL]);
 
-  const handleView = (file: string) => {
-    // opens doc in new tab (works if backend serves file correctly)
-    window.open(file, "_blank");
-  };
 
   const handleDownload = (file: string) => {
     const a = document.createElement("a");
@@ -107,12 +103,7 @@ export default function RequiredDocuments() {
               </p>
 
               <div className="flex gap-2">
-                <button
-                  onClick={() => handleView(doc.file)}
-                  className="flex-1 py-2 text-xs font-bold bg-slate-800 text-white rounded-lg"
-                >
-                  View
-                </button>
+               
 
                 <button
                   onClick={() => handleDownload(doc.file)}

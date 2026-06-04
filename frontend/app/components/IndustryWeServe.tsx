@@ -135,7 +135,7 @@ export default function IndustriesGrid() {
         {/* buttons */}
         <div className="flex flex-wrap gap-3 justify-center md:justify-start">
           <button
-            onClick={() => (window.location.href = "/services")}
+            onClick={() => (window.location.href = "/services/serveCountries")}
             className="px-6 py-3 rounded-lg font-semibold text-white transition hover:opacity-90"
             style={{ background: "#2a7d56" }}
           >

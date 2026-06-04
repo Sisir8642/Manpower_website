@@ -4,10 +4,11 @@ import { div } from "framer-motion/client";
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { number: "15+", label: "Years of Industry Experience" },
-  { number: "3", label: "Skill Levels Served" },
-  { number: "100%", label: "Regulatory Compliance" },
-  { number: "∞", label: "Global Opportunities" },
+  { number: "15+", label: "Years of Expertise" },
+  { number: "20+", label: "Global Connection" },
+  { number: "1000+", label: "Employers" },
+  { number: "100", label: "Transparency" },
+  { number: "10000+", label: "Database" }
 ];
 
 function useInView(threshold = 0.15) {

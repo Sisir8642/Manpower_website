@@ -126,9 +126,11 @@ const OrganizationalStructure = () => {
             Operational Blueprint
           </p>
           
-          <p className="text-slate-800 font-semibold max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-            A clear, professional, and accountable framework that ensures efficient management, 
-            smooth coordination, and high-quality recruitment services across every department.
+          <p className="text-slate-800 font-semibold max-w-6xl mx-auto leading-relaxed text-sm sm:text-base">
+          Electra Global Recruitment Pvt. Ltd. operates through a clear, professional, and accountable organizational structure designed to ensure efficient management, smooth coordination, and high-quality recruitment services. Its framework brings together strategic leadership, operational departments, and specialized advisory support to manage the entire recruitment cycle effectively. <br />
+The structure clearly defines roles across recruitment, employer relations, compliance, documentation, worker welfare, training, finance, administration, and communication. This ensures transparent decision-making, timely service delivery, legal compliance, and strong coordination among all teams. <br />
+By integrating ethical recruitment principles, operational efficiency, and responsible governance, Electra’s organizational structure strengthens its ability to connect capable Nepali workers with responsible global employers in a fair, transparent, and professional manner.
+
           </p>
         </FadeIn>
 

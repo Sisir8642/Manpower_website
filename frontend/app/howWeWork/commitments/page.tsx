@@ -6,32 +6,32 @@ const pillars = [
   {
     number: "01",
     icon: "⚖️",
-    title: "Legal Compliance & Good Governance",
-    desc: "Fully registered and licensed under Nepal's foreign employment laws — every workflow meets stringent national and international regulatory standards.",
+    title: "Legal Compliance & Governance",
+    desc: "Ensures all recruitment and business activities follow national and international laws, including labor laws, visa regulations, and ethical hiring standards. It builds trust and avoids legal risks.",
   },
   {
     number: "02",
     icon: "🤝",
     title: "Ethical & Responsible Recruitment",
-    desc: "We uphold fair, transparent, and worker-centric recruitment practices that systematically protect the dignity and rights of every candidate.",
+    desc: "Focuses on fair hiring practices without exploitation, fraud, or discrimination. Candidates are treated with dignity, transparency, and full awareness of job terms.",
   },
   {
     number: "03",
     icon: "👥",
-    title: "Ethical Sourcing & Placement",
-    desc: "Skilled screening, complete verification, and training pipelines ensure international employers receive capable, work-ready talent every time.",
+    title: "Quality Human Resource Supply",
+    desc: "Provides skilled, trained, and job-ready workers to employers. It ensures the right candidate matches the right job for better productivity and long-term success.",
   },
   {
     number: "04",
     icon: "❤️",
-    title: "Worker Welfare, Protection & Grievance Support",
-    desc: "From pre-departure orientation to destination tracking, we actively safeguard the safety, welfare, and operational dispute protection of every worker.",
+    title: "Worker Welfare & Protection",
+    desc: "Prioritizes the safety, rights, and well-being of workers. This includes fair wages, safe working conditions, and support during employment abroad or locally.",
   },
   {
     number: "05",
     icon: "🌐",
-    title: "Global Employer Partnership & Sustainable Mobility",
-    desc: "We build lasting, trust-based relationships with international employers, delivering reliable, long-term human resource workforce solutions worldwide.",
+    title: "Global Employer Partnership",
+    desc: "Builds strong relationships with international employers to understand their workforce needs and deliver reliable manpower solutions across different industries and countries.",
   },
 ];
 

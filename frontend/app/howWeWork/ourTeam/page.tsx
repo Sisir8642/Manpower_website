@@ -5,24 +5,28 @@ import React, { useEffect, useRef, useState } from "react";
 
 const teamMembers = [
   {
-    name: "Tej Prakash Gautam",
-    role: "Marketing Director",
-    avatar: "👤", 
-  },
+    name: "Mr Boneshwor Kafle",
+    role: "Director,Recruirtment & Talent Acquisition",
+    image: "/images/1.jpeg",},
   {
-    name: "Sagar Bhattrai",
-    role: "Marketing Executive- Japan",
-    avatar: "👤",
+    name: "Tej Prakash Gautam",
+    role: "Maketing Director",
+    image: "/images/2.jpeg",
+  },
+    {
+    name: "Sagar Bhattarai",
+    role: "Marketing Executive - Japan",
+    image: "/images/3.jpeg",
   },
   {
     name: "Rupal Tamang",
     role: "Sr. Officer- Recruitment & Talent Acquisition",
-    avatar: "👤",
+    image: "/images/4.jpeg",
   },
   {
     name: "Saugat Shrestha",
     role: "Executive- Recruitment & Talent Acquisition",
-    avatar: "👤",
+    image: "/images/5.jpeg",
   },
 ];
 
@@ -186,19 +190,28 @@ const TeamPage = () => {
             <div className="w-8 h-0.5 bg-emerald-700 mx-auto mt-3 rounded-full" />
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {teamMembers.map((member, i) => (
               <FadeIn key={member.name} delay={i * 80}>
-                <div className="group bg-white border border-blue-200 rounded-3xl p-6 flex flex-col items-center text-center shadow-sm hover:border-emerald-600/30 hover:shadow-md transition-all duration-300 h-full justify-between">
+                <div className="group bg-white border border-blue-200 rounded-3xl p-2 flex flex-col items-center text-center shadow-sm hover:border-emerald-600/30 hover:shadow-md transition-all duration-300 h-full justify-between">
                   
-                  <div className="w-24 h-24 rounded-2xl bg-emerald-50 border border-emerald-600/10 flex items-center justify-center text-slate-400 text-4xl shadow-inner relative overflow-hidden group-hover:bg-emerald-700 group-hover:text-white transition-all duration-500 mb-6">
-                    <div className="absolute top-0 right-0 w-8 h-8 bg-emerald-600/10 rounded-bl-full group-hover:bg-white/10 transition-colors" />
-                    {member.avatar}
-                  </div>
+               
+                  <div className="w-44 h-64 rounded-2xl overflow-hidden border border-emerald-600/10 shadow-inner relative mb-6 group-hover:scale-105 transition-all duration-500">
+  
+  <img
+    src={member.image}
+    alt={member.name}
+    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+    onError={(e) => {
+      e.currentTarget.src = "/images/team/default.jpg";
+    }}
+  />
+
+</div>
 
                   <div className="flex-grow flex flex-col justify-between w-full">
                     <div>
-                      <h4 className="text-slate-950 font-black text-base tracking-tight group-hover:text-emerald-700 transition-colors duration-300">
+                      <h4 className="text-slate-950 font-black text-lg tracking-tight group-hover:text-emerald-700 transition-colors duration-300">
                         {member.name}
                       </h4>
                       <p className="text-red-600 font-bold text-xs mt-1.5 leading-snug tracking-tight">

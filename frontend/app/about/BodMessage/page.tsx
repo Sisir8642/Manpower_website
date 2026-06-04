@@ -95,9 +95,9 @@ const LeadershipPage = () => {
                 <div className="relative aspect-[4/5] w-full rounded-[2rem] rounded-tl-none overflow-hidden bg-blue-50/80 border-2 border-emerald-600/20 p-3 shadow-xl shadow-blue-900/5">
                   <div className="w-full h-full rounded-[1.5rem] rounded-tl-none overflow-hidden bg-white">
                     <img 
-                      src="/chairperson.jpg" 
+                      src="/images/chairperson.jpeg" 
                       alt="Chairperson" 
-                      className="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-700 ease-in-out transform hover:scale-105"
+                      className="w-full h-full object-cover  contrast-110  transition-all duration-700 ease-in-out transform hover:scale-105"
                       onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
                   </div>
@@ -217,9 +217,9 @@ const LeadershipPage = () => {
                 <div className="relative aspect-[4/5] w-full rounded-[2rem] rounded-tr-none lg:rounded-tl-none lg:rounded-tr-[2rem] overflow-hidden bg-blue-50/80 border-2 border-red-600/10 p-3 shadow-xl shadow-blue-900/5">
                   <div className="w-full h-full rounded-[1.5rem] rounded-tr-none lg:rounded-tl-none lg:rounded-tr-[1.5rem] overflow-hidden bg-white">
                     <img 
-                      src="/director.jpg" 
+                      src="/images/MD.jpeg" 
                       alt="Director" 
-                      className="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition-all duration-700 ease-in-out transform hover:scale-105"
+                      className="w-full h-full object-cover  contrast-110 transition-all duration-700 ease-in-out transform hover:scale-105"
                       onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
                   </div>
