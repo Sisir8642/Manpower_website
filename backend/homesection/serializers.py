@@ -31,7 +31,7 @@ class GallerySerializer(serializers.ModelSerializer):
         fields='__all__'
 
 class NewsSerializer(serializers.ModelSerializer):
-    class Meat:
+    class Meta:
         model=News
         fields='__all__'
 

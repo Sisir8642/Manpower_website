@@ -8,6 +8,6 @@ class TeamMemberSerrializer(serializers.ModelSerializer):
         fields="__all__"
 
 class RequiredDocumentSerializer(serializers.ModelSerializer):
-    class Meat:
+    class Meta:
         model=RequiredDocument
         fields="__all__"
