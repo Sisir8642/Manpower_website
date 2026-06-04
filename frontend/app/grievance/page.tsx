@@ -172,14 +172,7 @@ export default function GrievancePage() {
                     <h3 className={`font-bold text-sm mb-1 text-black ${col.text}`}>{ch.title}</h3>
                     <p className="text-black text-xs font-semibold mb-2">{ch.value}</p>
                     <p className="text-slate-400 text-xs leading-relaxed flex-1 mb-4">{ch.desc}</p>
-                    {ch.action && (
-                      <a
-                        href={ch.action.href}
-                        className={`inline-block text-xs font-bold px-4 py-2 rounded-lg border ${col.border} ${col.text} hover:bg-zinc-900/50 transition-colors duration-200 text-center`}
-                      >
-                        {ch.action.label} →
-                      </a>
-                    )}
+                  
                   </div>
                 </FadeIn>
               );

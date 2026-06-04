@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -5,10 +6,6 @@ import { newspapers, JobLot } from "@/data/jobs";
 import MyForm from "../components/MyForm";
 import Modal from "@/components/ui/Modal";
 import { motion, AnimatePresence } from "framer-motion";
-
-type MyFormProps = {
-  lot: VacancyData;
-};
 
 export type VacancyData = {
   companyName: string;
