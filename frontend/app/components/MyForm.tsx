@@ -3,13 +3,27 @@
 import React, { useState, useEffect } from "react";
 import Lightbox from "yet-another-react-lightbox";
 
+   interface CertificateImage {
+  image: string;
+}
+
+interface CertificateCategory {
+  title: string;
+  images: CertificateImage[];
+} 
+interface Certification {
+  title: string;
+  tagline: string;
+  description: string;
+  certificates: string[];
+}
 const Certificates = () => {
-  const [certifications, setCertifications] = useState([]);
+const [certifications, setCertifications] = useState<Certification[]>([]);
+const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchCertificates = async () => {
@@ -20,21 +34,26 @@ const Certificates = () => {
           throw new Error("Failed to fetch certificates");
         }
 
-        const data = await res.json();
+    
 
-        // Transform API data into your UI structure
-        const formatted = data.map((cat) => ({
-          title: cat.title,
-          tagline: "",
-          description: "",
-          certificates: cat.images.map((img) => img.image),
-        }));
+const data: CertificateCategory[] = await res.json();
+
+const formatted = data.map((cat: CertificateCategory) => ({
+  title: cat.title,
+  tagline: "",
+  description: "",
+  certificates: cat.images.map((img: CertificateImage) => img.image),
+}));
 
         setCertifications(formatted);
         setActiveTab(0);
-      } catch (err) {
-        setError(err.message);
-      } finally {
+     } catch (err: unknown) {
+  setError(
+    err instanceof Error
+      ? err.message
+      : "Failed to fetch certificates"
+  );
+} finally {
         setLoading(false);
       }
     };
@@ -46,7 +65,7 @@ const Certificates = () => {
     category.certificates.map((image) => ({ src: image }))
   );
 
-  const handleImageClick = (currentSrc) => {
+const handleImageClick = (currentSrc: string) => {
     const globalIndex = allCertificates.findIndex(
       (img) => img.src === currentSrc
     );

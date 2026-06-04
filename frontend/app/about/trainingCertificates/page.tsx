@@ -1,7 +1,11 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Lightbox from "yet-another-react-lightbox";
+import dynamic from "next/dynamic";
+
+const Lightbox = dynamic(() => import("yet-another-react-lightbox"), {
+  ssr: false,
+});
 
 interface CertificateCategory {
   title: string;
@@ -188,3 +192,4 @@ const Certificates = () => {
   );
 };
 
+export default Certificates;

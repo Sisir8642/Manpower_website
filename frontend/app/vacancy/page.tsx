@@ -98,7 +98,7 @@ export default function VacancyPage() {
                 {lot.company}
               </h3>
               <p className="text-xs font-bold opacity-90 text-emerald-300">
-                {lot.position || "Click to View Details"}
+             {lot.positions?.[0]?.title || "Click to View Details"}
               </p>
             </div>
           </motion.div>

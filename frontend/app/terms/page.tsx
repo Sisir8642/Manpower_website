@@ -194,17 +194,18 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <LegalPageLayout
-      title="Terms & Conditions"
-      subtitle="By accessing or using the Electra Global Recruitment website, you agree to comply with and be bound by the following terms. Please read them carefully."
-      lastUpdated="2025"
-      sections={sections}
-      relatedLinks={[
-        { label: "Privacy Policy", href: "/privacy-policy" },
-        { label: "Cookie Policy", href: "/cookie-policy" },
-        { label: "Disclaimer", href: "/disclaimer" },
-        { label: "Grievance Support", href: "/grievance" },
-      ]}
-    />
+<LegalPageLayout
+  badge="Privacy"
+  title="Privacy Policy"
+  subtitle="How Electra Global Recruitment Pvt. Ltd. collects, uses, stores, and protects your personal information across all official digital platforms."
+  lastUpdated="2025"
+  sections={sections}
+  relatedLinks={[
+    { label: "Terms & Conditions", href: "/terms" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "Disclaimer", href: "/disclaimer" },
+    { label: "Grievance Support", href: "/grievance" },
+  ]}
+/>
   );
 }

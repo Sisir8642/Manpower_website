@@ -2,6 +2,8 @@
 import { useState, useEffect, useRef } from "react";
 import Services from "./Services";
 
+import Link from "next/link";
+
 type Industry = {
   title: string;
   img: string;
@@ -60,9 +62,17 @@ export default function IndustriesGrid() {
         <img
           src="/images/industry/process.png"
           alt="Recruitment Process"
-          className="w-4/3  h-auto rounded-2xl shadow-lg"
+          className="w-4/3  h-auto rounded-2xl shadow-lg mb-7"
         />
+         <Link
+              href="/howWeWork/recruitement"
+              className="mt-auto inline-block bg-[#1A55DB] text-white mt-5 px-5 py-2 rounded-lg hover:bg-blue-700 transition w-fit"
+            >
+              Read More
+            </Link>
+          
       </div>
+      
 
   <div
   className="relative w-full bg-cover bg-center bg-no-repeat bg-fixed"
@@ -70,6 +80,7 @@ export default function IndustriesGrid() {
     backgroundImage: "url('/images/industry/location.jpg')",
   }}
 >
+  
   {/* tri-color top bar */}
   <div className="absolute top-0 left-0 right-0 flex h-1.5 z-10">
     <div className="flex-[2] bg-[#2a7d56]" />

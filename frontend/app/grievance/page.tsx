@@ -167,9 +167,9 @@ export default function GrievancePage() {
               const col = colorConfig[ch.color];
               return (
                 <FadeIn key={ch.title} delay={i * 60}>
-                  <div className={`border ${col.border} ${col.bg} rounded-2xl p-6 h-full flex flex-col shadow-md shadow-zinc-950/10`}>
+                  <div className={`border-[#858F9D] bg-[#EFF7FE] rounded-2xl p-6 h-full text-black flex flex-col shadow-md shadow-zinc-950/10`}>
                     <div className="text-2xl mb-3">{ch.icon}</div>
-                    <h3 className={`font-bold text-sm mb-1 ${col.text}`}>{ch.title}</h3>
+                    <h3 className={`font-bold text-sm mb-1 text-black ${col.text}`}>{ch.title}</h3>
                     <p className="text-black text-xs font-semibold mb-2">{ch.value}</p>
                     <p className="text-slate-400 text-xs leading-relaxed flex-1 mb-4">{ch.desc}</p>
                     {ch.action && (

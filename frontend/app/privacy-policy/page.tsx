@@ -277,17 +277,18 @@ const sections = [
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalPageLayout
-      title="Privacy Policy"
-      subtitle="How Electra Global Recruitment Pvt. Ltd. collects, uses, stores, and protects your personal information across all official digital platforms."
-      lastUpdated="2025"
-      sections={sections}
-      relatedLinks={[
-        { label: "Terms & Conditions", href: "/terms" },
-        { label: "Cookie Policy", href: "/cookie-policy" },
-        { label: "Disclaimer", href: "/disclaimer" },
-        { label: "Grievance Support", href: "/grievance" },
-      ]}
-    />
+  <LegalPageLayout
+  badge="Privacy"
+  title="Privacy Policy"
+  subtitle="How Electra Global Recruitment Pvt. Ltd. collects, uses, stores, and protects your personal information across all official digital platforms."
+  lastUpdated="2025"
+  sections={sections}
+  relatedLinks={[
+    { label: "Terms & Conditions", href: "/terms" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "Disclaimer", href: "/disclaimer" },
+    { label: "Grievance Support", href: "/grievance" },
+  ]}
+/>
   );
 }
