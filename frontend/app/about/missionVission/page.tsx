@@ -154,13 +154,13 @@ const MissionVisionValuesPage = () => {
 
       <section className="px-6 py-12 max-w-6xl mx-auto">
         <FadeIn className="text-center mb-16">
-          <p className="text-red-600 text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase mb-2">
+          <p className="text-blue-600 text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase mb-2">
             What Drives Us
           </p>
-          <h2 className="text-4xl sm:text-5xl font-black text-slate-950 tracking-tight">
-            Our Corporate <span className="text-emerald-700">Values</span>
+          <h2 className="text-4xl sm:text-5xl font-black text-emerald-700 tracking-tight">
+            Our Corporate <span className="text-red-600">Values</span>
           </h2>
-          <div className="w-12 h-1 bg-emerald-600 mx-auto mt-4 rounded-full" />
+          <div className="w-12 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
         </FadeIn>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

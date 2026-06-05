@@ -75,14 +75,7 @@ const LeadershipPage = () => {
 </section>
     <div className="bg-[#E1F1E6] text-slate-900 min-h-screen pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden font-sans">
       
-      <div className="max-w-4xl mx-auto text-center mb-24">
-        <FadeIn>
-          <p className="text-red-600 text-xs sm:text-sm font-extrabold tracking-[0.3em] uppercase mb-3">
-            Corporate Leadership
-          </p>
-         
-        </FadeIn>
-      </div>
+      
 
       <div className="max-w-6xl mx-auto space-y-32">
         
@@ -105,7 +98,7 @@ const LeadershipPage = () => {
 
                 {/* Floating Badge (Corporate Less Blue background with dark text) */}
                 <div className="absolute -bottom-6 -right-4 bg-blue-50 border border-blue-200 px-6 py-3 rounded-2xl shadow-lg backdrop-blur-md">
-                  <div className="text-emerald-700 font-black tracking-wider text-xs uppercase">Founder & Chair</div>
+                  <div className="text-emerald-700 font-black tracking-wider text-xs uppercase">CHAIRPERSON</div>
                 </div>
               </div>
             </FadeIn>
@@ -121,8 +114,8 @@ const LeadershipPage = () => {
                 <span className="text-xs font-extrabold text-red-700 uppercase tracking-widest bg-red-500/10 border border-red-600/10 px-3 py-1 rounded-md">
                   Executive Desk
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-slate-950 mt-4 mb-6 tracking-tight">
-                  Message from the <span className="text-emerald-700">Chairperson</span>
+                <h2 className="text-3xl sm:text-4xl font-black text-emerald-700 mt-4 mb-6 tracking-tight">
+                  Message from the <span className="text-red-600">Chairperson</span>
                 </h2>
 
                 <div className="space-y-4 text-slate-800 font-medium leading-relaxed text-[15px]">
@@ -171,8 +164,8 @@ const LeadershipPage = () => {
                 <span className="text-xs font-extrabold text-emerald-800 uppercase tracking-widest bg-emerald-600/10 border border-emerald-600/10 px-3 py-1 rounded-md">
                   Management Desk
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-slate-950 mt-4 mb-6 tracking-tight">
-                  Message from the <span className="text-emerald-700">Director</span>
+                <h2 className="text-3xl sm:text-4xl font-black text-emerald-700 mt-4 mb-6 tracking-tight">
+                  Message from the <span className="text-red-600">Director</span>
                 </h2>
 
                 <div className="space-y-4 text-slate-800 font-medium leading-relaxed text-[15px]">

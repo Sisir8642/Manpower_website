@@ -107,19 +107,17 @@ export default function Certificates() {
       <div className="max-w-7xl mx-auto">
         {/* HEADER */}
         <div className="text-center mb-16">
-          <p className="text-red-600 text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase mb-3">
-            Compliance & Verification
-          </p>
+         
 
-          <h2 className="text-4xl sm:text-5xl font-black text-slate-950">
-            Our Training & <span className="text-emerald-700">Credentials</span>
+          <h2 className="text-4xl sm:text-5xl font-black text-emerald-700">
+            Our Training & <span className="text-red-600">Credentials</span>
           </h2>
 
           <p className="mt-4 text-slate-800 font-semibold max-w-xl mx-auto text-sm sm:text-base">
             Consistently audited global benchmarks validating our end-to-end fair placement mechanics.
           </p>
 
-          <div className="w-12 h-1 bg-emerald-700 mx-auto mt-6 rounded-full" />
+          <div className="w-12 h-1 bg-blue-600 mx-auto mt-6 rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

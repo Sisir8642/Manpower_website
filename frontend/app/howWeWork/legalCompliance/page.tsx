@@ -63,11 +63,7 @@ const LegalCompliance = () => {
         Legal Compliance & Accrediation
       </h1>
      
-       <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
-                     Electra Global Recruitment Pvt. Ltd. is duly registered with the Government of Nepal
-                  and legally authorized to operate as a foreign employment recruitment agency in
-                  accordance with Nepal's prevailing company, labour, and foreign employment laws.
-      </p>
+    
     </div>
   </div>
 
@@ -92,11 +88,11 @@ const LegalCompliance = () => {
           <div className="md:col-span-7 space-y-6">
             <FadeIn>
               
-              <h2 className="text-4xl sm:text-5xl font-black text-slate-950 leading-[1.1] tracking-tight">
+              <h2 className="text-4xl sm:text-5xl font-black text-emerald-700 leading-[1.1] tracking-tight">
                 Legal Compliance &<br />
-                <span className="text-emerald-700">Accreditation</span>
+                <span className="text-red-600">Accreditation</span>
               </h2>
-              <div className="w-12 h-1 bg-emerald-700 mt-4 mb-6 rounded-full" />
+              <div className="w-12 h-1 bg-blue-600 mt-4 mb-6 rounded-full" />
             </FadeIn>
 
             <FadeIn delay={100}>

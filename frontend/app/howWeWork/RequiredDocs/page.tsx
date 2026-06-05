@@ -119,7 +119,7 @@ export default function RequiredDocuments() {
               {/* ONLY DOWNLOAD BUTTON */}
               <button
                 onClick={() => handleDownload(doc.file)}
-                className="w-full py-2 text-xs font-bold bg-emerald-700 text-white rounded-lg hover:bg-emerald-800 transition"
+                className=" p-2 text-xs font-bold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
               >
                 Download
               </button>
