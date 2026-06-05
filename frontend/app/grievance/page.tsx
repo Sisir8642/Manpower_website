@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -36,7 +37,7 @@ const channels = [
     value: "grievance.electraglobal@gmail.com",
     desc: "Send a detailed written complaint to our dedicated grievance inbox.",
     action: { label: "Send Email", href: "mailto:grievance.electraglobal@gmail.com" },
-    color: "green",
+    color: "blue",
   },
   {
     icon: "📞",
@@ -44,7 +45,7 @@ const channels = [
     value: "To be updated",
     desc: "Speak directly with our team for urgent concerns or immediate support.",
     action: { label: "Call Now", href: "tel:+" },
-    color: "teal",
+    color: "blue",
   },
   {
     icon: "💬",
@@ -52,7 +53,7 @@ const channels = [
     value: "Official Messaging Channel",
     desc: "Quick and accessible communication for registering concerns informally.",
     action: { label: "Message Us", href: "https://wa.me/" },
-    color: "emerald",
+    color: "blue",
   },
   {
     icon: "📝",
@@ -60,7 +61,7 @@ const channels = [
     value: "Submit Online",
     desc: "Use the secure form below to submit your grievance directly from this page.",
     action: { label: "Use Form Below", href: "#form" },
-    color: "teal",
+    color: "blue",
   },
   {
     icon: "🏢",
@@ -68,7 +69,7 @@ const channels = [
     value: "Sinamangal-9, Airport, Kathmandu",
     desc: "Visit our office directly to register a complaint with our team in person.",
     action: { label: "Get Directions", href: "https://maps.google.com/?q=Sinamangal-9,Kathmandu,Nepal" },
-    color: "emerald",
+    color: "blue",
   },
   {
     icon: "📬",
@@ -76,7 +77,7 @@ const channels = [
     value: "Available at our office",
     desc: "Submit a formal written complaint letter or drop it in our confidential suggestion box.",
     action: null,
-    color: "teal",
+    color: "blue",
   },
 ];
 
@@ -88,12 +89,13 @@ const principles = [
 ];
 
 const colorConfig: Record<string, { border: string; bg: string; text: string }> = {
-  green:  { border: "border-green-400/25",  bg: "bg-green-400/5",  text: "text-green-400" },
-  sky:    { border: "border-sky-400/25",    bg: "bg-sky-400/5",    text: "text-sky-400" },
-  emerald:{ border: "border-emerald-400/25",bg: "bg-emerald-400/5",text: "text-emerald-400" },
-  violet: { border: "border-violet-400/25", bg: "bg-violet-400/5", text: "text-violet-400" },
-  rose:   { border: "border-rose-400/25",   bg: "bg-rose-400/5",   text: "text-rose-400" },
-  teal:   { border: "border-teal-400/25",   bg: "bg-teal-400/5",   text: "text-teal-400" },
+  blue:   { border: "border-blue-400/25",  bg: "bg-blue-400/5",  text: "text-blue-600" },
+  green:  { border: "border-green-400/25",  bg: "bg-green-400/5",  text: "text-green-600" },
+  sky:    { border: "border-sky-400/25",    bg: "bg-sky-400/5",    text: "text-sky-600" },
+  emerald:{ border: "border-emerald-400/25",bg: "bg-emerald-400/5",text: "text-emerald-600" },
+  violet: { border: "border-violet-400/25", bg: "bg-violet-400/5", text: "text-violet-600" },
+  rose:   { border: "border-rose-400/25",   bg: "bg-rose-400/5",   text: "text-rose-600" },
+  teal:   { border: "border-teal-400/25",   bg: "bg-teal-400/5",   text: "text-teal-600" },
 };
 
 type FormState = "idle" | "submitting" | "success" | "error";
@@ -115,16 +117,13 @@ export default function GrievancePage() {
   }
 
   return (
-    <main className="  font-sans overflow-x-hidden bg-[#E1F1E6]">
+    <main className="font-sans overflow-x-hidden bg-[#E1F1E6]">
 
       {/* ── HERO ── */}
       <section className="relative py-8 px-6 text-center bg-[#E1F1E6]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-         
-       
         </div>
         <div className="relative z-10 max-w-2xl mx-auto">
-        
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-5 text-emerald-700">
             Grievance <span className="bg-red-600 bg-clip-text text-transparent">Support</span>
           </h1>
@@ -147,14 +146,14 @@ export default function GrievancePage() {
               <div className="bg-[#EFF7FE] border border-slate-800 rounded-2xl p-6 text-center h-full">
                 <div className="text-3xl mb-3">{p.icon}</div>
                 <h3 className="text-black font-bold text-sm mb-2">{p.title}</h3>
-                <p className="text-slate-400 text-xs leading-relaxed">{p.desc}</p>
+                <p className="text-black text-xs leading-relaxed">{p.desc}</p>
               </div>
             </FadeIn>
           ))}
         </div>
       </section>
 
-      <section className="px-6 py-2 bg-[#E1F1E6]  backdrop-blur-sm">
+      <section className="px-6 py-2 bg-[#E1F1E6] backdrop-blur-sm">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="text-center mb-12">
             <h2 className="text-3xl font-extrabold mb-3 text-emerald-700">Reporting <span className="text-red-600">Channels</span></h2>
@@ -169,10 +168,9 @@ export default function GrievancePage() {
                 <FadeIn key={ch.title} delay={i * 60}>
                   <div className={`border-[#858F9D] bg-[#EFF7FE] rounded-2xl p-6 h-full text-black flex flex-col shadow-md shadow-zinc-950/10`}>
                     <div className="text-2xl mb-3">{ch.icon}</div>
-                    <h3 className={`font-bold text-sm mb-1 text-black ${col.text}`}>{ch.title}</h3>
+                    <h3 className={`font-bold text-sm mb-1 ${col.text}`}>{ch.title}</h3>
                     <p className="text-black text-xs font-semibold mb-2">{ch.value}</p>
-                    <p className="text-slate-400 text-xs leading-relaxed flex-1 mb-4">{ch.desc}</p>
-                  
+                    <p className="text-black text-xs leading-relaxed flex-1 mb-4">{ch.desc}</p>
                   </div>
                 </FadeIn>
               );

@@ -129,7 +129,7 @@ function AccordionItem({ faq, index }: { faq: typeof faqs[0]; index: number }) {
           </span>
         </button>
         <div className={`transition-all duration-300 overflow-hidden ${open ? "max-h-96" : "max-h-0"}`}>
-          <p className="px-6 pb-6 text-zinc-400 text-sm leading-relaxed">{faq.a}</p>
+          <p className="px-6 pb-6 text-black text-sm leading-relaxed">{faq.a}</p>
         </div>
       </div>
     </FadeIn>
@@ -178,7 +178,7 @@ export default function FAQPage() {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${activeCategory === cat
-                  ? "bg-[#EFF6FE] border-blue-400/40 text-blue-400"
+                  ? "bg-[#EFF6FE] border-blue-400/40 text-blue-400 text-black"
                   : "bg-[#EFF6FE] border-slate-800 text-black hover:border-slate-600 hover:text-black"
                 }`}
             >

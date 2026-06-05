@@ -89,7 +89,7 @@ const StatCard = ({ icon: Icon, value, label, isInView }: {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-transparent opacity-0 hover:opacity-100 transition" />
             <div className="flex justify-center mb-3">
                 <div className="w-16 h-16 rounded-full bg-[#EAF6FD] flex items-center justify-center">
-                    <Icon className="w-8 h-8 text-[#2B698E]" />
+                    <Icon className="w-8 h-8 text-blue-700" />
                 </div>
             </div>
             <div className="text-4xl font-bold text-gray-900">{count.toLocaleString()}+</div>
