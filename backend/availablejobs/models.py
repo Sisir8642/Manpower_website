@@ -12,7 +12,11 @@ class JobApplication(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
-    gender=models.CharField(choices=GENDER_CHOICES,default='male')
+    gender = models.CharField(
+    max_length=10,
+    choices=GENDER_CHOICES,
+    default='male'
+)
     cv = models.FileField(upload_to="job_applications/",blank=True, null=True)
     applied_at = models.DateTimeField(auto_now_add=True)
 
@@ -29,7 +33,11 @@ class JobDetail(models.Model):
     contact_period=models.CharField(max_length=250)
     address=models.CharField(max_length=300)
     quantity=models.CharField(max_length=250)
-    gender=models.CharField(choices=GENDER_CHOICES,default='male')
+    gender = models.CharField(
+    max_length=10,
+    choices=GENDER_CHOICES,
+    default='male'
+)
     required_qualification=models.TextField()
 
     def __str__(self):
