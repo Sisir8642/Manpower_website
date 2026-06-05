@@ -1,42 +1,89 @@
 
 "use client";
 
-import { useState } from "react";
-import { newspapers, JobLot } from "@/data/jobs";
+import { useState, useEffect } from "react";
 import MyForm from "../components/MyForm";
 import Modal from "@/components/ui/Modal";
 import { motion, AnimatePresence } from "framer-motion";
 
 export type VacancyData = {
-  companyName: string;
+  id?: number;
+  company_name: string;
   position: string;
   category: string;
-  basicSalary: string;
-  contractPeriod: string;
+  basic_salary: string;
+  contact_period: string;
   address: string;
   quantity: string;
   gender: string;
-  requiredQualifications: string;
+  required_qualification: string;
   image: string;
+};
+
+// Single sample data matching your backend model
+const SAMPLE_DATA = {
+  id: 1,
+  company_name: "Tech Solutions Ltd",
+  position: "Senior Software Engineer",
+  category: "Information Technology",
+  basic_salary: "85000.00",
+  contact_period: "Permanent",
+  address: "San Francisco, CA",
+  quantity: "3",
+  gender: "Any",
+  required_qualification: "Bachelor's in CS + 5 years experience",
+  image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
 };
 
 export default function VacancyPage() {
   const [selectedVacancy, setSelectedVacancy] = useState<VacancyData | null>(null);
   const [tab, setTab] = useState<"view" | "apply">("view");
+  const [vacancies, setVacancies] = useState<VacancyData[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const openModal = (lot: any, newspaperImage: string) => {
-    setSelectedVacancy({
-      companyName: lot.company || "",
-      position: lot.position || "Specified in Ad",
-      category: lot.category || "General",
-      basicSalary: lot.salary || "As per structural scale",
-      contractPeriod: lot.contractPeriod || "2 Years",
-      address: lot.address || lot.country || "Overseas",
-      quantity: lot.quantity || "Verified Demand",
-      gender: lot.gender || "Male / Female",
-      requiredQualifications: lot.qualifications || "Experience in relevant field",
-      image: newspaperImage,
-    });
+  // Fetch data from your Django backend
+  useEffect(() => {
+    const fetchVacancies = async () => {
+      try {
+        setLoading(true);
+        
+        // Replace with your Django API endpoint
+        const response = await fetch('http://localhost:8000/api/jobs/'); // Update with your actual API URL
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch vacancies');
+        }
+        
+        const data = await response.json();
+        
+        // If data is empty or you want to show sample data for testing
+        if (data.length === 0) {
+          setVacancies([SAMPLE_DATA]);
+        } else {
+          // Map your backend data to include an image field
+          const vacanciesWithImages = data.map((job: any) => ({
+            ...job,
+            image: job.image || "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" // Default image
+          }));
+          setVacancies(vacanciesWithImages);
+        }
+        
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+        // Show sample data if backend is not ready
+        setVacancies([SAMPLE_DATA]);
+        setError(null); // Don't show error, just use sample data
+        setLoading(false);
+      }
+    };
+
+    fetchVacancies();
+  }, []);
+
+  const openModal = (vacancy: VacancyData) => {
+    setSelectedVacancy(vacancy);
     setTab("view");
   };
 
@@ -52,6 +99,17 @@ export default function VacancyPage() {
     visible: { opacity: 1, scale: 1 },
     exit: { opacity: 0, scale: 0.9 }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#E1F1E6] flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-emerald-700 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-emerald-700 font-semibold">Loading vacancies...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#E1F1E6] text-emerald-700 font-sans p-6 md:p-10 overflow-x-hidden">
@@ -69,42 +127,52 @@ export default function VacancyPage() {
         </p>
       </div>
 
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          visible: { transition: { staggerChildren: 0.1 } }
-        }}
-      >
-        {newspapers.flatMap((n) => n.lots.map((lot, idx) => ({ ...lot, image: n.image, uniqueKey: `${lot.company}-${idx}` }))).map((lot) => (
-          <motion.div
-            key={lot.uniqueKey}
-            whileHover={{ scale: 1.03, y: -4 }}
-            onClick={() => openModal(lot, lot.image)}
-            className="group cursor-pointer relative overflow-hidden rounded-3xl bg-white/40 border border-blue-200/40 shadow-sm shadow-blue-900/5 transition-all duration-300"
-            variants={gridItemVariants}
-          >
-            <div className="overflow-hidden h-72 w-full relative">
-              <img
-                src={lot.image}
-                alt={lot.company}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-            </div>
-            
-            <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-              <h3 className="text-base sm:text-lg font-black tracking-tight leading-snug mb-1">
-                {lot.company}
-              </h3>
-              <p className="text-xs font-bold opacity-90 text-emerald-300">
-                {lot.positions?.map((p) => p.title).join(", ") || "Click to View Details"}
-              </p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+      {vacancies.length === 0 ? (
+        <div className="text-center py-20">
+          <p className="text-slate-500 text-lg">No vacancies available at the moment.</p>
+          <p className="text-slate-400 text-sm mt-2">Check back later for new opportunities.</p>
+        </div>
+      ) : (
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            visible: { transition: { staggerChildren: 0.1 } }
+          }}
+        >
+          {vacancies.map((vacancy, idx) => (
+            <motion.div
+              key={vacancy.id || idx}
+              whileHover={{ scale: 1.03, y: -4 }}
+              onClick={() => openModal(vacancy)}
+              className="group cursor-pointer relative overflow-hidden rounded-3xl bg-white/40 border border-blue-200/40 shadow-sm shadow-blue-900/5 transition-all duration-300"
+              variants={gridItemVariants}
+            >
+              <div className="overflow-hidden h-72 w-full relative">
+                <img
+                  src={vacancy.image}
+                  alt={vacancy.company_name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+              </div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                <h3 className="text-base sm:text-lg font-black tracking-tight leading-snug mb-1">
+                  {vacancy.company_name}
+                </h3>
+                <p className="text-xs font-bold opacity-90 text-emerald-300">
+                  {vacancy.position}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
 
       <AnimatePresence>
         {selectedVacancy && (
@@ -156,25 +224,52 @@ export default function VacancyPage() {
                       <div className="border border-blue-200/60 rounded-2xl overflow-hidden shadow-sm">
                         <img
                           src={selectedVacancy.image}
-                          alt={selectedVacancy.companyName}
+                          alt={selectedVacancy.company_name}
                           className="w-full h-64 md:h-[380px] object-cover"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+                          }}
                         />
                       </div>
                       
                       <div className="space-y-3 bg-emerald-50/40 border border-emerald-600/20 p-5 rounded-2xl">
                         <h2 className="text-xl font-black text-slate-950 tracking-tight border-b border-emerald-600/20 pb-2">
-                          {selectedVacancy.companyName}
+                          {selectedVacancy.company_name}
                         </h2>
                         
                         <div className="space-y-2 text-xs sm:text-sm font-bold text-slate-700">
-                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Position</span> <span className="text-slate-950">{selectedVacancy.position}</span></p>
-                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Category</span> <span className="text-slate-950">{selectedVacancy.category}</span></p>
-                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Basic Salary</span> <span className="text-emerald-700 font-black">{selectedVacancy.basicSalary}</span></p>
-                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Contract Period</span> <span className="text-slate-950">{selectedVacancy.contractPeriod}</span></p>
-                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Address</span> <span className="text-rose-700">{selectedVacancy.address}</span></p>
-                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Quantity</span> <span className="text-slate-950">{selectedVacancy.quantity}</span></p>
-                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Gender Requirement</span> <span className="text-slate-950">{selectedVacancy.gender}</span></p>
-                          <p><span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Required Qualifications</span> <span className="text-slate-900 font-medium block mt-1">{selectedVacancy.requiredQualifications}</span></p>
+                          <p>
+                            <span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Position</span> 
+                            <span className="text-slate-950">{selectedVacancy.position}</span>
+                          </p>
+                          <p>
+                            <span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Category</span> 
+                            <span className="text-slate-950">{selectedVacancy.category}</span>
+                          </p>
+                          <p>
+                            <span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Basic Salary</span> 
+                            <span className="text-emerald-700 font-black">${parseFloat(selectedVacancy.basic_salary).toLocaleString()}</span>
+                          </p>
+                          <p>
+                            <span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Contract Period</span> 
+                            <span className="text-slate-950">{selectedVacancy.contact_period}</span>
+                          </p>
+                          <p>
+                            <span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Address</span> 
+                            <span className="text-rose-700">{selectedVacancy.address}</span>
+                          </p>
+                          <p>
+                            <span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Quantity</span> 
+                            <span className="text-slate-950">{selectedVacancy.quantity}</span>
+                          </p>
+                          <p>
+                            <span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Gender Requirement</span> 
+                            <span className="text-slate-950">{selectedVacancy.gender}</span>
+                          </p>
+                          <p>
+                            <span className="text-slate-400 font-extrabold uppercase text-[10px] tracking-wider block">Required Qualifications</span> 
+                            <span className="text-slate-900 font-medium block mt-1">{selectedVacancy.required_qualification}</span>
+                          </p>
                         </div>
                       </div>
                     </motion.div>
