@@ -21,6 +21,7 @@ class JobApplication(models.Model):
     
 
 class JobDetail(models.Model):
+    image=models.ImageField(upload_to='job_image/')
     company_name=models.CharField(max_length=250)
     basic_salary=models.DecimalField(max_digits=10, decimal_places=2)
     position=models.CharField(max_length=250)
