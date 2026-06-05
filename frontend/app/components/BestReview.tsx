@@ -98,7 +98,6 @@ const StatCard = ({ icon: Icon, value, label, isInView }: {
     );
 };
 
-/* ================= WHY US CARD SKELETON ================= */
 const WhyUsCardSkeleton = () => (
     <div className="bg-white p-6 rounded-2xl shadow-md animate-pulse">
         <div className="h-4 bg-gray-200 rounded w-3/4 mb-3" />

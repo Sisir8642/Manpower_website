@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -51,6 +52,7 @@ function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
+    day: "numeric",
   });
 }
 
@@ -80,6 +82,7 @@ function NewsSkeleton() {
 
 export default function NewsPage() {
   const [search, setSearch] = useState("");
+  const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
 
   const { data: newsData, isLoading } = useQuery<NewsItem[] | { results: NewsItem[] }>({
     queryKey: ["news"],
@@ -93,10 +96,9 @@ export default function NewsPage() {
     staleTime: 5 * 60 * 1000,
   });
 
-const allNews: NewsItem[] = (Array.isArray(newsData) ? newsData : newsData?.results ?? []).filter(
+  const allNews: NewsItem[] = (Array.isArray(newsData) ? newsData : newsData?.results ?? []).filter(
     (n: NewsItem) => n.status === 1
-);
-
+  );
 
   const filtered = allNews.filter((n: NewsItem) =>
     n.title.toLowerCase().includes(search.toLowerCase()) ||
@@ -106,7 +108,6 @@ const allNews: NewsItem[] = (Array.isArray(newsData) ? newsData : newsData?.resu
 
   return (
     <main className="bg-[#E1F1E6] text-red-600">
-
       <section className="relative py-4 px-6 text-center">
         <div className="relative z-10 max-w-2xl mx-auto">
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-5 tracking-tight text-emerald-700">
@@ -117,8 +118,6 @@ const allNews: NewsItem[] = (Array.isArray(newsData) ? newsData : newsData?.resu
             Official news, announcements, and expert insights on ethical recruitment, safe migration,
             worker rights, overseas job trends, and Electra's latest activities.
           </p>
-
-        
         </div>
       </section>
 
@@ -140,7 +139,6 @@ const allNews: NewsItem[] = (Array.isArray(newsData) ? newsData : newsData?.resu
                 <div className="group bg-[#F3F5FC] border border-zinc-900 rounded-2xl overflow-hidden 
                                 h-full flex flex-col hover:border-emerald-500/30 hover:-translate-y-1 
                                 transition-all duration-300 cursor-pointer shadow-md shadow-zinc-950/20">
-
                   <div className="h-44 overflow-hidden bg-gray-100 relative">
                     {post.image ? (
                       <img
@@ -181,7 +179,12 @@ const allNews: NewsItem[] = (Array.isArray(newsData) ? newsData : newsData?.resu
                     <p className="text-black text-xs leading-relaxed mb-5">
                       {truncate(post.description)}
                     </p>
-                    <span className="text-red-600 text-sm">Read more →</span>
+                    <button 
+                      onClick={() => setSelectedNews(post)}
+                      className="text-red-600 text-sm hover:text-red-700 transition-colors text-left"
+                    >
+                      Read more →
+                    </button>
                   </div>
                 </div>
               </FadeIn>
@@ -190,6 +193,75 @@ const allNews: NewsItem[] = (Array.isArray(newsData) ? newsData : newsData?.resu
         )}
       </section>
 
+      {/* Modal for full news details */}
+      {selectedNews && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 overflow-y-auto"
+          onClick={() => setSelectedNews(null)}
+        >
+          <div 
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button 
+              onClick={() => setSelectedNews(null)}
+              className="sticky top-4 right-4 float-right z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+            >
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Image */}
+            {selectedNews.image && (
+              <div className="w-full h-64 md:h-96 overflow-hidden rounded-t-2xl">
+                <img
+                  src={selectedNews.image}
+                  alt={selectedNews.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+
+            {/* Content */}
+            <div className="p-6 md:p-8">
+              {/* Date and read time */}
+              <div className="flex items-center gap-3 mb-4 text-sm text-blue-600 font-medium">
+                <span>{formatDate(selectedNews.created_at)}</span>
+                <span>·</span>
+                <span>{readTime(selectedNews.description)}</span>
+              </div>
+
+              {/* Keywords */}
+              {selectedNews.keywords && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {selectedNews.keywords.split(",").map((kw: string) => (
+                    <span
+                      key={kw}
+                      className="text-xs px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200"
+                    >
+                      {kw.trim()}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* Title */}
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                {selectedNews.title}
+              </h2>
+
+              {/* Full Description */}
+              <div className="prose prose-sm md:prose-base max-w-none">
+                <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+                  {selectedNews.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
