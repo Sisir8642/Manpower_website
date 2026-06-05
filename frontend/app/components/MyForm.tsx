@@ -4,7 +4,7 @@
 import { useState } from "react";
 
 export type VacancyData = {
-  companyName: string;
+  company_name: string;
   position: string;
   category: string;
   basicSalary: string;
@@ -152,7 +152,7 @@ export default function MyForm({ lot }: MyFormProps) {
         {/* Position Info */}
         <div className="bg-emerald-50 p-4 rounded-lg border-l-4 border-emerald-600">
           <p className="text-sm font-medium">
-            Applying for: {lot.position} at {lot.companyName}
+            Applying for: {lot.position} at {lot.company_name}
           </p>
         </div>
 
