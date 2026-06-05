@@ -185,7 +185,7 @@ export default function ContactForm() {
 
                         <div className="bg-white rounded-lg shadow-md overflow-hidden">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.236287062346!2d85.313407!3d27.7099899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19007169eb43%3A0xbd607222c3bf8585!2sMater%20Trading%20Company%20Pvt%20Ltd!5e0!3m2!1sen!2snp!4v1766297798414!5m2!1sen!2snp"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.627738106695!2d85.35152337525345!3d27.697898276188017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19002cc948bb%3A0x43494c56e2bbd800!2sElectra%20Global%20Recruitment%20PVT.LTD!5e0!3m2!1sen!2snp!4v1780639277954!5m2!1sen!2snp"
                                 width="100%"
                                 height="450"
                                 style={{ border: 0 }}
