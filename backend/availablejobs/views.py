@@ -12,10 +12,7 @@ from drf_spectacular.utils import extend_schema
         )
 class JobApplicationViewSet(viewsets.ModelViewSet):
     queryset = JobApplication.objects.all().order_by('-applied_at')
-    serializer_class = JobApplicationserializer
-
-    def perform_create(self, serializer):
-        serializer.save()       
+    serializer_class = JobApplicationserializer    
 
 @extend_schema(
         tags=["Job Detail"],
