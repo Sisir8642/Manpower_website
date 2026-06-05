@@ -68,7 +68,7 @@ export default function IndustriesGrid() {
               href="/howWeWork/recruitement"
               className="mt-auto inline-block  bg-[#1A55DB] text-white mt-5 px-5 py-2 rounded-lg hover:bg-blue-700 transition w-fit"
             >
-              Read More
+              Read More →
             </Link>
           
       </div>

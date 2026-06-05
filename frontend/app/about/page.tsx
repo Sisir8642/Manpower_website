@@ -89,7 +89,7 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           
 
-          <h1 className="text-4xl sm:text-6xl font-black leading-[1.1] tracking-tight mb-4 text-green-600">
+          <h1 className="text-4xl sm:text-6xl font-black leading-[1.1] tracking-tight mb-4 text-emerald-700">
             Electra{" "}
             <span className="bg-red-600 bg-clip-text text-transparent">
               Global
@@ -116,7 +116,7 @@ export default function AboutPage() {
           <FadeIn>
             <div className="space-y-1 mb-6">
 
-              <h2 className="text-3xl sm:text-4xl font-black leading-tight text-green-600">
+              <h2 className="text-3xl sm:text-4xl font-black leading-tight text-emerald-700">
                 Who <span className="text-red-600">We</span>  <span className="text-blue-600">Are</span>
               </h2>
             </div>

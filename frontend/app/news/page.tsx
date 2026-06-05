@@ -118,14 +118,7 @@ const allNews: NewsItem[] = (Array.isArray(newsData) ? newsData : newsData?.resu
             worker rights, overseas job trends, and Electra's latest activities.
           </p>
 
-          <input
-            type="text"
-            placeholder="Search news or keywords..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full max-w-md mx-auto block px-4 py-2 rounded-xl border border-zinc-300 
-                       bg-white text-black text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400"
-          />
+        
         </div>
       </section>
 

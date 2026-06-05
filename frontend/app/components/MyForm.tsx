@@ -66,11 +66,12 @@ export default function MyForm({ lot }: MyFormProps) {
         form.append("cv", cvFile);
       }
 
-      const res = await fetch("/api/job-applications/", {
-        method: "POST",
-        body: form,
-      });
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
+const res = await fetch(`${API_URL}/api/job-applications/`, {
+  method: "POST",
+  body: form,
+});
       if (!res.ok) {
         throw new Error("Failed to submit application");
       }

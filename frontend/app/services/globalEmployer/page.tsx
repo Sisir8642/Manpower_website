@@ -51,7 +51,7 @@ const GlobalEmployer = () => {
           <p className="text-blue-600 text-xs sm:text-sm font-black tracking-[0.2em] uppercase mb-3">
             For Global Employers
           </p>
-          <h2 className="text-4xl sm:text-5xl font-black text-green-600 leading-tight tracking-tight mb-4">
+          <h2 className="text-4xl sm:text-5xl font-black text-emerald-700 leading-tight tracking-tight mb-4">
             Employer <span className="text-red-600">Services</span>
           </h2>
           <div className="w-12 h-1 bg-emerald-700 mx-auto mt-2 mb-6 rounded-full" />
