@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -6,6 +7,9 @@ import dynamic from "next/dynamic";
 const Lightbox = dynamic(() => import("yet-another-react-lightbox"), {
   ssr: false,
 });
+
+// Optional: Import styles if not already imported globally
+import "yet-another-react-lightbox/styles.css";
 
 interface CertificateCategory {
   title: string;
@@ -38,7 +42,7 @@ export default function Certificates() {
         const formatted: CertificateCategory[] = data.map((cat: any) => ({
           title: cat.title,
           tagline: "",
-          description: "",
+          description: cat.description || "", // Added description from API
           certificates: cat.images?.map((img: any) => img.image) || [],
         }));
 
@@ -60,15 +64,18 @@ export default function Certificates() {
     category.certificates.map((image) => ({ src: image }))
   );
 
-  const handleImageClick = (currentSrc: string) => {
-    const globalIndex = allCertificates.findIndex(
-      (img) => img.src === currentSrc
-    );
+  const handleImageClick = (categoryIndex: number, imageIndex: number) => {
+    let globalIndex = 0;
 
-    if (globalIndex !== -1) {
-      setLightboxIndex(globalIndex);
-      setOpen(true);
+    for (let i = 0; i < categoryIndex; i++) {
+      globalIndex += certifications[i]?.certificates?.length || 0;
     }
+
+    globalIndex += imageIndex;
+
+    console.log("Opening lightbox at index:", globalIndex); // Debug log
+    setLightboxIndex(globalIndex);
+    setOpen(true);
   };
 
   if (loading) {
@@ -98,7 +105,6 @@ export default function Certificates() {
   return (
     <div className="bg-[#c5eace] text-slate-900 min-h-screen py-24 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
-
         {/* HEADER */}
         <div className="text-center mb-16">
           <p className="text-red-600 text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase mb-3">
@@ -117,7 +123,6 @@ export default function Certificates() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
           {/* LEFT SIDEBAR */}
           <div className="lg:col-span-4 space-y-3 bg-blue-50/70 p-4 border border-blue-200 rounded-3xl">
             <p className="text-slate-500 font-extrabold uppercase text-[11px] px-3 mb-2">
@@ -144,7 +149,6 @@ export default function Certificates() {
           {/* RIGHT CONTENT */}
           <div className="lg:col-span-8 bg-blue-50/50 border border-blue-200 rounded-3xl p-6 sm:p-8">
             <div className="mb-6 border-b border-blue-200 pb-6">
-
               <div className="flex justify-between items-center">
                 <h3 className="text-2xl font-black text-emerald-800">
                   {activeCategory?.title}
@@ -164,7 +168,7 @@ export default function Certificates() {
               {activeCategory?.certificates?.map((image, i) => (
                 <div
                   key={`${image}-${i}`}
-                  onClick={() => handleImageClick(image)}
+                  onClick={() => handleImageClick(activeTab, i)}
                   className="cursor-pointer rounded-2xl border bg-white p-2 hover:border-emerald-600 transition"
                 >
                   <div className="aspect-[4/3] overflow-hidden rounded-xl">
@@ -181,7 +185,7 @@ export default function Certificates() {
         </div>
       </div>
 
-      {/* LIGHTBOX */}
+      {/* LIGHTBOX - Removed the on.view event that was causing issues */}
       <Lightbox
         open={open}
         close={() => setOpen(false)}
@@ -190,5 +194,4 @@ export default function Certificates() {
       />
     </div>
   );
-};
-
+}
