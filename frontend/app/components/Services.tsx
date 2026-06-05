@@ -28,7 +28,7 @@ export default function CardsSection() {
             </p>
 
             <Link
-              href="/services"
+              href="/services/migratingWorkers"
               className="mt-auto inline-block bg-[#1A55DB] text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition w-fit"
             >
               Read More
@@ -58,7 +58,7 @@ export default function CardsSection() {
             </p>
 
             <Link
-              href="/services"
+              href="/services/globalEmployer"
               className="mt-auto inline-block bg-[#1A55DB] text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition w-fit"
             >
               Read More

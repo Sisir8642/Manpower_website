@@ -20,21 +20,6 @@ export type VacancyData = {
   image: string;
 };
 
-// Single sample data matching your backend model
-const SAMPLE_DATA = {
-  id: 1,
-  company_name: "Tech Solutions Ltd",
-  position: "Senior Software Engineer",
-  category: "Information Technology",
-  basic_salary: "85000.00",
-  contact_period: "Permanent",
-  address: "San Francisco, CA",
-  quantity: "3",
-  gender: "Any",
-  required_qualification: "Bachelor's in CS + 5 years experience",
-  image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-};
-
 export default function VacancyPage() {
   const [selectedVacancy, setSelectedVacancy] = useState<VacancyData | null>(null);
   const [tab, setTab] = useState<"view" | "apply">("view");
@@ -42,14 +27,13 @@ export default function VacancyPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch data from your Django backend
+  // Fetch data from Django backend
   useEffect(() => {
     const fetchVacancies = async () => {
       try {
         setLoading(true);
         
-        // Replace with your Django API endpoint
-        const response = await fetch('http://localhost:8000/api/jobs/'); // Update with your actual API URL
+        const response = await fetch('http://127.0.0.1:8000/api/job-detail/');
         
         if (!response.ok) {
           throw new Error('Failed to fetch vacancies');
@@ -57,24 +41,17 @@ export default function VacancyPage() {
         
         const data = await response.json();
         
-        // If data is empty or you want to show sample data for testing
-        if (data.length === 0) {
-          setVacancies([SAMPLE_DATA]);
-        } else {
-          // Map your backend data to include an image field
-          const vacanciesWithImages = data.map((job: any) => ({
-            ...job,
-            image: job.image || "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" // Default image
-          }));
-          setVacancies(vacanciesWithImages);
-        }
+        // Map your backend data to include an image field
+        const vacanciesWithImages = data.map((job: any) => ({
+          ...job,
+          image: job.image || "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        }));
         
+        setVacancies(vacanciesWithImages);
         setLoading(false);
       } catch (err) {
         console.error("Error fetching data:", err);
-        // Show sample data if backend is not ready
-        setVacancies([SAMPLE_DATA]);
-        setError(null); // Don't show error, just use sample data
+        setError("Failed to load vacancies");
         setLoading(false);
       }
     };
@@ -106,6 +83,24 @@ export default function VacancyPage() {
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-emerald-700 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-emerald-700 font-semibold">Loading vacancies...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-[#E1F1E6] flex items-center justify-center p-4">
+        <div className="text-center bg-white/80 backdrop-blur-sm p-8 rounded-2xl max-w-md">
+          <div className="text-red-600 text-5xl mb-4">⚠️</div>
+          <h3 className="text-xl font-bold text-slate-800 mb-2">Failed to Load Data</h3>
+          <p className="text-slate-600 mb-6">{error}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="bg-emerald-700 text-white px-6 py-2 rounded-xl font-semibold hover:bg-emerald-800 transition"
+          >
+            Try Again
+          </button>
         </div>
       </div>
     );

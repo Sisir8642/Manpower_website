@@ -154,8 +154,8 @@ const BestReview = () => {
                 <div className="max-w-6xl w-full px-4">
 
                     <div className="text-center mb-16">
-                        <h2 className="text-5xl font-bold text-[#2a7d56] mb-4">Why Us</h2>
-                        <div className="w-24 h-1 bg-red-500 mx-auto rounded-full" />
+                        <h2 className="text-5xl font-bold text-[#2a7d56] mb-4">Why <span className='text-red-600'> Us</span></h2>
+                        <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full" />
                         <p className="text-gray-600 mt-6 max-w-3xl mx-auto">
                             {whyUsData?.[0]?.description ?? "We provide research-driven insights that bridge Nepal's strategic interests."}
                         </p>

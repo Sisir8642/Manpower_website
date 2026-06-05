@@ -139,9 +139,9 @@ export default function ClientsMarquee() {
         className="mb-8 text-center text-5xl font-extrabold tracking-tight"
         style={{ color: "#2a7d56", fontFamily: "'Georgia', serif" }}
       >
-        Our Clients
+        Our <span className="text-red-600">Clients</span> 
       </h2>
-                        <div className="w-24 h-1 bg-[#eb232a] mx-auto mt-4 rounded-full mb-8" />
+                        <div className="w-24 h-1 bg-blue-600 mx-auto mt-4 rounded-full mb-8" />
 
       {/* Fade edges */}
       <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#e8eef4] to-transparent" />

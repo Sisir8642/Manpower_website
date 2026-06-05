@@ -29,7 +29,7 @@ export default function IndustriesGrid() {
     <section className="py-2 ">
       <div className="max-w-5xl mx-auto text-center py-8 bg-[#E1F1E6]">
         <h2 className="text-5xl font-extrabold text-[#2a7d56]">Services</h2>
-        <div className="w-24 h-1 bg-[#eb232a] mx-auto mt-2 mb-4 rounded-full" />
+        <div className="w-24 h-1 bg-blue-600 mx-auto mt-2 mb-4 rounded-full" />
         <h3 className="text-lg md:text-2xl font-semibold text-[#eb232a] italic mb-5">
           "To become a trusted global partner in ethical and responsible recruitment."
         </h3>
@@ -45,9 +45,9 @@ export default function IndustriesGrid() {
       {/* INDUSTRY TITLE */}
       <div className="bg-[#EFF5FE] pt-8">
       <h2 className="text-5xl font-extrabold text-[#2a7d56] text-center">
-        Industries We Serve
+        Industries <span className="text-red-600">We</span> <span className="text-black">Serve</span>
       </h2>
-      <div className="w-24 h-1 bg-[#eb232a] mx-auto mt-2 mb-4 rounded-full" />
+      <div className="w-24 h-1 bg-blue-600 mx-auto mt-2 mb-4 rounded-full" />
 
       {/* 3D CAROUSEL */}
       <Carousel3D images={images} />
@@ -56,9 +56,9 @@ export default function IndustriesGrid() {
       {/* RECRUITMENT SECTION */}
       <div className="max-w-6xl mx-auto px-4 py-14 text-center">
         <h3 className="text-4xl md:text-5xl font-extrabold text-[#2a7d56] mb-4">
-          Recruitment Process Flow
+          Recruitment  <span className="text-red-600">Process</span> <span className="text-black"> Flow</span> 
         </h3>
-        <div className="w-24 h-1 bg-[#eb232a] mx-auto mb-8 rounded-full" />
+        <div className="w-24 h-1 bg-blue-600 mx-auto mb-8 rounded-full" />
         <img
           src="/images/industry/process.png"
           alt="Recruitment Process"
@@ -66,7 +66,7 @@ export default function IndustriesGrid() {
         />
          <Link
               href="/howWeWork/recruitement"
-              className="mt-auto inline-block bg-[#1A55DB] text-white mt-5 px-5 py-2 rounded-lg hover:bg-blue-700 transition w-fit"
+              className="mt-auto inline-block  bg-[#1A55DB] text-white mt-5 px-5 py-2 rounded-lg hover:bg-blue-700 transition w-fit"
             >
               Read More
             </Link>
