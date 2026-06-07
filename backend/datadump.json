@@ -1,0 +1,1446 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-05-31T07:54:03.762Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Slider",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-05-31T08:05:46.937Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "ArjunDhakal - Branch Manager",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-05-31T08:08:31.771Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Cybersecurity - Senior Driver",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-05-31T08:09:04.254Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Digital Growth - Frequent Traveler",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-06-02T04:54:50.531Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "EIQ",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"EIQ\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"EIQ\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"EIQ\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-06-02T04:55:55.811Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "Forced Labour Eradication",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"Forced Labour Eradication\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"Forced Labour Eradication\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"Forced Labour Eradication\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-06-02T04:57:23.658Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "IOM-IRIS",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"IOM-IRIS\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"IOM-IRIS\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"IOM-IRIS\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"IOM-IRIS\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-06-02T04:58:11.386Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "4",
+    "object_repr": "OTL & SEDEX",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"OTL & SEDEX\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"OTL & SEDEX\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"OTL & SEDEX\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-06-02T04:59:17.951Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "5",
+    "object_repr": "RBA Related Trainings",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"RBA Related Trainings\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"RBA Related Trainings\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"RBA Related Trainings\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"RBA Related Trainings\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"RBA Related Trainings\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"RBA Related Trainings\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"RBA Related Trainings\"}}, {\"added\": {\"name\": \"certificate image\", \"object\": \"RBA Related Trainings\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-06-02T09:30:47.087Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "We provide research-driven insights that bridge Nepal’s strategic interests.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"why us item\", \"object\": \"Responsible Recruitment Commitment\"}}, {\"added\": {\"name\": \"why us item\", \"object\": \"Who We Are\"}}, {\"added\": {\"name\": \"why us item\", \"object\": \"Core Services\"}}, {\"added\": {\"name\": \"why us item\", \"object\": \"Why Electra\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-06-03T08:59:00.803Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "Mr. Boneshwor Kafle",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-06-03T08:59:49.826Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "2",
+    "object_repr": "Tej Parkash Gautam",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-06-03T09:01:12.256Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "Sagar Bhattrai",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-06-03T09:03:11.582Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "4",
+    "object_repr": "Rupal Tamang",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-06-03T09:04:03.585Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "5",
+    "object_repr": "Saugat Shrestha",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-06-03T09:20:16.044Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "Number of Nepalis landing foreign jobs reduced to one-third last year",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-06-03T09:21:15.157Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "GalleryImages",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-06-03T09:21:24.409Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "2",
+    "object_repr": "GalleryImages",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-06-04T06:00:08.771Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "1",
+    "object_repr": "gg",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-06-04T06:00:52.765Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "1",
+    "object_repr": "gg",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-06-04T06:17:40.184Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "EIQ",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-06-04T06:17:43.212Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "EIQ",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-06-04T06:18:08.823Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "GalleryImages",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-06-04T06:18:10.148Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "GalleryImages",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-06-04T06:18:14.808Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "Number of Nepalis landing foreign jobs reduced to one-third last year",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-06-04T06:18:16.607Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "Number of Nepalis landing foreign jobs reduced to one-third last year",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-06-04T06:18:21.862Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Slider",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-06-04T06:18:24.461Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Slider",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-06-04T06:18:32.583Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "We provide research-driven insights that bridge Nepal’s strategic interests.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-06-04T06:18:34.292Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "We provide research-driven insights that bridge Nepal’s strategic interests.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-06-04T06:18:41.357Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "Mr. Boneshwor Kafle",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-06-04T06:18:43.941Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "Mr. Boneshwor Kafle",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-06-04T06:18:44.788Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "Mr. Boneshwor Kafle",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-06-04T06:21:02.907Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "2",
+    "object_repr": "Agency Agreement",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-06-04T06:21:33.366Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "3",
+    "object_repr": "Assurance Note",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-06-04T06:21:56.734Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "4",
+    "object_repr": "Demand Application Letter",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-06-04T06:22:11.079Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "5",
+    "object_repr": "Demand Letter",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-06-04T06:22:30.482Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "6",
+    "object_repr": "Employment Contract",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-06-04T06:22:57.133Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "7",
+    "object_repr": "Letter of Undertaking",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-06-04T06:23:50.833Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "8",
+    "object_repr": "Power of attorney",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-06-04T06:39:07.130Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "Curtis and Stuart Plc",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-06-04T18:38:25.151Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Slider",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"slider image\", \"object\": \"sliderImages\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-06-04T18:39:22.852Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Slider",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"slider image\", \"object\": \"sliderImages\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-06-05T04:40:23.386Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "Curtis and Stuart Plc",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-06-05T04:41:24.031Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "Curtis and Stuart Plc",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-06-05T04:42:05.705Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "2",
+    "object_repr": "ABCC",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-06-05T05:22:50.203Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Slider",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-06-05T05:23:05.784Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Slider",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"slider image\", \"object\": \"sliderImages\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-06-05T05:23:58.467Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Slider",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"slider image\", \"object\": \"sliderImages\"}}, {\"added\": {\"name\": \"slider image\", \"object\": \"sliderImages\"}}, {\"added\": {\"name\": \"slider image\", \"object\": \"sliderImages\"}}, {\"added\": {\"name\": \"slider image\", \"object\": \"sliderImages\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-06-05T06:34:34.113Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "3",
+    "object_repr": "Mccormick Dudley LLC",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-06-05T08:51:19.124Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "Number of Nepalis landing foreign jobs reduced to one-third last year",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-06-05T08:52:38.012Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "2",
+    "object_repr": "सुधन गुरुङमाथिको छानबिन सकेर समितिले प्रधानमन्त्रीलाई बुझायो प्रतिवेदन",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-06-05T08:53:53.797Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "3",
+    "object_repr": "वैदेशिक रोजगार क्षेत्रको सुधारका लागि श्रममन्त्रीलाई म्यानपावर व्यवसायीका ७ बुँदे सुझाव",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2026-06-05T08:55:19.519Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "4",
+    "object_repr": "जापानमा अब सबै म्यानपावरले कामदार पठाउन पाउने",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2026-06-05T08:55:50.041Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "3",
+    "object_repr": "Mccormick Dudley LLC",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2026-06-05T08:55:50.041Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "2",
+    "object_repr": "ABCC",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2026-06-05T08:55:50.041Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "Curtis and Stuart Plc",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2026-06-05T09:08:22.850Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "4",
+    "object_repr": "Everest Builders Pvt. Ltd.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2026-06-05T09:11:28.121Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "5",
+    "object_repr": "Medicare Hospital",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2026-06-05T09:14:24.583Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "6",
+    "object_repr": "Gulf Power Services",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2026-06-05T09:14:36.352Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "Simon Frye - Quae aut saepe excepturi voluptate iure dicta nobis iusto optio mollit aliquid ipsam neque fugit",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2026-06-05T09:14:36.352Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Eleanor Austin - Quae aut saepe excepturi voluptate iure dicta nobis iusto optio mollit aliquid ipsam neque fugit",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2026-06-05T09:14:36.352Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "4",
+    "object_repr": "Isadora Logan - Electrician",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2026-06-05T09:14:36.352Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Digital Growth - Frequent Traveler",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2026-06-05T09:14:36.352Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Cybersecurity - Senior Driver",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2026-06-05T09:14:36.352Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "ArjunDhakal - Branch Manager",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2026-06-05T09:15:54.400Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "We provide research-driven insights that bridge Nepal’s strategic interests.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$JHMQSbF03gF42ast0XLg1U$9qc2lz202snrvaxbeoSwpl9469Rgi25US4fAodQDxrY=",
+    "last_login": "2026-06-04T17:54:23.067Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-05-31T07:46:49.992Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8kqrwullwddhjl1u7flw5o2nvs7y77c7",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSFQ3i7d-w1khgGpGkhKuzL-uzbpQrf3nHNfLMK21riNvMSZ2JlJdvrdENIjtx3QHdqt89TbuszId4UfdPBrp_y8HO7fQYVRvzVKIRMggg2SEnjwyiSUUwi6kNXOFa0MFJ-1QuFLNikII8gS5ckTOPb-APwfOJA:1wUH1N:HME_BuyaWNBIvnp56pXc1EoOGVmEnT34sCkwDKl_doc",
+    "expire_date": "2026-06-16T04:46:33.473Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qjbhp2klx13h1ind6wyyhrrl4bx5cb3h",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSFQ3i7d-w1khgGpGkhKuzL-uzbpQrf3nHNfLMK21riNvMSZ2JlJdvrdENIjtx3QHdqt89TbuszId4UfdPBrp_y8HO7fQYVRvzVKIRMggg2SEnjwyiSUUwi6kNXOFa0MFJ-1QuFLNikII8gS5ckTOPb-APwfOJA:1wVCGt:tF7hWao5SS9AoLUDrSkuI4d7VkGqIwZLoJvQX10GnEQ",
+    "expire_date": "2026-06-18T17:54:23.068Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "w049pqy2287yazmepikcp18r404zi2hs",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSFQ3i7d-w1khgGpGkhKuzL-uzbpQrf3nHNfLMK21riNvMSZ2JlJdvrdENIjtx3QHdqt89TbuszId4UfdPBrp_y8HO7fQYVRvzVKIRMggg2SEnjwyiSUUwi6kNXOFa0MFJ-1QuFLNikII8gS5ckTOPb-APwfOJA:1wTat1:hqiPKAf7eEsuz30udNfn_uCxIebICZGDNMUZDMTEJFA",
+    "expire_date": "2026-06-14T07:47:07.304Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zb62kgg1xuervnwo61x9q06fr1877y33",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSFQ3i7d-w1khgGpGkhKuzL-uzbpQrf3nHNfLMK21riNvMSZ2JlJdvrdENIjtx3QHdqt89TbuszId4UfdPBrp_y8HO7fQYVRvzVKIRMggg2SEnjwyiSUUwi6kNXOFa0MFJ-1QuFLNikII8gS5ckTOPb-APwfOJA:1wV169:U-D7fDJie9p980IGejpD4pxySNWlkQAk984gDP8QoSE",
+    "expire_date": "2026-06-18T05:58:33.959Z"
+  }
+},
+{
+  "model": "homesection.slider",
+  "pk": 2,
+  "fields": {
+    "heading": "Manpower",
+    "paragraph": "Nepal’s trust-driven ethical recruitment partner for responsible global employers- Connecting Talent.",
+    "is_active": true
+  }
+},
+{
+  "model": "homesection.sliderimage",
+  "pk": 3,
+  "fields": {
+    "slider": 2,
+    "image": "slider/dubai_image.jpg"
+  }
+},
+{
+  "model": "homesection.sliderimage",
+  "pk": 4,
+  "fields": {
+    "slider": 2,
+    "image": "slider/malaysia_image.jpg"
+  }
+},
+{
+  "model": "homesection.sliderimage",
+  "pk": 5,
+  "fields": {
+    "slider": 2,
+    "image": "slider/cyprus_image.jpg"
+  }
+},
+{
+  "model": "homesection.sliderimage",
+  "pk": 6,
+  "fields": {
+    "slider": 2,
+    "image": "slider/quatar_image.jpg"
+  }
+},
+{
+  "model": "homesection.sliderimage",
+  "pk": 7,
+  "fields": {
+    "slider": 2,
+    "image": "slider/malaysia.webp"
+  }
+},
+{
+  "model": "homesection.whyus",
+  "pk": 1,
+  "fields": {
+    "description": "We provide research-driven insights that bridge Nepal’s strategic interests."
+  }
+},
+{
+  "model": "homesection.whyusitem",
+  "pk": 1,
+  "fields": {
+    "section": 1,
+    "title": "Responsible Recruitment Commitment",
+    "description": "At Electra Global Recruitment Pvt. Ltd., we are committed to fair, transparent, lawful, and ethical recruitment practices. We prioritize human dignity, worker protection, and accountability across the entire recruitment process."
+  }
+},
+{
+  "model": "homesection.whyusitem",
+  "pk": 2,
+  "fields": {
+    "section": 1,
+    "title": "Who We Are",
+    "description": "Electra is a Nepal-based international recruitment agency with over 13 years of experience in ethical foreign employment. We connect skilled Nepali workers with responsible global employers through transparent and compliance-focused recruitment services."
+  }
+},
+{
+  "model": "homesection.whyusitem",
+  "pk": 3,
+  "fields": {
+    "section": 1,
+    "title": "Core Services",
+    "description": "We provide end-to-end recruitment solutions, including employer consultation, workforce planning, candidate sourcing and screening, interview coordination, documentation and embassy processing, visa facilitation, deployment support, and post-placement follow-up."
+  }
+},
+{
+  "model": "homesection.whyusitem",
+  "pk": 4,
+  "fields": {
+    "section": 1,
+    "title": "Why Electra",
+    "description": "We combine industry expertise with a strong ethical approach, ensuring reliable workforce solutions for employers while maintaining transparency, trust, and worker welfare. Our focus is long-term partnerships built on dignity and accountability."
+  }
+},
+{
+  "model": "homesection.gallery",
+  "pk": 1,
+  "fields": {
+    "images": "gallery_images/marketing.jpeg"
+  }
+},
+{
+  "model": "homesection.gallery",
+  "pk": 2,
+  "fields": {
+    "images": "gallery_images/Rupal.jpeg"
+  }
+},
+{
+  "model": "homesection.news",
+  "pk": 2,
+  "fields": {
+    "title": "सुधन गुरुङमाथिको छानबिन सकेर समितिले प्रधानमन्त्रीलाई बुझायो प्रतिवेदन",
+    "keywords": "jobs,manpower,nepal,foregin",
+    "description": "२२ जेठ, काठमाडौं । तत्कालीन गृहमन्त्री तथा राष्ट्रिय स्वतन्त्र पार्टीका सांसद सुधन गुरुङमाथि छानबिन गर्न बनेको समितिले प्रतिवेदन बुझाएको छ ।\r\n\r\nछानबिन समितिका संयोजक पूर्व न्यायाधीश अच्युतम प्रसाद भण्डारीले छानबिनको प्रक्रिया सकेर प्रतिवेदन प्रधानमन्त्री बालेन शाहलाई बुझाएको जानकारी दिए ।",
+    "image": "News_Images/sudhan-gurung-1.png",
+    "status": 1,
+    "created_at": "2026-06-05T08:52:38.011Z",
+    "updated_at": "2026-06-05T08:52:38.011Z"
+  }
+},
+{
+  "model": "homesection.news",
+  "pk": 3,
+  "fields": {
+    "title": "वैदेशिक रोजगार क्षेत्रको सुधारका लागि श्रममन्त्रीलाई म्यानपावर व्यवसायीका ७ बुँदे सुझाव",
+    "keywords": "jobs,manpower,nepal,foregin",
+    "description": "२५ चैत, काठमाडौं । वैदेशिक रोजगार क्षेत्रमा देखिएका समस्या समाधान गर्न नेपाल वैदेशिक रोजगार व्यवसायी संघले ७ बुँदे सुझाब अघि सारेको छ ।\r\n\r\nश्रम, रोजगार तथा सामाजिक सुरक्षामन्त्री दिपककुमार साहलाई वैदेशिक रोजगार क्षेत्रको सुधार तथा व्यवस्थापनका लागि ७ बुदे सुझाव पेश गरेको हो ।",
+    "image": "News_Images/dubai_image.jpg",
+    "status": 1,
+    "created_at": "2026-06-05T08:53:53.796Z",
+    "updated_at": "2026-06-05T08:53:53.796Z"
+  }
+},
+{
+  "model": "homesection.news",
+  "pk": 4,
+  "fields": {
+    "title": "जापानमा अब सबै म्यानपावरले कामदार पठाउन पाउने",
+    "keywords": "jobs,manpower,nepal,foregin",
+    "description": "१७ पुस, काठमाडौं । सरकारले जापानमा प्रशिक्षार्थी कामदार पठाउने निर्देशिका खारेज गरेको छ । निर्देशिका खारेज भएसँगै सबै म्यानपावर कम्पनीले श्रमिक पठाउन पाउने बाटो खुलेको हो ।\r\n\r\nश्रम, रोजगार तथा सामाजिक सुरक्षा मन्त्रालयले ‘जापानमा प्राविधिक (अभ्यासार्थी) कामदार पठाउने निर्देशिका २०६६’ जारी गरेको थियो । सोही आधारमा ‘जापान इन्टरनेसल ट्रेनिङ कोअपरेसन अर्गनाइजेसन’ (जिट्को) मार्फत नेपाली श्रमिकलाई जापानमा काम गर्न पठाउने गरिएको थियो ।",
+    "image": "News_Images/man.jpg",
+    "status": 1,
+    "created_at": "2026-06-05T08:55:19.517Z",
+    "updated_at": "2026-06-05T08:55:19.517Z"
+  }
+},
+{
+  "model": "about_us.certificatecategory",
+  "pk": 1,
+  "fields": {
+    "title": "EIQ"
+  }
+},
+{
+  "model": "about_us.certificatecategory",
+  "pk": 2,
+  "fields": {
+    "title": "Forced Labour Eradication"
+  }
+},
+{
+  "model": "about_us.certificatecategory",
+  "pk": 3,
+  "fields": {
+    "title": "IOM-IRIS"
+  }
+},
+{
+  "model": "about_us.certificatecategory",
+  "pk": 4,
+  "fields": {
+    "title": "OTL & SEDEX"
+  }
+},
+{
+  "model": "about_us.certificatecategory",
+  "pk": 5,
+  "fields": {
+    "title": "RBA Related Trainings"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "image": "certificates/2.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "image": "certificates/3.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "image": "certificates/1753435082559.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 4,
+  "fields": {
+    "category": 2,
+    "image": "certificates/1.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 5,
+  "fields": {
+    "category": 2,
+    "image": "certificates/2_t4vhLCL.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 6,
+  "fields": {
+    "category": 2,
+    "image": "certificates/3_kN828o7.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 7,
+  "fields": {
+    "category": 3,
+    "image": "certificates/1_V26gf56.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 8,
+  "fields": {
+    "category": 3,
+    "image": "certificates/1753436799194.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 9,
+  "fields": {
+    "category": 3,
+    "image": "certificates/IRIS_CERTIFICATE_SHWETA_CHAUHAN_1_page-0001.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 10,
+  "fields": {
+    "category": 3,
+    "image": "certificates/IRIS_CERTIFICATE_SHWETA_CHAUHAN_1_page-0001_eZUEnMY.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 11,
+  "fields": {
+    "category": 4,
+    "image": "certificates/1753435417623.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 12,
+  "fields": {
+    "category": 4,
+    "image": "certificates/2_5y94sIG.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 13,
+  "fields": {
+    "category": 4,
+    "image": "certificates/Karuna_Thapa-OTL_Certificate_ERAC_Completion.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 14,
+  "fields": {
+    "category": 5,
+    "image": "certificates/Recruitment_and_Selection.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 15,
+  "fields": {
+    "category": 5,
+    "image": "certificates/RBA_Unconscious_Bias_at_the_Workplace.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 16,
+  "fields": {
+    "category": 5,
+    "image": "certificates/RBA_Responsible_Recruitment_Due_Diligence_Toolkit.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 17,
+  "fields": {
+    "category": 5,
+    "image": "certificates/RBA_Gender_Sensitivity_at_the_Workplace.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 18,
+  "fields": {
+    "category": 5,
+    "image": "certificates/RBA_Ethical_Recruitment_Certificate.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 19,
+  "fields": {
+    "category": 5,
+    "image": "certificates/RBA_Corrective_Action_Plan_CAP.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 20,
+  "fields": {
+    "category": 5,
+    "image": "certificates/PDO_Training_Certificate.jpg"
+  }
+},
+{
+  "model": "about_us.certificateimage",
+  "pk": 21,
+  "fields": {
+    "category": 5,
+    "image": "certificates/EICC_Training_Certificate-Karuna_Thapa.jpg"
+  }
+},
+{
+  "model": "availablejobs.jobapplication",
+  "pk": 7,
+  "fields": {
+    "position": "Construction Worker",
+    "name": "Kim Newton",
+    "email": "dyhaku6905@chapsmail.com",
+    "phone_number": "+977 980-0010001",
+    "gender": "male",
+    "cv": "",
+    "applied_at": "2026-06-05T09:19:09.339Z"
+  }
+},
+{
+  "model": "availablejobs.jobapplication",
+  "pk": 8,
+  "fields": {
+    "position": "Electrician",
+    "name": "AVISHEK DAHAL",
+    "email": "hello@tafmail.com",
+    "phone_number": "+977 984 9747554",
+    "gender": "male",
+    "cv": "",
+    "applied_at": "2026-06-05T09:20:09.414Z"
+  }
+},
+{
+  "model": "availablejobs.jobdetail",
+  "pk": 4,
+  "fields": {
+    "image": "job_image/plumbing_career_social_jpg.jpg",
+    "company_name": "Everest Builders Pvt. Ltd.",
+    "basic_salary": "40000.00",
+    "position": "Construction Worker",
+    "category": "Construction",
+    "contact_period": "50000",
+    "address": "kathmandu Nepal",
+    "quantity": "5",
+    "gender": "male",
+    "required_qualification": "No formal education required, physical fitness required"
+  }
+},
+{
+  "model": "availablejobs.jobdetail",
+  "pk": 5,
+  "fields": {
+    "image": "job_image/healthcare-768x371.jpg",
+    "company_name": "Medicare Hospital",
+    "basic_salary": "50000.00",
+    "position": "Staff Nurse",
+    "category": "Health care",
+    "contact_period": "5 year",
+    "address": "koteshwor",
+    "quantity": "5",
+    "gender": "female",
+    "required_qualification": "Diploma in Nursing / PCL Nursing"
+  }
+},
+{
+  "model": "availablejobs.jobdetail",
+  "pk": 6,
+  "fields": {
+    "image": "job_image/man-electrical-technician-working-switchboard-with-fuses_169016-24062.avif",
+    "company_name": "Gulf Power Services",
+    "basic_salary": "60000.00",
+    "position": "Electrician",
+    "category": "Technical",
+    "contact_period": "2 year",
+    "address": "Eveniet culpa",
+    "quantity": "5",
+    "gender": "male",
+    "required_qualification": "Diploma in Electrical Engineering / Experience required"
+  }
+},
+{
+  "model": "how_we_work.teammember",
+  "pk": 1,
+  "fields": {
+    "name": "Mr. Boneshwor Kafle",
+    "position": "Director Recruitment & Talent Acquistion",
+    "image": "team_member/drT.jpeg"
+  }
+},
+{
+  "model": "how_we_work.teammember",
+  "pk": 2,
+  "fields": {
+    "name": "Tej Parkash Gautam",
+    "position": "Marketing Director",
+    "image": "team_member/marketing.jpeg"
+  }
+},
+{
+  "model": "how_we_work.teammember",
+  "pk": 3,
+  "fields": {
+    "name": "Sagar Bhattrai",
+    "position": "Marketing Executive-Japan",
+    "image": "team_member/sagar.jpeg"
+  }
+},
+{
+  "model": "how_we_work.teammember",
+  "pk": 4,
+  "fields": {
+    "name": "Rupal Tamang",
+    "position": "Sr.Officer-Recruitment & Talent Acquisition",
+    "image": "team_member/Rupal.jpeg"
+  }
+},
+{
+  "model": "how_we_work.teammember",
+  "pk": 5,
+  "fields": {
+    "name": "Saugat Shrestha",
+    "position": "Executive-Recruitment & Talent Acquisition",
+    "image": "team_member/Saugat.jpeg"
+  }
+},
+{
+  "model": "how_we_work.requireddocument",
+  "pk": 2,
+  "fields": {
+    "title": "Agency Agreement",
+    "document": "documents/Agency_Agreement_n8hjM9v.docx"
+  }
+},
+{
+  "model": "how_we_work.requireddocument",
+  "pk": 3,
+  "fields": {
+    "title": "Assurance Note",
+    "document": "documents/Assurance_Note_3AgHwSz.docx"
+  }
+},
+{
+  "model": "how_we_work.requireddocument",
+  "pk": 4,
+  "fields": {
+    "title": "Demand Application Letter",
+    "document": "documents/Demand_Application_Letter_WtYrAyZ.docx"
+  }
+},
+{
+  "model": "how_we_work.requireddocument",
+  "pk": 5,
+  "fields": {
+    "title": "Demand Letter",
+    "document": "documents/Demand_Letter_NT1Py5u.docx"
+  }
+},
+{
+  "model": "how_we_work.requireddocument",
+  "pk": 6,
+  "fields": {
+    "title": "Employment Contract",
+    "document": "documents/Employment_Contract_hhlqZfW.docx"
+  }
+},
+{
+  "model": "how_we_work.requireddocument",
+  "pk": 7,
+  "fields": {
+    "title": "Letter of Undertaking",
+    "document": "documents/Letter_of_Undertaking_5rSTW5v.docx"
+  }
+},
+{
+  "model": "how_we_work.requireddocument",
+  "pk": 8,
+  "fields": {
+    "title": "Power of attorney",
+    "document": "documents/Power_of_attorney_cL4Px6j.docx"
+  }
+}
+]
