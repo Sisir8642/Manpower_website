@@ -20,13 +20,6 @@ interface Slider {
 export default function ManpowerClient() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // const images = [
-    //     "/images/slider/a.jpg",
-    //     "/images/slider/b.jpg",
-    //     "/images/slider/c.jpg",
-    //     "/images/slider/d.jpg",
-    // ];
-
     const { data: sliderData, isLoading } = useQuery({
         queryKey: ['slider'],
         queryFn: async () => {
@@ -51,6 +44,35 @@ export default function ManpowerClient() {
     }, [images.length]);
 
 
+    if (isLoading) {
+    return (
+        <section className="relative w-full h-[92vh] overflow-hidden animate-pulse">
+            {/* Background skeleton */}
+            <div className="absolute inset-0 bg-gray-300"></div>
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/20"></div>
+
+            {/* Content skeleton */}
+            <div className="relative z-10 flex flex-col items-center justify-end h-full pb-24 px-4">
+                <div className="h-14 w-[700px] max-w-full bg-gray-200 rounded mb-4"></div>
+                <div className="h-14 w-[500px] max-w-full bg-gray-200 rounded mb-8"></div>
+
+                <div className="h-12 w-40 bg-gray-200 rounded-lg"></div>
+            </div>
+
+            {/* Dots skeleton */}
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+                {[...Array(4)].map((_, i) => (
+                    <div
+                        key={i}
+                        className="w-2 h-2 rounded-full bg-gray-200"
+                    />
+                ))}
+            </div>
+        </section>
+    );
+}
     return (
         <>
             <div>
