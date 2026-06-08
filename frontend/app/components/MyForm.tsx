@@ -2,19 +2,7 @@
 "use client";
 
 import { useState } from "react";
-
-export type VacancyData = {
-  company_name: string;
-  position: string;
-  category: string;
-  basicSalary: string;
-  contractPeriod: string;
-  address: string;
-  quantity: string;
-  gender: string;
-  requiredQualifications: string;
-  image: string;
-};
+import type { VacancyData } from "../types/vacancy";
 
 interface MyFormProps {
   lot: VacancyData;
@@ -87,8 +75,7 @@ export default function MyForm({ lot }: MyFormProps) {
       }
 
       // SAFE API URL
-      const API_URL =
-        process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
+       const API_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
       const res = await fetch(`${API_URL}/api/job-applications/`, {
         method: "POST",
