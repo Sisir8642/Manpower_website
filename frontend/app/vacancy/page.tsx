@@ -5,20 +5,7 @@ import { useState, useEffect } from "react";
 import MyForm from "../components/MyForm";
 import Modal from "@/components/ui/Modal";
 import { motion, AnimatePresence } from "framer-motion";
-
-export type VacancyData = {
-  id?: number;
-  company_name: string;
-  position: string;
-  category: string;
-  basic_salary: string;
-  contact_period: string;
-  address: string;
-  quantity: string;
-  gender: string;
-  required_qualification: string;
-  image: string;
-};
+import { VacancyData } from "../types/vacancy";
 
 export default function VacancyPage() {
   const [selectedVacancy, setSelectedVacancy] = useState<VacancyData | null>(null);
@@ -33,7 +20,7 @@ export default function VacancyPage() {
       try {
         setLoading(true);
         
-        const response = await fetch('http://127.0.0.1:8000/api/job-detail/');
+       const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/job-detail/`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch vacancies');
