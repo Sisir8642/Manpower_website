@@ -238,10 +238,8 @@ export default function LeadershipTimeline() {
           />
         ))}
       </div>
-
-      <div className="max-w-6xl mx-auto relative">
-
-        {/* Section header */}
+        
+        <div className="max-w-6xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -249,8 +247,7 @@ export default function LeadershipTimeline() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-         
-           <h2
+         <h2
         className="mb-8 text-center text-5xl font-extrabold tracking-tight"
         style={{ color: "#2a7d56", fontFamily: "'Georgia', serif" }}
       >

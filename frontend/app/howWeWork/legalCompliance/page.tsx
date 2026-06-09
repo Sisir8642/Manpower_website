@@ -142,6 +142,55 @@ const LegalCompliance = () => {
         </div>
       </section>
     </div>
+<section className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-12 md:py-16">
+  <FadeIn>
+    <div className="text-center mb-8 md:mb-12">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-emerald-700">
+        Official Documents
+      </h2>
+
+      <div className="w-16 h-1 bg-blue-600 mx-auto mt-4 rounded-full" />
+
+      <p className="mt-4 text-sm sm:text-base text-slate-700 max-w-2xl mx-auto">
+        View our legal registration and foreign employment license documents.
+      </p>
+    </div>
+  </FadeIn>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+
+    {/* PDF 1 */}
+    <FadeIn delay={100}>
+      <div className="w-full max-w-[700px] mx-auto bg-white rounded-2xl md:rounded-3xl shadow-lg overflow-hidden border border-blue-100">
+        <div className="bg-blue-600 text-white px-4 sm:px-6 py-3 sm:py-4 font-semibold text-sm sm:text-base">
+          Electra Certificate
+        </div>
+
+        <iframe
+          src="/pdfs/electracertificate.pdf#toolbar=0"
+          className="w-full h-[400px] sm:h-[550px] md:h-[700px]"
+          title="Electra Certificate"
+        />
+      </div>
+    </FadeIn>
+
+    {/* PDF 2 */}
+    <FadeIn delay={200}>
+      <div className="w-full max-w-[700px] mx-auto bg-white rounded-2xl md:rounded-3xl shadow-lg overflow-hidden border border-blue-100">
+        <div className="bg-emerald-600 text-white px-4 sm:px-6 py-3 sm:py-4 font-semibold text-sm sm:text-base">
+          Translation Legal
+        </div>
+
+        <iframe
+          src="/pdfs/translationlegal.pdf#toolbar=0"
+          className="w-full h-[400px] sm:h-[550px] md:h-[700px]"
+          title="Translation Legal"
+        />
+      </div>
+    </FadeIn>
+
+  </div>
+</section>
     </div>
   );
 };

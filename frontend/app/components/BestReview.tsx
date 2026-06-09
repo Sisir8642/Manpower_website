@@ -92,8 +92,8 @@ const StatCard = ({ icon: Icon, value, label, isInView }: {
                     <Icon className="w-8 h-8 text-blue-700" />
                 </div>
             </div>
-            <div className="text-4xl font-bold text-gray-900">{count.toLocaleString()}+</div>
-            <div className="text-xs text-gray-600 uppercase tracking-wider mt-2">{label}</div>
+            <div className="text-4xl font-bold text-emerald-700">{count.toLocaleString()}+</div>
+            <div className="text-xs text-black uppercase tracking-wider mt-2">{label}</div>
         </motion.div>
     );
 };
