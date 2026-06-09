@@ -9,7 +9,7 @@ export default function Home() {
       <section>
         <ManpowerClient />
       </section>
-<AboutSection imageSrc="/about1.png" />
+<AboutSection />
         <BestProduct />
       <section>
 

@@ -14,7 +14,7 @@ export default function VacancyPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch data from Django backend
+ // Fetch data from Django backend
   useEffect(() => {
     const fetchVacancies = async () => {
       try {
@@ -96,7 +96,7 @@ export default function VacancyPage() {
   return (
     <div className="min-h-screen bg-[#E1F1E6] text-emerald-700 font-sans p-6 md:p-10 overflow-x-hidden">
       
-      <div className="text-center max-w-3xl mx-auto mb-14 py-12">
+      <div className="text-center max-w-6xl mx-auto mb-14 py-12">
         <p className="text-blue-600 text-xs sm:text-sm font-black tracking-[0.2em] uppercase mb-3">
           Available Positions
         </p>
@@ -105,7 +105,11 @@ export default function VacancyPage() {
         </h1>
         <div className="w-12 h-1 bg-emerald-700 mx-auto mt-2 mb-6 rounded-full" />
         <p className="text-slate-700 font-medium leading-relaxed text-[15px]">
-          Select an active advertisement board below to review requirements and file applications.
+        Electra Global Recruitment Pvt. Ltd. publishes approved vacancy announcements for foreign employment opportunities through authorized national newspapers and official communication channels.
+This section provides updated vacancy newspaper ads for job seekers who are interested in applying for overseas employment through a legal, transparent, and government-approved recruitment process.
+All vacancies shared by Electra Global Recruitment Pvt. Ltd. are processed in compliance with the laws of Nepal, the requirements of destination countries, employer standards, and ethical recruitment principles. Candidates are requested to carefully review the available job positions, required qualifications, salary details, benefits, service terms, and application procedures before applying.
+Important Notice for Applicants <br />
+Applicants are strongly advised to apply only through the official office of Electra Global Recruitment Pvt. Ltd. or its authorized communication channels. Candidates should not make any unauthorized payment
         </p>
       </div>
 

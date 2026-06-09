@@ -10,7 +10,7 @@ export default function CardsSection() {
         <div className="w-[450px] bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
 
           <img
-            src="/images/servicess/migrate.jpg"
+            src="/images/migration.png"
             alt="Card 1"
             className="w-full h-56 object-cover"
           />
@@ -19,6 +19,7 @@ export default function CardsSection() {
             <h3 className="text-xl font-semibold mb-3">
               Services For Migrating Workers
             </h3>
+            <div className="w-16 h-1 bg-emerald-700  mt-2 mb-4 rounded-full" />
 
             <p className="text-gray-600 mb-5 flex-1">
               Electra Global Recruitment Pvt. Ltd. supports Nepali workers through a safe,
@@ -40,7 +41,7 @@ export default function CardsSection() {
         <div className="w-[450px] bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
 
           <img
-            src="/images/servicess/global.jpg"
+            src="/images/123.png"
             alt="Card 2"
             className="w-full h-56 object-cover"
           />
@@ -49,6 +50,7 @@ export default function CardsSection() {
             <h3 className="text-xl font-semibold mb-3">
               Services For Global Employers
             </h3>
+            <div className="w-16 h-1 bg-emerald-700  mt-2 mb-4 rounded-full" />
 
             <p className="text-gray-600 mb-5 flex-1">
               Electra Global Recruitment Pvt. Ltd. provides ethical, compliant, and end-to-end

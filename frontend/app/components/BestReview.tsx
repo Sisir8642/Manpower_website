@@ -72,30 +72,48 @@ const useInView = () => {
     return [ref, isInView] as const;
 };
 
-const StatCard = ({ icon: Icon, value, label, isInView }: {
-    icon: React.ElementType;
-    value: number;
-    label: string;
-    isInView: boolean;
+const StatCard = ({
+  icon: Icon,
+  value,
+  label,
+  isInView,
+}: {
+  icon: React.ElementType;
+  value: number;
+  label: string;
+  isInView: boolean;
 }) => {
-    const count = useCountAnimation(value, 2000, isInView);
+  const count = useCountAnimation(value, 2000, isInView);
 
-    return (
-        <motion.div
-            whileHover={{ scale: 1.05, y: -6 }}
-            className="relative bg-white/70 backdrop-blur-xl border border-white/40 
-                       rounded-2xl p-6 text-center shadow-sm overflow-hidden"
-        >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-transparent opacity-0 hover:opacity-100 transition" />
-            <div className="flex justify-center mb-3">
-                <div className="w-16 h-16 rounded-full bg-[#EAF6FD] flex items-center justify-center">
-                    <Icon className="w-8 h-8 text-blue-700" />
-                </div>
-            </div>
-            <div className="text-4xl font-bold text-emerald-700">{count.toLocaleString()}+</div>
-            <div className="text-xs text-black uppercase tracking-wider mt-2">{label}</div>
-        </motion.div>
-    );
+  return (
+    <motion.div
+      whileHover={{ y: -6 }}
+      className="bg-white rounded-3xl shadow-md border border-[#eef2ef]
+      py-8 px-6 flex flex-col items-center text-center h-full transition-all"
+    >
+      {/* Icon Circle */}
+      <div className="relative mb-5">
+        <div className="w-20 h-20 rounded-full border border-[#d8ebe0] flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full border-2 border-[#e8f5ec] flex items-center justify-center">
+            <Icon className="w-8 h-8 text-[#1D7A52]" />
+          </div>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="w-10 h-[2px] bg-red-400 mb-4"></div>
+
+      {/* Number */}
+      <h3 className="text-5xl font-bold text-[#0B7A4A]">
+        {count.toLocaleString()}+
+      </h3>
+
+      {/* Label */}
+      <p className="mt-3 text-sm md:text-base font-semibold uppercase text-[#1f2937] tracking-wide">
+        {label}
+      </p>
+    </motion.div>
+  );
 };
 
 const WhyUsCardSkeleton = () => (
@@ -128,26 +146,83 @@ const BestReview = () => {
 
             <LeaderShip />
 
-            <section ref={statsRef} className="py-24 flex justify-center">
-                <motion.div
-                    variants={container}
-                    initial="hidden"
-                    animate={statsInView ? "show" : "hidden"}
-                    className="grid grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl w-full px-4"
-                >
-                    {[
-                        { icon: Award, value: 15, label: "Years of Expertise" },
-                        { icon: Globe, value: 20, label: "Global Connections" },
-                        { icon: Users, value: 1000, label: "Employers" },
-                        { icon: Eye, value: 100, label: "Transparency" },
-                        { icon: Database, value: 10000, label: "Database" },
-                    ].map((stat, i) => (
-                        <motion.div key={i} variants={item}>
-                            <StatCard {...stat} isInView={statsInView} />
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </section>
+       <section
+  ref={statsRef}
+  className="relative py-24 overflow-hidden bg-[#F5FAF6]"
+>
+  {/* Decorative Corners */}
+  <div className="absolute top-0 left-0 w-52 h-52 border-[24px] border-[#6CBF79] rounded-full -translate-x-28 -translate-y-28 opacity-40"></div>
+
+  <div className="absolute top-0 left-0 w-56 h-56 border-[4px] border-red-500 rounded-full -translate-x-24 -translate-y-24 opacity-70"></div>
+
+  <div className="absolute bottom-0 right-0 w-52 h-52 border-[24px] border-[#6CBF79] rounded-full translate-x-28 translate-y-28 opacity-40"></div>
+
+  <div className="absolute bottom-0 right-0 w-56 h-56 border-[4px] border-red-500 rounded-full translate-x-24 translate-y-24 opacity-70"></div>
+
+  <div className="max-w-7xl mx-auto px-4 relative z-10">
+    {/* Heading */}
+    <div className="text-center mb-14">
+      <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="w-12 h-[2px] bg-[#2B8A5A]" />
+        <span className="uppercase text-[#2B8A5A] text-sm font-semibold tracking-widest">
+          Our Strength In Numbers
+        </span>
+        <div className="w-12 h-[2px] bg-[#2B8A5A]" />
+      </div>
+      <div className="w-24 h-1 bg-red-600 mx-auto mt-2 mb-4 rounded-full" />
+
+      <h2 className="text-3xl md:text-5xl font-bold text-[#111827]">
+        Why Employers Trust{" "}
+        <span className="text-[#0B7A4A]">
+          Electra Global
+        </span>
+      </h2>
+    </div>
+
+    {/* Cards */}
+    <motion.div
+      variants={container}
+      initial="hidden"
+      animate={statsInView ? "show" : "hidden"}
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
+    >
+      {[
+        {
+          icon: Award,
+          value: 15,
+          label: "Years of Expertise",
+        },
+        {
+          icon: Globe,
+          value: 20,
+          label: "Global Connections",
+        },
+        {
+          icon: Users,
+          value: 1000,
+          label: "Employers",
+        },
+        {
+          icon: Eye,
+          value: 100,
+          label: "Transparency",
+        },
+        {
+          icon: Database,
+          value: 10000,
+          label: "Candidate Database",
+        },
+      ].map((stat, i) => (
+        <motion.div key={i} variants={item}>
+          <StatCard
+            {...stat}
+            isInView={statsInView}
+          />
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
 
             <section className="py-24 bg-[#F2F5FD] flex justify-center">
                 <div className="max-w-6xl w-full px-4">
