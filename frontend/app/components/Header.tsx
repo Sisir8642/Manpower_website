@@ -50,20 +50,21 @@ export default function Header() {
   return (
     <>
       {/* Top Bar - License Info & Social Icons */}
-      <div className="hidden md:block bg-white border-b border-gray-100 py-2 px-4 shadow-sm">
+      <div className="hidden md:block bg-[#014122] border-b border-gray-100 py-2 px-4 shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between text-xs">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-gray-700">Licensed by Government of Nepal</span>
+              <span className="font-semibold text-white">Licensed by Government of Nepal</span>
               <span className="text-gray-300">|</span>
-              <span className="text-gray-600">License No. 1850/082/083</span>
+              <span className="text-white">License No. 1850/082/083</span>
+               <span className="text-gray-300">|</span>
             </div>
             <div className="flex items-center gap-3">
-              <a href="tel:+97715915454" className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 transition">
+              <a href="tel:+97715915454" className="flex items-center gap-1 text-white hover:text-emerald-600 transition">
                 <Phone size={12} /> +977 1 5915454
               </a>
               <span className="text-gray-300">|</span>
-              <a href="mailto:info@electraglobal.com.np" className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 transition">
+              <a href="mailto:info@electraglobal.com.np" className="flex items-center gap-1 text-white hover:text-emerald-600 transition">
                 <Mail size={12} /> info@electraglobal.com.np
               </a>
             </div>
@@ -71,18 +72,59 @@ export default function Header() {
           
           {/* Social Media Icons */}
           <div className="flex items-center gap-2">
-            <a href="https://www.facebook.com/share/1AEniKV8x2/?mibextid=wwXIfr" className="text-gray-400 hover:text-blue-600 transition-colors">
+            <a href="https://www.facebook.com/share/1AEniKV8x2/?mibextid=wwXIfr" className="text-white hover:text-blue-600 transition-colors">
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
               </svg>
             </a>
-            <a href="https://www.linkedin.com/company/118384280/admin/dashboard/" className="text-gray-400 hover:text-blue-700 transition-colors">
+            <a href="https://www.linkedin.com/company/118384280/admin/dashboard/" className="text-white hover:text-blue-700 transition-colors">
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
                 <circle cx="4" cy="4" r="2" />
               </svg>
             </a>
-           
+           <a
+  href="https://www.youtube.com/@electraglobal-w7j"
+  className="text-white hover:text-red-600 transition-colors"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <svg
+    className="w-3.5 h-3.5"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path d="M19.6 3.2H4.4C2.5 3.2 1 4.7 1 6.6v10.8c0 1.9 1.5 3.4 3.4 3.4h15.2c1.9 0 3.4-1.5 3.4-3.4V6.6c0-1.9-1.5-3.4-3.4-3.4zM10 15.5V8.5l6 3.5-6 3.5z"/>
+  </svg>
+</a>
+<a
+  href="https://www.tiktok.com/@electraglobalrecruitment?_r=1&_t=ZS-977MPEXrfAS"
+  className="text-white hover:text-pink-500 transition-colors"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <svg
+    className="w-3.5 h-3.5"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.77h-3.13v13.6a2.8 2.8 0 1 1-2.8-2.8c.31 0 .61.05.89.15V9.69a5.94 5.94 0 0 0-.89-.07A5.93 5.93 0 1 0 15.82 15V8.05a7.94 7.94 0 0 0 4.77 1.6V6.69z" />
+  </svg>
+</a>
+<a
+  href="https://x.com/electra_pvt"
+  className="text-white hover:text-gray-400 transition-colors"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <svg
+    className="w-3.5 h-3.5"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path d="M18.244 2H21l-6.54 7.47L22.5 22h-6.27l-4.91-6.42L5.7 22H3l6.99-7.98L1.5 2h6.42l4.44 5.86L18.244 2zm-1.1 18h1.74L6.96 3.9H5.09L17.144 20z" />
+  </svg>
+</a>
           </div>
         </div>
       </div>
@@ -98,24 +140,24 @@ export default function Header() {
             {/* Logo Section */}
             <div className="flex items-center gap-2">
               <Link href="/" onClick={closeAllMenus} className="flex items-center gap-2">
-                <div className="w-14 h-14 relative">
+                <div className="w-32 h-24 relative">
                   <Image
-                    src="/logo.png"
+                    // src="images/logoo.jpeg"
+                                        src="/images/logoo.jpeg"
+
                     alt="Electra Global Recruitment"
-                    width={56}
-                    height={56}
+                    width={100}
+                    height={90}
                     className="object-contain rounded-full"
                     priority
                   />
                 </div>
                 <div>
                   <h1 className="text-emerald-800 font-extrabold text-base tracking-tight leading-tight">
-                    ELECTRA GLOBAL
+                    ELECTRA GLOBAL Recruitment Pvt. Ltd.
                   </h1>
-                  <p className="text-emerald-600 text-[9px] font-semibold -mt-0.5">
-                    Recruitment Pvt. Ltd.
-                  </p>
-                  <p className="text-black text-[7px] italic">"Connecting talent: Delivering Ethical Recruitment Solution "</p>
+                
+                  <p className="text-black text-[10px] italic">"Connecting talent: Delivering Ethical Recruitment Solution "</p>
                 </div>
               </Link>
             </div>
@@ -196,7 +238,7 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-2">
               <div className="flex items-center gap-2">
                 <Phone size={15} className="text-emerald-600" />
-                <span className="text-gray-700 font-semibold text-sm">+977 1 5915454</span>
+                <span className="text-gray-700 font-semibold text-sm">+977 1 5929405</span>
               </div>
             </div>
 

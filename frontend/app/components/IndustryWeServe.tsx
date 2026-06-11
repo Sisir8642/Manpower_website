@@ -15,12 +15,12 @@ type Industry = {
 
 export default function IndustriesGrid() {
   const images: Industry[] = [
+    { title: "Manufacturing", img: "/images/industry/Manufacturing.jpg" },
     { title: "Agriculture", img: "/images/industry/Agriculture.jpg" },
     { title: "Construction", img: "/images/industry/Construction.PNG" },
     { title: "Facility Management", img: "/images/industry/Facility Management.jpeg" },
     { title: "Healthcare", img: "/images/industry/Healthcare.jpeg" },
     { title: "Hospitality", img: "/images/industry/Hospitality.jpg" },
-    { title: "Manufacturing", img: "/images/industry/Manufacturing.jpg" },
     { title: "Oil & Gas", img: "/images/industry/Oil & Gas.jpg" },
     { title: "Retail", img: "/images/industry/Retail.PNG" },
     { title: "Security", img: "/images/industry/security.jfif" },
@@ -58,39 +58,21 @@ export default function IndustriesGrid() {
   const testimonials = [
     {
       id: 1,
-      quote: "Electra Global consistently understands our hiring needs and delivers exceptional talent faster than anyone else. A true extension of our HR team.",
-      name: "James Carter",
-      title: "HR Director",
-      company: "BuildTech Solutions Ltd.",
+      quote: "Electra Global Recruitment Pvt Ltd is the most reliable recruitment partner we have worked with in Nepal. Their understanding of the Nepalese labor market is unmatched. They managed the entire process flawlessly—from sourcing skilled, disciplined candidates to handling all Nepal Department of Foreign Employment (DoFE) paperwork quickly. The deployment was on time, and the worker retention rate has been exceptional. Their commitment to ethical recruitment and candidate vetting makes them stand out from other agencies in Nepal. Highly recommended!",
+      name: "Sarath Sasi",
+      title: "Director of Marketing & Operation",
+      company: "Electra Labor Recruitment Services L.L.C.",
       rating: 5,
-      image: "/images/reviewers/james-carter.jpg",
+      image: "/images/testimonial/sarath.jpg",
     },
     {
       id: 2,
-      quote: "Their professionalism, speed, and candidate quality are outstanding. We've built a long-term partnership we truly value.",
-      name: "Priya Sharma",
-      title: "Head of Talent Acquisition",
-      company: "Nexus Infrastructure",
+      quote: "Electra Global Recruitment Pvt. Ltd. is a committed and vision-oriented recruitment organization with a clear focus on achieving excellence in its business goals. The company demonstrates strong professionalism, dedication, and a responsible approach toward delivering reliable recruitment services.We appreciate Electra Global’s commitment to ethical recruitment, quality service, and long-term business growth. We sincerely wish Electra Global Recruitment Pvt. Ltd. continued success, progress, and prosperity in all its future endeavors.",
+      name: "RENGARAJAN",
+      title: "Group HR Manager",
+      company: "JUST GROUP LLC",
       rating: 5,
-      image: "/images/reviewers/priya-sharma.jpg",
-    },
-    {
-      id: 3,
-      quote: "From skilled trades to senior leadership, Electra Global Recruitment delivers reliable results across every level.",
-      name: "Michael O'Donnell",
-      title: "Operations Director",
-      company: "Summit Energy Group",
-      rating: 5,
-      image: "/images/reviewers/michael-odonnell.jpg",
-    },
-    {
-      id: 4,
-      quote: "They take the time to understand our culture and always bring candidates who are the perfect fit for our team.",
-      name: "Sophie Laurent",
-      title: "HR Manager",
-      company: "Global Marine Services",
-      rating: 5,
-      image: "/images/reviewers/sophie-laurent.jpg",
+      image: "/images/testimonial/rengarajan.jpg",
     },
   ];
 
@@ -125,6 +107,75 @@ export default function IndustriesGrid() {
   };
 
   return (
+    <div>
+     <div
+        className="relative w-full bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{
+          backgroundImage: "url('/images/industry/location.jpg')",
+        }}
+      >
+        {/* tri-color top bar */}
+        <div className="absolute top-0 left-0 right-0 flex h-1.5 z-10">
+          <div className="flex-[2] bg-[#2a7d56]" />
+          <div className="flex-[2] bg-[#185FA5]" />
+          <div className="flex-[1] bg-[#eb232a]" />
+        </div>
+
+        {/* dark overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        {/* dot grid texture */}
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+
+        {/* content */}
+        <div className="relative max-w-6xl mx-auto px-4 py-20 flex justify-end">
+          <div className="w-full md:w-1/2 text-center md:text-left">
+            {/* glass card wrapper */}
+            <div
+              className="rounded-2xl p-8"
+              style={{
+                background: "rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.15)",
+              }}
+            >
+              {/* heading */}
+              <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-2">
+                Find Electra
+              </h3>
+
+              {/* tri-color underline */}
+              <div className="flex gap-1 mb-5 justify-center md:justify-start">
+                <div className="h-1 w-8 rounded-full bg-[#2a7d56]" />
+                <div className="h-1 w-8 rounded-full bg-[#185FA5]" />
+                <div className="h-1 w-4 rounded-full bg-[#eb232a]" />
+              </div>
+
+              <p className="text-gray-200 text-base md:text-lg leading-relaxed mb-6">
+                Find Electra in your recruitment market. Electra Global Recruitment Pvt. Ltd. serves employers
+                and job seekers across key international labour markets, connecting capable Nepali talent with
+                responsible global employment opportunities.
+              </p>
+
+              {/* buttons */}
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                <button
+                  onClick={() => (window.location.href = "/services/serveCountries")}
+                  className="px-6 py-3 rounded-lg font-semibold text-white transition hover:opacity-90"
+                  style={{ background: "#2a7d56" }}
+                >
+                  Explore Countries We Serve
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
    <section className="py-2">
   <div className="relative overflow-hidden" style={{ background: "#0f2d1f" }}>
  
@@ -261,143 +312,8 @@ export default function IndustriesGrid() {
   />
 </div>
 
-      {/* RECRUITMENT SECTION */}
-      <div className="max-w-6xl mx-auto px-4 py-14 text-center">
-        <h3 className="text-4xl md:text-5xl font-extrabold text-[#2a7d56] mb-4">
-          Recruitment <span className="text-red-600">Process</span> <span className="text-black"> Flow</span>
-        </h3>
-        <div className="w-24 h-1 bg-blue-600 mx-auto mb-8 rounded-full" />
-        <img
-          src="/images/industry/process.png"
-          alt="Recruitment Process"
-          className="w-4/3 h-auto rounded-2xl shadow-lg mb-7"
-        />
-        <Link
-          href="/howWeWork/recruitement"
-          className="mt-auto inline-block bg-[#1A55DB] text-white mt-5 px-5 py-2 rounded-lg hover:bg-blue-700 transition w-fit"
-        >
-          Read More →
-        </Link>
-      </div>
-
-      {/* Features Section */}
-      <section className="w-full bg-white">
-        <div className="max-w-9xl mx-auto px-4">
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-3"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                variants={item}
-                whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className={`relative group overflow-hidden rounded-2xl ${feature.bgColor} p-6 shadow-sm hover:shadow-xl transition-all duration-300 border ${feature.borderColor}`}
-              >
-                {/* Horizontal layout: Icon on left, content on right */}
-                <div className="flex items-start gap-4">
-                  {/* Icon Container - Left side */}
-                  <div className="flex-shrink-0">
-                    <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <feature.icon className={`w-7 h-7 ${feature.iconColor}`} />
-                    </div>
-                  </div>
-
-                  {/* Content - Right side */}
-                  <div className="flex-1 text-left">
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
-                      {feature.title}
-                    </h3>
-                    <div className="w-20 h-1 bg-emerald-700 rounded-full mb-3" />
-
-                    {/* Description */}
-                    <p className="text-gray-600 leading-relaxed text-sm">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Decorative bottom line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Find Electra Section */}
-      <div
-        className="relative w-full bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{
-          backgroundImage: "url('/images/industry/location.jpg')",
-        }}
-      >
-        {/* tri-color top bar */}
-        <div className="absolute top-0 left-0 right-0 flex h-1.5 z-10">
-          <div className="flex-[2] bg-[#2a7d56]" />
-          <div className="flex-[2] bg-[#185FA5]" />
-          <div className="flex-[1] bg-[#eb232a]" />
-        </div>
-
-        {/* dark overlay */}
-        <div className="absolute inset-0 bg-black/50" />
-
-        {/* dot grid texture */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-          }}
-        />
-
-        {/* content */}
-        <div className="relative max-w-6xl mx-auto px-4 py-20 flex justify-end">
-          <div className="w-full md:w-1/2 text-center md:text-left">
-            {/* glass card wrapper */}
-            <div
-              className="rounded-2xl p-8"
-              style={{
-                background: "rgba(255,255,255,0.07)",
-                border: "1px solid rgba(255,255,255,0.15)",
-              }}
-            >
-              {/* heading */}
-              <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-2">
-                Find Electra
-              </h3>
-
-              {/* tri-color underline */}
-              <div className="flex gap-1 mb-5 justify-center md:justify-start">
-                <div className="h-1 w-8 rounded-full bg-[#2a7d56]" />
-                <div className="h-1 w-8 rounded-full bg-[#185FA5]" />
-                <div className="h-1 w-4 rounded-full bg-[#eb232a]" />
-              </div>
-
-              <p className="text-gray-200 text-base md:text-lg leading-relaxed mb-6">
-                Find Electra in your recruitment market. Electra Global Recruitment Pvt. Ltd. serves employers
-                and job seekers across key international labour markets, connecting capable Nepali talent with
-                responsible global employment opportunities.
-              </p>
-
-              {/* buttons */}
-              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-                <button
-                  onClick={() => (window.location.href = "/services/serveCountries")}
-                  className="px-6 py-3 rounded-lg font-semibold text-white transition hover:opacity-90"
-                  style={{ background: "#2a7d56" }}
-                >
-                  Explore Countries We Serve
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  
+     
 
       {/* TESTIMONIALS SECTION - 4 COLUMNS WITH REVIEWER IMAGES */}
       <section className="py-20 px-4 md:px-6 relative overflow-hidden" style={{ background: "#0f2d1f" }}>
@@ -517,7 +433,7 @@ export default function IndustriesGrid() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+      className="grid grid-cols-1 md:grid-cols-2 gap-6"
     >
       {testimonials.map((testimonial) => (
         <motion.div
@@ -565,7 +481,7 @@ export default function IndustriesGrid() {
 
           {/* Quote text */}
           <p style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.65, fontSize: 13.5, flexGrow: 1, marginBottom: 12 }}>
-            &ldquo;{testimonial.quote.length > 100 ? testimonial.quote.substring(0, 100) + "..." : testimonial.quote}&rdquo;
+            &ldquo;{testimonial.quote.length > 100 ? testimonial.quote.substring(0, 600) + "..." : testimonial.quote}&rdquo;
           </p>
 
           {/* Stars */}
@@ -587,6 +503,7 @@ export default function IndustriesGrid() {
   </div>
 </section>
 </section>
+</div>
   );
 }
 
@@ -709,5 +626,6 @@ function Carousel3D({ images }: { images: Industry[] }) {
         ))}
       </div>
     </div>
+    
   );
 }

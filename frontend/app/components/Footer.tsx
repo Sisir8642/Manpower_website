@@ -29,8 +29,8 @@ const compliance = [
 
 const countries = [
   "UAE", "Qatar", "Saudi Arabia", "Kuwait",
-  "Oman", "Bahrain", "Malaysia", "Japan",
-  "Maldives", "Mauritius", "Cyprus", "Slovenia",
+  "Oman", "Bahrain", "Malaysia", 
+
 ];
 
 const socials = [
@@ -53,15 +53,38 @@ const socials = [
       </svg>
     ),
   },
-  {
-    label: "WhatsApp",
-    href: "#",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
-      </svg>
-    ),
-  },
+  // YouTube
+{
+  label: "YouTube",
+  href: "https://www.youtube.com/@electraglobal-w7j",
+  icon: (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+      <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1C4.5 20.5 12 20.5 12 20.5s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.5 15.5v-7l6 3.5-6 3.5z" />
+    </svg>
+  ),
+},
+
+// TikTok
+{
+  label: "TikTok",
+  href: "https://www.tiktok.com/@electraglobalrecruitment?_r=1&_t=ZS-977MPEXrfAS",
+  icon: (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+      <path d="M16 3c.6 2.4 2.3 4 4.7 4.3v3.2c-1.7.1-3.3-.4-4.7-1.4v6.7a5.7 5.7 0 1 1-5.7-5.7c.3 0 .7 0 1 .1v3.3a2.4 2.4 0 1 0 1.7 2.3V3h3z" />
+    </svg>
+  ),
+},
+
+// X (Twitter)
+{
+  label: "X",
+  href: "https://x.com/electra_pvt",
+  icon: (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+      <path d="M18.9 2H22l-6.8 7.8L23 22h-6.6l-5.2-6.5L5.7 22H2.5l7.3-8.4L1 2h6.7l4.7 6L18.9 2zm-1.2 18h1.8L6.3 3.9H4.4L17.7 20z"/>
+    </svg>
+  ),
+}
 ];
 
 function CookieBanner() {
@@ -134,11 +157,11 @@ export function Footer() {
               <div className="mb-6 w-[180px] h-[200px] bg-white rounded-b-[5.5rem] flex items-center justify-center p-3 shadow-xl -mt-16 pt-6 relative z-20">
                 <div className="w-[1000px] h-[3000px]relative">
                   <Image
-                    src="/images/logo.png"
+                    src="/images/logoo.jpeg"
                     alt="Electra Global Recruitment"
                     fill
                     // className="object-contain w-[180px] h-[200px] "
-                     className="object-contain scale-150"
+                     className="object-contain scale-75"
                     sizes="500px"
                     priority
                   />

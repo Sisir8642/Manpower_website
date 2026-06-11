@@ -144,7 +144,7 @@ const BestReview = () => {
     return (
         <div className="w-full bg-[#E1F1E6]">
 
-            <LeaderShip />
+           
 
        <section
   ref={statsRef}
@@ -259,11 +259,13 @@ const BestReview = () => {
                                     </p>
                                 )
                         }
+                        
                     </div>
 
                 </div>
             </section>
-
+         
+<LeaderShip/>
         </div>
     );
 };

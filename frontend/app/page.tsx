@@ -15,6 +15,7 @@ export default function Home() {
 
         <IndustryWeServe/>
         <OurClient />
+        
       </section>
     </main>
   );

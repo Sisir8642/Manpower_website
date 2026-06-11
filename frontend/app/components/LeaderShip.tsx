@@ -1,6 +1,6 @@
 
 'use client';
-
+import { HeartHandshake, ShieldCheck, Globe2, Star,  } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Quote, CheckCircle, Lightbulb, Award, Globe, Target, Shield, Handshake } from 'lucide-react';
 
@@ -37,6 +37,60 @@ const leaders = [
     icons: [Target, Shield, Handshake],
   },
 ];
+const features = [
+    {
+      icon: HeartHandshake,
+      title: 'Ethical Vision',
+      description: 'We believe in people first, always.',
+      bgColor: 'bg-white',
+      iconColor: 'text-emerald-700',
+      borderColor: 'border-white',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Compliance Leadership',
+      description: 'Upholding international standards with integrity.',
+      bgColor: 'bg-white',
+      iconColor: 'text-red-600',
+      borderColor: 'border-white',
+    },
+    {
+      icon: Globe2,
+      title: 'Global Partnership',
+      description: 'Building long-term relationships across borders.',
+      bgColor: 'bg-white',
+      iconColor: 'text-emerald-700',
+      borderColor: 'border-white',
+    },
+  ];
+    const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+    const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
 function LeaderCard({ leader, index }: any) {
   const isLeft = index % 2 === 0;
@@ -120,6 +174,7 @@ function LeaderCard({ leader, index }: any) {
 
 export default function LeadershipTimeline() {
   return (
+    <div>
     <section className="py-16 px-6 bg-gradient-to-br from-gray-50 via-blue-50/30 to-emerald-50/30">
       <div className="max-w-6xl mx-auto">
         {/* HEADER */}
@@ -144,5 +199,53 @@ export default function LeadershipTimeline() {
         </div>
       </div>
     </section>
+    <section className="w-full bg-white">
+        <div className="max-w-9xl mx-auto px-4">
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-3"
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                variants={item}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                className={`relative group overflow-hidden rounded-2xl ${feature.bgColor} p-6 shadow-sm hover:shadow-xl transition-all duration-300 border ${feature.borderColor}`}
+              >
+                {/* Horizontal layout: Icon on left, content on right */}
+                <div className="flex items-start gap-4">
+                  {/* Icon Container - Left side */}
+                  <div className="flex-shrink-0">
+                    <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <feature.icon className={`w-7 h-7 ${feature.iconColor}`} />
+                    </div>
+                  </div>
+
+                  {/* Content - Right side */}
+                  <div className="flex-1 text-left">
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      {feature.title}
+                    </h3>
+                    <div className="w-20 h-1 bg-emerald-700 rounded-full mb-3" />
+
+                    {/* Description */}
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Decorative bottom line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+</div>
   );
 }

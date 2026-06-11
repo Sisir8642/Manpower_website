@@ -1,6 +1,7 @@
 
 "use client";
 import { useRef, useEffect, useState } from "react";
+import Link from "next/link";
 
 const CLIENTS = [
   { name: "AGFM", color: "#2563eb", img: "/images/client/agfm.png" },
@@ -76,6 +77,7 @@ export default function ClientsMarquee() {
   const onTouchEnd = () => { isDragging.current = false; setPaused(false); };
 
   return (
+    <div>
     <section
       style={{
         position: "relative",
@@ -238,5 +240,23 @@ export default function ClientsMarquee() {
         </div>
       </div>
     </section>
+        <div className="max-w-6xl mx-auto px-4 py-14 text-center">
+        <h3 className="text-4xl md:text-5xl font-extrabold text-[#2a7d56] mb-4">
+          Recruitment <span className="text-red-600">Process</span> <span className="text-black"> Flow</span>
+        </h3>
+        <div className="w-24 h-1 bg-blue-600 mx-auto mb-8 rounded-full" />
+        <img
+          src="/images/industry/process.png"
+          alt="Recruitment Process"
+          className="w-4/3 h-auto rounded-2xl shadow-lg mb-7"
+        />
+        <Link
+          href="/howWeWork/recruitement"
+          className="mt-auto inline-block bg-[#1A55DB] text-white mt-5 px-5 py-2 rounded-lg hover:bg-blue-700 transition w-fit"
+        >
+          Read More →
+        </Link>
+      </div>
+      </div>
   );
 }
