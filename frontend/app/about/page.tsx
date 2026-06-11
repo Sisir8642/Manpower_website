@@ -110,8 +110,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-6 pb-20 pt-8 max-w-6xl mx-auto relative">
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <section className="px-26 pb-20 pt-8 w-full mx-auto relative bg-[#081789]">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center ">
           
           <FadeIn>
             <div className="space-y-1 mb-6">

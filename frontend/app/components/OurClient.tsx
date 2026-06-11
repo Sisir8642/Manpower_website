@@ -1,6 +1,6 @@
+
 "use client";
 import { useRef, useEffect, useState } from "react";
-
 
 const CLIENTS = [
   { name: "AGFM", color: "#2563eb", img: "/images/client/agfm.png" },
@@ -10,17 +10,16 @@ const CLIENTS = [
   { name: "Emirates", color: "#6b7280", img: "/images/client/emirates.png" },
   { name: "exclerrate", color: "#ef4444", img: "/images/client/exclerrate.PNG" },
   { name: "GCC", color: "#f97316", img: "/images/client/gcc-ginco-light-top.png" },
-  { name: "High Power Signature", color: "#84cc16", img: "/images/client/HP-Signature-Logo-01.png" },
-  { name: "INVENTURE", color: "#8b5cf6", img: "/images/client/inventure.png" },
-  { name: "IPS", color: "#06b6d4", img: "/images/client/IPS.png" },
-  { name: "MARINA", color: "#14b8a6", img: "/images/client/marina-logo-NO-SHADOW.png" },
-  { name: "PRESTIGE GROUP", color: "#f43f5e", img: "/images/client/prestiuge.png" },
-  { name: "ServeU", color: "#0ea5e9", img: "/images/client/ServeU-Revised-Logo-13DEC-1.png" },
-  { name: "SOBHA", color: "#a855f7", img: "/images/client/sobha.png" },
+  { name: "High Power Signature", color: "#1a5c38", img: "/images/client/HP-Signature-Logo-01.png" },
+  { name: "INVENTURE", color: "#3b82f6", img: "/images/client/inventure.png" },
+  { name: "IPS", color: "#ef4444", img: "/images/client/IPS.png" },
+  { name: "MARINA", color: "#1a5c38", img: "/images/client/marina-logo-NO-SHADOW.png" },
+  { name: "PRESTIGE GROUP", color: "#10b981", img: "/images/client/prestiuge.png" },
+  { name: "ServeU", color: "#ef4444", img: "/images/client/ServeU-Revised-Logo-13DEC-1.png" },
+  { name: "SOBHA", color: "#1a1a1a", img: "/images/client/sobha.png" },
   { name: "Sodexo", color: "#f59e0b", img: "/images/client/Sodexo_Logotype_Blue.png" },
-  { name: "Spark Holding", color: "#3b82f6", img: "/images/client/spark-holding-footer.png" },
+  { name: "Spark Holding", color: "#ef4444", img: "/images/client/spark-holding-footer.png" },
   { name: "tanmyah", color: "#ef4444", img: "/images/client/tanmyah.PNG" },
-
 ];
 
 export default function ClientsMarquee() {
@@ -29,31 +28,24 @@ export default function ClientsMarquee() {
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
-  const speed = useRef(0.6);
   const pos = useRef(0);
   const [paused, setPaused] = useState(false);
 
-  // Duplicated list for seamless loop
   const items = [...CLIENTS, ...CLIENTS, ...CLIENTS];
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-
-    const cardWidth = 180 + 16; // card width + gap
+    const cardWidth = 160 + 12;
     const totalWidth = CLIENTS.length * cardWidth;
-
     const animate = () => {
       if (!isDragging.current && !paused) {
-        pos.current -= speed.current;
-        if (Math.abs(pos.current) >= totalWidth) {
-          pos.current += totalWidth;
-        }
+        pos.current -= 0.6;
+        if (Math.abs(pos.current) >= totalWidth) pos.current += totalWidth;
         track.style.transform = `translateX(${pos.current}px)`;
       }
       animRef.current = requestAnimationFrame(animate);
     };
-
     animRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animRef.current);
   }, [paused]);
@@ -64,92 +56,120 @@ export default function ClientsMarquee() {
     scrollLeft.current = pos.current;
     setPaused(true);
   };
-
   const onMouseMove = (e: React.MouseEvent) => {
     if (!isDragging.current) return;
-    const dx = e.pageX - startX.current;
-    pos.current = scrollLeft.current + dx;
-    if (trackRef.current)
-      trackRef.current.style.transform = `translateX(${pos.current}px)`;
+    pos.current = scrollLeft.current + (e.pageX - startX.current);
+    if (trackRef.current) trackRef.current.style.transform = `translateX(${pos.current}px)`;
   };
-
-  const onMouseUp = () => {
-    isDragging.current = false;
-    setPaused(false);
-  };
-
+  const onMouseUp = () => { isDragging.current = false; setPaused(false); };
   const onTouchStart = (e: React.TouchEvent) => {
     isDragging.current = true;
     startX.current = e.touches[0].pageX;
     scrollLeft.current = pos.current;
     setPaused(true);
   };
-
   const onTouchMove = (e: React.TouchEvent) => {
     if (!isDragging.current) return;
-    const dx = e.touches[0].pageX - startX.current;
-    pos.current = scrollLeft.current + dx;
-    if (trackRef.current)
-      trackRef.current.style.transform = `translateX(${pos.current}px)`;
+    pos.current = scrollLeft.current + (e.touches[0].pageX - startX.current);
+    if (trackRef.current) trackRef.current.style.transform = `translateX(${pos.current}px)`;
   };
-
-  const onTouchEnd = () => {
-    isDragging.current = false;
-    setPaused(false);
-  };
+  const onTouchEnd = () => { isDragging.current = false; setPaused(false); };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#e8eef4] py-20 select-none">
-      {/* Dot pattern background */}
+    <section
+      style={{
+        position: "relative",
+        width: "100%",
+        overflow: "hidden",
+        background: "#f0f4f8",
+        paddingTop: 52,
+        paddingBottom: 52,
+        userSelect: "none",
+        fontFamily: "'Segoe UI', Arial, sans-serif",
+      }}
+    >
+      {/* ── World map faint background ── */}
+      <div style={{
+        position: "absolute", inset: 0, pointerEvents: "none",
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='450' viewBox='0 0 900 450'%3E%3Ctext x='50%25' y='55%25' font-size='320' text-anchor='middle' dominant-baseline='middle' fill='%23c8d8e8' opacity='0.25' font-family='serif'%3E🌍%3C/text%3E%3C/svg%3E")`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center 40%",
+        backgroundSize: "80%",
+        opacity: 0.5,
+      }} />
+
+      {/* ── Green circuit lines top-left ── */}
+      <svg style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }} width="220" height="160" viewBox="0 0 220 160" fill="none">
+        <path d="M0 80 Q40 80 40 40 Q40 0 80 0" stroke="#1a5c38" strokeWidth="1.5" fill="none" opacity="0.5"/>
+        <path d="M0 110 Q60 110 60 60 Q60 20 110 20" stroke="#1a5c38" strokeWidth="1" fill="none" opacity="0.35"/>
+        <circle cx="80" cy="0" r="3" fill="#1a5c38" opacity="0.6"/>
+        <circle cx="110" cy="20" r="3" fill="#1a5c38" opacity="0.4"/>
+        <circle cx="40" cy="40" r="3" fill="#c0392b" opacity="0.6"/>
+      </svg>
+
+      {/* ── Red/green diagonal stripes bottom-left ── */}
+      <svg style={{ position: "absolute", bottom: 0, left: 0, pointerEvents: "none" }} width="100" height="80" viewBox="0 0 100 80">
+        <rect x="-10" y="50" width="140" height="14" fill="#1a5c38" transform="rotate(-30 0 80)" opacity="0.9"/>
+        <rect x="-10" y="64" width="140" height="7" fill="#c0392b" transform="rotate(-30 0 80)" opacity="0.9"/>
+      </svg>
+
+      {/* ── Red diagonal stripe bottom-right ── */}
+      <svg style={{ position: "absolute", bottom: 0, right: 0, pointerEvents: "none" }} width="120" height="80" viewBox="0 0 120 80">
+        <rect x="-10" y="55" width="160" height="10" fill="#c0392b" transform="rotate(30 120 80)" opacity="0.9"/>
+        <rect x="-10" y="67" width="160" height="5" fill="#1a5c38" transform="rotate(30 120 80)" opacity="0.6"/>
+      </svg>
+
+      {/* ── Heading block ── */}
+      <div style={{ textAlign: "center", marginBottom: 36, position: "relative", zIndex: 1 }}>
+        {/* Pill badge with dash lines */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginBottom: 14 }}>
+          <div style={{ width: 48, height: 1.5, background: "#c0392b" }} />
+          <span style={{
+            background: "#1a5c38", color: "#fff",
+            fontSize: 11, fontWeight: 700, letterSpacing: "0.12em",
+            textTransform: "uppercase", padding: "5px 16px",
+            borderRadius: 20,
+          }}>Our Clients</span>
+          <div style={{ width: 48, height: 1.5, background: "#c0392b" }} />
+        </div>
+
+        {/* Main headline */}
+        <h2 style={{
+          fontSize: 42, fontWeight: 900, margin: "0 0 6px",
+          color: "#1a1a2e", lineHeight: 1.15,
+          fontFamily: "'Georgia', 'Times New Roman', serif",
+        }}>
+          Trusted by{" "}
+          <span style={{ color: "#1a5c38" }}>Leading Employers</span>
+        </h2>
+
+        {/* Red underline */}
+        <div style={{ width: 60, height: 3, background: "#c0392b", borderRadius: 2, margin: "10px auto 18px" }} />
+
+        {/* Subtitle */}
+        <p style={{ color: "#6b7280", fontSize: 14.5, lineHeight: 1.65, margin: 0 }}>
+          We partner with responsible global employers and organizations worldwide<br />
+          to deliver ethical, transparent and compliant recruitment solutions from Nepal.
+        </p>
+      </div>
+
+      {/* ── Fade edges ── */}
+      <div style={{
+        position: "absolute", left: 0, top: 0, zIndex: 10,
+        height: "100%", width: 80,
+        background: "linear-gradient(to right, #f0f4f8, transparent)",
+        pointerEvents: "none",
+      }} />
+      <div style={{
+        position: "absolute", right: 0, top: 0, zIndex: 10,
+        height: "100%", width: 80,
+        background: "linear-gradient(to left, #f0f4f8, transparent)",
+        pointerEvents: "none",
+      }} />
+
+      {/* ── Marquee track ── */}
       <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, #94a3b8 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-          opacity: 0.25,
-        }}
-      />
-
-      {/* Accent dots */}
-      {[
-        { top: "12%", left: "8%", bg: "#f97316" },
-        { top: "70%", left: "5%", bg: "#3b82f6" },
-        { top: "20%", left: "90%", bg: "#f97316" },
-        { top: "75%", left: "85%", bg: "#3b82f6" },
-        { top: "45%", left: "50%", bg: "#f97316" },
-        { top: "85%", left: "60%", bg: "#3b82f6" },
-      ].map((d, i) => (
-        <span
-          key={i}
-          className="pointer-events-none absolute rounded-full"
-          style={{
-            top: d.top,
-            left: d.left,
-            width: 8,
-            height: 8,
-            background: d.bg,
-            opacity: 0.7,
-          }}
-        />
-      ))}
-
-      {/* Heading */}
-      <h2
-        className="mb-8 text-center text-5xl font-extrabold tracking-tight"
-        style={{ color: "#2a7d56", fontFamily: "'Georgia', serif" }}
-      >
-        Our <span className="text-red-600">Clients</span> 
-      </h2>
-                        <div className="w-24 h-1 bg-blue-600 mx-auto mt-4 rounded-full mb-8" />
-
-      {/* Fade edges */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#e8eef4] to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#e8eef4] to-transparent" />
-
-      {/* Marquee track */}
-      <div
-        className="cursor-grab active:cursor-grabbing overflow-hidden"
+        style={{ overflow: "hidden", cursor: "grab", position: "relative", zIndex: 2 }}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
@@ -160,39 +180,61 @@ export default function ClientsMarquee() {
       >
         <div
           ref={trackRef}
-          className="flex gap-4 will-change-transform"
-          style={{ width: "max-content" }}
+          style={{ display: "flex", gap: 12, width: "max-content", willChange: "transform" }}
         >
           {items.map((client, i) => (
-  <div
-    key={i}
-    className="flex h-20 w-44 flex-shrink-0 flex-col items-center justify-center rounded-xl border border-white/60 bg-white/80 px-4 shadow-md backdrop-blur-sm transition-shadow hover:shadow-lg"
-  >
-   {client.img ? (
-  <>
-    <img 
-      src={client.img} 
-      alt={`${client.name} logo`}
-      className="h-10 w-auto object-contain mb-1"
-    />
-    <span
-      className="text-center text-[10px] font-bold uppercase tracking-wider"
-      style={{ color: client.color }}
-    >
-      {client.name}
-    </span>
-  </>
-) : (
-  <span
-    className="text-center text-xs font-bold uppercase tracking-wider leading-tight"
-    style={{ color: client.color }}
-  >
-    {client.name}
-  </span>
-
-    )}
-  </div>
-))}
+            <div
+              key={i}
+              style={{
+                flexShrink: 0,
+                width: 160,
+                height: 110,
+                background: "#fff",
+                borderRadius: 12,
+                border: "1px solid #e2e8f0",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "12px 16px",
+                gap: 6,
+              }}
+            >
+              {client.img ? (
+                <>
+                  <img
+                    src={client.img}
+                    alt={`${client.name} logo`}
+                    style={{ height: 48, width: "auto", maxWidth: 130, objectFit: "contain" }}
+                  />
+                  <span style={{
+                    color: client.color,
+                    fontSize: 9.5,
+                    fontWeight: 800,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    textAlign: "center",
+                    lineHeight: 1.3,
+                  }}>
+                    {client.name}
+                  </span>
+                </>
+              ) : (
+                <span style={{
+                  color: client.color,
+                  fontSize: 11,
+                  fontWeight: 800,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  textAlign: "center",
+                  lineHeight: 1.4,
+                }}>
+                  {client.name}
+                </span>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

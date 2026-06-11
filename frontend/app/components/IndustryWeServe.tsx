@@ -125,31 +125,141 @@ export default function IndustriesGrid() {
   };
 
   return (
-    <section className="py-2 ">
-      <div className="max-w-5xl mx-auto text-center py-8 bg-[#E1F1E6]">
-        <h2 className="text-5xl font-extrabold text-[#2a7d56]">Services</h2>
-        <div className="w-24 h-1 bg-blue-600 mx-auto mt-2 mb-4 rounded-full" />
-        <h3 className="text-lg md:text-2xl font-semibold text-[#eb232a] italic mb-5">
-          "To become a trusted global partner in ethical and responsible recruitment."
-        </h3>
-        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-          Electra Global Recruitment Pvt. Ltd. is committed to connecting capable Nepali human resources
-          with responsible international employers through fair, transparent, and compliance-focused recruitment.
-        </p>
+   <section className="py-2">
+  <div className="relative overflow-hidden" style={{ background: "#0f2d1f" }}>
+ 
+    {/* Top gradient bar */}
+    <div className="absolute top-0 left-0 right-0 h-1 z-10"
+      style={{ background: "linear-gradient(90deg, #c0392b, #1a5c38, #c0392b)" }} />
+ 
+    {/* Radial glow */}
+    <div className="absolute pointer-events-none"
+      style={{
+        top: "-60px", left: "50%", transform: "translateX(-50%)",
+        width: 700, height: 360,
+        background: "radial-gradient(ellipse, rgba(26,92,56,0.55) 0%, transparent 70%)",
+      }} />
+ 
+    {/* Faint grid */}
+    <div className="absolute inset-0 pointer-events-none"
+      style={{
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)`,
+        backgroundSize: "56px 56px",
+      }} />
+ 
+    {/* Large faint watermark */}
+    <div className="absolute pointer-events-none select-none"
+      style={{
+        top: "50%", left: "50%", transform: "translate(-50%, -50%)",
+        fontSize: 480, fontWeight: 900, lineHeight: 1,
+        color: "rgba(255,255,255,0.025)", fontFamily: "Georgia, serif",
+      }}>S</div>
+ 
+    {/* Corner lines top-left */}
+    <svg className="absolute top-0 left-0 pointer-events-none" width="200" height="160" viewBox="0 0 200 160" fill="none">
+      <path d="M0 80 Q40 80 40 40 Q40 0 80 0" stroke="#1a5c38" strokeWidth="1.5" opacity="0.4"/>
+      <path d="M0 110 Q60 110 60 60 Q60 20 110 20" stroke="#1a5c38" strokeWidth="1" opacity="0.25"/>
+      <circle cx="80" cy="0" r="3" fill="#1a5c38" opacity="0.5"/>
+      <circle cx="40" cy="40" r="3" fill="#c0392b" opacity="0.5"/>
+    </svg>
+ 
+    {/* Corner lines top-right */}
+    <svg className="absolute top-0 right-0 pointer-events-none" style={{ transform: "scaleX(-1)" }} width="200" height="160" viewBox="0 0 200 160" fill="none">
+      <path d="M0 80 Q40 80 40 40 Q40 0 80 0" stroke="#c0392b" strokeWidth="1.5" opacity="0.3"/>
+      <circle cx="80" cy="0" r="3" fill="#c0392b" opacity="0.4"/>
+      <circle cx="40" cy="40" r="2.5" fill="#1a5c38" opacity="0.35"/>
+    </svg>
+ 
+    {/* Content */}
+    <div className="max-w-3xl mx-auto text-center py-16 px-6 relative z-10">
+ 
+      {/* Eyebrow badge */}
+      <div className="flex items-center justify-center gap-3 mb-5">
+        <div className="h-0.5 w-11 rounded-full" style={{ background: "#c0392b" }} />
+        <span className="text-white text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full"
+          style={{ background: "#1a5c38" }}>What We Offer</span>
+        <div className="h-0.5 w-11 rounded-full" style={{ background: "#c0392b" }} />
       </div>
-
-      <Services />
+ 
+      {/* Heading */}
+      <h2 className="font-extrabold text-white mb-3"
+        style={{ fontSize: 52, fontFamily: "'Georgia', serif", lineHeight: 1.1 }}>
+        Our <span style={{ color: "#4ade80" }}>Services</span>
+      </h2>
+ 
+      {/* Red underline */}
+      <div className="mx-auto rounded-full mb-5" style={{ width: 56, height: 3, background: "#c0392b" }} />
+ 
+      {/* Vision quote */}
+      <h3 className="text-lg md:text-xl font-semibold italic mb-5" style={{ color: "#fca5a5" }}>
+        "To become a trusted global partner in ethical and responsible recruitment."
+      </h3>
+ 
+      {/* Body */}
+      <p className="leading-relaxed text-base md:text-lg" style={{ color: "rgba(255,255,255,0.6)" }}>
+        Electra Global Recruitment Pvt. Ltd. is committed to connecting capable Nepali human resources
+        with responsible international employers through fair, transparent, and compliance-focused recruitment.
+      </p>
+    </div>
+  </div>
+   <Services />
 
       {/* INDUSTRY TITLE */}
-      <div className="bg-[#EFF5FE] pt-8">
-        <h2 className="text-5xl font-extrabold text-[#2a7d56] text-center">
-          Industries <span className="text-red-600">We</span> <span className="text-black">Serve</span>
-        </h2>
-        <div className="w-24 h-1 bg-blue-600 mx-auto mt-2 mb-4 rounded-full" />
+<div className="bg-[#EFF5FE] pt-8 relative overflow-hidden">
 
-        {/* 3D CAROUSEL */}
-        <Carousel3D images={images} />
-      </div>
+  {/* Decorative SVG background */}
+  <svg
+    className="absolute inset-0 w-full h-full pointer-events-none"
+    preserveAspectRatio="xMidYMid slice"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b82f6" strokeWidth="0.4" opacity="0.15" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)" />
+    {/* Blobs */}
+    <circle cx="5%" cy="15%" r="80" fill="#2a7d56" opacity="0.07" />
+    <circle cx="92%" cy="12%" r="60" fill="#3b82f6" opacity="0.08" />
+    <circle cx="88%" cy="85%" r="100" fill="#2a7d56" opacity="0.06" />
+    <circle cx="8%" cy="80%" r="70" fill="#dc2626" opacity="0.06" />
+    <circle cx="50%" cy="95%" r="50" fill="#3b82f6" opacity="0.05" />
+    {/* Triangles */}
+    <polygon points="650,30 680,80 620,80" fill="#2a7d56" opacity="0.06" />
+    <polygon points="40,160 70,100 10,100" fill="#3b82f6" opacity="0.07" />
+    {/* Rotated rectangles */}
+    <rect x="58%" y="8" width="60" height="60" rx="12" fill="none" stroke="#2a7d56" strokeWidth="1.2" opacity="0.12" transform="rotate(20,400,38)" />
+    <rect x="5%" y="55%" width="45" height="45" rx="8" fill="none" stroke="#3b82f6" strokeWidth="1" opacity="0.12" transform="rotate(-15,60,220)" />
+    {/* Diagonal lines */}
+    <line x1="0" y1="100%" x2="100%" y2="0" stroke="#3b82f6" strokeWidth="0.5" opacity="0.06" />
+    <line x1="0" y1="80%" x2="80%" y2="0" stroke="#2a7d56" strokeWidth="0.5" opacity="0.05" />
+    {/* Dot accents */}
+    <circle cx="30%" cy="5%" r="6" fill="#dc2626" opacity="0.18" />
+    <circle cx="70%" cy="92%" r="8" fill="#3b82f6" opacity="0.15" />
+    <circle cx="95%" cy="50%" r="5" fill="#2a7d56" opacity="0.2" />
+    <circle cx="3%" cy="50%" r="4" fill="#2a7d56" opacity="0.18" />
+  </svg>
+
+  {/* Content */}
+  <div className="relative z-10 text-center px-4">
+    <h2 className="text-5xl font-extrabold text-[#2a7d56] text-center">
+      Industries <span className="text-red-600">We</span>{" "}
+      <span className="text-black">Serve</span>
+    </h2>
+    <div className="w-24 h-1 bg-blue-600 mx-auto mt-2 mb-4 rounded-full" />
+
+    {/* 3D CAROUSEL */}
+    <Carousel3D images={images} />
+  </div>
+
+  {/* Bottom gradient bar */}
+  <div
+    className="absolute bottom-0 left-0 right-0 h-1"
+    style={{ background: "linear-gradient(90deg, #2a7d56, #3b82f6, #dc2626, #3b82f6, #2a7d56)" }}
+  />
+</div>
 
       {/* RECRUITMENT SECTION */}
       <div className="max-w-6xl mx-auto px-4 py-14 text-center">
@@ -290,94 +400,193 @@ export default function IndustriesGrid() {
       </div>
 
       {/* TESTIMONIALS SECTION - 4 COLUMNS WITH REVIEWER IMAGES */}
-      <section className="py-20 px-4 md:px-6 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          {/* Header Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#2a7d56] mb-3">
-              What Our <span className="text-red-600">Clients</span> Say
-            </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-4" />
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Trusted recruitment solutions. Proven results.
-              <br />
-              Hear from the organizations we're proud to partner with.
-            </p>
-          </motion.div>
+      <section className="py-20 px-4 md:px-6 relative overflow-hidden" style={{ background: "#0f2d1f" }}>
 
-          {/* Testimonials Grid - 4 columns on large screens */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
-            {testimonials.map((testimonial) => (
-              <motion.div
-                key={testimonial.id}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-5 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
-              >
-                {/* Reviewer Image and Name Row */}
-                <div className="flex items-center gap-3 mb-4">
-                  {/* Profile Image */}
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
-                    {testimonial.image ? (
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        width={48}
-                        height={48}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-[#2a7d56] to-[#185FA5] flex items-center justify-center text-white font-bold text-lg">
-                        {testimonial.name.charAt(0)}
-                      </div>
-                    )}
-                  </div>
-                  {/* Name and Title */}
-                  <div>
-                    <p className="font-bold text-gray-800 text-sm">{testimonial.name}</p>
-                    <p className="text-xs text-gray-500">{testimonial.title}</p>
-                  </div>
+  {/* ── Large faint quote mark watermark center ── */}
+  <div style={{
+    position: "absolute", top: "50%", left: "50%",
+    transform: "translate(-50%, -50%)",
+    fontSize: 600, lineHeight: 1, fontFamily: "Georgia, serif",
+    color: "rgba(255,255,255,0.03)", pointerEvents: "none",
+    userSelect: "none", whiteSpace: "nowrap", zIndex: 0,
+  }}>"</div>
+
+  {/* ── Radial glow top-center (warm light source) ── */}
+  <div style={{
+    position: "absolute", top: "-80px", left: "50%",
+    transform: "translateX(-50%)",
+    width: 700, height: 400,
+    background: "radial-gradient(ellipse, rgba(26,92,56,0.45) 0%, transparent 70%)",
+    pointerEvents: "none", zIndex: 0,
+  }} />
+
+  {/* ── Radial glow bottom-right accent ── */}
+  <div style={{
+    position: "absolute", bottom: "-60px", right: "-60px",
+    width: 400, height: 400,
+    background: "radial-gradient(ellipse, rgba(192,57,43,0.18) 0%, transparent 70%)",
+    pointerEvents: "none", zIndex: 0,
+  }} />
+
+  {/* ── Subtle grid lines ── */}
+  <div style={{
+    position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
+    backgroundImage: `
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
+    `,
+    backgroundSize: "60px 60px",
+  }} />
+
+  {/* ── Floating star particles ── */}
+  {[
+    { top: "8%",  left: "7%",  size: 18, opacity: 0.12 },
+    { top: "14%", left: "88%", size: 14, opacity: 0.1  },
+    { top: "55%", left: "3%",  size: 12, opacity: 0.08 },
+    { top: "70%", left: "93%", size: 16, opacity: 0.1  },
+    { top: "30%", left: "95%", size: 10, opacity: 0.07 },
+    { top: "80%", left: "15%", size: 12, opacity: 0.08 },
+    { top: "42%", left: "50%", size: 8,  opacity: 0.05 },
+  ].map((s, i) => (
+    <svg key={i} style={{
+      position: "absolute", top: s.top, left: s.left,
+      pointerEvents: "none", zIndex: 0, opacity: s.opacity,
+    }} width={s.size} height={s.size} viewBox="0 0 24 24">
+      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
+        fill="#f59e0b" />
+    </svg>
+  ))}
+
+  {/* ── Top-left small quote accent ── */}
+  <div style={{
+    position: "absolute", top: 24, left: 32,
+    fontSize: 120, lineHeight: 1, fontFamily: "Georgia, serif",
+    color: "rgba(26,92,56,0.25)", pointerEvents: "none", zIndex: 0,
+  }}>"</div>
+
+  {/* ── Bottom-right small quote accent ── */}
+  <div style={{
+    position: "absolute", bottom: 16, right: 36,
+    fontSize: 120, lineHeight: 1, fontFamily: "Georgia, serif",
+    color: "rgba(192,57,43,0.18)", pointerEvents: "none", zIndex: 0,
+  }}>"</div>
+
+  {/* ── Thin green top border accent ── */}
+  <div style={{
+    position: "absolute", top: 0, left: 0, right: 0,
+    height: 4,
+    background: "linear-gradient(90deg, #c0392b, #1a5c38, #c0392b)",
+    zIndex: 1,
+  }} />
+
+  {/* ── Content ── */}
+  <div className="max-w-7xl mx-auto relative" style={{ zIndex: 2 }}>
+
+    {/* Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-12"
+    >
+      {/* Eyebrow label */}
+      <div className="flex items-center justify-center gap-3 mb-4">
+        <div style={{ width: 40, height: 1.5, background: "#c0392b" }} />
+        <span style={{
+          color: "#f59e0b", fontSize: 11, fontWeight: 700,
+          letterSpacing: "0.15em", textTransform: "uppercase",
+        }}>Client Testimonials</span>
+        <div style={{ width: 40, height: 1.5, background: "#c0392b" }} />
+      </div>
+
+      <h2 className="text-4xl md:text-5xl font-extrabold mb-3"
+        style={{ color: "#ffffff", fontFamily: "'Georgia', serif", lineHeight: 1.15 }}>
+        What Our <span style={{ color: "#4ade80" }}>Clients</span> Say
+      </h2>
+      <div style={{ width: 56, height: 3, background: "#c0392b", borderRadius: 2, margin: "12px auto 18px" }} />
+      <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 15.5, lineHeight: 1.7, margin: 0 }}>
+        Trusted recruitment solutions. Proven results.<br />
+        Hear from the organizations we're proud to partner with.
+      </p>
+    </motion.div>
+
+    {/* Testimonials Grid */}
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+    >
+      {testimonials.map((testimonial) => (
+        <motion.div
+          key={testimonial.id}
+          variants={itemVariants}
+          whileHover={{ y: -5 }}
+          style={{
+            background: "rgba(255,255,255,0.05)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: 16,
+            padding: 20,
+            backdropFilter: "blur(8px)",
+            display: "flex", flexDirection: "column", height: "100%",
+            transition: "all 0.3s",
+          }}
+          className="hover:border-emerald-500/40 hover:bg-white/10"
+        >
+          {/* Reviewer row */}
+          <div className="flex items-center gap-3 mb-4">
+            <div style={{
+              width: 48, height: 48, borderRadius: "50%",
+              overflow: "hidden", background: "#1a3d2a", flexShrink: 0,
+              border: "2px solid rgba(74,222,128,0.3)",
+            }}>
+              {testimonial.image ? (
+                <Image src={testimonial.image} alt={testimonial.name}
+                  width={48} height={48} className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center font-bold text-lg"
+                  style={{ color: "#4ade80" }}>
+                  {testimonial.name.charAt(0)}
                 </div>
+              )}
+            </div>
+            <div>
+              <p style={{ fontWeight: 700, color: "#ffffff", fontSize: 13, margin: 0 }}>{testimonial.name}</p>
+              <p style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", margin: 0 }}>{testimonial.title}</p>
+            </div>
+          </div>
 
-                {/* Quote Icon */}
-                <div className="mb-3">
-                  <Quote className="w-7 h-7 text-[#2a7d56] opacity-25" />
-                </div>
+          {/* Quote icon */}
+          <div className="mb-3">
+            <Quote className="w-7 h-7" style={{ color: "#4ade80", opacity: 0.4 }} />
+          </div>
 
-                {/* Quote Text */}
-                <p className="text-gray-700 leading-relaxed mb-3 text-sm flex-grow">
-                  &ldquo;{testimonial.quote.length > 100 ? testimonial.quote.substring(0, 100) + "..." : testimonial.quote}&rdquo;
-                </p>
+          {/* Quote text */}
+          <p style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.65, fontSize: 13.5, flexGrow: 1, marginBottom: 12 }}>
+            &ldquo;{testimonial.quote.length > 100 ? testimonial.quote.substring(0, 100) + "..." : testimonial.quote}&rdquo;
+          </p>
 
-                {/* Star Rating */}
-                <div className="flex items-center gap-0.5 mb-3">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-
-                {/* Company Info */}
-                <div className="border-t border-gray-100 pt-3 mt-2">
-                  <p className="text-xs text-gray-500 font-medium">{testimonial.company}</p>
-                </div>
-              </motion.div>
+          {/* Stars */}
+          <div className="flex items-center gap-0.5 mb-3">
+            {[...Array(testimonial.rating)].map((_, i) => (
+              <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
             ))}
-          </motion.div>
-        </div>
-      </section>
-    </section>
+          </div>
+
+          {/* Company */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: 12, marginTop: 4 }}>
+            <p style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", fontWeight: 600, margin: 0 }}>
+              {testimonial.company}
+            </p>
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
+</section>
   );
 }
 
