@@ -369,7 +369,7 @@ export default function Header() {
                   <p className="text-emerald-600 text-[9px] font-semibold -mt-0.5">
                     Recruitment Pvt. Ltd.
                   </p>
-                  <p className="text-gray-400 text-[7px] italic">"Connecting talent: Delivering Ethical Recruitment Solution "</p>
+                  <p className="text-black text-[7px] italic">"Connecting talent: Delivering Ethical Recruitment Solution "</p>
                 </div>
               </Link>
             </div>

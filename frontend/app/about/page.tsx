@@ -110,18 +110,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-26 pb-20 pt-8 w-full mx-auto relative bg-[#081789]">
+      <section className="px-26 pb-20 pt-8 w-full mx-auto relative bg-[#5563cd]">
         <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center ">
           
           <FadeIn>
             <div className="space-y-1 mb-6">
 
               <h2 className="text-3xl sm:text-4xl font-black leading-tight text-emerald-700">
-                Who <span className="text-red-600">We</span>  <span className="text-blue-600">Are</span>
+                Who <span className="text-red-600">We</span>  <span className="text-black">Are</span>
               </h2>
             </div>
             
-            <div className="space-y-4 text-slate-700 leading-relaxed text-xs sm:text-sm font-medium">
+            <div className="space-y-4 text-white leading-relaxed text-xs sm:text-sm font-medium">
               <p>
                 With strong industry experience and an expanding global network, Electra specializes in sourcing and mobilizing skilled, semi-skilled, and professional Nepalese workforce for reputable international employers. We ensure the right talent is matched with the right opportunity through a structured, transparent, and efficient recruitment process.
               </p>
