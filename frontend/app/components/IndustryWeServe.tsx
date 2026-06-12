@@ -176,7 +176,7 @@ export default function IndustriesGrid() {
           </div>
         </div>
       </div>
-   <section className="py-2">
+   <section >
   <div className="relative overflow-hidden" style={{ background: "#0f2d1f" }}>
  
     {/* Top gradient bar */}

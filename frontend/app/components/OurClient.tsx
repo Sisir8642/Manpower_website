@@ -2,6 +2,8 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
+import { ArrowRight } from 'lucide-react';
+import Image from "next/image";
 
 const CLIENTS = [
   { name: "AGFM", color: "#2563eb", img: "/images/client/agfm.png" },
@@ -78,6 +80,81 @@ export default function ClientsMarquee() {
 
   return (
     <div>
+      <section className="w-full">
+        <div className="relative overflow-hidden bg-gradient-to-r from-green-900 via-green-800 to-red-600 min-h-[180px] md:min-h-[200px] lg:min-h-[220px] flex items-center">
+          
+          {/* Background Dots Pattern */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div
+              className="w-full h-full"
+              style={{
+                backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)",
+                backgroundSize: "16px 16px",
+              }}
+            />
+          </div>
+
+          {/* Left Content - Mobile: column, Tablet/Desktop: row */}
+          <div className="w-full lg:w-2/3 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 px-4 sm:px-6 md:px-8 py-6 sm:py-8 z-10">
+            
+            {/* Icon - Responsive sizing */}
+            <div className="w-16 h-16 sm:w-20 sm:h-20 border border-white/40 rounded-2xl flex items-center justify-center shrink-0">
+              <svg
+                className="w-8 h-8 sm:w-10 sm:h-10 text-white"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                viewBox="0 0 24 24"
+              >
+                <path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                <path d="M16 3.13a4 4 0 010 7.75" />
+              </svg>
+            </div>
+
+            {/* Text - Responsive typography */}
+            <div className="flex-1">
+              <div className="w-12 sm:w-16 h-1 bg-red-500 mb-2 sm:mb-3 rounded-full"></div>
+              
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 sm:mb-2">
+                Partner With Us
+              </h2>
+              
+              <p className="text-white/90 text-xs sm:text-sm md:text-base max-w-xl leading-relaxed">
+                Let's build a stronger workforce together.
+                <br className="hidden sm:block" />
+                Connect with our team to discuss your hiring needs.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Red Section - Mobile: below, Desktop: absolute right */}
+        <div className="relative lg:absolute lg:right-0 lg:top-0 lg:h-full w-full lg:w-[42%] bg-red-600 lg:rounded-l-[120px] flex items-center justify-center px-4 sm:px-6 py-6 lg:py-0 mt-4 lg:mt-0">
+  <Link href="/contact" className="w-full flex justify-center">
+    <button className="bg-white text-red-600 font-semibold text-sm sm:text-base px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-2xl flex items-center gap-2 sm:gap-4 shadow-lg hover:scale-105 transition-all duration-300 whitespace-normal text-center cursor-pointer">
+      <span className="flex-1">Conduct Your Due Diligence for Your Supply Chain</span>
+      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-black shrink-0" />
+    </button>
+  </Link>
+</div>
+        </div>
+      </section>
+
+      {/* Responsive Image Section */}
+<div className="w-full px-4 sm:px-6 md:px-8 lg:px-0">
+  <div className="container mx-auto">
+    <Image
+      src="/images/supply.jpg"
+      alt="Supply Chain Management"
+      width={1600}
+      height={900}
+      className="w-full h-auto object-cover rounded-lg shadow-xl"
+      sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 1600px"
+      priority
+    />
+  </div>
+</div>
     <section
       style={{
         position: "relative",
@@ -257,6 +334,9 @@ export default function ClientsMarquee() {
           Read More →
         </Link>
       </div>
+      
+
+
       </div>
   );
 }

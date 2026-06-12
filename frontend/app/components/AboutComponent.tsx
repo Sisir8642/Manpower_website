@@ -170,6 +170,10 @@ export default function AboutSection() {
                 Global Recruitment Solutions
               </span>
             </div>
+             <div className="absolute bottom-6 left-160 bg-white/95 backdrop-blur-md rounded-xl shadow px-4 py-2 z-20">
+    <p className="text-xs text-gray-500">License No.</p>
+    <p className="font-bold text-[#E31E24]">1850/082/083</p>
+  </div>
           </motion.div>
         </div>
 
@@ -207,11 +211,13 @@ export default function AboutSection() {
       className="absolute bottom-0 left-0 right-0 h-[70px] bg-[#007A48] z-10"
       style={{ clipPath: "ellipse(110% 100% at 50% 100%)" }}
     />
-  </div>
-
-  {/* Floating cards (kept same clean style) */}
-
-  <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-md rounded-xl shadow p-3 z-20">
+    {/* Bottom Green Wave */}
+<div
+  className="absolute bottom-0 left-0 right-0 h-[100px] bg-[#007A48] z-10"
+  style={{ clipPath: "ellipse(110% 100% at 50% 100%)" }}
+>
+  {/* Nepal Based Card */}
+  <div className="absolute top-4 right-6 bg-white/95 backdrop-blur-md rounded-xl shadow p-3">
     <div className="flex items-center gap-2">
       <span className="text-[#E31E24] text-lg">📍</span>
       <div>
@@ -221,7 +227,8 @@ export default function AboutSection() {
     </div>
   </div>
 
-  <div className="absolute top-1/2 right-6 bg-white/95 backdrop-blur-md rounded-xl shadow p-3 z-20">
+  {/* Trusted Agency Card */}
+  <div className="absolute top-4 left-50 bg-white/95 backdrop-blur-md rounded-xl shadow p-3">
     <div className="flex items-center gap-2">
       <span className="text-[#007A48] text-lg">⭐</span>
       <div>
@@ -230,11 +237,12 @@ export default function AboutSection() {
       </div>
     </div>
   </div>
-
-  <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md rounded-xl shadow px-4 py-2 z-20">
-    <p className="text-xs text-gray-500">License No.</p>
-    <p className="font-bold text-[#E31E24]">1850/082/083</p>
+</div>
   </div>
+
+
+
+
 </motion.div>
       </div>
     </section>

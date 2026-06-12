@@ -102,9 +102,7 @@ export default function ManpowerClient() {
       {/* Hidden on mobile */}
       <div className="hidden md:flex relative z-10 flex-col items-center justify-end h-full text-center px-4 pb-24">
         <h2 className="text-4xl lg:text-5xl font-bold mb-2 text-white">
-          Nepal’s trust-driven ethical recruitment
-          <br />
-          partner for responsible global employers - Connecting Talent.
+          Promoting Safe Migration <br /> through Responsible Recruitment Pathways 
         </h2>
 
         <div className="flex flex-wrap justify-center gap-4 mt-2">
