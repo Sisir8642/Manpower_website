@@ -282,7 +282,7 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from "framer-motion";
-import { Award, Globe, Users, Eye, Database, ShieldCheck, ClipboardList, Handshake } from "lucide-react";
+import { Award, Globe, Users, Eye, Database, ShieldCheck, ClipboardList, Handshake, HeartHandshake, TrendingUp, Truck, Sparkles, Building2, Target, PhoneCall, Rocket } from "lucide-react";
 import LeaderShip from './LeaderShip';
 import { useQuery } from '@tanstack/react-query';
 
@@ -302,10 +302,10 @@ interface WhyUs {
 }
 
 const iconMap = [
-  Award,
-  Globe,
-  Users,
-  ShieldCheck,
+    HeartHandshake,
+    TrendingUp,
+    Truck,
+    Sparkles,
 ];
 
 const container = {
@@ -398,9 +398,10 @@ const StatCard = ({
 
 const WhyUsCardSkeleton = () => (
     <div className="bg-white p-6 rounded-2xl shadow-md animate-pulse">
-        <div className="h-4 bg-gray-200 rounded w-3/4 mb-3" />
+        <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gray-200" />
+        <div className="h-4 bg-gray-200 rounded w-3/4 mx-auto mb-3" />
         <div className="h-3 bg-gray-100 rounded w-full mb-2" />
-        <div className="h-3 bg-gray-100 rounded w-5/6" />
+        <div className="h-3 bg-gray-100 rounded w-5/6 mx-auto" />
     </div>
 );
 
@@ -418,10 +419,10 @@ const FeatureCardSkeleton = () => (
 
 // Icon map for feature cards — maps section number to icon
 const featureIconMap: Record<number, React.ElementType> = {
-    1: ShieldCheck,
-    2: Users,
-    3: ClipboardList,
-    4: Handshake,
+    1: HeartHandshake,
+    2: TrendingUp,
+    3: Truck,
+    4: Sparkles,
 };
 
 // Fallback static feature cards if API returns no section-1 data
@@ -456,14 +457,6 @@ const fallbackFeatureCards = [
     },
 ];
 
-const defaultStats = [
-    { icon: Award, value: 15, label: "Years of Expertise" },
-    { icon: Globe, value: 20, label: "Global Connections" },
-    { icon: Users, value: 1000, label: "Employers" },
-    { icon: Eye, value: 100, label: "Transparency" },
-    { icon: Database, value: 10000, label: "Candidate Database" },
-];
-
 const BestReview = () => {
     const [statsRef, statsInView] = useInView();
 
@@ -491,7 +484,8 @@ const BestReview = () => {
 
     return (
         <div className="w-full bg-[#E1F1E6]">
-          <section ref={statsRef} className="relative py-24 overflow-hidden bg-[#F5FAF6]">
+            {/* Stats Section */}
+            <section ref={statsRef} className="relative py-24 overflow-hidden bg-[#F5FAF6]">
                 <div className="absolute top-0 left-0 w-52 h-52 border-[24px] border-[#6CBF79] rounded-full -translate-x-28 -translate-y-28 opacity-40" />
                 <div className="absolute top-0 left-0 w-56 h-56 border-[4px] border-red-500 rounded-full -translate-x-24 -translate-y-24 opacity-70" />
                 <div className="absolute bottom-0 right-0 w-52 h-52 border-[24px] border-[#6CBF79] rounded-full translate-x-28 translate-y-28 opacity-40" />
@@ -519,7 +513,13 @@ const BestReview = () => {
                         animate={statsInView ? "show" : "hidden"}
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
                     >
-                        {defaultStats.map((stat, i) => (
+                        {[
+                            { icon: Award, value: 15, label: "Years of Expertise" },
+                            { icon: Building2, value: 20, label: "Global Connections" },
+                            { icon: Users, value: 1000, label: "Employers" },
+                            { icon: Target, value: 100, label: "Transparency" },
+                            { icon: Database, value: 10000, label: "Candidate Database" },
+                        ].map((stat, i) => (
                             <motion.div key={i} variants={item}>
                                 <StatCard
                                     icon={stat.icon}
@@ -533,11 +533,8 @@ const BestReview = () => {
                 </div>
             </section>
 
-          
-
             {/* ── HERO SECTION ── */}
             <section className="px-4 sm:px-6 md:px-8 lg:px-10 pt-6 sm:pt-8 md:pt-10 bg-white">
-
                 {/* Brand bar */}
                 <div className="flex items-center gap-3 mb-5 sm:mb-6 md:mb-7">
                     <span className="text-[#1D7A52] text-xs font-semibold tracking-[3px] uppercase">
@@ -546,126 +543,34 @@ const BestReview = () => {
                     <div className="flex-1 h-px bg-gray-300" />
                 </div>
 
-  <div className="max-w-7xl mx-auto px-4 relative z-10">
-    {/* Heading */}
-    <div className="text-center mb-14">
-      <div className="flex items-center justify-center gap-3 mb-4">
-        <div className="w-12 h-[2px] bg-[#2B8A5A]" />
-        <span className="uppercase text-[#2B8A5A] text-sm font-semibold tracking-widest">
-          Our Strength In Numbers
-        </span>
-        <div className="w-12 h-[2px] bg-[#2B8A5A]" />
-      </div>
-      <div className="w-24 h-1 bg-red-600 mx-auto mt-2 mb-4 rounded-full" />
-
-      <h2 className="text-3xl md:text-5xl font-bold text-[#111827]">
-        Why Employers Trust{" "}
-        <span className="text-[#0B7A4A]">
-          Electra Global
-        </span>
-      </h2>
-    </div>
-
-    {/* Cards */}
-    <motion.div
-      variants={container}
-      initial="hidden"
-      animate={statsInView ? "show" : "hidden"}
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
-    >
-      {[
-        {
-          icon: Award,
-          value: 15,
-          label: "Years of Expertise",
-        },
-        {
-          icon: Globe,
-          value: 20,
-          label: "Global Connections",
-        },
-        {
-          icon: Users,
-          value: 1000,
-          label: "Employers",
-        },
-        {
-          icon: Eye,
-          value: 100,
-          label: "Transparency",
-        },
-        {
-          icon: Database,
-          value: 10000,
-          label: "Candidate Database",
-        },
-      ].map((stat, i) => (
-        <motion.div key={i} variants={item}>
-          <StatCard
-            {...stat}
-            isInView={statsInView}
-          />
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
-</section>
-
-            <section className="py-24 bg-[#F2F5FD] flex justify-center">
-                <div className="max-w-full w-full px-4">
-
-                    <div className="text-center mb-16">
-                        <h2 className="text-5xl font-bold text-[#2a7d56] mb-4">Why <span className='text-red-600'> Us</span></h2>
-                        <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full" />
-                        <p className="text-gray-600 mt-6 max-w-3xl mx-auto">
-                            {whyUsData?.[0]?.description ?? "We provide research-driven insights that bridge Nepal's strategic interests."}
+                {/* Headline + CTA card */}
+                <div className="flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-8">
+                    <div className="w-full lg:w-auto">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[42px] font-extrabold leading-tight text-gray-900">
+                            Responsible, Ethical &<br />
+                            <span className="text-red-600">Compliance-Driven</span><br />
+                            Recruitment from Nepal
+                        </h1>
+                        <div className="w-16 h-1 bg-red-600 rounded-full mt-4 mb-5" />
+                        <p className="text-sm text-gray-500 max-w-lg leading-relaxed">
+                            We connect qualified Nepali workers with responsible international
+                            employers through fair, transparent, and worker-centered recruitment solutions.
                         </p>
                     </div>
 
-                    <div className="bg-[#F2F5FD] rounded-3xl p-8 md:p-12">
-  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-    {whyUsLoading
-      ? Array.from({ length: 4 }).map((_, i) => (
-          <WhyUsCardSkeleton key={i} />
-        ))
-      : whyUsItems.length > 0
-      ? whyUsItems.map((whyItem: WhyUsItem, index) => {
-          const Icon =
-            iconMap[index % iconMap.length];
-
-          return (
-            <motion.div
-              key={whyItem.id}
-              whileHover={{ y: -6 }}
-              className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
-            >
-              {/* Icon Circle */}
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#f6faf7] border border-green-100 flex items-center justify-center">
-                <Icon
-                  size={36}
-                  className="text-[#2a7d56]"
-                />
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-bold text-[#2a7d56] mb-3">
-                {whyItem.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {whyItem.description}
-              </p>
-            </motion.div>
-          );
-        })
-      : (
-        <p className="text-gray-400 col-span-4 text-center">
-          No items found. Add some from the admin panel.
-        </p>
-      )}
-  </div>
-</div>
+                    {/* CTA card */}
+                    <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 flex items-center gap-4 w-full lg:w-auto min-w-[260px] flex-shrink-0">
+                        <div className="w-12 h-12 bg-[#1D7A52] rounded-full flex items-center justify-center p-3 flex-shrink-0">
+                            <PhoneCall className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                        </div>
+                        <div>
+                            <p className="text-xs text-gray-400 mb-1">Tailored for Responsible Employers</p>
+                            <a href="/contact" className="text-sm font-semibold text-[#1D7A52] flex items-center gap-1 hover:underline">
+                                Partner With Electra →
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
                 {/* Feature cards — dynamic */}
                 <div className="mt-8 sm:mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-gray-200 rounded-2xl overflow-hidden">
@@ -679,7 +584,7 @@ const BestReview = () => {
                             </div>
                         ))
                         : featureItems.map((card, i, arr) => {
-                            const Icon = featureIconMap[card.section] ?? ShieldCheck;
+                            const Icon = featureIconMap[card.section] ?? HeartHandshake;
                             return (
                                 <div
                                     key={card.id}
@@ -706,8 +611,10 @@ const BestReview = () => {
                 </div>
             </section>
 
+            {/* ── WHY US SECTION ── */}
+            
             {/* ── STATS BANNER ── */}
-            <div className="relative bg-[#0d2e1c] px-6 sm:px-8 md:px-12 py-6 sm:py-8   flex flex-col sm:flex-row items-center justify-center gap-4 overflow-hidden">
+            <div className="relative bg-[#0d2e1c] px-6 sm:px-8 md:px-12 py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-center gap-4 overflow-hidden">
                 <div
                     className="absolute inset-0 opacity-[0.06]"
                     style={{
@@ -720,7 +627,7 @@ const BestReview = () => {
                     <path d="M110 20 C80 20, 40 55, 10 80 L110 80 Z" fill="#1D7A52" opacity="0.5" />
                 </svg>
                 <div className="relative z-10 w-10 h-10 sm:w-12 sm:h-12 border-2 border-[#2d6a47] rounded-full flex items-center justify-center flex-shrink-0">
-                    <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-green-300" />
+                    <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-green-300" />
                 </div>
                 <p className="relative z-10 text-sm sm:text-base text-green-50 leading-relaxed text-center sm:text-left">
                     Ethical recruitment solutions{" "}
@@ -730,9 +637,6 @@ const BestReview = () => {
                     <span className="text-green-400 font-semibold">global employers.</span>
                 </p>
             </div>
-
-           
-            
 
             <LeaderShip />
         </div>
