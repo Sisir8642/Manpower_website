@@ -142,7 +142,7 @@ export default function ClientsMarquee() {
       </section>
 
       {/* Responsive Image Section */}
-<div className="w-full px-4 sm:px-6 md:px-8 lg:px-0">
+<div className="w-full ">
   <div className="container mx-auto">
     <Image
       src="/images/supply.jpg"

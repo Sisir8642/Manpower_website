@@ -72,28 +72,26 @@ export default function ManpowerClient() {
 
   return (
     <section className="relative w-full h-[92vh] overflow-hidden">
-      {/* Slider Images */}
-      <div className="absolute inset-0 flex items-center justify-center mb-40">
-        <div className="relative w-full h-screen overflow-hidden">
-          {images.map((item: SliderImage, index: number) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${
-                index === currentIndex
-                  ? "translate-x-0"
-                  : index === (currentIndex - 1 + images.length) % images.length
-                  ? "-translate-x-full"
-                  : "translate-x-full"
-              }`}
-            >
-              <img
-                src={item.image}
-                alt={`Slide ${index + 1}`}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
+      {/* Slider Images - Fixed to fill container */}
+      <div className="absolute inset-0 w-full h-full">
+        {images.map((item: SliderImage, index: number) => (
+          <div
+            key={index}
+            className={`absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out ${
+              index === currentIndex
+                ? "translate-x-0"
+                : index === (currentIndex - 1 + images.length) % images.length
+                ? "-translate-x-full"
+                : "translate-x-full"
+            }`}
+          >
+            <img
+              src={item.image}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        ))}
       </div>
 
       {/* Overlay */}
