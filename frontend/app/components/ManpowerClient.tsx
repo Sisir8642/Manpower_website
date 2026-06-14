@@ -36,6 +36,8 @@ export default function ManpowerClient() {
     ? sliderData.results.flatMap((slider: Slider) => slider.images)
     : (sliderData ?? []).flatMap((slider: Slider) => slider.images);
 
+const currentSlider = sliderData?.[0];
+
   useEffect(() => {
     if (!images.length) return;
 
@@ -72,45 +74,47 @@ export default function ManpowerClient() {
 
   return (
     <section className="relative w-full h-[92vh] overflow-hidden">
-      {/* Slider Images - Fixed to fill container */}
-      <div className="absolute inset-0 w-full h-full">
-        {images.map((item: SliderImage, index: number) => (
-          <div
-            key={index}
-            className={`absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out ${
-              index === currentIndex
-                ? "translate-x-0"
-                : index === (currentIndex - 1 + images.length) % images.length
-                ? "-translate-x-full"
-                : "translate-x-full"
-            }`}
-          >
-            <img
-              src={item.image}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover object-center"
-            />
-          </div>
-        ))}
+      {/* Slider Images */}
+      <div className="absolute inset-0 flex items-center justify-center mb-40">
+        <div className="relative w-full h-screen overflow-hidden">
+          {images.map((item: SliderImage, index: number) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${index === currentIndex
+                  ? "translate-x-0"
+                  : index === (currentIndex - 1 + images.length) % images.length
+                    ? "-translate-x-full"
+                    : "translate-x-full"
+                }`}
+            >
+              <img
+                src={item.image}
+                alt={`Slide ${index + 1}`}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30 z-[1]" />
 
       {/* Hidden on mobile */}
+      
       <div className="hidden md:flex relative z-10 flex-col items-center justify-end h-full text-center px-4 pb-24">
-        <h2 className="text-4xl lg:text-5xl font-bold mb-2 text-white">
-          Promoting Safe Migration <br /> through Responsible Recruitment Pathways 
-        </h2>
+  <h2 className="text-4xl lg:text-5xl font-bold mb-2 text-white whitespace-pre-line">
+    {currentSlider?.paragraph}
+  </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mt-2">
-          <Link href="/vacancy">
-            <button className="bg-red-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors">
-              Apply Now
-            </button>
-          </Link>
-        </div>
-      </div>
+  <div className="flex flex-wrap justify-center gap-4 mt-2">
+    <Link href="/vacancy">
+      <button className="bg-red-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors">
+        Apply Now
+      </button>
+    </Link>
+  </div>
+</div>
 
       {/* Slider Dots */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-10">
@@ -118,11 +122,10 @@ export default function ManpowerClient() {
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`h-2 rounded-full transition-all ${
-              index === currentIndex
+            className={`h-2 rounded-full transition-all ${index === currentIndex
                 ? "bg-white w-8"
                 : "bg-white/50 w-2"
-            }`}
+              }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
