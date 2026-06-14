@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from "framer-motion";
-import { Award, Globe, Users, Eye, Database } from "lucide-react";
+import { Award, Globe, Users, Eye, Database, ShieldCheck } from "lucide-react";
 import LeaderShip from './LeaderShip';
 import { useQuery } from '@tanstack/react-query';
 
@@ -19,6 +19,13 @@ interface WhyUs {
     description: string;
     items: WhyUsItem[];
 }
+
+const iconMap = [
+  Award,
+  Globe,
+  Users,
+  ShieldCheck,
+];
 
 const container = {
     hidden: { opacity: 0 },
@@ -225,7 +232,7 @@ const BestReview = () => {
 </section>
 
             <section className="py-24 bg-[#F2F5FD] flex justify-center">
-                <div className="max-w-6xl w-full px-4">
+                <div className="max-w-full w-full px-4">
 
                     <div className="text-center mb-16">
                         <h2 className="text-5xl font-bold text-[#2a7d56] mb-4">Why <span className='text-red-600'> Us</span></h2>
@@ -235,32 +242,50 @@ const BestReview = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
-                        {whyUsLoading
-                            ? Array.from({ length: 4 }).map((_, i) => <WhyUsCardSkeleton key={i} />)
-                            : whyUsItems.length > 0
-                                ? whyUsItems.map((whyItem: WhyUsItem) => (
-                                    <motion.div
-                                        key={whyItem.id}
-                                        whileHover={{ y: -8, scale: 1.02 }}
-                                        className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition"
-                                    >
-                                        <h3 className="text-lg font-semibold text-[#2B698E] mb-3">
-                                            {whyItem.title}
-                                        </h3>
-                                        <p className="text-gray-600 text-sm leading-relaxed">
-                                            {whyItem.description}
-                                        </p>
-                                    </motion.div>
-                                ))
-                                : (
-                                    <p className="text-gray-400 col-span-4 text-center">
-                                        No items found. Add some from the admin panel.
-                                    </p>
-                                )
-                        }
-                        
-                    </div>
+                    <div className="bg-[#F2F5FD] rounded-3xl p-8 md:p-12">
+  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+    {whyUsLoading
+      ? Array.from({ length: 4 }).map((_, i) => (
+          <WhyUsCardSkeleton key={i} />
+        ))
+      : whyUsItems.length > 0
+      ? whyUsItems.map((whyItem: WhyUsItem, index) => {
+          const Icon =
+            iconMap[index % iconMap.length];
+
+          return (
+            <motion.div
+              key={whyItem.id}
+              whileHover={{ y: -6 }}
+              className="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
+            >
+              {/* Icon Circle */}
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#f6faf7] border border-green-100 flex items-center justify-center">
+                <Icon
+                  size={36}
+                  className="text-[#2a7d56]"
+                />
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-[#2a7d56] mb-3">
+                {whyItem.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {whyItem.description}
+              </p>
+            </motion.div>
+          );
+        })
+      : (
+        <p className="text-gray-400 col-span-4 text-center">
+          No items found. Add some from the admin panel.
+        </p>
+      )}
+  </div>
+</div>
 
                 </div>
             </section>

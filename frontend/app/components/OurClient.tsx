@@ -174,7 +174,7 @@ export default function ClientsMarquee() {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center 40%",
         backgroundSize: "80%",
-        opacity: 0.5,
+        opacity: 0.8,
       }} />
 
       {/* ── Green circuit lines top-left ── */}
@@ -226,9 +226,9 @@ export default function ClientsMarquee() {
         <div style={{ width: 60, height: 3, background: "#c0392b", borderRadius: 2, margin: "10px auto 18px" }} />
 
         {/* Subtitle */}
-        <p style={{ color: "#6b7280", fontSize: 14.5, lineHeight: 1.65, margin: 0 }}>
-          We partner with responsible global employers and organizations worldwide<br />
-          to deliver ethical, transparent and compliant recruitment solutions from Nepal.
+        <p style={{ color: "#000000", fontSize: 14.5, lineHeight: 1.65, margin: 0 }}>
+          We partner with responsible global employers and organizations worldwide to deliver ethical,<br />
+           transparent and compliant recruitment solutions from Nepal.
         </p>
       </div>
 
