@@ -144,7 +144,7 @@
 //     return (
 //         <div className="w-full bg-[#E1F1E6]">
 
-           
+
 
 //        <section
 //   ref={statsRef}
@@ -259,12 +259,12 @@
 //                                     </p>
 //                                 )
 //                         }
-                        
+
 //                     </div>
 
 //                 </div>
 //             </section>
-         
+
 // <LeaderShip/>
 //         </div>
 //     );
@@ -273,18 +273,13 @@
 // export default BestReview;
 
 
-
-
-
-
-
-
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from "framer-motion";
 import { Award, Globe, Users, Eye, Database, ShieldCheck, ClipboardList, Handshake, HeartHandshake, TrendingUp, Truck, Sparkles, Building2, Target, PhoneCall, Rocket } from "lucide-react";
 import LeaderShip from './LeaderShip';
 import { useQuery } from '@tanstack/react-query';
+import Image from "next/image";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -417,6 +412,13 @@ const FeatureCardSkeleton = () => (
     </div>
 );
 
+const featureImageMap: Record<number, string> = {
+    1: "/why-us/ethical.png",
+    2: "/why-us/compliance.png",
+    3: "/why-us/worker-protection.png",
+    4: "/why-us/partnership.png",
+};
+
 // Icon map for feature cards — maps section number to icon
 const featureIconMap: Record<number, React.ElementType> = {
     1: HeartHandshake,
@@ -534,7 +536,7 @@ const BestReview = () => {
             </section>
 
             {/* ── HERO SECTION ── */}
-            <section className="px-4 sm:px-6 md:px-8 lg:px-10 pt-6 sm:pt-8 md:pt-10 bg-white">
+            <section className="relative px-4 sm:px-6 md:px-8 lg:px-10 pt-6 sm:pt-8 md:pt-10 bg-white">
                 {/* Brand bar */}
                 <div className="flex items-center gap-3 mb-5 sm:mb-6 md:mb-7">
                     <span className="text-[#1D7A52] text-xs font-semibold tracking-[3px] uppercase">
@@ -549,7 +551,10 @@ const BestReview = () => {
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[42px] font-extrabold leading-tight text-gray-900">
                             Responsible, Ethical &<br />
                             <span className="text-red-600">Compliance-Driven</span><br />
-                            Recruitment from Nepal
+                            <span className='text-green-800'>
+
+                                Recruitment from Nepal
+                            </span>
                         </h1>
                         <div className="w-16 h-1 bg-red-600 rounded-full mt-4 mb-5" />
                         <p className="text-sm text-gray-500 max-w-lg leading-relaxed">
@@ -572,47 +577,78 @@ const BestReview = () => {
                     </div>
                 </div>
 
-                {/* Feature cards — dynamic */}
-                <div className="mt-8 sm:mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-gray-200 rounded-2xl overflow-hidden">
-                    {whyUsLoading
-                        ? Array.from({ length: 4 }).map((_, i) => (
+                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {featureItems.map((card, i) => {
+                        return (
                             <div
-                                key={i}
-                                className={`${i < 3 ? "border-r border-gray-200" : ""} ${i < 2 ? "border-b sm:border-b-0" : ""}`}
+                                key={card.id}
+                                className="
+                                    bg-white
+                                    border border-gray-200
+                                    rounded-2xl
+                                    p-6 sm:p-7
+                                    shadow-md
+                                    hover:shadow-xl
+                                    hover:-translate-y-1
+                                    transition-all duration-300
+                                    flex flex-col
+                                    min-h-[240px]
+                                    "
                             >
-                                <FeatureCardSkeleton />
-                            </div>
-                        ))
-                        : featureItems.map((card, i, arr) => {
-                            const Icon = featureIconMap[card.section] ?? HeartHandshake;
-                            return (
-                                <div
-                                    key={card.id}
-                                    className={`p-5 sm:p-6 md:p-7 bg-white
-                                        ${i < arr.length - 1 ? "lg:border-r border-gray-200" : ""}
-                                        ${i % 2 === 0 ? "sm:border-r border-gray-200" : ""}
-                                        ${i < arr.length - 2 ? "border-b lg:border-b-0" : ""}
-                                    `}
-                                >
-                                    <div className="w-12 h-12 md:w-14 md:h-14 bg-[#f0f9f4] border border-green-100 rounded-full flex items-center justify-center mb-4">
-                                        <Icon className="w-5 h-5 md:w-6 md:h-6 text-[#1D7A52]" />
-                                    </div>
-                                    <h3 className="text-sm font-bold text-[#1D7A52] mb-2 leading-snug">
-                                        {card.title}
-                                    </h3>
-                                    <div className="w-8 h-[3px] bg-red-500 rounded-full mb-3" />
-                                    <p className="text-xs text-gray-500 leading-relaxed">
-                                        {card.description}
-                                    </p>
+                                {/* ICON / IMAGE BOX */}
+                                <div className="w-12 h-12 md:w-14 md:h-14 bg-[#f0f9f4] border border-green-100 rounded-full flex items-center justify-center mb-4 shadow-sm">
+                                    <Image
+                                        src={featureImageMap[i + 1] || "/why-us/ethical.png"}
+                                        alt={card.title}
+                                        width={60}
+                                        height={48}
+                                        className="object-contain "
+                                    />
                                 </div>
-                            );
-                        })
-                    }
+
+                                {/* TITLE */}
+                                <h3 className="text-lg font-bold text-[#1D7A52] mb-2 leading-snug">
+                                    {card.title}
+                                </h3>
+
+                                {/* RED LINE */}
+                                <div className="w-8 h-[3px] bg-red-500 rounded-full mb-3" />
+
+                                {/* DESCRIPTION */}
+                                <p className="text-xs text-gray-500 leading-relaxed flex-1">
+                                    {card.description}
+                                </p>
+
+                            </div>
+
+                        );
+                    })}
+
                 </div>
+                <div className="absolute bottom-0 left-0 w-full h-[120px] pointer-events-none overflow-hidden">
+
+<svg
+  viewBox="0 0 500 120"
+  preserveAspectRatio="none"
+  className="absolute left-0 bottom-0 w-[45%] h-full"
+>
+  <path
+    d="
+      M0,80
+      L200,120
+      L500,120
+      L0,120
+      Z
+    "
+    fill="#0b7a4a"
+  />
+</svg>
+    
+</div>
             </section>
 
             {/* ── WHY US SECTION ── */}
-            
+
             {/* ── STATS BANNER ── */}
             <div className="relative bg-[#0d2e1c] px-6 sm:px-8 md:px-12 py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-center gap-4 overflow-hidden">
                 <div
@@ -631,10 +667,10 @@ const BestReview = () => {
                 </div>
                 <p className="relative z-10 text-sm sm:text-base text-green-50 leading-relaxed text-center sm:text-left">
                     Ethical recruitment solutions{" "}
-                    <span className="text-green-400 font-semibold">connecting</span>
+                    <span className="text-red-500 font-semibold">connecting</span>
                     <br className="hidden sm:block" />
                     skilled Nepali talent with responsible{" "}
-                    <span className="text-green-400 font-semibold">global employers.</span>
+                    <span className="text-red-500 font-semibold">global employers.</span>
                 </p>
             </div>
 
