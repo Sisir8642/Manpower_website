@@ -72,11 +72,11 @@ export default function Header() {
           </div>
           <div className="flex items-center gap-3">
             <a href="tel:+97715915454" className="flex items-center gap-1 text-white hover:text-emerald-600 transition">
-              <Phone size={12} /> +977 1 5915454
+              <Phone size={12} /> +977 01 5929405
             </a>
             <span className="text-gray-300">|</span>
             <a href="mailto:info@electraglobal.com.np" className="flex items-center gap-1 text-white hover:text-emerald-600 transition">
-              <Mail size={12} /> info@electraglobal.com.np
+              <Mail size={12} /> admin.electraglobalrecruitment.com
             </a>
           </div>
         </div>

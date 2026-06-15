@@ -170,10 +170,7 @@ export default function AboutSection() {
                 Global Recruitment Solutions
               </span>
             </div>
-             <div className="absolute bottom-6 left-160 bg-white/95 backdrop-blur-md rounded-xl shadow px-4 py-2 z-20">
-    <p className="text-xs text-gray-500">License No.</p>
-    <p className="font-bold text-[#E31E24]">1850/082/083</p>
-  </div>
+   
           </motion.div>
         </div>
 
@@ -208,10 +205,7 @@ export default function AboutSection() {
     />
 
     {/* License Badge - Mobile only */}
-    <div className="absolute top-2 sm:top-3 left-2 sm:left-3 lg:hidden bg-white/95 backdrop-blur-md rounded-lg sm:rounded-xl shadow-lg px-2 py-1.5 sm:px-3 sm:py-2 z-20">
-      <p className="text-[10px] sm:text-xs text-gray-500">License No.</p>
-      <p className="font-bold text-[#E31E24] text-[11px] sm:text-sm">1850/082/083</p>
-    </div>
+   
 
     {/* Bottom green wave - responsive height */}
     <div
@@ -233,7 +227,7 @@ export default function AboutSection() {
       </div>
 
       {/* Trusted Agency Card - responsive positioning and sizing */}
-      <div className="absolute top-1 sm:top-2 md:top-3 left-2 sm:left-4 md:left-6 bg-white/95 backdrop-blur-md rounded-lg sm:rounded-xl shadow p-1.5 sm:p-2 md:p-3">
+      <div className="absolute top-1 sm:top-2 md:top-3 left-12 sm:left-16 md:left-20 lg:left-24  bg-white/95 backdrop-blur-md rounded-lg sm:rounded-xl shadow p-1.5 sm:p-2 md:p-3">
         <div className="flex items-center gap-1 sm:gap-2">
           <span className="text-base sm:text-lg md:text-lg">⭐</span>
           <div>
