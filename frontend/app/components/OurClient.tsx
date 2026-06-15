@@ -144,15 +144,16 @@ export default function ClientsMarquee() {
       {/* Responsive Image Section */}
 <div className="w-full ">
   <div className="container mx-auto">
-    <Image
-      src="/images/supply.jpg"
-      alt="Supply Chain Management"
-      width={1600}
-      height={900}
-      className="w-full h-auto object-cover rounded-lg shadow-xl"
-      sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 1600px"
-      priority
-    />
+  <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+  <Image
+    src="/images/supply.jpg"
+    alt="Supply Chain Management"
+    width={1600}
+    height={900}
+    className="w-full h-auto object-cover"
+    priority
+  />
+</div>
   </div>
 </div>
     <section
