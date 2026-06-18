@@ -557,7 +557,7 @@ const BestReview = () => {
                             </span>
                         </h1>
                         <div className="w-16 h-1 bg-red-600 rounded-full mt-4 mb-5" />
-                        <p className="text-sm text-gray-500 max-w-lg leading-relaxed">
+                        <p className="text-sm text-black max-w-lg leading-relaxed">
                             We connect qualified Nepali workers with responsible international
                             employers through fair, transparent, and worker-centered recruitment solutions.
                         </p>
@@ -615,7 +615,7 @@ const BestReview = () => {
                                 <div className="w-8 h-[3px] bg-red-500 rounded-full mb-3" />
 
                                 {/* DESCRIPTION */}
-                                <p className="text-xs text-gray-500 leading-relaxed flex-1">
+                                <p className="text-xs text-black leading-relaxed flex-1">
                                     {card.description}
                                 </p>
 
